@@ -1,0 +1,453 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1763408554c8462fa9": {
+      "type": "apps",
+      "blocks": {
+        "vidify_clickable_video_banner_star_rating_jQg4a3": {
+          "type": "shopify://apps/vidify-clickable-video-banner/blocks/star_rating/7357708d-6874-410b-8a9b-9f53a46d84b2",
+          "disabled": true,
+          "settings": {
+            "show_on_desktop": true,
+            "show_on_mobile": true,
+            "banner_video": "shopify://files/videos/450.mp4",
+            "mobile_video": "shopify://files/videos/450.mp4",
+            "banner_ratio": "30%",
+            "object_fit": "contain",
+            "banner_link": "",
+            "link_target": "_self",
+            "banner_text": "",
+            "banner_text_color": "#ffffff",
+            "font_size": 1,
+            "show_text_background": false,
+            "text_background_color": "#000000",
+            "text_padding": 10,
+            "banner_text_position": "center-middle",
+            "button_text": "",
+            "button_text_color": "#ffffff",
+            "banner_button_position": "bottom-right",
+            "button_font_size": 0.5,
+            "button_width": "100px",
+            "button_height": "40px",
+            "button_padding": "10px",
+            "button_background_color": "#000000",
+            "button_link": "",
+            "button_link_target": "_self"
+          }
+        }
+      },
+      "block_order": [
+        "vidify_clickable_video_banner_star_rating_jQg4a3"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_4qwJ64": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Design_sem_nome.png",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
+          }
+        }
+      },
+      "block_order": [
+        "slide_4qwJ64"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "collection_list_LJayEw": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_W4Y4Pg": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "racoes-umidas-gatos"
+          }
+        },
+        "featured_collection_wfHTja": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "antiparasitarios"
+          }
+        },
+        "featured_collection_tD9a7K": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "racao-cibau"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_W4Y4Pg",
+        "featured_collection_wfHTja",
+        "featured_collection_tD9a7K"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Navegue pelos Cuidados",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured-collection-0": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "mimostudoabaixode20",
+        "products_to_show": 4,
+        "title": "Mimos para seu pet sem gastar muito",
+        "heading_size": "h2",
+        "description": "<p>tudo abaixo de R$20<br/><br/></p>",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-5",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "multirow_hJfp4r": {
+      "type": "multirow",
+      "blocks": {
+        "row_FEG7QF": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/2024-01-02.webp",
+            "caption": "Kiki da Otimiza - Médico Veterinário & Empreendedor",
+            "heading": "<strong>Kyenner Oliver</strong>",
+            "text": "<p>Especializado no cuidado de <strong>cães, gatos e animais exóticos</strong>, o Kiki vai além, sua missão é transformar a experiência no cuidado animal. </p><p>Com <strong>produtos de alta qualidade, atendimento personalizado e um compromisso inabalável com o bem-estar dos pets</strong>, ele garante não apenas saúde, mas também <strong>tranquilidade para os tutores</strong>.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_FEG7QF"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_8N3za9": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "cachorros",
+        "products_to_show": 4,
+        "title": "Tudo para  o seu cão! 🐶",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_rJRPiL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_DGRzhf": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Fale com um veterinário agora!</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_VQYCM8": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Precisa de ajuda para escolher o produto ideal para o seu pet?</strong><br/></p><p><strong>Não queime dinheiro</strong> – converse com quem entende antes de comprar!</p>"
+          }
+        },
+        "button_R3wC3m": {
+          "type": "button",
+          "settings": {
+            "button_label": "Falar com Veterinário 📞",
+            "button_link": "https://wa.me/5531987936822",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_DGRzhf",
+        "text_VQYCM8",
+        "button_R3wC3m"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-c1c000b4-eb17-4299-abf1-95674bca8c4b",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "featured_collection_tADMmP": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "gatos",
+        "products_to_show": 4,
+        "title": "Tudo para o seu gato! 🐱",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_product_4zEt8B": {
+      "type": "featured-product",
+      "blocks": {
+        "text_X4MfRV": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "uppercase"
+          }
+        },
+        "title_jA7AqB": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h2"
+          }
+        },
+        "price_7yAkx8": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_6QVcch": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_wWdnJz": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_6p3pVf": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_Anceqy": {
+          "type": "share",
+          "settings": {
+            "share_label": "Compartilhar"
+          }
+        }
+      },
+      "block_order": [
+        "text_X4MfRV",
+        "title_jA7AqB",
+        "price_7yAkx8",
+        "variant_picker_6QVcch",
+        "quantity_selector_wWdnJz",
+        "buy_buttons_6p3pVf",
+        "share_Anceqy"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "2070987573901",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "17508582600c4de1ce": {
+      "type": "apps",
+      "blocks": {
+        "rocket_google_reviews_app_block_zE4aRx": {
+          "type": "shopify://apps/google-reviews-rocket/blocks/app-block/d11c8893-a181-4aff-a280-7446d42cec3b",
+          "settings": {
+            "widget_layout": "default"
+          }
+        }
+      },
+      "block_order": [
+        "rocket_google_reviews_app_block_zE4aRx"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "featured_blog_fGfKY8": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "blog-para-tutores",
+        "post_limit": 3,
+        "heading": "Blog da Otimiza",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "show_image": false,
+        "show_date": false,
+        "show_author": false,
+        "color_scheme": "",
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "1750879653c99511ed": {
+      "type": "apps",
+      "blocks": {
+        "kobu_menu_highlight_app_block_6DLyxd": {
+          "type": "shopify://apps/kobu-menu-highlight/blocks/app-block/09834ec7-34c9-444c-86c6-fab2bbb63d27",
+          "settings": {
+            "menu_group": "Group 40",
+            "group_title": "center_14px",
+            "menu_shape": "circle",
+            "menu_margin_top": 8,
+            "menu_margin_bottom": 8,
+            "menu_gap": 20,
+            "menu_width": 80,
+            "menu_height": 80,
+            "menu_title_alignment": "center",
+            "menu_title_font_size": 14,
+            "menu_title_font_weight": 4,
+            "menu_title_font_decoration": "none",
+            "menu_title_font_style": "normal",
+            "menu_mode": "slider",
+            "menu_position": "center",
+            "fixed_menu": "none",
+            "section_background": "",
+            "menu_display_max_width": "9999",
+            "badge_font_size": 14,
+            "custom_css": "",
+            "custom_js": ""
+          }
+        }
+      },
+      "block_order": [
+        "kobu_menu_highlight_app_block_6DLyxd"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "1763408554c8462fa9",
+    "slideshow",
+    "collection_list_LJayEw",
+    "featured-collection-0",
+    "multirow_hJfp4r",
+    "featured_collection_8N3za9",
+    "rich_text_rJRPiL",
+    "featured_collection_tADMmP",
+    "featured_product_4zEt8B",
+    "17508582600c4de1ce",
+    "featured_blog_fGfKY8",
+    "1750879653c99511ed"
+  ]
+}

@@ -1,0 +1,182 @@
+/* ============================================
+   CART DRAWER - EMPTY STATE UX OPTIMIZATION
+   ============================================
+   
+   Estilos adicionais para melhorar a experiência
+   do carrinho vazio com CTAs segmentados.
+   
+   Adicione este CSS ao seu tema ou arquivo principal.
+*/
+
+/* Container principal do estado vazio */
+.cart-drawer__empty-content {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Título principal */
+.cart__empty-text {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--color-foreground, #000);
+}
+
+/* Subtítulo persuasivo */
+.cart__empty-subtitle {
+  margin: 1rem 0;
+  color: var(--color-foreground-75, #666);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Container dos CTAs */
+.cart__empty-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Botões de categoria (Cães/Gatos) */
+.cart__empty-ctas .button--secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid var(--color-button, #000);
+  background-color: transparent;
+  color: var(--color-button, #000);
+}
+
+.cart__empty-ctas .button--secondary:hover {
+  background-color: var(--color-button, #000);
+  color: var(--color-button-text, #fff);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Emoji nos botões */
+.cart__empty-ctas .button--secondary span:first-child {
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.cart__empty-ctas .button--secondary:hover span:first-child {
+  transform: scale(1.15);
+}
+
+/* Botão terciário (Ver todas as ofertas) */
+.cart__empty-ctas .button--tertiary {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  color: var(--color-link, #0066cc);
+  background-color: transparent;
+  border: 1px solid transparent;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cart__empty-ctas .button--tertiary:hover {
+  color: var(--color-link-hover, #004499);
+  text-decoration-thickness: 2px;
+}
+
+/* Seção de login (se aplicável) */
+.cart-drawer__empty-content > div {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border, #e0e0e0);
+}
+
+.cart__login-title {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--color-foreground, #000);
+}
+
+.cart__login-paragraph {
+  font-size: 0.85rem;
+  color: var(--color-foreground-75, #666);
+  line-height: 1.6;
+}
+
+.cart__login-paragraph a {
+  color: var(--color-link, #0066cc);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cart__login-paragraph a:hover {
+  color: var(--color-link-hover, #004499);
+}
+
+/* Responsividade */
+@media screen and (max-width: 749px) {
+  .cart-drawer__empty-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .cart__empty-ctas .button--secondary {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  
+  .cart__empty-ctas .button--secondary span:first-child {
+    font-size: 1.1rem;
+  }
+}
+
+/* Animação de entrada suave */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cart-drawer__empty-content {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* Animação sequencial dos botões */
+.cart__empty-ctas .button--secondary:nth-child(1) {
+  animation: fadeInUp 0.5s ease-out 0.1s both;
+}
+
+.cart__empty-ctas .button--secondary:nth-child(2) {
+  animation: fadeInUp 0.5s ease-out 0.2s both;
+}
+
+.cart__empty-ctas .button--tertiary {
+  animation: fadeInUp 0.5s ease-out 0.3s both;
+}
+
+/* Acessibilidade: Focus states */
+.cart__empty-ctas .button:focus-visible {
+  outline: 2px solid var(--color-button, #000);
+  outline-offset: 3px;
+}
+
+/* Dark mode support (opcional) */
+@media (prefers-color-scheme: dark) {
+  .cart__empty-subtitle,
+  .cart__login-paragraph {
+    color: var(--color-foreground-75, #999);
+  }
+  
+  .cart-drawer__empty-content > div {
+    border-top-color: var(--color-border, #333);
+  }
+}

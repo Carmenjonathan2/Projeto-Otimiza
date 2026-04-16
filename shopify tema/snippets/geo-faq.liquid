@@ -1,0 +1,59 @@
+{%- if product.metafields.custom.geo_faq.value != blank -%}
+  {%- assign faq_items = product.metafields.custom.geo_faq.value -%}
+  
+  <!-- 1. JSON-LD para GEO e SEO (Lido pelas IAs e Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for item in faq_items -%}
+      {
+        "@type": "Question",
+        "name": {{ item.pergunta | json }},
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": {{ item.resposta | json }}
+        }
+      }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+  </script>
+
+  <!-- 2. Estrutura Visual do FAQ (Lido pelo Cliente Humano) -->
+  <div class="geo-faq-container" style="margin-top: 2rem; border-top: 1px solid #eee; padding-top: 1.5rem;">
+    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #333;">Perguntas Frequentes</h3>
+    
+    <div class="geo-faq-accordion">
+      {%- for item in faq_items -%}
+        <details class="geo-faq-item" style="border: 1px solid #e1e1e1; border-radius: 8px; margin-bottom: 0.5rem; background: #fff;">
+          <summary style="padding: 1rem; cursor: pointer; font-weight: bold; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            {{ item.pergunta }}
+            <span class="geo-faq-icon">+</span>
+          </summary>
+          <div class="geo-faq-content" style="padding: 0 1rem 1rem 1rem; color: #555; line-height: 1.6;">
+            {{ item.resposta }}
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <style>
+    .geo-faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .geo-faq-item[open] summary .geo-faq-icon {
+      transform: rotate(45deg);
+    }
+    .geo-faq-icon {
+      font-size: 1.2rem;
+      transition: transform 0.2s ease;
+    }
+    .geo-faq-item[open] summary {
+      border-bottom: 1px solid #eee;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+{%- endif -%}

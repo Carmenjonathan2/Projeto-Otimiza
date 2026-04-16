@@ -1,0 +1,535 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_xcm9ip": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3bWbJC": {
+          "type": "heading",
+          "settings": {
+            "heading": "🏠 ATENDIMENTO VETERINÁRIO DOMICILIAR",
+            "heading_size": "h0"
+          }
+        },
+        "text_am4NRa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Dr. Kyenner - Medicina Veterinária de Excelência na Comodidade do Seu Lar</p>"
+          }
+        },
+        "button_gGbfE7": {
+          "type": "button",
+          "settings": {
+            "button_label": "Quero agendar",
+            "button_link": "https://wa.me/5531987936822",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_3bWbJC",
+        "text_am4NRa",
+        "button_gGbfE7"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multirow_LN8Qkw": {
+      "type": "multirow",
+      "blocks": {
+        "row_8P9rCi": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/kyenner.jpg",
+            "caption": "ATENDIMENTO VETERINÁRIO PREMIUM",
+            "heading": "NO CONFORTO DO SEU LAR",
+            "text": "<p><strong>Kyenner</strong> oferece consultas veterinárias completas diretamente na sua residência, eliminando o stress e proporcionando um atendimento mais eficaz para seu pet.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_LBtb7G": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "caption": "Legenda",
+            "heading": "Linha",
+            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.</p>",
+            "button_label": "Etiqueta de botão",
+            "button_link": ""
+          }
+        },
+        "row_jwLXUk": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "caption": "Legenda",
+            "heading": "Linha",
+            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.</p>",
+            "button_label": "Etiqueta de botão",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_8P9rCi",
+        "row_LBtb7G",
+        "row_jwLXUk"
+      ],
+      "disabled": true,
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_xiRpVD": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3UtnQk": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Consulta clínica geral</strong>",
+            "text": "<p>Voltada para avaliação da saúde do animal, seja para acompanhamento de rotina, início de tratamentos ou análise de sintomas leves.<br/>Inclui:<br/>\t•\tAnamnese completa<br/>\t•\tExame físico detalhado<br/>\t•\tAvaliação de histórico clínico<br/>\t•\tOrientações sobre prevenção, manejo e nutrição<br/>\t•\tEncaminhamentos, quando necessário</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_3UtnQk"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "SERVIÇOS DISPONÍVEIS:",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_9zhikh": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_7d649A": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Aplicação de Vacina </strong>",
+            "text": "<p>Imunização segura e adequada conforme o protocolo vacinal indicado para cada espécie, idade e estilo de vida do animal.<br/>Inclui:<br/>\t•\tAvaliação prévia das condições clínicas do animal<br/>\t•\tAdministração da vacina com segurança<br/>\t•\tRegistro de vacinação em carteira<br/>\t•\tOrientações pós-vacina<br/>Valores variam conforme o tipo de vacina e porte do animal.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_7d649A"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_BNkQtF": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_qnpkqH": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Coleta de Sangue para Exames Laboratoriais</strong>",
+            "text": "<p>Procedimento voltado à obtenção de amostras para exames complementares, fundamentais para diagnósticos precisos.<br/>Inclui:<br/>\t•\tContenção adequada e manejo humanizado<br/>\t•\tHigienização e punção venosa com material estéril<br/>\t•\tAcondicionamento correto das amostras<br/>\t•\tEncaminhamento a laboratório parceiro<br/>\t•\tLaudo interpretado por profissional<br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_qnpkqH"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_69tHKg": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_pUjpzg": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Consulta de Comportamento Canino</strong>",
+            "text": "<p>Com base em minha experiência prática desde 2012, já conduzi mais de mil atendimentos com resultados significativos. Avalio comportamento, rotina e possíveis distúrbios que afetam a convivência do pet com a família.<br/>Inclui:<br/>\t•\tAvaliação completa do histórico comportamental<br/>\t•\tAnálise de ambiente, manejo e rotina<br/>\t•\tDiagnóstico comportamental<br/>\t•\tPlano de modificação de conduta<br/>\t•\tAcompanhamento de progresso e orientações personalizadas</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_pUjpzg"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_JacTUM": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_qAt3Ub": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Atendimento Domiciliar – Procedimentos Básicos</strong>",
+            "text": "<p>Serviço ideal para quem busca praticidade ou possui pets com dificuldades de locomoção.<br/>Procedimentos realizados em domicílio:<br/>\t•\tAvaliação clínica<br/>\t•\tAplicação de medicamentos<br/>\t•\tCurativos simples e tratamento de feridas<br/>\t•\tAcompanhamento pós-cirúrgico<br/>\t•\tColetas laboratoriais (com agendamento prévio)<br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_qAt3Ub"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_8yKmGN": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_rrwXYm": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "title": "<strong>Tratamento de Feridas</strong>",
+            "text": "<p>Atendimento especializado para feridas abertas, infecções, lesões traumáticas ou cirúrgicas.<br/>Inclui:<br/>\t•\tLimpeza adequada da lesão<br/>\t•\tDesbridamento, quando necessário<br/>\t•\tAplicação de medicação tópica ou sistêmica<br/>\t•\tCurativos e acompanhamento da cicatrização<br/>\t•\tOrientações para cuidados em casa<br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_rrwXYm"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_cWDNn3": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_RwfxRJ": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Guia de Transporte Aéreo e Terrestre para Animais</strong>",
+            "text": "<p>Atendimento completo para emissão de documentos exigidos para transporte de animais em viagens nacionais e internacionais.<br/>Inclui:<br/>\t•\tExame clínico e atestado de saúde<br/>\t•\tEmissão de GTA (Guia de Trânsito Animal)<br/>\t•\tCertificados de vacinação e vermifugação<br/>\t•\tDocumentação exigida por cias. aéreas e rodoviárias<br/>\t•\tOrientações sobre transporte seguro e exigências por destino</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_RwfxRJ"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_6BiGe8": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_rdijRy": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Responsabilidade Técnica – MG, RJ e SP</strong>",
+            "text": "<p>Atuação como Responsável Técnico (RT) em estabelecimentos veterinários, pet shops, clínicas, canis, hotéis e outros empreendimentos pet.<br/>Inclui:<br/>\t•\tSupervisão técnica e sanitária<br/>\t•\tElaboração e acompanhamento de POPs (Procedimentos Operacionais Padrão)<br/>\t•\tTreinamento de equipe<br/>\t•\tApoio em vistorias e auditorias dos órgãos de fiscalização<br/>\t•\tEmissão e renovação de ART (Anotação de Responsabilidade Técnica) conforme exigência do CRMV local</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_rdijRy"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multirow_AjrCmz": {
+      "type": "multirow",
+      "blocks": {
+        "row_VajcQU": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/2024-01-02.webp",
+            "caption": "",
+            "heading": "POR QUE ESCOLHER O ATENDIMENTO DOMICILIAR?",
+            "text": "<p>✓ <strong>ZERO STRESS </strong>- Seu pet permanece no ambiente familiar<br/>✓ <strong>ECONOMIA DE TEMPO</strong> - Sem deslocamentos ou filas de espera<br/>✓<strong> ATENDIMENTO PERSONALIZADO</strong> - Consulta exclusiva e detalhada<br/>✓<strong> MAIOR PRECISÃO</strong> - Avaliação comportamental no ambiente natural<br/>✓ <strong>SEGURANÇA SANITÁRIA </strong>- Evita contato com outros animais doentes<br/>✓ <strong>CONVENIÊNCIA TOTAL</strong> - Horários flexíveis, inclusive fins de semana</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_UUmXYt": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "caption": "Legenda",
+            "heading": "Linha",
+            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.</p>",
+            "button_label": "Etiqueta de botão",
+            "button_link": ""
+          }
+        },
+        "row_3VGXzY": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "caption": "Legenda",
+            "heading": "Linha",
+            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.</p>",
+            "button_label": "Etiqueta de botão",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_VajcQU",
+        "row_UUmXYt",
+        "row_3VGXzY"
+      ],
+      "disabled": true,
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_MeyrkY": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_WPiMkn": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>AGENDE SUA CONSULTA AGORA</strong>",
+            "text": "<p>- Médico Veterinário com mais de 5 anos de experiência<br/>- Especialização em clínica médica de cães, gatos e animais exóticos.<br/>- Atendimento humanizado e técnica apurada<br/>- Equipamentos portáteis de última geração<br/>- Disponibilidade para emergências<br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_WPiMkn"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "DR. KYENER - EXPERTISE E CONFIANÇA",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "AGENDE SUA CONSULTA AGORA",
+        "button_link": "https://wa.me/5531987936822",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1752503705380f9670": {
+      "type": "apps",
+      "blocks": {
+        "rocket_google_reviews_app_block_EkfN43": {
+          "type": "shopify://apps/google-reviews-rocket/blocks/app-block/d11c8893-a181-4aff-a280-7446d42cec3b",
+          "disabled": true,
+          "settings": {
+            "widget_layout": "default"
+          }
+        }
+      },
+      "block_order": [
+        "rocket_google_reviews_app_block_EkfN43"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_xcm9ip",
+    "multirow_LN8Qkw",
+    "multicolumn_xiRpVD",
+    "multicolumn_9zhikh",
+    "multicolumn_BNkQtF",
+    "multicolumn_69tHKg",
+    "multicolumn_JacTUM",
+    "multicolumn_8yKmGN",
+    "multicolumn_cWDNn3",
+    "multicolumn_6BiGe8",
+    "multirow_AjrCmz",
+    "multicolumn_MeyrkY",
+    "1752503705380f9670"
+  ]
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento: Vet em Casa | Otimiza FarmaVet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f0f10;
+            --card: #1c1c1f;
+            --accent: #470C51; /* Lilás Otimiza */
+            --accent-light: #6a1b7a;
+            --text: #f0f0f2;
+            --text-dim: #9a9a9c;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; }
+        body { background: var(--bg); color: var(--text); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .container { background: var(--card); max-width: 480px; width: 100%; padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        
+        /* Brand Header */
+        .brand-header { text-align: center; margin-bottom: 2rem; }
+        .logo-mascot { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--accent); margin-bottom: 1rem; box-shadow: 0 0 20px rgba(71, 12, 81, 0.4); }
+        .logo-text { width: 180px; margin-bottom: 1.5rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+
+        .header h1 { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+        .header p { font-size: 0.9rem; color: var(--text-dim); }
+        
+        .form-group { margin-bottom: 1.2rem; }
+        label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 0.5rem; font-weight: 600; }
+        input { width: 100%; background: #252529; border: 1.5px solid rgba(255,255,255,0.08); padding: 0.85rem; border-radius: 10px; color: white; font-size: 1rem; outline: none; transition: 0.2s; }
+        input:focus { border-color: var(--accent); background: #2a2a2e; box-shadow: 0 0 0 4px rgba(71, 12, 81, 0.15); }
+        
+        .slots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 0.5rem; }
+        .slot-btn { background: #252529; border: 1.5px solid rgba(255,255,255,0.08); padding: 0.7rem; border-radius: 8px; color: var(--text-dim); cursor: pointer; text-align: center; font-size: 0.9rem; transition: 0.2s; font-weight: 500; }
+        .slot-btn.active { border-color: var(--accent); color: white; background: var(--accent); }
+        .slot-btn.disabled { opacity: 0.15; cursor: not-allowed; text-decoration: line-through; filter: grayscale(1); }
+        
+        .btn-submit { width: 100%; background: var(--accent); color: #fff; border: none; padding: 1.1rem; border-radius: 12px; font-weight: 600; font-size: 1rem; margin-top: 2rem; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-submit:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(71, 12, 81, 0.4); }
+        
+        .hidden { display: none; }
+        .success-msg { text-align: center; }
+        .success-icon { font-size: 3.5rem; color: #10b981; margin-bottom: 1.5rem; filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3)); }
+        
+        .error-hint { color: #ef4444; font-size: 0.75rem; margin-top: 4px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="container" id="main-card">
+        <div id="booking-form-area">
+            <div class="brand-header">
+                <img src="assets/logo_mascot.png" class="logo-mascot" alt="Otimiza Mascot">
+                <br>
+                <img src="assets/logo_text.png" class="logo-text" alt="Otimiza FarmaVet">
+                <div class="header">
+                    <h1>Vet em Casa</h1>
+                    <p id="condo-name">Carregando detalhes da campanha...</p>
+                    <p id="campaign-date" style="font-size: 0.8rem; margin-top: 4px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Seu Nome Completo</label>
+                <input type="text" id="res-nome" placeholder="Ex: João Silva">
+            </div>
+
+            <div class="form-group">
+                <label>E-mail de Contato</label>
+                <input type="email" id="res-email" placeholder="seu@email.com">
+            </div>
+
+            <div class="form-group">
+                <label>WhatsApp (DDD + Número)</label>
+                <input type="tel" id="res-tel" placeholder="31 98888 7777" maxlength="11">
+                <span id="tel-error" class="error-hint">O telefone deve ter exatamente 11 dígitos.</span>
+            </div>
+
+            <div class="form-group">
+                <label>Nome do Pet</label>
+                <input type="text" id="res-pet" placeholder="Qual o nome do dog/cat?">
+            </div>
+
+            <div class="form-group">
+                <label>Escolha o Horário (Sábado)</label>
+                <div class="slots-grid" id="slots-container">
+                    <!-- Slots via JS -->
+                </div>
+            </div>
+
+            <button class="btn-submit" id="btn-book">Confirmar Agendamento</button>
+        </div>
+
+        <div id="success-area" class="hidden success-msg">
+            <div class="success-icon">✓</div>
+            <h2>Agendado com Sucesso!</h2>
+            <p style="color: var(--text-dim); margin-top: 1rem; line-height: 1.5;">Tudo pronto! Nossa equipe enviará uma confirmação oficial via WhatsApp próximo à data da campanha.</p>
+            <p style="margin-top: 1.5rem; color: var(--accent); font-weight: 600;">🐾 Otimiza FarmaVet</p>
+        </div>
+    </div>
+
+    <script>
+        const campaignId = new URLSearchParams(window.location.search).get('id');
+        let selectedSlot = null;
+
+        if (!campaignId) {
+            document.getElementById('main-card').innerHTML = "<div style='text-align:center'><h1>Link inválido</h1><p style='color: #888; margin-top: 10px'>Por favor, solicite o link oficial com seu condomínio.</p></div>";
+        }
+
+        async function init() {
+            try {
+                const res = await fetch(`/api/public/campanha/${campaignId}`);
+                if (!res.ok) throw new Error();
+                const data = await res.json();
+                
+                document.getElementById('condo-name').innerText = data.condominio;
+                document.getElementById('campaign-date').innerText = `Sábado, ${new Date(data.data).toLocaleDateString('pt-BR')}`;
+                
+                const container = document.getElementById('slots-container');
+                data.slots.forEach(slot => {
+                    const btn = document.createElement('div');
+                    btn.className = `slot-btn ${slot.disponivel ? '' : 'disabled'}`;
+                    btn.innerText = slot.horario;
+                    if (slot.disponivel) {
+                        btn.onclick = () => selectSlot(btn, slot.horario);
+                    }
+                    container.appendChild(btn);
+                });
+            } catch (err) {
+                document.getElementById('main-card').innerHTML = "<h1>Campanha não encontrada</h1>";
+            }
+        }
+
+        function selectSlot(btn, time) {
+            document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedSlot = time;
+        }
+
+        document.getElementById('btn-book').onclick = async () => {
+            const nome = document.getElementById('res-nome').value;
+            const email = document.getElementById('res-email').value;
+            const telRaw = document.getElementById('res-tel').value.replace(/\D/g, '');
+            const pet = document.getElementById('res-pet').value;
+            
+            const btn = document.getElementById('btn-book');
+            const telError = document.getElementById('tel-error');
+
+            if (!nome || !email || !telRaw || !pet || !selectedSlot) {
+                alert("Por favor, preencha todos os campos e selecione um horário.");
+                return;
+            }
+
+            if (telRaw.length !== 11) {
+                telError.style.display = 'block';
+                return;
+            } else {
+                telError.style.display = 'none';
+            }
+
+            btn.disabled = true;
+            btn.innerText = "Processando...";
+
+            try {
+                const res = await fetch('/api/public/book', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        campanhaId,
+                        nome,
+                        email,
+                        telefone: telRaw,
+                        petNome: pet,
+                        horario: selectedSlot
+                    })
+                });
+
+                const result = await res.json();
+                if (res.ok) {
+                    document.getElementById('booking-form-area').classList.add('hidden');
+                    document.getElementById('success-area').classList.remove('hidden');
+                } else {
+                    alert(result.error || "Erro ao agendar.");
+                    btn.disabled = false;
+                    btn.innerText = "Confirmar Agendamento";
+                }
+            } catch (e) {
+                alert("Erro de conexão. Tente novamente.");
+                btn.disabled = false;
+                btn.innerText = "Confirmar Agendamento";
+            }
+        };
+
+        init();
+    </script>
+</body>
+</html>

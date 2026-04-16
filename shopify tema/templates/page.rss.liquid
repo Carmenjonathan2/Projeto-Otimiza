@@ -1,0 +1,33 @@
+{% layout none %}
+{% assign blog_handle = 'blog-para-tutores' %}
+{% assign target_blog = blogs[blog_handle] %}
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>{{ target_blog.title | escape }}</title>
+    <link>{{ shop.url }}/blogs/{{ blog_handle }}</link>
+    <description>Dicas e informacoes veterinarias para tutores de pets</description>
+    <language>pt-BR</language>
+    <lastBuildDate>{{ 'now' | date: '%a, %d %b %Y %H:%M:%S %z' }}</lastBuildDate>
+{% for article in target_blog.articles limit: 50 %}
+    <item>
+      <title>{{ article.title | escape }}</title>
+      <link>{{ shop.url }}{{ article.url }}</link>
+      <description>{{ article.excerpt_or_content | strip_html | truncate: 300 | escape }}</description>
+      <pubDate>{{ article.published_at | date: '%a, %d %b %Y %H:%M:%S %z' }}</pubDate>
+      <dc:creator>{{ article.author | escape }}</dc:creator>
+      <guid isPermaLink="true">{{ shop.url }}{{ article.url }}</guid>
+{% if article.image %}
+{% assign img_url = article.image | img_url: 'master' %}
+{% unless img_url contains 'https://' %}{% assign img_url = 'https:' | append: img_url %}{% endunless %}
+      <media:content url="{{ img_url }}" medium="image">
+        <media:title>{{ article.image.alt | default: article.title | escape }}</media:title>
+      </media:content>
+      <enclosure url="{{ img_url }}" type="image/jpeg" />
+{% endif %}
+{% for tag in article.tags %}
+      <category>{{ tag | escape }}</category>
+{% endfor %}
+    </item>
+{% endfor %}
+  </channel>
+</rss>

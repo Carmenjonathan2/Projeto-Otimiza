@@ -1,0 +1,38 @@
+[
+  {
+    "cliente": "Angela Miranda Rodrigues",
+    "telefone": "31994752335",
+    "tipo": "Tutor",
+    "vencimento": "04/04/2026",
+    "produto": "NEXGARD PARA GATOS (2,5KG A 7,5KG",
+    "mensagem": "Oi Angela! Sou eu, a Aika 🐾. Passando para lembrar que está na hora da nova dose de NEXGARD PARA GATOS (2,5KG A 7,5KG para o seu melhor amigo. Vamos garantir a proteção dele?",
+    "whatsUrl": "https://api.whatsapp.com/send?phone=5531994752335&text=Oi%20Angela!%20Sou%20eu%2C%20a%20Aika%20%F0%9F%90%BE.%20Passando%20para%20lembrar%20que%20est%C3%A1%20na%20hora%20da%20nova%20dose%20de%20NEXGARD%20PARA%20GATOS%20(2%2C5KG%20A%207%2C5KG%20para%20o%20seu%20melhor%20amigo.%20Vamos%20garantir%20a%20prote%C3%A7%C3%A3o%20dele%3F"
+  },
+  {
+    "cliente": "Angela Miranda Rodrigues",
+    "telefone": "31994752335",
+    "tipo": "Tutor",
+    "vencimento": "04/04/2026",
+    "produto": "SIMPARIC 40MG COM 3 COMPRIMIDOS",
+    "mensagem": "Oi Angela! Sou eu, a Aika 🐾. Passando para lembrar que está na hora da nova dose de SIMPARIC 40MG COM 3 COMPRIMIDOS para o seu melhor amigo. Vamos garantir a proteção dele?",
+    "whatsUrl": "https://api.whatsapp.com/send?phone=5531994752335&text=Oi%20Angela!%20Sou%20eu%2C%20a%20Aika%20%F0%9F%90%BE.%20Passando%20para%20lembrar%20que%20est%C3%A1%20na%20hora%20da%20nova%20dose%20de%20SIMPARIC%2040MG%20COM%203%20COMPRIMIDOS%20para%20o%20seu%20melhor%20amigo.%20Vamos%20garantir%20a%20prote%C3%A7%C3%A3o%20dele%3F"
+  },
+  {
+    "cliente": "Angela Miranda Rodrigues",
+    "telefone": "31994752335",
+    "tipo": "Tutor",
+    "vencimento": "04/04/2026",
+    "produto": "SIMPARIC 20MG COM 3 COMPRIMIDOS",
+    "mensagem": "Oi Angela! Sou eu, a Aika 🐾. Passando para lembrar que está na hora da nova dose de SIMPARIC 20MG COM 3 COMPRIMIDOS para o seu melhor amigo. Vamos garantir a proteção dele?",
+    "whatsUrl": "https://api.whatsapp.com/send?phone=5531994752335&text=Oi%20Angela!%20Sou%20eu%2C%20a%20Aika%20%F0%9F%90%BE.%20Passando%20para%20lembrar%20que%20est%C3%A1%20na%20hora%20da%20nova%20dose%20de%20SIMPARIC%2020MG%20COM%203%20COMPRIMIDOS%20para%20o%20seu%20melhor%20amigo.%20Vamos%20garantir%20a%20prote%C3%A7%C3%A3o%20dele%3F"
+  },
+  {
+    "cliente": "Alexia Pimenta Bom Conselho",
+    "telefone": "(31)99196-5959",
+    "tipo": "Veterinário",
+    "vencimento": "01/04/2026",
+    "produto": "ZELOTRIL 10% 50 ML",
+    "mensagem": "Olá Alexia! Aqui é a Aika 🐾. Vi que o ZELOTRIL 10% 50 ML deve estar terminando. Gostaria que eu deixasse um novo frasco reservado para você no balcão?",
+    "whatsUrl": "https://api.whatsapp.com/send?phone=5531991965959&text=Ol%C3%A1%20Alexia!%20Aqui%20%C3%A9%20a%20Aika%20%F0%9F%90%BE.%20Vi%20que%20o%20ZELOTRIL%2010%25%2050%20ML%20deve%20estar%20terminando.%20Gostaria%20que%20eu%20deixasse%20um%20novo%20frasco%20reservado%20para%20voc%C3%AA%20no%20balc%C3%A3o%3F"
+  }
+]

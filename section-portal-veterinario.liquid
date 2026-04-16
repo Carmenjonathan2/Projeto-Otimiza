@@ -1,0 +1,317 @@
+{% comment %}
+  Portal Exclusivo para Médicos Veterinários
+  Inclui Vitrine de Ofertas, Upsell e Cross-sell
+{% endcomment %}
+
+{% comment %}
+  Controle de Acesso: Apenas veterinários com tag 'veterinario' podem ver este conteúdo
+{% endcomment %}
+{%- render 'snippet-acesso-restrito-FINAL' -%}
+
+
+<div class="vet-portal-wrapper color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    
+    <!-- Header de Boas Vindas -->
+    <header class="portal-header">
+      <div class="welcome-text">
+        <h1>Bem-vindo ao Portal Profissional, Dr. {{ customer.first_name }}</h1>
+        <p>Aqui você encontra condições exclusivas e produtos de uso restrito veteriário.</p>
+      </div>
+      <div class="vet-badge">
+        <span class="badge-icon">✓</span> Profissional Verificado
+      </div>
+    </header>
+
+    <!-- Seção de Ofertas Exclusivas -->
+    <section class="portal-section">
+      <div class="section-header">
+        <h2>{{ section.settings.collection_title | default: "Ofertas de Uso Profissional" }}</h2>
+        <a href="{{ section.settings.collection.url }}" class="view-all">Ver catálogo completo</a>
+      </div>
+
+      <div class="portal-grid">
+        {%- for product in section.settings.collection.products limit: 4 -%}
+          <div class="portal-product-card">
+            <div class="card-image">
+              <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" loading="lazy">
+              {% if product.compare_at_price > product.price %}
+                <span class="discount-badge">OFF PROFISSIONAL</span>
+              {% endif %}
+            </div>
+            <div class="card-info">
+              <h3>{{ product.title }}</h3>
+              <div class="price-wrapper">
+                <span class="price-exclusive">{{ product.price | money }}</span>
+                {% if product.compare_at_price > product.price %}
+                  <span class="price-compare">{{ product.compare_at_price | money }}</span>
+                {% endif %}
+              </div>
+              <button class="button button--primary quick-add" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                Adicionar em 1-clique
+              </button>
+            </div>
+          </div>
+        {%- else -%}
+          <p>Nenhum produto encontrado nesta coleção profissional.</p>
+        {%- endfor -%}
+      </div>
+    </section>
+
+    <!-- Banner de Upsell / Combo -->
+    <section class="upsell-banner">
+      <div class="upsell-content">
+        <span class="upsell-tag">COMBO CLÍNICA</span>
+        <h2>Kit Primeiros Atendimentos</h2>
+        <p>Adquira o kit completo com 15% de desconto extra. Ideal para renovação de estoque mensal.</p>
+        <button class="button button--secondary">Configurar Kit Personalizado</button>
+      </div>
+      <div class="upsell-visual">
+        <!-- Placeholder Image using gradient -->
+        <div class="placeholder-gradient"></div>
+      </div>
+    </section>
+
+    <!-- Cross-sell Inteligente -->
+    <section class="portal-section cross-sell-section">
+      <div class="section-header">
+        <h2>Recomendados para sua Especialidade</h2>
+      </div>
+      <div class="cross-sell-row">
+        {%- assign cross_products = section.settings.cross_collection.products -%}
+        {%- for product in cross_products limit: 3 -%}
+          <div class="cross-sell-item">
+            <img src="{{ product.featured_image | image_url: width: 100 }}" alt="{{ product.title }}">
+            <div class="item-details">
+              <h4>{{ product.title }}</h4>
+              <span>+{{ product.price | money }}</span>
+            </div>
+            <button class="add-mini" data-variant-id="{{ product.selected_or_first_available_variant.id }}">+</button>
+          </div>
+        {%- endfor -%}
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<style>
+  .vet-portal-wrapper {
+    padding: 60px 0;
+    background: #fdfdfd;
+  }
+
+  .portal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .welcome-text h1 {
+    font-size: 3rem;
+    color: #1a4d33;
+    margin-bottom: 10px;
+  }
+
+  .vet-badge {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #c8e6c9;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+  }
+
+  .portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+  }
+
+  .portal-product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+  }
+
+  .portal-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  }
+
+  .card-image {
+    position: relative;
+    padding-top: 100%;
+  }
+
+  .card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 20px;
+  }
+
+  .discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #e53935;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .card-info {
+    padding: 20px;
+  }
+
+  .card-info h3 {
+    font-size: 1.6rem;
+    margin: 0 0 10px 0;
+    height: 4.4rem;
+    overflow: hidden;
+  }
+
+  .price-wrapper {
+    margin-bottom: 15px;
+  }
+
+  .price-exclusive {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a4d33;
+  }
+
+  .price-compare {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1.4rem;
+    margin-left: 8px;
+  }
+
+  /* Upsell Banner */
+  .upsell-banner {
+    background: linear-gradient(135deg, #1a4d33 0%, #2e7d32 100%);
+    border-radius: 20px;
+    margin: 60px 0;
+    padding: 50px;
+    display: flex;
+    color: white;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .upsell-content {
+    flex: 1;
+    z-index: 2;
+  }
+
+  .upsell-tag {
+    background: rgba(255,255,255,0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+
+  .upsell-content h2 {
+    font-size: 3.6rem;
+    margin: 20px 0;
+    color: white;
+  }
+
+  /* Cross Sell Row */
+  .cross-sell-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .cross-sell-item {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    min-width: 300px;
+    border: 1px solid #eee;
+  }
+
+  .cross-sell-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .add-mini {
+    background: #1a4d33;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .portal-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .upsell-banner { padding: 30px; }
+    .upsell-content h2 { font-size: 2.4rem; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Portal do Veterinário",
+  "settings": [
+    {
+      "type": "text",
+      "id": "collection_title",
+      "label": "Título da Vitrine",
+      "default": "Ofertas Exclusivas Dr."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Coleção Profissional Principal"
+    },
+    {
+      "type": "collection",
+      "id": "cross_collection",
+      "label": "Coleção de Cross-sell"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Portal do Veterinário"
+    }
+  ]
+}
+{% endschema %}

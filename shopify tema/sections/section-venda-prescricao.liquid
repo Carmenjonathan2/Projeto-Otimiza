@@ -1,0 +1,223 @@
+{% comment %}
+  Página de Venda sob Prescrição - Otimiza FarmaVet
+{% endcomment %}
+
+<div class="prescription-page-wrapper color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    
+    <header class="prescription-header">
+      <div class="header-icon">
+        <span style="font-size: 4rem;">📜</span>
+      </div>
+      <h1 class="h2">{{ section.settings.title | default: "Produtos sob Prescrição Médica" }}</h1>
+      <p class="description">{{ section.settings.description | default: "Para garantir a segurança do seu pet, alguns medicamentos exigem a apresentação de receita veterinária válida." }}</p>
+    </header>
+
+    <div class="prescription-flow">
+      <div class="flow-step">
+        <div class="step-number">1</div>
+        <h3>Anexe sua Receita</h3>
+        <p>Tire uma foto legível ou escaneie a prescrição do seu veterinário.</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-number">2</div>
+        <h3>Adicione ao Carrinho</h3>
+        <p>Escolha o produto prescrito e finalize sua compra normalmente.</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-number">3</div>
+        <h3>Validação Farmacêutica</h3>
+        <p>Nossa equipe revisará o documento antes de processar o envio.</p>
+      </div>
+    </div>
+
+    <div class="prescription-actions">
+      <div class="action-card">
+        <h3>Como enviar a receita?</h3>
+        <p>Você pode enviar agora mesmo pelo WhatsApp ou anexar no momento da compra.</p>
+        <a href="https://wa.me/5531987936822" class="button button--primary" target="_blank">
+          Enviar Receita agora (WhatsApp)
+        </a>
+      </div>
+    </div>
+
+    <div class="prescription-catalog">
+      <div class="section-header">
+        <h2>{{ section.settings.collection_title | default: "Catálogo de Medicamentos" }}</h2>
+      </div>
+
+      <div class="grid grid--2-col grid--4-col-desktop">
+        {%- if section.settings.collection != blank -%}
+          {%- for product in section.settings.collection.products limit: 12 -%}
+             <div class="grid__item">
+               {% render 'card-product', 
+                  card_product: product,
+                  show_secondary_image: true,
+                  show_vendor: true,
+                  show_rating: false
+               %}
+               <div class="prescription-tag">Solicitação Obrigatória de Receita</div>
+             </div>
+          {%- endfor -%}
+        {%- else -%}
+          <p>Nenhuma coleção selecionada para exibição nesta página.</p>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="prescription-footer-info">
+      <div class="info-box">
+        <h4>🚨 Informação Importante</h4>
+        <p>A venda de medicamentos controlados ou sob prescrição é regulamentada pelo MAPA. Não realizamos vendas sem a devida documentação profissional.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .prescription-page-wrapper {
+    padding: 60px 0;
+    line-height: 1.6;
+  }
+  .prescription-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+  }
+  .prescription-header h1 {
+    margin: 20px 0;
+    color: #1a4d33;
+    font-weight: 800;
+  }
+  .prescription-header .description {
+    font-size: 1.8rem;
+    color: #666;
+  }
+
+  .prescription-flow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+  .flow-step {
+    background: #fdfdfd;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  .flow-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  .step-number {
+    width: 40px;
+    height: 40px;
+    background: #1a4d33;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+
+  .prescription-actions {
+    margin-bottom: 60px;
+  }
+  .action-card {
+    background: linear-gradient(135deg, #f1f8f4 0%, #ffffff 100%);
+    border: 2px dashed #1a4d33;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .action-card h3 { margin-top: 0; color: #1a4d33; }
+
+  .prescription-catalog {
+    margin-top: 80px;
+  }
+  .section-header h2 {
+    color: #1a4d33;
+    border-left: 5px solid #1a4d33;
+    padding-left: 20px;
+    margin-bottom: 40px;
+  }
+
+  .prescription-tag {
+    background: #fff3e0;
+    color: #e65100;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px;
+    margin-top: 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .prescription-footer-info {
+    margin-top: 80px;
+  }
+  .info-box {
+    background: #fdf2f2;
+    border: 1px solid #f8d7da;
+    border-radius: 10px;
+    padding: 25px;
+    color: #721c24;
+  }
+  .info-box h4 { margin-top: 0; }
+
+  @media (max-width: 768px) {
+    .prescription-page-wrapper { padding: 40px 0; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Página de Prescrição",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título da Página",
+      "default": "Produtos sob Prescrição Médica"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descrição",
+      "default": "Para garantir a segurança do seu pet, alguns medicamentos exigem a apresentação de receita veterinária válida."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Coleção de Medicamentos"
+    },
+    {
+      "type": "text",
+      "id": "collection_title",
+      "label": "Título da Vitrine",
+      "default": "Catálogo de Medicamentos"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de Cores",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Página de Prescrição"
+    }
+  ]
+}
+{% endschema %}

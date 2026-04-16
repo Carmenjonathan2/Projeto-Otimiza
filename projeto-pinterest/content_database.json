@@ -1,0 +1,854 @@
+{
+    "topics": [
+        {
+            "category": "Saúde Preventiva",
+            "title": "Vacinação de Cães e Gatos: Guia Completo",
+            "subtitle": "Calendário de vacinas essenciais para seu pet",
+            "description": "Vacinas para cães e gatos são essenciais para prevenir doenças graves como cinomose, parvovirose e raiva. Descubra o calendário de vacinação ideal, tipos de vacinas obrigatórias e reforços anuais. Consulte veterinário para orientação personalizada sobre imunização do seu pet.",
+            "hashtags": [
+                "#vacinaçãopet",
+                "#saúdeanimal"
+            ],
+            "keywords": [
+                "vacina cachorro",
+                "vacina gato",
+                "calendário vacinação pet",
+                "imunização animal",
+                "veterinário vacinação"
+            ]
+        },
+        {
+            "category": "Nutrição",
+            "title": "Alimentos Tóxicos para Cães e Gatos",
+            "subtitle": "Lista completa do que seu pet não pode comer",
+            "description": "Chocolate, uvas, cebola, alho e abacate são alimentos tóxicos para cães e gatos. Conheça a lista completa de alimentos proibidos, sintomas de intoxicação alimentar em pets e o que fazer em caso de emergência. Mantenha seu animal seguro com alimentação adequada.",
+            "hashtags": [
+                "#alimentaçãopet",
+                "#segurançaanimal"
+            ],
+            "keywords": [
+                "alimentos tóxicos cachorro",
+                "comida proibida gato",
+                "intoxicação pet",
+                "chocolate cachorro",
+                "alimentação segura pet"
+            ]
+        },
+        {
+            "category": "Higiene",
+            "title": "Banho em Cães: Frequência e Técnicas Corretas",
+            "subtitle": "Como dar banho sem estressar seu pet",
+            "description": "Frequência ideal de banho varia por raça e tipo de pelo. Aprenda técnicas corretas de banho em cães, escolha de shampoo adequado, temperatura da água ideal e como secar sem causar stress. Higiene regular previne problemas de pele e mantém seu pet saudável.",
+            "hashtags": [
+                "#banhopet",
+                "#higieneanimal"
+            ],
+            "keywords": [
+                "como dar banho cachorro",
+                "frequência banho cão",
+                "shampoo pet",
+                "higiene canina",
+                "tosa e banho"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "Ansiedade de Separação em Cães: Como Tratar",
+            "subtitle": "Soluções práticas para acalmar seu pet",
+            "description": "Ansiedade de separação afeta muitos cães quando ficam sozinhos. Identifique sintomas como latidos excessivos, destruição e comportamento compulsivo. Conheça técnicas de adestramento, brinquedos interativos e quando procurar ajuda veterinária comportamental.",
+            "hashtags": [
+                "#comportamentoanimal",
+                "#adestramentocães"
+            ],
+            "keywords": [
+                "ansiedade separação cachorro",
+                "cão late sozinho",
+                "adestramento positivo",
+                "comportamento canino",
+                "pet ansioso"
+            ]
+        },
+        {
+            "category": "Saúde",
+            "title": "Vermifugação: Quando e Como Vermifugar seu Pet",
+            "subtitle": "Proteção contra parasitas intestinais",
+            "description": "Vermífugos protegem cães e gatos de parasitas intestinais perigosos. Saiba quando vermifugar filhotes e adultos, tipos de vermífugos disponíveis, frequência recomendada e sinais de verminose. Proteção essencial para saúde do pet e da família.",
+            "hashtags": [
+                "#vermifugação",
+                "#saúdepet"
+            ],
+            "keywords": [
+                "vermífugo cachorro",
+                "vermifugar gato",
+                "parasitas intestinais pet",
+                "verminose animal",
+                "quando vermifugar"
+            ]
+        },
+        {
+            "category": "Curiosidades",
+            "title": "Linguagem Corporal dos Cães: Entenda seu Pet",
+            "subtitle": "Decodificando sinais e comportamentos caninos",
+            "description": "Cães se comunicam através de linguagem corporal. Aprenda a interpretar posição do rabo, orelhas, postura e expressões faciais. Entenda sinais de felicidade, medo, agressividade e submissão para melhorar comunicação com seu pet.",
+            "hashtags": [
+                "#linguagemcanina",
+                "#comportamentocão"
+            ],
+            "keywords": [
+                "linguagem corporal cachorro",
+                "entender comportamento cão",
+                "sinais caninos",
+                "comunicação pet",
+                "psicologia canina"
+            ]
+        },
+        {
+            "category": "Idosos",
+            "title": "Cuidados com Cães e Gatos Idosos",
+            "subtitle": "Geriatria veterinária e qualidade de vida",
+            "description": "Pets idosos precisam cuidados especiais. Conheça necessidades de cães e gatos seniores: check-ups geriátricos, alimentação adequada, suplementação, exercícios adaptados e manejo de doenças crônicas. Proporcione conforto e qualidade de vida na terceira idade.",
+            "hashtags": [
+                "#petidoso",
+                "#geriatriaveterinária"
+            ],
+            "keywords": [
+                "cachorro idoso cuidados",
+                "gato senior",
+                "geriatria veterinária",
+                "pet terceira idade",
+                "alimentação pet idoso"
+            ]
+        },
+        {
+            "category": "Primeiros Socorros",
+            "title": "Kit de Primeiros Socorros para Pets",
+            "subtitle": "Itens essenciais para emergências",
+            "description": "Kit de primeiros socorros pode salvar vidas em emergências. Lista completa de itens essenciais: gaze, antisséptico, termômetro, medicamentos básicos e contatos veterinários. Aprenda procedimentos básicos de emergência e quando procurar atendimento profissional.",
+            "hashtags": [
+                "#primeirossocorrospet",
+                "#emergênciaveterinária"
+            ],
+            "keywords": [
+                "primeiros socorros cachorro",
+                "kit emergência pet",
+                "urgência veterinária",
+                "socorro animal",
+                "emergência pet"
+            ]
+        },
+        {
+            "category": "Saúde Preventiva",
+            "title": "Controle de Pulgas e Carrapatos em Pets",
+            "subtitle": "Prevenção e tratamento de ectoparasitas",
+            "description": "Pulgas e carrapatos transmitem doenças graves para pets. Conheça métodos de prevenção: antipulgas, coleiras, sprays e tratamentos ambientais. Saiba identificar infestação, riscos à saúde e melhores produtos para controle de ectoparasitas.",
+            "hashtags": [
+                "#controlepulgas",
+                "#prevençãopet"
+            ],
+            "keywords": [
+                "antipulgas cachorro",
+                "carrapato gato",
+                "controle ectoparasitas",
+                "pulgas pet",
+                "prevenção carrapatos"
+            ]
+        },
+        {
+            "category": "Nutrição",
+            "title": "Ração Premium vs Ração Comum: Qual Escolher",
+            "subtitle": "Guia completo de alimentação para pets",
+            "description": "Diferenças entre ração premium, super premium e comum afetam saúde do pet. Compare qualidade de ingredientes, valor nutricional, digestibilidade e custo-benefício. Aprenda a escolher melhor ração para idade, porte e necessidades do seu cão ou gato.",
+            "hashtags": [
+                "#raçãopet",
+                "#nutriçãoanimal"
+            ],
+            "keywords": [
+                "melhor ração cachorro",
+                "ração premium gato",
+                "alimentação pet",
+                "escolher ração",
+                "nutrição canina"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "Socialização de Filhotes: Guia Essencial",
+            "subtitle": "Como criar um pet equilibrado e sociável",
+            "description": "Socialização adequada previne problemas comportamentais futuros. Aprenda período crítico de socialização, como apresentar filhote a pessoas, animais e ambientes. Técnicas de socialização positiva para cães e gatos desde cedo.",
+            "hashtags": [
+                "#socializaçãopet",
+                "#filhotesaudável"
+            ],
+            "keywords": [
+                "socializar filhote cachorro",
+                "socialização canina",
+                "filhote comportamento",
+                "adestramento filhote",
+                "educação pet"
+            ]
+        },
+        {
+            "category": "Saúde",
+            "title": "Castração de Cães e Gatos: Benefícios e Cuidados",
+            "subtitle": "Tudo sobre esterilização de pets",
+            "description": "Castração previne doenças e controla população animal. Conheça benefícios da esterilização, idade ideal para castrar, procedimento cirúrgico, pós-operatório e mitos sobre castração. Decisão responsável para saúde e bem-estar do pet.",
+            "hashtags": [
+                "#castraçãopet",
+                "#esterilização"
+            ],
+            "keywords": [
+                "castração cachorro",
+                "esterilizar gato",
+                "castração benefícios",
+                "quando castrar pet",
+                "cirurgia castração"
+            ]
+        },
+        {
+            "category": "Higiene",
+            "title": "Higiene Dental em Cães e Gatos",
+            "subtitle": "Prevenção de doenças periodontais",
+            "description": "Saúde bucal é essencial para qualidade de vida do pet. Aprenda escovação dental correta, produtos de higiene oral, sinais de doença periodontal e quando fazer limpeza profissional. Previna tártaro, gengivite e perda dentária.",
+            "hashtags": [
+                "#higienedental",
+                "#saúdebucalpet"
+            ],
+            "keywords": [
+                "escovação dentes cachorro",
+                "higiene bucal gato",
+                "tártaro pet",
+                "limpeza dental",
+                "doença periodontal"
+            ]
+        },
+        {
+            "category": "Curiosidades",
+            "title": "Por Que Gatos Ronronam: Ciência do Ronronar",
+            "subtitle": "Mistérios do comportamento felino",
+            "description": "Ronronar não significa apenas felicidade. Descubra razões científicas do ronronar: comunicação, autocura, relaxamento e até dor. Entenda frequências terapêuticas do ronronar e o que seu gato está tentando comunicar.",
+            "hashtags": [
+                "#comportamentofelino",
+                "#curiosidadesgatos"
+            ],
+            "keywords": [
+                "por que gato ronrona",
+                "ronronar felino",
+                "comportamento gato",
+                "comunicação felina",
+                "curiosidades gatos"
+            ]
+        },
+        {
+            "category": "Primeiros Socorros",
+            "title": "Engasgo em Pets: Como Agir Rapidamente",
+            "subtitle": "Manobra de Heimlich para cães e gatos",
+            "description": "Engasgo é emergência que requer ação imediata. Aprenda identificar sinais de engasgo, manobra de Heimlich adaptada para pets, quando não intervir e quando correr para veterinário. Conhecimento que pode salvar vidas.",
+            "hashtags": [
+                "#emergênciapet",
+                "#primeirossocorros"
+            ],
+            "keywords": [
+                "engasgo cachorro",
+                "manobra heimlich pet",
+                "socorro engasgo",
+                "emergência veterinária",
+                "pet engasgado"
+            ]
+        },
+        {
+            "category": "Saúde Preventiva",
+            "title": "Exames de Rotina para Pets: Quando Fazer",
+            "subtitle": "Check-up veterinário preventivo",
+            "description": "Exames preventivos detectam doenças precocemente. Conheça exames de rotina recomendados: hemograma, bioquímico, urinálise e ultrassom. Frequência ideal por idade, raça e histórico de saúde. Prevenção é melhor remédio.",
+            "hashtags": [
+                "#checkuppet",
+                "#examespet"
+            ],
+            "keywords": [
+                "exames veterinários",
+                "check-up cachorro",
+                "exames rotina gato",
+                "prevenção saúde pet",
+                "hemograma pet"
+            ]
+        },
+        {
+            "category": "Nutrição",
+            "title": "Obesidade em Pets: Prevenção e Tratamento",
+            "subtitle": "Dieta e exercícios para pet saudável",
+            "description": "Obesidade é doença séria em cães e gatos. Identifique sobrepeso, riscos à saúde, causas da obesidade e plano de emagrecimento seguro. Dieta balanceada, exercícios adequados e acompanhamento veterinário para peso ideal.",
+            "hashtags": [
+                "#obesidadepet",
+                "#dietapet"
+            ],
+            "keywords": [
+                "cachorro obeso",
+                "dieta emagrecimento pet",
+                "sobrepeso gato",
+                "obesidade canina",
+                "exercícios pet"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "Adestramento Positivo: Técnicas Eficazes",
+            "subtitle": "Eduque seu pet com reforço positivo",
+            "description": "Adestramento positivo é método mais eficaz e humano. Aprenda técnicas de reforço positivo, comandos básicos, timing correto de recompensas e como evitar punições. Construa relação de confiança e respeito com seu pet.",
+            "hashtags": [
+                "#adestramentopositivo",
+                "#educaçãopet"
+            ],
+            "keywords": [
+                "adestramento cachorro",
+                "reforço positivo",
+                "treinar cão",
+                "comandos básicos",
+                "educação canina"
+            ]
+        },
+        {
+            "category": "Saúde",
+            "title": "Doenças Comuns em Filhotes: Prevenção",
+            "subtitle": "Proteja seu filhote de doenças graves",
+            "description": "Filhotes são vulneráveis a doenças. Conheça parvovirose, cinomose, verminoses e outras doenças comuns. Importância da vacinação, vermifugação e cuidados preventivos. Sinais de alerta e quando procurar veterinário urgentemente.",
+            "hashtags": [
+                "#filhotesaudável",
+                "#prevençãodoenças"
+            ],
+            "keywords": [
+                "doenças filhote cachorro",
+                "parvovirose",
+                "cinomose",
+                "saúde filhote",
+                "prevenção doenças pet"
+            ]
+        },
+        {
+            "category": "Idosos",
+            "title": "Artrite em Cães Idosos: Manejo da Dor",
+            "subtitle": "Qualidade de vida para pets com artrite",
+            "description": "Artrite é comum em cães idosos. Identifique sinais de dor articular, tratamentos disponíveis: medicamentos, fisioterapia, suplementação e adaptações ambientais. Melhore mobilidade e conforto do seu pet senior.",
+            "hashtags": [
+                "#artritepet",
+                "#dorcachorro"
+            ],
+            "keywords": [
+                "artrite cachorro idoso",
+                "dor articular pet",
+                "tratamento artrite",
+                "fisioterapia veterinária",
+                "pet com dor"
+            ]
+        },
+        {
+            "category": "Saúde",
+            "title": "Hidratação em Gatos: Prevenindo Doenças Urinárias",
+            "subtitle": "Por que seu gato precisa beber mais água",
+            "description": "Gatos têm baixa sede por natureza, o que pode levar a problemas renais e urinários. Aprenda a incentivar o consumo de água com fontes, sachês (ração úmida) e a importância da taurina na dieta felina direta. Saúde urinária começa com hidratação.",
+            "hashtags": [
+                "#saúdefelina",
+                "#gatosbeberágua"
+            ],
+            "keywords": [
+                "gato não bebe água",
+                "doença urinária gatos",
+                "fonte para gatos",
+                "ração úmida benefícios",
+                "taurina gatos"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "Zoomies e Linguagem Corporal: O Que Seu Pet Diz",
+            "subtitle": "Entenda as corridas loucas e sinais de stress",
+            "description": "Zoomies (FRAP) são explosões de energia comuns em pets felizes, mas podem esconder estresse. Saiba diferenciar alegria de ansiedade através da posição das orelhas, cauda e postura. Guia completo para decodificar a linguagem silenciosa do seu cão ou gato.",
+            "hashtags": [
+                "#linguagempet",
+                "#psicologiaanimal"
+            ],
+            "keywords": [
+                "zoomies cachorro",
+                "zoomies gato",
+                "sinais estresse pet",
+                "linguagem corporal cão",
+                "comportamento animal"
+            ]
+        },
+        {
+            "category": "Small Pets",
+            "title": "Guia de Cuidados: Porquinhos-da-Índia felizes",
+            "subtitle": "Alimentação, feno e vitamina C essencial",
+            "description": "Porquinhos-da-índia (preás) precisam de feno constante para digestão e vitamina C diaria, pois não a produzem. Conheça a dieta ideal, tamanho de cercado seguro e a importância da socialização para esses pequenos roedores carinhosos.",
+            "hashtags": [
+                "#porquinhodaindia",
+                "#guineapigcare"
+            ],
+            "keywords": [
+                "porquinho da índia cuidados",
+                "alimentação porquinho índia",
+                "vitamina c porquinho",
+                "feno para roedores",
+                "cercado porquinho"
+            ]
+        },
+        {
+            "category": "Nutrição",
+            "title": "Tendências: Freeze-Dried e Alimentação Natural",
+            "subtitle": "O futuro da nutrição premium para pets",
+            "description": "Conheça a alimentação liofilizada (freeze-dried) e os benefícios da dieta crua ou natural balanceada. Entenda como ingredientes minimamente processados podem melhorar o brilho do pelo, energia e saúde gastrointestinal do seu pet.",
+            "hashtags": [
+                "#nutriçãopremium",
+                "#alimentaçãonatural"
+            ],
+            "keywords": [
+                "freeze-dried pet food",
+                "alimentação natural cães",
+                "dieta crua gatos",
+                "comida liofilizada",
+                "melhor ração 2026"
+            ]
+        },
+        {
+            "category": "Longevidade",
+            "title": "Healthspan: Como Fazer Seu Pet Viver Mais e Melhor",
+            "subtitle": "Estratégias de longevidade e saúde cerebral",
+            "description": "Healthspan foca na qualidade dos anos vividos. Aprenda sobre suplementação para o cérebro (preventivo de Alzheimer canino), exercícios de baixo impacto e check-ups proativos para garantir que seu pet envelheça com dignidade e vitalidade.",
+            "hashtags": [
+                "#longevidadepet",
+                "#seniorpet"
+            ],
+            "keywords": [
+                "pet viver mais",
+                "alzheimer canino",
+                "suplemento pet idoso",
+                "healthspan animal",
+                "geriatria veterinária"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "Enriquecimento Ambiental: Transforme sua Casa em um Playground",
+            "subtitle": "Dicas para estimular a mente e o corpo do seu pet",
+            "description": "O enriquecimento ambiental é fundamental para prevenir o tédio e comportamentos destrutivos. Aprenda a usar brinquedos cognitivos, desafios de faro e adaptações verticais para gatos. Um pet estimulado mentalmente é um pet mais feliz e equilibrado.",
+            "hashtags": [
+                "#enriquecimentoambiental",
+                "#mentepet"
+            ],
+            "keywords": [
+                "brinquedos inteligentes cão",
+                "enriquecimento para gatos",
+                "estimulação mental pet",
+                "cansaço mental cachorro",
+                "playground gato"
+            ]
+        },
+        {
+            "category": "Saúde",
+            "title": "Cuidado com o Calor: Como Proteger seu Pet no Verão",
+            "subtitle": "Prevenção da hipertermia e queimaduras em coxins",
+            "description": "O calor excessivo pode ser perigoso para cães e gatos, levando à hipertermia severa. Saiba como identificar sinais de superaquecimento, a importância da hidratação, horários seguros para passeio e como proteger as patinhas do asfalto quente.",
+            "hashtags": [
+                "#petnocalor",
+                "#cuidadosverão"
+            ],
+            "keywords": [
+                "cachorro no calor",
+                "hipertermia pet",
+                "queimadura pata cachorro",
+                "água para pet",
+                "verão pet seguro"
+            ]
+        },
+        {
+            "category": "Higiene",
+            "title": "Cuidado com as Orelhas: Prevenindo a Otite em Cães",
+            "subtitle": "Como limpar e identificar problemas auditivos",
+            "description": "A otite é uma das causas mais comuns de desconforto em cães, especialmente os de orelhas caídas. Aprenda a forma correta de realizar a limpeza preventiva, produtos recomendados e sinais de alerta como chacoalhar a cabeça ou odor forte.",
+            "hashtags": [
+                "#saúdeauditiva",
+                "#cuidadopet"
+            ],
+            "keywords": [
+                "limpeza orelha cachorro",
+                "otite canina",
+                "cheiro orelha cão",
+                "limpar ouvido gato",
+                "veterinário otite"
+            ]
+        },
+        {
+            "category": "Saúde Preventiva",
+            "title": "Verme do Coração (Dirofilariose): O Inimigo Silencioso",
+            "subtitle": "Prevenção é a única forma de proteção eficaz",
+            "description": "Transmitida por mosquitos, a dirofilariose pode causar danos irreversíveis ao coração e pulmões do pet. Saiba em quais regiões o risco é maior, como funciona a prevenção mensal ou anual e a importância do diagnóstico precoce em check-ups.",
+            "hashtags": [
+                "#vermedocoração",
+                "#dirofilariose"
+            ],
+            "keywords": [
+                "verme do coração",
+                "dirofilariose canina",
+                "prevenção verme coração",
+                "mosquito transmissor pet",
+                "doença do coração cão"
+            ]
+        },
+        {
+            "category": "Saúde",
+            "title": "Alergias em Pets: Coceira Excessiva e Problemas de Pele",
+            "subtitle": "Identificando causas alimentares e ambientais",
+            "description": "A dermatite alérgica é um desafio constante para muitos tutores. Entenda a diferença entre alergia alimentar e sensibilidade ambiental (atopia), como os testes alérgicos funcionam e as novas opções de tratamento para controle da coceira crônica.",
+            "hashtags": [
+                "#alergiapet",
+                "#dermatitecanina"
+            ],
+            "keywords": [
+                "cachorro se coçando",
+                "alergia alimentar pet",
+                "atopia canina",
+                "apoquel cães",
+                "tratamento pele cachorro"
+            ]
+        },
+        {
+            "category": "Curiosidades",
+            "title": "O Sexto Sentido dos Pets: Como eles Percebem o Mundo",
+            "subtitle": "Ciência por trás do olfato e audição aguçados",
+            "description": "Cães e gatos vivem em um universo sensorial muito diferente do nosso. Descubra como o olfato canino consegue detectar doenças, como os gatos enxergam na penumbra e a incrível capacidade de prever tempestades através da pressão atmosférica.",
+            "hashtags": [
+                "#sensospet",
+                "#curiosidadeanimal"
+            ],
+            "keywords": [
+                "olfato do cachorro",
+                "visão dos gatos",
+                "sentidos animais",
+                "biologia canina",
+                "como pets sentem"
+            ]
+        },
+        {
+            "category": "Nutrição",
+            "title": "Petiscos Saudáveis: O Que Dar Além da Ração",
+            "subtitle": "Frutas e legumes que seu pet pode comer com segurança",
+            "description": "Petiscos de qualidade podem ser ótimos aliados no treinamento e bem-estar. Conheça frutas como maçã (sem sementes) e legumes como cenoura que são seguros e nutritivos. Aprenda a regra dos 10% para não desequilibrar a dieta principal do seu pet.",
+            "hashtags": [
+                "#petiscosaudável",
+                "#alimentaçãonatural"
+            ],
+            "keywords": [
+                "frutas para cachorro",
+                "cenoura para cães",
+                "petisco natural gato",
+                "maçã cachorro",
+                "dieta pet saudável"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "Viagem com Pets: Guia para uma Jornada Sem Stress",
+            "subtitle": "Dicas para transportar seu cão ou gato com segurança",
+            "description": "Viajar com o melhor amigo requer planejamento. Desde a escolha da caixa de transporte ideal até o uso de feromônios para acalmar. Conheça as regras para transporte em aviões, cintos de segurança para carros e como evitar o enjôo durante o trajeto.",
+            "hashtags": [
+                "#viagemcompet",
+                "#turismopet"
+            ],
+            "keywords": [
+                "viajar com cachorro",
+                "caixa transporte gato",
+                "enjoo viagem pet",
+                "cinto segurança cão",
+                "hotel pet friendly"
+            ]
+        },
+        {
+            "category": "Saúde Preventiva",
+            "title": "Check-up Online vs Presencial: O Valor da Avaliação Clínica",
+            "subtitle": "Por que a palpação e auscultação são insubstituíveis",
+            "description": "Embora a tecnologia ajude, o exame clínico feito por um veterinário é essencial. Entenda o que o médico avalia durante uma consulta de rotina, desde a cor das mucosas até os batimentos cardíacos, e como isso previne doenças graves antes dos sintomas aparecerem.",
+            "hashtags": [
+                "#consultaveterinária",
+                "#saúdepet"
+            ],
+            "keywords": [
+                "exame físico veterinário",
+                "consulta em casa pet",
+                "veterinário domiciliar",
+                "check-up animal",
+                "importância veterinário"
+            ]
+        },
+        {
+            "category": "Idosos",
+            "title": "Cognição Canina: Sinais da 'Demência' em Pets Idosos",
+            "subtitle": "Disfunção Cognitiva e como ajudar seu pet sênior",
+            "description": "Mudanças no ciclo do sono, desorientação e perda de hábitos de higiene podem ser sinais de Síndrome de Disfunção Cognitiva (SDC). Saiba como o enriquecimento ambiental, suplementação e dieta específica podem retardar o declínio cognitivo em cães idosos.",
+            "hashtags": [
+                "#petidoso",
+                "#geriatriaveterinaria"
+            ],
+            "keywords": [
+                "alzheimer em cães",
+                "disfunção cognitiva canina",
+                "cachorro idoso confuso",
+                "suplementação cerebral pet",
+                "cuidar cão sênior"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "Gatos em Apartamento: Como Criar um Espaço Vertical",
+            "subtitle": "Maximizando o bem-estar felino em pequenos espaços",
+            "description": "Gatos precisam de verticalização para se sentirem seguros e felizes. Saiba como instalar prateleiras, redes e nichos para criar um ambiente rico em estímulos. A verticalização previne o tédio, o sedentarismo e conflitos entre múltiplos gatos no mesmo ambiente.",
+            "hashtags": [
+                "#gatosemapartamento",
+                "#enriquecimentofelino"
+            ],
+            "keywords": [
+                "verticalização para gatos",
+                "gatos em apartamento",
+                "prateleiras para gatos",
+                "bem-estar felino",
+                "apartamento amigável para gatos"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "Raças de Cães para Apartamento: Pequenos Espaços, Grande Amor",
+            "subtitle": "Escolhendo o companheiro ideal para sua vida urbana",
+            "description": "Nem todo cão pequeno é ideal para apartamento, e alguns grandes se adaptam bem. Conheça as raças mais indicadas por nível de energia, tendência a latidos e adaptabilidade. Dicas cruciais para manter seu pet ativo e feliz morando em locais menores.",
+            "hashtags": [
+                "#raçascães",
+                "#petemcasa"
+            ],
+            "keywords": [
+                "cachorro para apartamento",
+                "melhores raças cães",
+                "cão pequeno porte",
+                "cachorro silencioso",
+                "viver com pet em apartamento"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "Treinamento de Cães: Necessidades no Lugar Certo",
+            "subtitle": "Guia prático para educação sanitária canina",
+            "description": "Ensinar seu cão a fazer as necessidades no local correto exige paciência e reforço positivo. Aprenda a estabelecer uma rotina, identificar sinais e usar tapetes higiênicos ou grama sintética. Evite broncas e entenda por que o reforço positivo é a chave do sucesso.",
+            "hashtags": [
+                "#adestramentocanino",
+                "#educaçãopet"
+            ],
+            "keywords": [
+                "ensinar cachorro banheiro",
+                "xixi no lugar certo",
+                "tapete higiênico cão",
+                "treinar filhote",
+                "educação sanitária pet"
+            ]
+        },
+        {
+            "category": "Saúde Preventiva",
+            "title": "Plantas Tóxicas para Pets: O Que Evitar Ter em Casa",
+            "subtitle": "Proteja seu animal de estimação de envenenamentos comuns",
+            "description": "Muitas plantas ornamentais populares são perigosas para cães e gatos. Identifique espécies como Comigo-Ninguém-Pode, Lírio e Azaleia. Saiba quais são os sintomas de intoxicação por plantas e quais opções são seguras (Pet Friendly) para decorar sua casa.",
+            "hashtags": [
+                "#plantastóxicas",
+                "#segurançapet"
+            ],
+            "keywords": [
+                "plantas venenosas pet",
+                "lírio gatos perigo",
+                "decoração pet friendly",
+                "intoxicação cães plantas",
+                "plantas seguras para gatos"
+            ]
+        },
+        {
+            "category": "Nutrição",
+            "title": "O Perigo do Chocolate: Por que é um Veneno para Cães",
+            "subtitle": "Entenda a toxicidade da teobromina em animais",
+            "description": "O chocolate contém teobromina, substância que cães não conseguem metabolizar. Saiba quais tipos de chocolate são mais perigosos, os sintomas de intoxicação chocolate em pets e as medidas de emergência. Nunca deixe doces ao alcance do seu companheiro.",
+            "hashtags": [
+                "#chocolatecães",
+                "#saúdeanimal"
+            ],
+            "keywords": [
+                "chocolate faz mal cachorro",
+                "intoxicação por chocolate",
+                "teobromina cães",
+                "emergência pet veneno",
+                "doce para cachorro"
+            ]
+        },
+        {
+            "category": "Saúde",
+            "title": "Cuidados com Gatos Brancos: O Risco do Câncer de Pele",
+            "subtitle": "Proteção solar e dermatologia felina",
+            "description": "Gatos de pelagem branca têm maior predisposição ao Carcinoma Espinocelular devido à exposição solar. Aprenda a identificar sinais nas orelhas e nariz, a importância do protetor solar pet e como evitar a exposição nos horários críticos de sol. Prevenção é vital.",
+            "hashtags": [
+                "#gatobranco",
+                "#dermatologiafelina"
+            ],
+            "keywords": [
+                "cancer de pele gato",
+                "protetor solar para gatos",
+                "gato branco sol",
+                "carcinoma felino",
+                "saúde da pele pet"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "Como Introduzir um Novo Pet em Casa",
+            "subtitle": "Dicas de adaptação para uma convivência harmoniosa",
+            "description": "Trazer um novo animal para casa exige uma introdução gradual. Saiba como fazer o reconhecimento por cheiro, o primeiro contato visual e como evitar conflitos entre o pet antigo e o novo morador. Paciência é fundamental para construir uma amizade duradoura.",
+            "hashtags": [
+                "#novopet",
+                "#adaptaçãopet"
+            ],
+            "keywords": [
+                "introduzir cachorro novo",
+                "gato e cachorro conviver",
+                "adaptação felina",
+                "ciúme pet novo",
+                "socialização em casa"
+            ]
+        },
+        {
+            "category": "Nutrição",
+            "title": "Mitos e Verdades sobre a Alimentação Crua (BARF)",
+            "subtitle": "Entenda os prós e contras da dieta natural crua",
+            "description": "A dieta BARF foca em alimentos crus biologicamente adequados. Explore os benefícios para a pelagem e digestão, mas também os riscos de contaminação bacteriana e desequilíbrio nutricional. Saiba por que o acompanhamento com nutrólogo veterinário é indispensável.",
+            "hashtags": [
+                "#dietabarf",
+                "#alimentaçãonatural"
+            ],
+            "keywords": [
+                "comida crua cachorro",
+                "dieta natural pet",
+                "nutrologia veterinária",
+                "barf para gatos",
+                "alimentação saudável animal"
+            ]
+        },
+        {
+            "category": "Saúde",
+            "title": "Sinais de Dor em Gatos: Identificação Sutil",
+            "subtitle": "Como perceber se o seu felino está sofrendo em silêncio",
+            "description": "Gatos são mestres em esconder dor. Aprenda a notar mudanças sutis como isolamento, falta de higiene, postura curvada e alterações no olhar. O uso de escalas de careta (Grimace Scales) ajuda tutores a identificar a necessidade de intervenção veterinária imediata.",
+            "hashtags": [
+                "#saúdefelina",
+                "#dorgatos"
+            ],
+            "keywords": [
+                "gato com dor sinais",
+                "comportamento gato doente",
+                "grimace scale felina",
+                "artrite em gatos",
+                "bem-estar do gato"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "A Importância do Brincar: Jogos de Faro para Cães",
+            "subtitle": "Estimulação mental através do olfato",
+            "description": "O olfato é o sentido mais aguçado dos cães. Brincadeiras de esconder petiscos ou 'caçar' o brinquedo ajudam a reduzir ansiedade e cansar o pet mentalmente. Aprenda exercícios simples de faro que podem ser feitos dentro de casa para melhorar a cognição canina.",
+            "hashtags": [
+                "#jogosdefaro",
+                "#estimulaçãomental"
+            ],
+            "keywords": [
+                "brincadeira de faro cães",
+                "enriquecimento olfativo",
+                "cansaço mental cachorro",
+                "atividades para cães",
+                "olfato canino"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "Coprofagia em Cães: Por Que Eles Comem Fezes?",
+            "subtitle": "Entenda as causas e como tratar esse hábito indesejado",
+            "description": "A coprofagia pode ter causas comportamentais ou problemas de saúde ocultos. Descubra deficiências nutricionais, estresse ou simples curiosidade como motivos. Conheça as estratégias para interromper o ciclo e quando procurar um diagnóstico clínico.",
+            "hashtags": [
+                "#coprofagia",
+                "#comportamentocanino"
+            ],
+            "keywords": [
+                "cachorro comendo fezes",
+                "coprofagia causas",
+                "como parar coprofagia",
+                "nutrição canina",
+                "hábitos indesejados pet"
+            ]
+        },
+        {
+            "category": "Higiene",
+            "title": "Cuidados com a Pata do Pet: Unhas e Coxins",
+            "subtitle": "Higiene e manutenção das extremidades",
+            "description": "As patas são fundamentais para a mobilidade. Saiba como cortar unhas com segurança, hidratar os coxins (almofadinhas) e a importância da higienização pós-passeio. Previna rachaduras, infecções e desconfortos ao caminhar.",
+            "hashtags": [
+                "#pataanimal",
+                "#higieneanimal"
+            ],
+            "keywords": [
+                "cortar unha cachorro",
+                "hidratar coxin pet",
+                "limpeza pata cão",
+                "saúde das patas",
+                "manutenção pet"
+            ]
+        },
+        {
+            "category": "Curiosidades",
+            "title": "Gatos e Caixas de Papelão: O Mistério Revelado",
+            "subtitle": "Por que eles amam espaços confinados e seguros",
+            "description": "A paixão dos gatos por caixas tem explicação biológica. Elas oferecem segurança contra predadores, ajudam na redução do estresse e auxiliam na termorregulação. Entenda como uma simples caixa pode ser a melhor ferramenta de enriquecimento ambiental para seu gato.",
+            "hashtags": [
+                "#curiosidadesgatos",
+                "#gatoecaixa"
+            ],
+            "keywords": [
+                "por que gatos amam caixas",
+                "comportamento felino caixas",
+                "segurança do gato",
+                "estresse felino",
+                "enriquecimento para gatos"
+            ]
+        },
+        {
+            "category": "Comportamento",
+            "title": "Ansiedade em Gatos: Sinais Sutis e Ajuda",
+            "subtitle": "Identificando o estresse silencioso nos felinos",
+            "description": "O estresse em gatos pode se manifestar por marcação urinária fora da caixa, lambedura excessiva ou agressividade repentina. Conheça o uso de feromônios sintéticos, a importância da rotina e como criar 'zonas de escape' para acalmar seu pet.",
+            "hashtags": [
+                "#ansiedadefelina",
+                "#estressegatos"
+            ],
+            "keywords": [
+                "gato ansioso sinais",
+                "feromônio para gatos",
+                "estresse ambiental felino",
+                "gato se lambendo muito",
+                "bem-estar do gato"
+            ]
+        },
+        {
+            "category": "Primeiros Socorros",
+            "title": "Picadas de Inseto em Pets: O Que Fazer?",
+            "subtitle": "Emergências com abelhas, formigas e aranhas",
+            "description": "Reações alérgicas a picadas de insetos podem ser graves. Identifique inchaços anormais e dificuldade respiratória (choque anafilático). Saiba como aplicar compressas frias e por que você deve correr para o veterinário antes de tentar medicar em casa.",
+            "hashtags": [
+                "#picadainsetopet",
+                "#primeirossocorrospet"
+            ],
+            "keywords": [
+                "cachorro picado abelha",
+                "gato picado inseto",
+                "alergia pet picada",
+                "primeiros socorros pet",
+                "emergência veterinária insecto"
+            ]
+        }
+    ]
+}

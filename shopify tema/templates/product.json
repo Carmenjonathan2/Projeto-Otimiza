@@ -1,0 +1,225 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "icon_with_text_kLpm7E": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "vertical",
+            "icon_1": "star",
+            "heading_1": "+200 Clientes Felizes",
+            "icon_2": "stopwatch",
+            "heading_2": "",
+            "icon_3": "truck",
+            "heading_3": "<strong>Seu pet tem pressa? Pedidos até as 15h chegam hoje.</strong>"
+          }
+        },
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.metafields.shopify[\"animal-type\"] | metafield_text: field: 'label' }}",
+            "text_style": "body"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "icon_with_text_kLpm7E",
+        "vendor",
+        "title",
+        "rating",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "small",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "custom_liquid_pKPDRC": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div class=\"geo-copydesk\" \n     style=\"font-size: 18px; color: #2E0C51; line-height: 1.8; margin-bottom: 2.5rem; background-color: #F8F8F8; padding: 25px; border-radius: 12px; border-left: 5px solid #6C0C51;\">\n  {{ product.metafields.custom.geo_copydesk.value }}\n</div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Quem viu, também viu esses",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "custom_liquid_F3wrBc": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{% render 'geo-faq' %}",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_XkNEg4": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_d3nHyD": {
+          "type": "heading",
+          "settings": {
+            "heading": "Dúvidas sobre esse medicamento?",
+            "heading_size": "h0"
+          }
+        },
+        "text_eMj7Fa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>O cuidado começa na escolha certa. Fale diretamente com nossos especialistas e garanta que o tratamento do seu melhor amigo comece sem erros.<br/><br/></p>"
+          }
+        },
+        "button_ipKaxQ": {
+          "type": "button",
+          "settings": {
+            "button_label": "Falar com Especialista",
+            "button_link": "https://wa.me/5531987936822",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_d3nHyD",
+        "text_eMj7Fa",
+        "button_ipKaxQ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-c1c000b4-eb17-4299-abf1-95674bca8c4b",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "1750859508235412fb": {
+      "type": "apps",
+      "blocks": {
+        "rocket_google_reviews_app_block_dqyynh": {
+          "type": "shopify://apps/google-reviews-rocket/blocks/app-block/d11c8893-a181-4aff-a280-7446d42cec3b",
+          "settings": {
+            "widget_layout": "default"
+          }
+        }
+      },
+      "block_order": [
+        "rocket_google_reviews_app_block_dqyynh"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "quick_order_list_6zCRE6": {
+      "type": "quick-order-list",
+      "name": "t:sections.quick-order-list.presets.name",
+      "settings": {
+        "variants_per_page": 50,
+        "show_image": false,
+        "show_sku": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_liquid_pKPDRC",
+    "custom_liquid_F3wrBc",
+    "rich_text_XkNEg4",
+    "1750859508235412fb",
+    "related-products",
+    "quick_order_list_6zCRE6"
+  ]
+}

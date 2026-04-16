@@ -1,0 +1,8 @@
+  
+  ```liquid
+   {{ 'cart-drawer-empty-state.css' | asset_url | stylesheet_tag }}
+   ```
+   body {
+  display: grid;
+  /* ou qualquer outro estilo global */
+}

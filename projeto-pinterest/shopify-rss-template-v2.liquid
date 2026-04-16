@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>{{ blogs['blog-para-tutores'].title | escape }}</title>
+    <link>{{ shop.url }}/blogs/blog-para-tutores</link>
+    <description>Dicas e informacoes veterinarias para tutores de pets</description>
+    <language>pt-BR</language>
+    <lastBuildDate>{{ 'now' | date: '%a, %d %b %Y %H:%M:%S %z' }}</lastBuildDate>
+    
+    {% for article in blogs['blog-para-tutores'].articles limit: 50 %}
+    <item>
+      <title>{{ article.title | escape }}</title>
+      <link>{{ shop.url }}{{ article.url }}</link>
+      <description><![CDATA[{{ article.excerpt_or_content | strip_html | truncate: 300 }}]]></description>
+      <content:encoded><![CDATA[{{ article.content }}]]></content:encoded>
+      <pubDate>{{ article.published_at | date: '%a, %d %b %Y %H:%M:%S %z' }}</pubDate>
+      <dc:creator>{{ article.author | escape }}</dc:creator>
+      <guid isPermaLink="true">{{ shop.url }}{{ article.url }}</guid>
+      
+      {% comment %} Incluir imagem destacada do artigo {% endcomment %}
+      {% if article.image %}
+      <media:content url="{{ article.image | img_url: 'master' }}" medium="image">
+        <media:title>{{ article.image.alt | default: article.title | escape }}</media:title>
+      </media:content>
+      <enclosure url="{{ article.image | img_url: 'master' }}" type="image/jpeg" />
+      {% endif %}
+      
+      {% comment %} Incluir todas as imagens do conteudo do artigo {% endcomment %}
+      {% assign content_images = article.content | split: '<img' %}
+      {% for img_chunk in content_images %}
+        {% if img_chunk contains 'src=' %}
+          {% assign src_start = img_chunk | split: 'src="' %}
+          {% if src_start[1] %}
+            {% assign img_url = src_start[1] | split: '"' | first %}
+            {% if img_url contains 'http' %}
+      <media:content url="{{ img_url }}" medium="image" />
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      
+      {% comment %} Tags/Categorias {% endcomment %}
+      {% for tag in article.tags %}
+      <category>{{ tag | escape }}</category>
+      {% endfor %}
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

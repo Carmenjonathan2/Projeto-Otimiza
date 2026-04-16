@@ -1,0 +1,419 @@
+{
+  "publicacoes": [
+    {
+      "id": "b51dc5e55b8c",
+      "titulo": "Banho em Cães: Frequência e Técnicas Corretas",
+      "titulo_normalizado": "banho em caes: frequencia e tecnicas corretas",
+      "hash_conteudo": "3705eca339385a34e6c5bf92292957e128e11f35d7ace5c6f25125b71820fbe9",
+      "data_publicacao": "2025-12-16T17:15:36.998715",
+      "plataformas": [
+        "blog",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "autor": "Otimiza Farmavet",
+        "categoria": "Cuidados"
+      }
+    },
+    {
+      "id": "2abe9efc2a38",
+      "titulo": "Vacinação de Cães e Gatos: Guia Completo",
+      "titulo_normalizado": "vacinacao de caes e gatos: guia completo",
+      "hash_conteudo": "521cb00aeb480773f6da520af9bd541783ddbe286b7e0f09952ee3e0ed84c770",
+      "data_publicacao": "2025-12-16T17:18:13.166410",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/vacinacao-de-caes-e-gatos-guia-completo",
+        "categoria": "Saúde Preventiva",
+        "hashtags": [
+          "#vacinaçãopet",
+          "#saúdeanimal"
+        ],
+        "image_path": "generated_pins\\pin_1765916282.png"
+      }
+    },
+    {
+      "id": "0eae1797add0",
+      "titulo": "Controle de Pulgas e Carrapatos em Pets",
+      "titulo_normalizado": "controle de pulgas e carrapatos em pets",
+      "hash_conteudo": "381beb007f0eaf206e3d415f34055323b82d008e48de3d13ec4dab73e1183291",
+      "data_publicacao": "2025-12-16T17:18:47.533527",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/controle-de-pulgas-e-carrapatos-em-pets",
+        "categoria": "Saúde Preventiva",
+        "hashtags": [
+          "#controlepulgas",
+          "#prevençãopet"
+        ],
+        "image_path": "generated_pins\\pin_1765916316.png"
+      }
+    },
+    {
+      "id": "154e33075476",
+      "titulo": "Socialização de Filhotes: Guia Essencial",
+      "titulo_normalizado": "socializacao de filhotes: guia essencial",
+      "hash_conteudo": "02db4293e7db26a9301c41d244627081370135cf9a21efb355c29613f4afe832",
+      "data_publicacao": "2025-12-16T17:19:39.505081",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/socializacao-de-filhotes-guia-essencial-1",
+        "categoria": "Comportamento",
+        "hashtags": [
+          "#socializaçãopet",
+          "#filhotesaudável"
+        ],
+        "image_path": "generated_pins\\pin_1765916369.png"
+      }
+    },
+    {
+      "id": "c744e78cd24f",
+      "titulo": "Por Que Gatos Ronronam: Ciência do Ronronar",
+      "titulo_normalizado": "por que gatos ronronam: ciencia do ronronar",
+      "hash_conteudo": "b2d3d60400764620d9a42cfcd50d117c14e7746c6d887ce7413d45bb256f1562",
+      "data_publicacao": "2025-12-16T17:20:13.240592",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/por-que-gatos-ronronam-ciencia-do-ronronar",
+        "categoria": "Curiosidades",
+        "hashtags": [
+          "#comportamentofelino",
+          "#curiosidadesgatos"
+        ],
+        "image_path": "generated_pins\\pin_1765916405.png"
+      }
+    },
+    {
+      "id": "405921afe6b4",
+      "titulo": "Exames de Rotina para Pets: Quando Fazer",
+      "titulo_normalizado": "exames de rotina para pets: quando fazer",
+      "hash_conteudo": "3894ee65f3e63d7c6cd1be987f503c095ef313a76d864f6799822978ec5a98af",
+      "data_publicacao": "2025-12-17T08:36:46.749132",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/exames-de-rotina-para-pets-quando-fazer",
+        "categoria": "Saúde Preventiva",
+        "hashtags": [
+          "#checkuppet",
+          "#examespet"
+        ],
+        "image_path": "generated_pins\\pin_1765971395.png"
+      }
+    },
+    {
+      "id": "ff83b98ce665",
+      "titulo": "Alimentos Tóxicos para Cães e Gatos",
+      "titulo_normalizado": "alimentos toxicos para caes e gatos",
+      "hash_conteudo": "64f48bf6ef2db28c1d2e36e100b14d66268cfbad0b14781de59c7724f13ff03f",
+      "data_publicacao": "2025-12-17T08:37:28.312042",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/alimentos-toxicos-para-caes-e-gatos-1",
+        "categoria": "Nutrição",
+        "hashtags": [
+          "#alimentaçãopet",
+          "#segurançaanimal"
+        ],
+        "image_path": "generated_pins\\pin_1765971437.png"
+      }
+    },
+    {
+      "id": "2b43fa1366a5",
+      "titulo": "Doenças Comuns em Filhotes: Prevenção",
+      "titulo_normalizado": "doencas comuns em filhotes: prevencao",
+      "hash_conteudo": "87670f58ba059bb97add2e3f54c6cf9ada3ce49276291364ec37e4f6e1e68bea",
+      "data_publicacao": "2025-12-17T08:38:51.876367",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/doencas-comuns-em-filhotes-prevencao",
+        "categoria": "Saúde",
+        "hashtags": [
+          "#filhotesaudável",
+          "#prevençãodoenças"
+        ],
+        "image_path": "generated_pins\\pin_1765971521.png"
+      }
+    },
+    {
+      "id": "4badfc9d22fa",
+      "titulo": "Adestramento Positivo: Técnicas Eficazes",
+      "titulo_normalizado": "adestramento positivo: tecnicas eficazes",
+      "hash_conteudo": "cfaba90cd3a0c088f823aee5425060ac5165663ab1abc8ed906f660e48050e72",
+      "data_publicacao": "2025-12-17T08:39:34.384026",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/adestramento-positivo-tecnicas-eficazes-1",
+        "categoria": "Comportamento",
+        "hashtags": [
+          "#adestramentopositivo",
+          "#educaçãopet"
+        ],
+        "image_path": "generated_pins\\pin_1765971564.png"
+      }
+    },
+    {
+      "id": "0fa009ec4717",
+      "titulo": "Castração de Cães e Gatos: Benefícios e Cuidados",
+      "titulo_normalizado": "castracao de caes e gatos: beneficios e cuidados",
+      "hash_conteudo": "4b3a80d156b52bd2bd4038f259c948b25cc78762b96708a382d636b72e916e2b",
+      "data_publicacao": "2025-12-18T13:30:02.813702",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/castracao-de-caes-e-gatos-beneficios-e-cuidados-1",
+        "categoria": "Saúde",
+        "hashtags": [
+          "#castraçãopet",
+          "#esterilização"
+        ],
+        "image_path": "generated_pins\\pin_1766075377.png"
+      }
+    },
+    {
+      "id": "5d0d7e25f4b2",
+      "titulo": "Linguagem Corporal dos Cães: Entenda seu Pet",
+      "titulo_normalizado": "linguagem corporal dos caes: entenda seu pet",
+      "hash_conteudo": "285e86782de2e1eeebaa8090fdc33e0dfea983b207e65cc6448092890b2f4ec9",
+      "data_publicacao": "2025-12-23T08:43:45.790868",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/linguagem-corporal-dos-caes-entenda-seu-pet-1",
+        "categoria": "Curiosidades",
+        "hashtags": [
+          "#linguagemcanina",
+          "#comportamentocão"
+        ],
+        "image_path": "generated_pins\\pin_1766490213.png"
+      }
+    },
+    {
+      "id": "f6447e0268a5",
+      "titulo": "Vermifugação: Quando e Como Vermifugar seu Pet",
+      "titulo_normalizado": "vermifugacao: quando e como vermifugar seu pet",
+      "hash_conteudo": "4d668870f1c0cc5d91e0db1989a28896962ac7d73fee07b134508ae78f04ec30",
+      "data_publicacao": "2025-12-23T08:46:18.866758",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/vermifugacao-quando-e-como-vermifugar-seu-pet",
+        "categoria": "Saúde",
+        "hashtags": [
+          "#vermifugação",
+          "#saúdepet"
+        ],
+        "image_path": "generated_pins\\pin_1766490348.png"
+      }
+    },
+    {
+      "id": "2061aada43f4",
+      "titulo": "Cuidados com Cães e Gatos Idosos",
+      "titulo_normalizado": "cuidados com caes e gatos idosos",
+      "hash_conteudo": "4e63008c8fe28470d33d4ed8d7a0253acf0b56c56c5b2b61443d9bdbed906a58",
+      "data_publicacao": "2025-12-23T09:01:06.068742",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/cuidados-com-caes-e-gatos-idosos",
+        "categoria": "Idosos",
+        "hashtags": [
+          "#petidoso",
+          "#geriatriaveterinária"
+        ],
+        "image_path": "generated_pins\\pin_1766491245.png"
+      }
+    },
+    {
+      "id": "f954f49a4de6",
+      "titulo": "Obesidade em Pets: Prevenção e Tratamento",
+      "titulo_normalizado": "obesidade em pets: prevencao e tratamento",
+      "hash_conteudo": "97f6881c587ff76ee2b0a673dda65ec0987a1e9e2762b5f2ad4ed8e673b36646",
+      "data_publicacao": "2025-12-29T10:42:11.743242",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/obesidade-em-pets-prevencao-e-tratamento-1",
+        "categoria": "Nutrição",
+        "hashtags": [
+          "#obesidadepet",
+          "#dietapet"
+        ],
+        "image_path": "generated_pins\\pin_1767015720.png"
+      }
+    },
+    {
+      "id": "5fc04e65c7f2",
+      "titulo": "Artrite em Cães Idosos: Manejo da Dor",
+      "titulo_normalizado": "artrite em caes idosos: manejo da dor",
+      "hash_conteudo": "a9d46e6a1afd9f10eab05df4cb4e1789b7ffaf7de3cd4f2fe7702b2b727f0b2f",
+      "data_publicacao": "2025-12-29T10:42:52.028476",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/artrite-em-caes-idosos-manejo-da-dor-1",
+        "categoria": "Idosos",
+        "hashtags": [
+          "#artritepet",
+          "#dorcachorro"
+        ],
+        "image_path": "generated_pins\\pin_1767015760.png"
+      }
+    },
+    {
+      "id": "04f5e8bcfb02",
+      "titulo": "Kit de Primeiros Socorros para Pets",
+      "titulo_normalizado": "kit de primeiros socorros para pets",
+      "hash_conteudo": "5413af29c1904463b775f1f1b2c763961695253a2e763c671a757c85db0de661",
+      "data_publicacao": "2026-01-05T11:13:32.811514",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/kit-de-primeiros-socorros-para-pets",
+        "categoria": "Primeiros Socorros",
+        "hashtags": [
+          "#primeirossocorrospet",
+          "#emergênciaveterinária"
+        ],
+        "image_path": "generated_pins\\pin_1767622401.png"
+      }
+    },
+    {
+      "id": "4582bd2798e2",
+      "titulo": "Engasgo em Pets: Como Agir Rapidamente",
+      "titulo_normalizado": "engasgo em pets: como agir rapidamente",
+      "hash_conteudo": "6640876b2e947ff648c4336849b30578a4d9d9824e8e7e5f44abefcfed3e2a1c",
+      "data_publicacao": "2026-01-05T11:14:38.933084",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/engasgo-em-pets-como-agir-rapidamente-1",
+        "categoria": "Primeiros Socorros",
+        "hashtags": [
+          "#emergênciapet",
+          "#primeirossocorros"
+        ],
+        "image_path": "generated_pins\\pin_1767622467.png"
+      }
+    },
+    {
+      "id": "74f4b3dd6e81",
+      "titulo": "Ansiedade de Separação em Cães: Como Tratar",
+      "titulo_normalizado": "ansiedade de separacao em caes: como tratar",
+      "hash_conteudo": "074f367be3ad6a2663c5d7acfbd8604baf3519f1a5b75304757668c01ef78b94",
+      "data_publicacao": "2026-01-05T11:15:26.401956",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/ansiedade-de-separacao-em-caes-como-tratar-2",
+        "categoria": "Comportamento",
+        "hashtags": [
+          "#comportamentoanimal",
+          "#adestramentocães"
+        ],
+        "image_path": "generated_pins\\pin_1767622514.png"
+      }
+    },
+    {
+      "id": "a9d5c5aff775",
+      "titulo": "Ração Premium vs Ração Comum: Qual Escolher",
+      "titulo_normalizado": "racao premium vs racao comum: qual escolher",
+      "hash_conteudo": "e64c207ec1948efb7c7aeaf5be4851104a0cb4eb3f89bc94b317cc3e09177069",
+      "data_publicacao": "2026-01-05T12:16:41.911912",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/racao-premium-vs-racao-comum-qual-escolher",
+        "categoria": "Nutrição",
+        "hashtags": [
+          "#raçãopet",
+          "#nutriçãoanimal"
+        ],
+        "image_path": "generated_pins\\pin_1767626188.png"
+      }
+    },
+    {
+      "id": "2ddf6aa81f73",
+      "titulo": "Higiene Dental em Cães e Gatos",
+      "titulo_normalizado": "higiene dental em caes e gatos",
+      "hash_conteudo": "ff41c644990496e0506eaa265b09dbfa5352ad560649c1f1417f6728216e03e7",
+      "data_publicacao": "2026-01-05T12:24:24.256308",
+      "plataformas": [
+        "shopify",
+        "pinterest"
+      ],
+      "status": "publicado",
+      "metadata": {
+        "url": "https://49mbh1-kp.myshopify.com/blogs/118332752160/higiene-dental-em-caes-e-gatos",
+        "categoria": "Higiene",
+        "hashtags": [
+          "#higienedental",
+          "#saúdebucalpet"
+        ],
+        "image_path": "generated_pins\\pin_1767626660.png"
+      }
+    }
+  ]
+}

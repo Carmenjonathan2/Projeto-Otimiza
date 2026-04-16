@@ -1,0 +1,401 @@
+{% comment %}
+  Formulário de Cadastro Veterinário
+  Envia dados para Google Sheets e notifica via WhatsApp
+{% endcomment %}
+
+<div class="vet-registration-form-wrapper">
+  <div class="vet-form-container">
+    <div class="form-header">
+      <h1>Cadastro Profissional Veterinário</h1>
+      <p>Preencha o formulário abaixo para solicitar acesso ao Portal Profissional da Otimiza FarmaVet</p>
+    </div>
+
+    <form id="vet-registration-form" class="vet-form">
+      <!-- Nome Completo -->
+      <div class="form-group">
+        <label for="vet-name">Nome Completo *</label>
+        <input type="text" id="vet-name" name="nome" required placeholder="Dr. João Silva">
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="vet-email">Email Profissional *</label>
+        <input type="email" id="vet-email" name="email" required placeholder="joao.silva@email.com">
+      </div>
+
+      <!-- Telefone/WhatsApp -->
+      <div class="form-group">
+        <label for="vet-phone">Telefone/WhatsApp *</label>
+        <input type="tel" id="vet-phone" name="telefone" required placeholder="(31) 98765-4321">
+      </div>
+
+      <!-- CRMV -->
+      <div class="form-row">
+        <div class="form-group form-group-half">
+          <label for="vet-crmv">CRMV *</label>
+          <input type="text" id="vet-crmv" name="crmv" required placeholder="12345">
+        </div>
+        <div class="form-group form-group-half">
+          <label for="vet-state">Estado *</label>
+          <select id="vet-state" name="estado" required>
+            <option value="">Selecione</option>
+            <option value="MG">MG</option>
+            <option value="SP">SP</option>
+            <option value="RJ">RJ</option>
+            <option value="ES">ES</option>
+            <option value="BA">BA</option>
+            <option value="PR">PR</option>
+            <option value="SC">SC</option>
+            <option value="RS">RS</option>
+            <option value="GO">GO</option>
+            <option value="DF">DF</option>
+            <option value="MT">MT</option>
+            <option value="MS">MS</option>
+            <option value="PA">PA</option>
+            <option value="AM">AM</option>
+            <option value="RO">RO</option>
+            <option value="AC">AC</option>
+            <option value="RR">RR</option>
+            <option value="AP">AP</option>
+            <option value="TO">TO</option>
+            <option value="MA">MA</option>
+            <option value="PI">PI</option>
+            <option value="CE">CE</option>
+            <option value="RN">RN</option>
+            <option value="PB">PB</option>
+            <option value="PE">PE</option>
+            <option value="AL">AL</option>
+            <option value="SE">SE</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Especialidade -->
+      <div class="form-group">
+        <label for="vet-specialty">Especialidade</label>
+        <select id="vet-specialty" name="especialidade">
+          <option value="">Selecione (opcional)</option>
+          <option value="Clínica Médica">Clínica Médica</option>
+          <option value="Cirurgia">Cirurgia</option>
+          <option value="Diagnóstico por Imagem">Diagnóstico por Imagem</option>
+          <option value="Dermatologia">Dermatologia</option>
+          <option value="Cardiologia">Cardiologia</option>
+          <option value="Nefrologia">Nefrologia</option>
+          <option value="Oncologia">Oncologia</option>
+          <option value="Oftalmologia">Oftalmologia</option>
+          <option value="Ortopedia">Ortopedia</option>
+          <option value="Odontologia">Odontologia</option>
+          <option value="Medicina Felina">Medicina Felina</option>
+          <option value="Animais Silvestres">Animais Silvestres</option>
+          <option value="Generalista">Generalista</option>
+          <option value="Outra">Outra</option>
+        </select>
+      </div>
+
+      <!-- Nome da Clínica -->
+      <div class="form-group">
+        <label for="vet-clinic">Nome da Clínica/Hospital</label>
+        <input type="text" id="vet-clinic" name="clinica" placeholder="Clínica Veterinária XYZ">
+      </div>
+
+      <!-- Cidade -->
+      <div class="form-row">
+        <div class="form-group form-group-half">
+          <label for="vet-city">Cidade *</label>
+          <input type="text" id="vet-city" name="cidade" required placeholder="Belo Horizonte">
+        </div>
+        <div class="form-group form-group-half">
+          <label for="vet-uf">UF *</label>
+          <select id="vet-uf" name="uf" required>
+            <option value="">Selecione</option>
+            <option value="MG">MG</option>
+            <option value="SP">SP</option>
+            <option value="RJ">RJ</option>
+            <option value="ES">ES</option>
+            <option value="BA">BA</option>
+            <option value="PR">PR</option>
+            <option value="SC">SC</option>
+            <option value="RS">RS</option>
+            <option value="GO">GO</option>
+            <option value="DF">DF</option>
+            <option value="MT">MT</option>
+            <option value="MS">MS</option>
+            <option value="PA">PA</option>
+            <option value="AM">AM</option>
+            <option value="RO">RO</option>
+            <option value="AC">AC</option>
+            <option value="RR">RR</option>
+            <option value="AP">AP</option>
+            <option value="TO">TO</option>
+            <option value="MA">MA</option>
+            <option value="PI">PI</option>
+            <option value="CE">CE</option>
+            <option value="RN">RN</option>
+            <option value="PB">PB</option>
+            <option value="PE">PE</option>
+            <option value="AL">AL</option>
+            <option value="SE">SE</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Checkbox Termos -->
+      <div class="form-group form-checkbox">
+        <label>
+          <input type="checkbox" id="vet-terms" required>
+          <span>Declaro que sou médico veterinário regularizado e aceito os <a href="/pages/termos-portal-veterinario" target="_blank">termos de uso</a> do Portal Profissional *</span>
+        </label>
+      </div>
+
+      <!-- Mensagem de Status -->
+      <div id="form-status" class="form-status" style="display: none;"></div>
+
+      <!-- Botão Submit -->
+      <button type="submit" class="btn-submit" id="submit-btn">
+        <span class="btn-text">Enviar Solicitação</span>
+        <span class="btn-loading" style="display: none;">Enviando...</span>
+      </button>
+
+      <p class="form-note">* Campos obrigatórios</p>
+    </form>
+  </div>
+</div>
+
+<style>
+  .vet-registration-form-wrapper {
+    padding: 60px 20px;
+    background: #f8f9fa;
+    min-height: 100vh;
+  }
+
+  .vet-form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #e0e0e0;
+  }
+
+  .form-header h1 {
+    font-size: 2.8rem;
+    color: #1a4d33;
+    margin-bottom: 10px;
+  }
+
+  .form-header p {
+    color: #666;
+    font-size: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .vet-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group label {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 12px 16px;
+    font-size: 1.5rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #1a4d33;
+    box-shadow: 0 0 0 3px rgba(26, 77, 51, 0.1);
+  }
+
+  .form-checkbox {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .form-checkbox label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .form-checkbox input[type="checkbox"] {
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .form-checkbox span {
+    font-size: 1.3rem;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .form-checkbox a {
+    color: #1a4d33;
+    text-decoration: underline;
+  }
+
+  .btn-submit {
+    padding: 16px 32px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #1a4d33 0%, #2e7d32 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+  }
+
+  .btn-submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26, 77, 51, 0.3);
+  }
+
+  .btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-note {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #999;
+    margin-top: 10px;
+  }
+
+  .form-status {
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .form-status.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  .form-status.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
+  @media (max-width: 768px) {
+    .vet-form-container {
+      padding: 30px 20px;
+    }
+
+    .form-header h1 {
+      font-size: 2.2rem;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // CONFIGURAÇÃO - URL do Google Apps Script
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1Ctn6p7ePZMp7U185WDCaHajaUBDN8cSdJ9gvJhRr61Ok8Bv9Qae0woXDpTvFNdwx/exec';
+  const WHATSAPP_NUMBER = '5531987936822';
+
+  document.getElementById('vet-registration-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoading = submitBtn.querySelector('.btn-loading');
+    const statusDiv = document.getElementById('form-status');
+    
+    // Desabilita botão
+    submitBtn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    statusDiv.style.display = 'none';
+    
+    // Coleta dados do formulário
+    const formData = {
+      nome: document.getElementById('vet-name').value,
+      email: document.getElementById('vet-email').value,
+      telefone: document.getElementById('vet-phone').value,
+      crmv: document.getElementById('vet-crmv').value,
+      estado: document.getElementById('vet-state').value,
+      especialidade: document.getElementById('vet-specialty').value || 'Não informada',
+      clinica: document.getElementById('vet-clinic').value || 'Não informada',
+      cidade: document.getElementById('vet-city').value,
+      uf: document.getElementById('vet-uf').value,
+      data: new Date().toLocaleString('pt-BR')
+    };
+    
+    // Monta mensagem do WhatsApp
+    const whatsappMessage = `🩺 *Nova Solicitação de Cadastro Veterinário*\n\n` +
+      `*Nome:* ${formData.nome}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Telefone:* ${formData.telefone}\n` +
+      `*CRMV:* ${formData.crmv}/${formData.estado}\n` +
+      `*Especialidade:* ${formData.especialidade}\n` +
+      `*Clínica:* ${formData.clinica}\n` +
+      `*Cidade:* ${formData.cidade}/${formData.uf}\n\n` +
+      `_Aguardo aprovação para acesso ao Portal Profissional._`;
+    
+    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    // Envia para Google Sheets usando Params (mais confiável)
+    const queryParams = new URLSearchParams(formData).toString();
+    const finalUrl = GOOGLE_SCRIPT_URL + '?' + queryParams;
+
+    fetch(finalUrl, {
+      method: 'GET',
+      mode: 'no-cors'
+    })
+    .then(() => {
+       statusDiv.className = 'form-status success';
+       statusDiv.textContent = '✅ Cadastro registrado! Abrindo WhatsApp...';
+       statusDiv.style.display = 'block';
+       
+       setTimeout(() => {
+         window.location.href = whatsappURL;
+       }, 1500);
+    })
+    .catch((err) => {
+       console.error('Erro ao salvar no Sheets:', err);
+       window.location.href = whatsappURL;
+    });
+  });
+</script>

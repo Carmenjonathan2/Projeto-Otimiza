@@ -1,0 +1,63 @@
+🩺 MANUAL DE INSTALACAO: PORTAL B2B EXCLUSIVO VETERINARIO
+Projeto Otimiza FarmaVet - Sistema de Area Restrita e Vendas Pro
+
+Este manual orienta a instalacao tecnica da area exclusiva para medicos veterinarios na Shopify. O sistema inclui cadastro profissional, validacao de CRMV, bloqueio de seguranca e vitrine de ofertas com Upsell/Cross-sell.
+
+---
+
+1. COMPONENTES DO SISTEMA
+O sistema e composto por 3 arquivos principais que voce deve carregar na sua loja:
+
+1. Snippet: snippet-registro-veterinario.liquid
+   - O que e: O formulario de cadastro com campo para CRMV.
+2. Snippet: snippet-acesso-restrito-FIX.liquid
+   - O que e: O "guarda" que bloqueia usuarios nao autorizados.
+3. Secao: section-portal-veterinario.liquid
+   - O que e: A interface visual do portal com produtos e ofertas.
+
+---
+
+2. PASSO A PASSO DA INSTALACAO
+
+PASSO A: Criar os Arquivos na Shopify
+1. No Admin da Shopify, va em Loja Online > Temas.
+2. Clique nos tres pontinhos (...) > Editar Codigo.
+3. Na pasta Snippets, clique em "Adicionar um novo snippet" e crie os dois arquivos (.liquid) listados acima, colando o conteudo de cada um.
+4. Na pasta Sections, clique em "Adicionar uma nova secao", de o nome de section-portal-veterinario.liquid e cole o codigo correspondente.
+
+PASSO B: Configurar a Pagina de Cadastro (A captacao)
+1. No Editor de Temas (Personalizar), clique no menu superior (onde diz "Pagina Inicial").
+2. Clique em Paginas > Criar modelo.
+3. Nome do modelo: cadastro-veterinario.
+4. Agora, va em Loja Online > Paginas > Pagina de Cadastro e, no lado direito, em "Modelo de pagina", selecione o 'cadastro-veterinario' que voce acabou de criar.
+5. Volte ao Editor Visual, navegue ate essa pagina e adicione a Secao de "Liquid Personalizado" com: {% render 'snippet-registro-veterinario' %}.
+
+PASSO C: Configurar o Portal (A area restrita)
+1. Repita o processo: no Editor de Temas, clique em Paginas > Criar modelo.
+2. Nome do modelo: portal-veterinario.
+3. Vincule sua pagina "Portal do Veterinario" a este novo modelo nas configuracoes da pagina.
+4. No Editor Visual, adicione no topo o "Liquid Personalizado" com: {% render 'snippet-acesso-restrito-FIX' %}.
+5. Logo abaixo, adicione a secao "Portal do Veterinario".
+
+---
+
+3. FLUXO DE GESTAO DE CLIENTES (IMPORTANTE)
+
+O acesso automatico e baseado em TAGS. Siga este fluxo para cada novo cliente:
+
+1. O Registro: O medico se cadastra pelo formulario. Ele recebe automaticamente as tags proposito:veterinario e aprovacao:pendente.
+2. A Verificacao: Voce acessa o painel de Clientes da Shopify, ve os dados do CRMV e valida o profissional.
+3. A Aprovacao: 
+    - Remova a tag aprovacao:pendente.
+    - Adicione a tag veterinario (em letras minusculas).
+4. O Acesso: Apenas clientes com a tag veterinario conseguirao ver o conteudo do Portal. Os demais serao redirecionados ou verao a tela de bloqueio.
+
+---
+
+4. FUNCIONALIDADES EXCLUSIVAS
+- Upsell (Combo Clinica): Configure uma colecao de kits na secao do portal para incentivar compras de maior volume.
+- Cross-sell (Recomendados): Opcional na parte inferior do portal, ideal para produtos complementares.
+
+---
+Suporte Tecnico Antigravity
+Gerado para: Otimiza FarmaVet

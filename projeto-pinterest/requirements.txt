@@ -1,0 +1,7 @@
+requests
+Pillow
+python-dotenv
+schedule
+google-generativeai
+google-cloud-aiplatform
+openai

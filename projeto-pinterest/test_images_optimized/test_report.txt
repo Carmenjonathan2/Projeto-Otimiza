@@ -1,0 +1,24 @@
+RELATÓRIO DE TESTE - PROMPTS OTIMIZADOS PINTEREST
+Data: 2025-12-08 18:13:18
+============================================================
+
+Total de testes: 7
+Sucessos: 7
+Erros: 0
+
+Detalhes:
+------------------------------------------------------------
+[OK] Sucesso Nutrição: Alimentação Natural para Cães
+   Arquivo: test_images_optimized\01_nutricao_caes.png
+[OK] Sucesso Saúde Preventiva: Vacinação Anual de Gatos
+   Arquivo: test_images_optimized\02_vacina_gatos.png
+[OK] Sucesso Saúde: Consulta Veterinária em Casa
+   Arquivo: test_images_optimized\03_consulta_domiciliar.png
+[OK] Sucesso Higiene: Banho e Tosa Profissional
+   Arquivo: test_images_optimized\04_banho_tosa.png
+[OK] Sucesso Comportamento: Adestramento Positivo
+   Arquivo: test_images_optimized\05_adestramento.png
+[OK] Sucesso Idosos: Cuidados com Pets Idosos
+   Arquivo: test_images_optimized\06_pets_idosos.png
+[OK] Sucesso Primeiros Socorros: Kit de Primeiros Socorros Pet
+   Arquivo: test_images_optimized\07_primeiros_socorros.png

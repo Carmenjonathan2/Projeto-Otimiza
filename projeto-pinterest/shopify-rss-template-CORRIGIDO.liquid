@@ -1,0 +1,29 @@
+{% layout none %}
+{% assign blog_handle = 'blog-para-tutores' %}
+{% assign target_blog = blogs[blog_handle] %}
+<rss version="2.0">
+<channel>
+<title>{{ target_blog.title | escape }}</title>
+<link>{{ shop.url }}/blogs/{{ blog_handle }}</link>
+<description>Dicas e informacoes veterinarias para tutores de pets</description>
+<language>pt-BR</language>
+<lastBuildDate>{{ 'now' | date: '%a, %d %b %Y %H:%M:%S %z' }}</lastBuildDate>
+{% for article in target_blog.articles limit: 50 %}
+<item>
+<title>{{ article.title | escape }}</title>
+<link>{{ shop.url }}{{ article.url }}</link>
+<description>{{ article.excerpt_or_content | strip_html | truncate: 300 | escape }}</description>
+<pubDate>{{ article.published_at | date: '%a, %d %b %Y %H:%M:%S %z' }}</pubDate>
+<guid>{{ shop.url }}{{ article.url }}</guid>
+{% if article.image %}
+{% assign img_url = article.image | img_url: 'master' %}
+{% unless img_url contains 'https://' %}{% assign img_url = 'https:' | append: img_url %}{% endunless %}
+<enclosure url="{{ img_url }}" type="image/jpeg" length="1000"/>
+{% endif %}
+{% for tag in article.tags %}
+<category>{{ tag | escape }}</category>
+{% endfor %}
+</item>
+{% endfor %}
+</channel>
+</rss>

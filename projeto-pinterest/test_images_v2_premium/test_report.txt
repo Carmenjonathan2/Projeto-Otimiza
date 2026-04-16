@@ -1,0 +1,54 @@
+================================================================================
+RELATÓRIO DE TESTES - PROMPTS V2.0 PREMIUM
+================================================================================
+
+Data: 2025-12-09 13:42:26
+Total de testes: 14
+Sucessos: 0
+Falhas: 14
+
+
+FALHAS:
+--------------------------------------------------------------------------------
+[FAIL] Nutrição - Alimentação Natural para Cães
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Nutrição - Dieta Balanceada para Gatos
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Saúde Preventiva - Vacinação Anual de Cães
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Saúde Preventiva - Vacinação de Gatos Filhotes
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Saúde - Check-up Veterinário para Cães
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Saúde - Consulta Veterinária para Gatos
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Higiene - Banho e Tosa para Cães
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Higiene - Grooming para Gatos Persas
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Comportamento - Brincadeiras para Cães Ativos
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Comportamento - Enriquecimento Ambiental para Gatos
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Idosos - Cuidados com Cães Idosos
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Idosos - Gatos Seniores Merecem Cuidados Especiais
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Primeiros Socorros - Kit de Primeiros Socorros para Cães
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+
+[FAIL] Primeiros Socorros - Emergências com Gatos
+   Erro: unsupported operand type(s) for -: 'int' and 'str'
+

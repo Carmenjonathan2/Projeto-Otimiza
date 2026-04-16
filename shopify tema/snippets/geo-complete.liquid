@@ -1,0 +1,15 @@
+{% comment %}
+  Renderiza o bloco de copywriter de alta conversão.
+  Ele só renderiza a caixa se o metafield tiver sido preenchido pelo nosso Robô Gemini.
+{% endcomment %}
+{%- if product.metafields.custom.geo_copydesk.value != blank -%}
+  <div class="geo-copydesk" 
+       style="font-size: 18px; color: #2E0C51; line-height: 1.8; margin-bottom: 2.5rem; background-color: #F8F8F8; padding: 25px; border-radius: 12px; border-left: 5px solid #6C0C51;">
+    {{ product.metafields.custom.geo_copydesk.value }}
+  </div>
+{%- endif -%}
+
+{% comment %}
+  Abaixo do Copydesk, ele "chama" internamente o nosso outro arquivo de Perguntas/Respostas com o JSON-LD do Google.
+{% endcomment %}
+{% render 'geo-faq' %}
