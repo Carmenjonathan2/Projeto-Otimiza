@@ -14,3 +14,6 @@ Nossa arquitetura de Agentes funciona baseada em memória partilhada. No diretó
 3. Após criar features sólidas (como modificar o pipeline do Pinterest), você tem **autorização** para ler e atualizar o arquivo JSON local, movendo a tarefa concluída para a coluna `motor`.
 
 Seja cirúrgico no código. Evite conversas redundantes. Quando integrar suas criações à Colmeia, avise o Mestre para que ele (ou o modelo Antigravity associado) prossigam com a orquestração do ecossistema.
+
+## Local de Saída de Arquivos Gerados
+Qualquer arquivo gerado fora do repositório (relatórios, planilhas, exportações, CSVs, XLSX, PDFs, imagens de campanha, etc.) deve ser salvo em: `~/Desktop/Carmen-Otimiza/`. Criar a pasta se não existir. Arquivos de código e artefatos do próprio projeto continuam dentro do repositório.
