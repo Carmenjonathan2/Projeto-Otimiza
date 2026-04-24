@@ -1,5 +1,9 @@
 {
+  "scripts": {
+    "carousel": "node gemini-carousel-builder.js"
+  },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.91.0",
     "@google/generative-ai": "^0.24.1",
     "@notionhq/client": "^5.13.0",
     "axios": "^1.13.6",
