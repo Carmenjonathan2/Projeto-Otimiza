@@ -1,8 +1,31 @@
+require('dotenv').config();
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcodeTerminal = require('qrcode-terminal');
 const QRCode = require('qrcode');
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
+const http = require('http');
+
+const CRM_URL = process.env.CRM_URL || 'http://localhost:3001/api/evento';
+
+function notificarCRM(evento) {
+    try {
+        const corpo = JSON.stringify(evento);
+        const url = new URL(CRM_URL);
+        const mod = url.protocol === 'https:' ? https : http;
+        const req = mod.request({
+            hostname: url.hostname,
+            port: url.port || (url.protocol === 'https:' ? 443 : 80),
+            path: url.pathname,
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(corpo) }
+        });
+        req.on('error', () => {}); // CRM offline não interrompe o monitor
+        req.write(corpo);
+        req.end();
+    } catch (_) {}
+}
 
 // ============================================
 // 1. CONFIGURAÇÕES E PASTAS
@@ -125,7 +148,8 @@ client.on('message_create', async (msg) => {
             };
 
             salvarEvento(evento);
-            
+            notificarCRM(evento);
+
             if (!isComercial) {
                 console.log(`💼 [INTERESSE] ${evento.quem}: ${isAudio ? 'Enviou Áudio' : msg.body.substring(0, 50)}...`);
             }

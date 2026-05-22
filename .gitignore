@@ -29,3 +29,7 @@ otimiza-content-planner/
 scraper-condominios-bh/node_modules/
 cold-email-automation/node_modules/
 painel-autoridade/contexto_mestre.json
+crm_comercial.db
+crm_comercial.db-shm
+crm_comercial.db-wal
+historico_comercial.json
