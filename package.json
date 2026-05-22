@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "crm": "node crm/server.js",
+    "monitor": "node monitor_comercial.js",
+    "migrar": "node crm/migrador.js",
+    "followup": "node crm/followup.js"
+  },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.98.0",
     "axios": "^1.13.6",

@@ -2,6 +2,7 @@ require('dotenv').config({ path: require('path').join(__dirname, '..', '.env') }
 
 const express = require('express');
 const http = require('http');
+const path = require('path');
 const { Server } = require('socket.io');
 const rotas = require('./rotas');
 
@@ -27,7 +28,10 @@ app.use((req, res, next) => {
 // Disponibiliza io para as rotas via app.get('io')
 app.set('io', io);
 
-// ── Rotas ──────────────────────────────────────────────────────────────────
+// ── Dashboard (arquivos estáticos) ─────────────────────────────────────────
+app.use(express.static(path.join(__dirname, 'public')));
+
+// ── Rotas API ──────────────────────────────────────────────────────────────
 app.use('/api', rotas);
 
 // ── WebSocket ──────────────────────────────────────────────────────────────

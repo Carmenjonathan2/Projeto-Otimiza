@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRM Comercial — Otimiza FarmaVet</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <span class="logo">🐾 Otimiza CRM</span>
+      <span class="subtitulo">Comercial em Tempo Real</span>
+    </div>
+    <div class="header-center">
+      <input type="text" id="busca" class="busca" placeholder="Buscar lead por nome ou telefone..." />
+    </div>
+    <div class="header-right">
+      <span id="ia-badge" class="badge badge-off">IA Desativada</span>
+      <span id="ws-badge" class="badge badge-off">Desconectado</span>
+      <span id="total-badge" class="badge badge-neutro">0 leads</span>
+    </div>
+  </header>
+
+  <!-- KANBAN -->
+  <main class="kanban" id="kanban">
+    <div class="coluna" id="col-novo" data-etapa="novo">
+      <div class="coluna-header">
+        <span class="coluna-titulo">Novo</span>
+        <span class="coluna-count" id="count-novo">0</span>
+      </div>
+      <div class="coluna-cards" id="cards-novo"></div>
+    </div>
+    <div class="coluna" id="col-interessado" data-etapa="interessado">
+      <div class="coluna-header">
+        <span class="coluna-titulo">Interessado</span>
+        <span class="coluna-count" id="count-interessado">0</span>
+      </div>
+      <div class="coluna-cards" id="cards-interessado"></div>
+    </div>
+    <div class="coluna" id="col-negociacao" data-etapa="negociacao">
+      <div class="coluna-header">
+        <span class="coluna-titulo">Negociação</span>
+        <span class="coluna-count" id="count-negociacao">0</span>
+      </div>
+      <div class="coluna-cards" id="cards-negociacao"></div>
+    </div>
+    <div class="coluna col-fechado" id="col-fechado" data-etapa="fechado">
+      <div class="coluna-header">
+        <span class="coluna-titulo">Fechado</span>
+        <span class="coluna-count" id="count-fechado">0</span>
+      </div>
+      <div class="coluna-cards" id="cards-fechado"></div>
+    </div>
+    <div class="coluna col-perdido" id="col-perdido" data-etapa="perdido">
+      <div class="coluna-header">
+        <span class="coluna-titulo">Perdido</span>
+        <span class="coluna-count" id="count-perdido">0</span>
+      </div>
+      <div class="coluna-cards" id="cards-perdido"></div>
+    </div>
+  </main>
+
+  <!-- MODAL DETALHE -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <h2 id="modal-nome"></h2>
+          <span id="modal-tel" class="modal-tel"></span>
+        </div>
+        <button class="modal-fechar" onclick="fecharModal()">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-info">
+          <div class="info-grid">
+            <div class="info-item">
+              <label>Etapa</label>
+              <select id="modal-etapa" onchange="moverEtapa()"></select>
+            </div>
+            <div class="info-item">
+              <label>Temperatura</label>
+              <span id="modal-temperatura" class="tag-temperatura"></span>
+            </div>
+            <div class="info-item">
+              <label>Interações</label>
+              <span id="modal-interacoes"></span>
+            </div>
+            <div class="info-item">
+              <label>Última atividade</label>
+              <span id="modal-ultima"></span>
+            </div>
+          </div>
+
+          <div class="info-ia">
+            <div class="ia-bloco">
+              <label>Resumo IA</label>
+              <p id="modal-resumo"></p>
+            </div>
+            <div class="ia-bloco">
+              <label>Próxima ação sugerida</label>
+              <p id="modal-proxima" class="proxima-acao"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-historico">
+          <h3>Histórico de Mensagens</h3>
+          <div id="modal-mensagens" class="mensagens-lista"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
