@@ -269,7 +269,8 @@ app.post('/webhook/zapi', async (req, res) => {
             aguardando_crmv: false,
             aguardando_receita: false,   // true quando aguardando foto da receita veterinária
             receita_validada: false,      // true quando a receita foi aprovada pela IA
-            medicamento_restrito: null    // nome do medicamento de controle solicitado
+            medicamento_restrito: null,   // nome do medicamento de controle solicitado
+            produto_sem_estoque: null     // nome do produto com estoque zerado (aciona transferência)
         };
     }
 
@@ -450,13 +451,33 @@ app.post('/webhook/zapi', async (req, res) => {
     let contextoInjetado = "";
 
     // Se o cliente mencionar algum produto de alta relevância, consultamos o estoque automaticamente
-    if (mensagemLower.includes("librela") || mensagemLower.includes("cytopoint") || mensagemLower.includes("simparic") || mensagemLower.includes("metilforan")) {
-        const produto = mensagemLower.includes("librela") ? "Librela 15mg" : 
-                        mensagemLower.includes("cytopoint") ? "Cytopoint" : 
-                        mensagemLower.includes("simparic") ? "Simparic 10mg" : "Metilforan";
-        
-        const infoEstoque = await shopify.consultarEstoque(produto);
-        contextoInjetado += `\n[Contexto de Sistema - Estoque Atualizado]: O produto '${produto}' possui estoque atual de ${infoEstoque.quantidade} unidades com valor de R$ ${infoEstoque.preco}.`;
+    // Detectores expandidos para incluir vacinas (B2B) e medicamentos de alto ticket
+    const produtosRastreados = [
+        { chave: "librela",    nome: "Librela 15mg" },
+        { chave: "cytopoint",  nome: "Cytopoint" },
+        { chave: "simparic",   nome: "Simparic 10mg" },
+        { chave: "metilforan", nome: "Metilforan" },
+        { chave: "rabisin",    nome: "Rabisin" },
+        { chave: "nobivac",    nome: "Nobivac V8" }
+    ];
+    const produtoDetectado = produtosRastreados.find(p => mensagemLower.includes(p.chave));
+
+    if (produtoDetectado) {
+        const infoEstoque = await shopify.consultarEstoque(produtoDetectado.nome);
+
+        if (infoEstoque.quantidade === 0) {
+            // ESTOQUE ZERADO: informar cliente + preparar transferência para humano
+            console.log(`🔴 [ESTOQUE] Produto '${produtoDetectado.nome}' com estoque ZERADO. Preparando transferência.`);
+            contextoInjetado += `\n[ESTOQUE ZERADO 🔴 - AÇÃO OBRIGATÓRIA]: O produto '${produtoDetectado.nome}' está MOMENTANEAMENTE FORA DE ESTOQUE (quantidade: 0). ` +
+                `Informe ao cliente com empatia e carinho que estamos em processo de reposição. ` +
+                `Pergunte se ele gostaria de entrar na *lista de espera* para ser avisado assim que chegar. ` +
+                `Após passar essa informação, diga que vai conectá-lo com o Dr. Kyenner para confirmar o prazo estimado de chegada. ` +
+                `Seja acolhedor e transmita confiança de que o produto está a caminho.`;
+            chatState.produto_sem_estoque = produtoDetectado.nome;
+            saveStates(states);
+        } else {
+            contextoInjetado += `\n[Contexto de Sistema - Estoque Atualizado]: O produto '${produtoDetectado.nome}' possui estoque atual de ${infoEstoque.quantidade} unidades com valor de R$ ${infoEstoque.preco}.`;
+        }
     }
 
     // --- COMPLIANCE B2C: EXIGÊNCIA DE RECEITA PARA MEDICAMENTOS CONTROLADOS ---
@@ -490,10 +511,10 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
         }
     }
 
-    // Aplicar estratégias de inteligência comercial (Upsell, Cross-sell, Frete, Cartão, Pix, etc.)
-    const oportunidadeVenda = vendas.verificarOportunidadeVenda(clientMessage);
+    // Aplicar estratégias de inteligência comercial segmentadas por tipo de cliente (B2B ou B2C)
+    const oportunidadeVenda = vendas.verificarOportunidadeVenda(clientMessage, chatState.tipo_cliente);
     if (oportunidadeVenda) {
-        contextoInjetado += `\n[Estratégia Comercial Ativa]: ${oportunidadeVenda}`;
+        contextoInjetado += `\n[Estratégia Comercial Ativa (${chatState.tipo_cliente || 'B2C'})]: ${oportunidadeVenda}`;
     }
 
     // Salvar histórico da conversa
@@ -523,9 +544,14 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
      - **PREÇOS DE ATACADO EXCLUSIVOS**: Informe apenas os preços de vacinas avulsas da tabela de parceiros (como *Rabisin R$ 17,90*, *Nobivac V8 R$ 44,50*, *Nobivac V5 R$ 59,90*).
      - **NÃO MENCIONE PREÇO DOMICILIAR/APLICAÇÃO**: Nunca fale sobre os preços de aplicação em domicílio de R$ 60,00 ou R$ 70,00. O veterinário compra para o seu próprio estoque clínico e aplica ele mesmo.
 
-3. **Diretriz de Concisão**: Seja direto e simpático. Responda em no máximo 1 ou 2 parágrafos curtos. Evite listar todos os produtos ou fazer respostas longas. Cite apenas as 2 ou 3 principais opções.
+3. *Diretriz de Concisão*: Seja direto e simpático. Responda em no máximo 1 ou 2 parágrafos curtos. Evite listar todos os produtos ou fazer respostas longas. Cite apenas as 2 ou 3 principais opções.
 
-4. **Negrito no WhatsApp**: Use SEMPRE apenas um asterisco (*texto*) para negrito. Nunca use dois asteriscos (**texto**).`;
+4. *Negrito no WhatsApp*: Use SEMPRE apenas um asterisco (*texto*) para negrito. Nunca use dois asteriscos (**texto**).
+
+5. *MODO VENDEDOR ATIVO - OBRIGATÓRIO*: Após responder a pergunta principal do cliente, SEMPRE ofereça proativamente pelo menos 1 opção de upsell ou complemento. Nunca encerre uma mensagem sem uma ação comercial clara: uma oferta adicional (volume maior, combo, serviço complementar) ou uma próxima etapa de compra. Seja consultivo e natural — não robótico.
+
+6. *FLUXO TUTOR B2C - TRIAGEM RÁPIDA*: Para clientes Tutores (B2C), o seu papel é de *recepcionista inteligente*, não de vendedor fechador. Dê a saudação calorosa, informe rápido se o produto está disponível e a faixa de preço geral. O Dr. Kyenner fará o atendimento completo (dose, aplicação, orientação clínica e fechamento). Encerre dizendo que vai conectá-lo com o Dr. Kyenner para os detalhes.`;
+
 
         const model = genAI.getGenerativeModel({
             model: "gemini-3.5-flash",
@@ -572,6 +598,34 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
 
         // Sincronizar com a tela do Chatwoot (para o atendente ver o robô conversando)
         await chatwoot.sincronizarMensagemBot(phone, responseText);
+
+        // --- TRANSFERÊNCIA PÓS-RESPOSTA: B2C (TRIAGEM RÁPIDA) OU ESTOQUE ZERADO ---
+        const PRODUTOS_DETECTADOS_B2C = ["librela", "cytopoint", "simparic", "metilforan", "vacina", "rabisin", "nobivac", "seringa", "agulha", "antirrábica"];
+        const b2cProdutoMencionado = chatState.tipo_cliente !== "B2B" && PRODUTOS_DETECTADOS_B2C.some(p => mensagemLower.includes(p));
+        const deveTransferirEstoqueZero = !!chatState.produto_sem_estoque;
+        const deveTransferirB2C = b2cProdutoMencionado && chatState.tipo_cliente !== "B2B";
+
+        if ((deveTransferirB2C || deveTransferirEstoqueZero) && chatState.owner !== "human") {
+            chatState.owner = "human";
+            saveStates(states);
+
+            const motivoTransferencia = deveTransferirEstoqueZero
+                ? `Estoque zerado: ${chatState.produto_sem_estoque}`
+                : `Tutor B2C — triagem concluída`;
+
+            const notaKyenner = deveTransferirEstoqueZero
+                ? `⏳ *ESTOQUE ZERO:* ${clientName} tem interesse em *${chatState.produto_sem_estoque}*. \nConfirmar prazo de chegada e fazer follow-up quando o estoque entrar. \nTelefone: +${phone}`
+                : `🐾 *TRIAGEM AIKA CONCLUÍDA — TUTOR B2C*\n` +
+                  `👤 *Cliente:* ${clientName}\n` +
+                  `📱 *Telefone:* +${phone}\n` +
+                  `🛒 *Interesse:* ${clientMessage.substring(0, 120)}\n` +
+                  `✅ *Já recebeu:* saudação + info de produto + preço\n` +
+                  `📋 *Próximo passo:* Dr. Kyenner fecha o atendimento.`;
+
+            await chatwoot.enviarNotaPrivada(phone, notaKyenner);
+            await chatwoot.solicitarSuporteHumano(phone, clientName, motivoTransferencia);
+            console.log(`🔄 [SNC] Transferência pós-resposta ativada para ${phone}. Motivo: ${motivoTransferencia}`);
+        }
 
     } catch (e) {
         console.error("❌ Erro ao chamar a API do Gemini:", e);
