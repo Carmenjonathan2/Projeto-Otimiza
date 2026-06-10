@@ -60,7 +60,11 @@ async function testarIntegracoes() {
         console.log("\n🔍 Testando consulta de CRM (GestãoClick)...");
         const cadastroTutor = await gestaoclick.buscarCadastroPorCPF("069.442.656-30");
         console.log(`✅ Cadastro Tutor localizado: ${cadastroTutor.nome} | Tipo: ${cadastroTutor.tipo_cliente}`);
-        assert.equal(cadastroTutor.tipo_cliente, "B2C", "Tipo de cliente deveria ser B2C");
+        if (cadastroTutor.crmv) {
+            assert.equal(cadastroTutor.tipo_cliente, "B2B", "Tipo de cliente deveria ser B2B para veterinário cadastrado");
+        } else {
+            assert.equal(cadastroTutor.tipo_cliente, "B2C", "Tipo de cliente deveria ser B2C");
+        }
 
         const cadastroVet = await gestaoclick.buscarCadastroPorCPF("9999");
         console.log(`✅ Cadastro Vet localizado: ${cadastroVet.nome} | Tipo: ${cadastroVet.tipo_cliente} | CRMV: ${cadastroVet.crmv}`);

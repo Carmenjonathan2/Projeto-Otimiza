@@ -77,8 +77,8 @@ async function buscarCadastroPorCPF(cpf) {
         }
 
         const c = clientes[0];
-        const ehB2B = c.tags && c.tags.toLowerCase().includes("veterinario");
         const crmv = extrairCrmv(c);
+        const ehB2B = (c.tags && c.tags.toLowerCase().includes("veterinario")) || !!crmv;
 
         return {
             id: c.id,
@@ -120,7 +120,7 @@ async function buscarCadastroPorCRMV(crmvNumero) {
             for (let c of clientes) {
                 const crmv = extrairCrmv(c);
                 if (crmv && crmv.toString() === crmvNumero.toString()) {
-                    const ehB2B = c.tags && c.tags.toLowerCase().includes("veterinario");
+                    const ehB2B = (c.tags && c.tags.toLowerCase().includes("veterinario")) || !!crmv;
                     console.log(`✅ [GESTAOCLICK] Cadastro localizado via CRMV! Nome: ${c.nome}`);
                     return {
                         id: c.id,
@@ -162,8 +162,8 @@ async function buscarCadastroPorTelefone(telefone) {
                 
                 if ((cCelular && (cCelular.includes(telLimpo) || telLimpo.includes(cCelular))) ||
                     (cTelefone && (cTelefone.includes(telLimpo) || telLimpo.includes(cTelefone)))) {
-                    const ehB2B = c.tags && c.tags.toLowerCase().includes("veterinario");
                     const crmv = extrairCrmv(c);
+                    const ehB2B = (c.tags && c.tags.toLowerCase().includes("veterinario")) || !!crmv;
                     console.log(`✅ [GESTAOCLICK] Cadastro localizado via telefone! Nome: ${c.nome}`);
                     return {
                         id: c.id,

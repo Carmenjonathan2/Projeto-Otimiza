@@ -126,8 +126,33 @@ async function obterOuCriarConversa(contactId) {
     return createRes.data.id;
 }
 
+/**
+ * Envia uma mensagem privada (nota interna) para uma conversa no Chatwoot.
+ */
+async function enviarNotaPrivada(phone, text) {
+    if (CHATWOOT_KEY === "MOCK_KEY") {
+        console.log(`[CHATWOOT-MOCK] Nota privada: "${text}"`);
+        return true;
+    }
+    try {
+        const contactId = await obterOuCriarContato(phone);
+        const conversationId = await obterOuCriarConversa(contactId);
+        
+        await axios.post(`${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}/conversations/${conversationId}/messages`, {
+            content: text,
+            message_type: "outgoing",
+            private: true
+        }, { headers });
+        return true;
+    } catch (e) {
+        console.error(`❌ [CHATWOOT] Erro ao enviar nota privada:`, e.message);
+        return false;
+    }
+}
+
 module.exports = {
     solicitarSuporteHumano,
     sincronizarMensagemBot,
-    sincronizarMensagemCliente
+    sincronizarMensagemCliente,
+    enviarNotaPrivada
 };

@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const axios = require('axios');
 require('dotenv').config();
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
@@ -50,12 +51,56 @@ if (fs.existsSync(brandbookPath)) {
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
 // =========================================================================
-// 1. WEBHOOK: RECEBIMENTO DE MENSAGENS DO WHATSAPP (VIA Z-API)
+// 1. AUXILIAR: TRANSCRICÃO DE ÁUDIO (GEMINI NATIVO)
+// =========================================================================
+async function transcreverAudioZapi(payload, phone, clientName) {
+    const audioUrl = (payload.audio && payload.audio.url) || 
+                      payload.value || 
+                      payload.audioUrl || 
+                      (payload.audio && payload.audio.audioUrl) || 
+                      "";
+    if (!audioUrl || typeof audioUrl !== 'string' || !audioUrl.startsWith('http')) {
+        console.log("[BOT] Nenhum URL de áudio válido encontrado no payload.");
+        return null;
+    }
+
+    console.log(`[BOT] Baixando áudio de ${audioUrl}...`);
+    try {
+        const response = await axios.get(audioUrl, { responseType: 'arraybuffer' });
+        const audioBuffer = Buffer.from(response.data);
+        const audioBase64 = audioBuffer.toString('base64');
+        const mimeType = (payload.audio && payload.audio.mimeType) || 'audio/ogg';
+
+        console.log(`[BOT] Enviando áudio (${audioBuffer.length} bytes, ${mimeType}) ao Gemini para transcrição...`);
+        const modelTranscribe = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
+        const prompt = "Transcreva exatamente o áudio enviado pelo cliente em português do Brasil. Não acrescente comentários, tags ou introduções. Se o áudio estiver em silêncio ou totalmente incompreensível, responda apenas com '[Áudio incompreensível]'.";
+        
+        const result = await modelTranscribe.generateContent([
+            {
+                inlineData: {
+                    data: audioBase64,
+                    mimeType: mimeType.split(';')[0].trim() // Limpar parâmetros adicionais do mimeType se houver
+                }
+            },
+            { text: prompt }
+        ]);
+
+        const transcricao = result.response.text().trim();
+        console.log(`[BOT] Áudio transcrito com sucesso: "${transcricao}"`);
+        return transcricao;
+    } catch (e) {
+        console.error("❌ [BOT] Erro ao baixar ou transcrever áudio:", e.message);
+        return null;
+    }
+}
+
+// =========================================================================
+// 2. WEBHOOK: RECEBIMENTO DE MENSAGENS DO WHATSAPP (VIA Z-API)
 // =========================================================================
 app.post('/webhook/zapi', async (req, res) => {
     const payload = req.body;
     
-    // Validar se é uma mensagem de entrada de texto
+    // Validar se é uma mensagem de entrada
     if (!payload || !payload.phone || payload.fromMe === true) {
         return res.status(200).send('Ignored: message from me or invalid payload');
     }
@@ -63,18 +108,35 @@ app.post('/webhook/zapi', async (req, res) => {
     console.log("[Z-API] Raw Payload:", JSON.stringify(payload, null, 2));
 
     const phone = payload.phone;
-    const clientMessage = (payload.text && payload.text.message) || 
-                          (payload.message && payload.message.text) || 
-                          payload.value || 
-                          "";
     const clientName = payload.senderName || "Cliente";
+
+    // Detectar se é uma mensagem de áudio/PTT
+    const isAudio = payload.type === 'audio' || payload.type === 'ptt' || (payload.audio && (payload.audio.url || payload.audio.audioUrl));
+    let clientMessage = "";
+    let transcriptionNote = "";
+
+    if (isAudio) {
+        console.log(`[BOT] Detectada mensagem de áudio de ${clientName} (${phone})`);
+        const transcrito = await transcreverAudioZapi(payload, phone, clientName);
+        if (transcrito) {
+            clientMessage = transcrito;
+            transcriptionNote = `📝 *[Transcrição de Áudio]*:\n"${transcrito}"`;
+        } else {
+            clientMessage = "[Áudio enviado pelo cliente - erro na transcrição]";
+        }
+    } else {
+        clientMessage = (payload.text && payload.text.message) || 
+                        (payload.message && payload.message.text) || 
+                        payload.value || 
+                        "";
+    }
 
     if (!clientMessage || clientMessage.trim() === "") {
         console.log(`[BOT] Ignorando mensagem sem conteúdo textual de ${phone}.`);
         return res.status(200).send('OK: Ignored empty message');
     }
 
-    console.log(`[Z-API] Mensagem recebida de ${clientName} (${phone}): "${clientMessage}"`);
+    console.log(`[Z-API] Mensagem processada de ${clientName} (${phone}): "${clientMessage}"`);
 
     // Carregar estado da conversa
     const states = loadStates();
@@ -85,13 +147,24 @@ app.post('/webhook/zapi', async (req, res) => {
             cpf: null,
             crmv: null,
             tipo_cliente: null, // "B2C" ou "B2B"
-            nome_cadastro: null
+            nome_cadastro: null,
+            aguardando_crmv: false
         };
     }
 
     const chatState = states[phone];
 
-    // 1. Tentar identificar o cliente pelo número de telefone caso ainda não esteja identificado
+    // Detecção dinâmica de tom B2B / palavras-chave de veterinário na mensagem
+    const mensagemLower = clientMessage.toLowerCase();
+    const b2bKeywords = ["veterinario", "veterinaria", "médico veterinário", "médica veterinária", "medvet", "crmv", "clinica vet", "consultorio vet", "doutor", "doutora"];
+    const isB2BMention = b2bKeywords.some(keyword => mensagemLower.includes(keyword));
+    if (isB2BMention && chatState.tipo_cliente !== "B2B") {
+        console.log(`[SNC] Identificado tom B2B/Veterinário na mensagem de entrada de ${phone}.`);
+        chatState.tipo_cliente = "B2B";
+        saveStates(states);
+    }
+
+    // 1. Tentar identificar o cliente pelo número de telefone caso ainda não esteja identificado no ERP
     if (!chatState.nome_cadastro && !chatState.tipo_cliente) {
         const cadastroTel = await gestaoclick.buscarCadastroPorTelefone(phone);
         if (cadastroTel && cadastroTel.id) {
@@ -125,24 +198,38 @@ app.post('/webhook/zapi', async (req, res) => {
     // 3. Tentar extrair CRMV da mensagem
     const crmvMatch = clientMessage.match(/crmv\s*[-/]?\s*(?:[a-z]{2})?\s*[-/]?\s*(\d+)/i) || 
                       clientMessage.match(/(\d+)\s*[-/]?\s*crmv/i);
-    if (crmvMatch) {
-        const crmvExtraido = crmvMatch[1];
+    let crmvExtraido = null;
+    if (chatState.aguardando_crmv && clientMessage.trim().match(/^\d{4,6}$/)) {
+        crmvExtraido = clientMessage.trim();
+        console.log(`[SNC] Detectado CRMV numérico bruto na mensagem (aguardando_crmv ativa): ${crmvExtraido}`);
+    } else if (crmvMatch) {
+        crmvExtraido = crmvMatch[1];
+    }
+
+    if (crmvExtraido) {
         console.log(`[SNC] CRMV detectado na mensagem: ${crmvExtraido}`);
         chatState.crmv = crmvExtraido;
+        chatState.tipo_cliente = "B2B"; // Se forneceu CRMV, é B2B!
         
         const cadastroCrmv = await gestaoclick.buscarCadastroPorCRMV(crmvExtraido);
         if (cadastroCrmv && cadastroCrmv.id) {
             chatState.nome_cadastro = cadastroCrmv.nome;
-            chatState.tipo_cliente = cadastroCrmv.tipo_cliente;
-            console.log(`[GESTAOCLICK] Cadastro localizado via CRMV! Nome: ${chatState.nome_cadastro} | Tipo: ${chatState.tipo_cliente}`);
+            chatState.tipo_cliente = "B2B";
+            console.log(`[GESTAOCLICK] Cadastro localizado via CRMV! Nome: ${chatState.nome_cadastro}`);
         } else {
-            console.log(`[GESTAOCLICK] CRMV ${crmvExtraido} não localizado no GestãoClick.`);
+            console.log(`[GESTAOCLICK] CRMV ${crmvExtraido} não localizado no GestãoClick. Mantendo como Veterinário B2B não registrado.`);
         }
+        chatState.aguardando_crmv = false; // Resetar
         saveStates(states);
     }
 
     // Sincronizar a mensagem recebida com o Chatwoot imediatamente
-    await chatwoot.sincronizarMensagemCliente(phone, clientMessage, clientName);
+    await chatwoot.sincronizarMensagemCliente(phone, isAudio ? `[Áudio] ${clientMessage}` : clientMessage, clientName);
+
+    // Se houver uma transcrição de áudio, enviar como Nota Privada no Chatwoot para os atendentes lerem
+    if (transcriptionNote) {
+        await chatwoot.enviarNotaPrivada(phone, transcriptionNote);
+    }
 
     // Se o atendimento estiver com o humano, o bot simplesmente ignora a mensagem
     if (chatState.owner === "human") {
@@ -238,10 +325,19 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
     // --- CHAMADA DA IA (GEMINI) ---
     try {
         const systemInstructionConcise = brandbookContent + "\n" + contextoInjetado + "\n" + 
-`[Diretriz de Concisão e Formatação - CRÍTICO]:
-1. Seja extremamente conciso, direto e simpático. Responda em no máximo 1 ou 2 parágrafos curtos.
-2. Evite listar todos os produtos ou fazer respostas longas e cansativas. Se o cliente pedir opções, cite apenas as 2 ou 3 principais de forma super resumida e pergunte o que ele precisa especificamente.
-3. ATENÇÃO COM NEGRITO NO WHATSAPP: Use SEMPRE apenas um asterisco (*texto*) para negrito no WhatsApp. Nunca use dois asteriscos (**texto**).`;
+`[Diretriz de Concisão, Persona e Formatação - CRÍTICO]:
+1. **Identificação da Persona**:
+   - **Caso B2B (Veterinários)**: Fale como o **Dr. Kyenner (O Diretor Veterinário)**. Use tom técnico, direto, ágil e profissional, mas informal na medida certa (use "vc", "tu", "blza", "tmj", "kkkk").
+     - **Primeira Abordagem / Saudação**: Comece com a sua marca registrada comercial: *"Fala comigo, MedVet por amor!"* ou trate-os por *"Dr." / "Doutora"*.
+     - **Cotação**: Se pedirem preços de vacinas ou medicamentos injetáveis, apresente-os de forma direta e organizada, e pergunte o endereço/CEP: *"Me fale seu endereço pra verificar a disponibilidade de entrega"*. Lembrar de oferecer Frete Grátis se for a primeira compra deles.
+     - **Cadastro**: Se o cliente for B2B e ainda NÃO estiver identificado no CRM, peça educadamente o número do seu **CRMV** para liberar a tabela de atacado para parceiros.
+   - **Caso B2C (Tutores)**: Fale como a **Aika (A Guardiã Mascote)**. Use tom acolhedor, empático, carinhoso e amigável (use emojis como 💜, 🐾).
+     - **Restrição**: Nunca use termos frios ou formais como "Prezado", "Senhor", "Senhora". Pergunte o nome do pet logo no início para personalizar o cuidado.
+     - **Cadastro**: Só peça os dados de CPF e endereço do tutor para faturamento APÓS a cotação ser aceita e ele confirmar que deseja fechar a compra.
+
+2. **Diretriz de Concisão**: Seja direto e simpático. Responda em no máximo 1 ou 2 parágrafos curtos. Evite listar todos os produtos ou fazer respostas longas. Cite apenas as 2 ou 3 principais opções.
+
+3. **Negrito no WhatsApp**: Use SEMPRE apenas um asterisco (*texto*) para negrito. Nunca use dois asteriscos (**texto**).`;
 
         const model = genAI.getGenerativeModel({
             model: "gemini-3.5-flash",
@@ -269,6 +365,14 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
             responseText = chatState.tipo_cliente === 'B2B' ?
                 "Olá! Desculpe a resposta anterior. Seguem as informações técnicas corretas do seu pedido. Como posso agilizar hoje?" :
                 "Oi! Peço desculpas pela mensagem anterior. O que eu mais quero é te ajudar a cuidar do seu animalzinho! Como posso ajudar você e ele agora? 💜";
+        }
+
+        // Se a resposta da IA contém a palavra crmv (de forma a pedir o CRMV), ativamos o estado aguardando_crmv
+        if (responseText.toLowerCase().includes("crmv")) {
+            chatState.aguardando_crmv = true;
+            console.log(`[SNC] Ativado estado aguardando_crmv para o cliente ${phone}.`);
+        } else {
+            chatState.aguardando_crmv = false;
         }
 
         // Salvar a resposta no histórico da IA
