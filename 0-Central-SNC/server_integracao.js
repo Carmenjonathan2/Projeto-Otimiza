@@ -228,6 +228,7 @@ app.post('/webhook/zapi', async (req, res) => {
         crmvExtraido = crmvMatch[1];
     }
 
+    let transferNovoVet = false;
     if (crmvExtraido) {
         console.log(`[SNC] CRMV detectado na mensagem: ${crmvExtraido}`);
         chatState.crmv = crmvExtraido;
@@ -239,7 +240,8 @@ app.post('/webhook/zapi', async (req, res) => {
             chatState.tipo_cliente = "B2B";
             console.log(`[GESTAOCLICK] Cadastro localizado via CRMV! Nome: ${chatState.nome_cadastro}`);
         } else {
-            console.log(`[GESTAOCLICK] CRMV ${crmvExtraido} não localizado no GestãoClick. Mantendo como Veterinário B2B não registrado.`);
+            console.log(`[GESTAOCLICK] CRMV ${crmvExtraido} não localizado no GestãoClick. Preparando transbordo para validação.`);
+            transferNovoVet = true;
         }
         chatState.aguardando_crmv = false; // Resetar
         saveStates(states);
@@ -251,6 +253,21 @@ app.post('/webhook/zapi', async (req, res) => {
     // Se houver uma transcrição de áudio, enviar como Nota Privada no Chatwoot para os atendentes lerem
     if (transcriptionNote) {
         await chatwoot.enviarNotaPrivada(phone, transcriptionNote);
+    }
+
+    // Se for um novo veterinário não cadastrado, fazemos a transferência rápida imediatamente
+    if (transferNovoVet) {
+        chatState.owner = "human";
+        saveStates(states);
+
+        const msgDespedida = `Doutor(a), identifiquei o seu CRMV (${chatState.crmv}), mas notei que você ainda não possui um cadastro ativo de parceiro no nosso sistema. 
+
+Para a nossa segurança regulatória e para liberar a sua tabela especial com descontos de atacado, estou te transferindo agora mesmo para o Dr. Kyenner Oliver (nosso supervisor), que vai fazer a validação do seu registro profissional e finalizar o seu cadastro rapidinho. Só um minutinho, por favor! 🩺`;
+
+        await zapi.enviarMensagemTexto(phone, msgDespedida);
+        await chatwoot.sincronizarMensagemBot(phone, msgDespedida);
+        await chatwoot.solicitarSuporteHumano(phone, clientName, `Validação de cadastro de novo Veterinário (CRMV: ${chatState.crmv})`);
+        return res.status(200).send('OK: Escalated new B2B customer to human');
     }
 
     // Se o atendimento estiver com o humano, o bot simplesmente ignora a mensagem
@@ -351,13 +368,14 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
    - **Caso B2B (Veterinários)**: Fale como o **Dr. Kyenner (O Diretor Veterinário)**. Use tom técnico, direto, ágil e profissional, mas informal na medida certa (use "vc", "tu", "blza", "tmj", "kkkk").
      - **Primeira Abordagem / Saudação**: Comece com a sua marca registrada comercial: *"Fala comigo, MedVet por amor!"* ou trate-os por *"Dr." / "Doutora"*.
      - **Cotação**: Se pedirem preços de vacinas ou medicamentos injetáveis, apresente-os de forma direta e organizada. Em seguida, pergunte se o cliente prefere retirar pessoalmente no nosso escritório na Av. Abílio Machado, 514, Sala 08 ou se prefere que a gente envie por motoboy (se preferirem envio, aí sim peça o endereço/CEP para simular a rota e cotar o frete). Lembrar de oferecer Frete Grátis se for a primeira compra deles.
-     - **Cadastro**: Se o cliente for B2B e ainda NÃO estiver identificado no CRM, peça educadamente o número do seu **CRMV** para liberar a tabela de atacado para parceiros.
+     - **Cadastro**: Se o cliente for B2B e ainda NÃO estiver cadastrado no sistema (não identificado), peça educadamente o número do seu **CRMV** para liberar a tabela de atacado de parceiros (avise que o cadastro profissional passará por validação rápida). Veterinários ativos no sistema são isentos de apresentar receita médica para estoque clínico.
    - **Caso B2C (Tutores)**: Fale como a **Aika (A Guardiã Mascote)**. Use tom acolhedor, empático, carinhoso e amigável (use emojis como 💜, 🐾).
      - **Restrição**: Nunca use termos frios ou formais como "Prezado", "Senhor", "Senhora". Pergunte o nome do pet logo no início para personalizar o cuidado.
      - **Cadastro**: Só peça os dados de CPF e endereço do tutor para faturamento APÓS a cotação ser aceita e ele confirmar que deseja fechar a compra.
 
-2. **Lei de Compliance de Vacinas e Preços (PROIBIDO MISTURAR - LEI SUPREMA)**:
+2. **Lei de Compliance de Receitas, Vacinas e Preços (PROIBIDO MISTURAR - LEI SUPREMA)**:
    - **Para Clientes B2C (Tutores)**:
+     - **EXIGÊNCIA RÍGIDA DE RECEITA**: Para medicamentos controlados (como Metilforan, que exige receita oficial do MAPA) e de alta complexidade (Librela e Cytopoint), é **obrigatório** exigir do tutor a foto ou PDF da receita veterinária assinada no chat antes de finalizar a venda.
      - **PREÇOS DE ATACADO SÃO CONFIDENCIAIS**: Nunca informe preços de vacinas avulsas/custo de veterinário (como R$ 15,90 ou R$ 44,50). É estritamente proibido!
      - **PROIBIDO VENDER VACINA AVULSA**: Diga que, por segurança regulatória, nós não vendemos vacinas soltas para aplicação própria dos tutores.
      - **APENAS VET EM CASA (APLICADO)**: Ofereça apenas o serviço completo de aplicação em domicílio pelo Dr. Kyenner ("Vet em Casa"). Passe exclusivamente os preços da tabela aplicados: *Antirrábica R$ 60,00*, *V8/V9 R$ 70,00*, *V10 R$ 80,00*, *Gripe R$ 90,00*, *Giardia R$ 97,00* (todos com aplicação inclusa). Explique que há uma taxa de deslocamento calculada pelo CEP.
