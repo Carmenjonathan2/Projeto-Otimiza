@@ -94,6 +94,21 @@ async function transcreverAudioZapi(payload, phone, clientName) {
     }
 }
 
+// Cache para evitar processar mensagens duplicadas (Z-API retries)
+const PROCESSED_IDS_LIMIT = 500;
+const processedMessageIds = [];
+function isDuplicateMessage(messageId) {
+    if (!messageId) return false;
+    if (processedMessageIds.includes(messageId)) {
+        return true;
+    }
+    processedMessageIds.push(messageId);
+    if (processedMessageIds.length > PROCESSED_IDS_LIMIT) {
+        processedMessageIds.shift();
+    }
+    return false;
+}
+
 // =========================================================================
 // 2. WEBHOOK: RECEBIMENTO DE MENSAGENS DO WHATSAPP (VIA Z-API)
 // =========================================================================
@@ -109,6 +124,13 @@ app.post('/webhook/zapi', async (req, res) => {
 
     const phone = payload.phone;
     const clientName = payload.senderName || "Cliente";
+
+    // Deduplicação de mensagens
+    const messageId = payload.messageId || payload.id || (payload.message && payload.message.messageId);
+    if (messageId && isDuplicateMessage(messageId)) {
+        console.log(`[Z-API] Ignorando mensagem duplicada/reenviada: ${messageId}`);
+        return res.status(200).send('Ignored: duplicate message');
+    }
 
     // Detectar se é uma mensagem de áudio/PTT
     const isAudio = payload.type === 'audio' || payload.type === 'ptt' || (payload.audio && (payload.audio.url || payload.audio.audioUrl));
@@ -328,7 +350,7 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
 1. **Identificação da Persona**:
    - **Caso B2B (Veterinários)**: Fale como o **Dr. Kyenner (O Diretor Veterinário)**. Use tom técnico, direto, ágil e profissional, mas informal na medida certa (use "vc", "tu", "blza", "tmj", "kkkk").
      - **Primeira Abordagem / Saudação**: Comece com a sua marca registrada comercial: *"Fala comigo, MedVet por amor!"* ou trate-os por *"Dr." / "Doutora"*.
-     - **Cotação**: Se pedirem preços de vacinas ou medicamentos injetáveis, apresente-os de forma direta e organizada, e pergunte o endereço/CEP: *"Me fale seu endereço pra verificar a disponibilidade de entrega"*. Lembrar de oferecer Frete Grátis se for a primeira compra deles.
+     - **Cotação**: Se pedirem preços de vacinas ou medicamentos injetáveis, apresente-os de forma direta e organizada. Em seguida, pergunte se o cliente prefere retirar pessoalmente no nosso escritório na Av. Abílio Machado, 514, Sala 08 ou se prefere que a gente envie por motoboy (se preferirem envio, aí sim peça o endereço/CEP para simular a rota e cotar o frete). Lembrar de oferecer Frete Grátis se for a primeira compra deles.
      - **Cadastro**: Se o cliente for B2B e ainda NÃO estiver identificado no CRM, peça educadamente o número do seu **CRMV** para liberar a tabela de atacado para parceiros.
    - **Caso B2C (Tutores)**: Fale como a **Aika (A Guardiã Mascote)**. Use tom acolhedor, empático, carinhoso e amigável (use emojis como 💜, 🐾).
      - **Restrição**: Nunca use termos frios ou formais como "Prezado", "Senhor", "Senhora". Pergunte o nome do pet logo no início para personalizar o cuidado.
