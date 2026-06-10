@@ -1,0 +1,104 @@
+{
+  "posting_time": "2026-06-24 09:00",
+  "dia_nome": "Quarta",
+  "titulo_pin": "Cognição Canina: Sinais da 'Demência' em Pets Idosos",
+  "descricao_pin": "Seu cão idoso troca o dia pela noite ou fica desorientado? Conheça a Síndrome de Disfunção Cognitiva (SDC), popularmente chamada de Alzheimer canino, e saiba como melhorar a qualidade de vida do seu pet sênior. #cãesidosos #saudepet #demenciacanina #otimizafarmavet",
+  "whatsapp_link": "https://wa.me/5531987936822?text=Olá! Vim pelo Pinterest e gostaria de saber sobre suplementos para cães idosos e saúde cerebral.",
+  "infographic_data": {
+    "header": {
+      "title": "Cognição Canina: Sinais da 'Demência' em Pets Idosos",
+      "subtitle": "ENTENDA A SÍNDROME DE DISFUNÇÃO COGNITIVA (SDC)",
+      "category": "IDOSOS",
+      "schedule": "QUARTA, 24 DE JUNHO | 09:00"
+    },
+    "columns": [
+      {
+        "title": "Sinais Clínicos",
+        "type": "diagram",
+        "icon": "check",
+        "description": "Sintomas que indicam declínio cognitivo em cães",
+        "content": {
+          "nodes": [
+            {
+              "label": "Desorientação",
+              "desc": "Cão fica preso em cantos, encara paredes ou parece perdido."
+            },
+            {
+              "label": "Troca de Sono",
+              "desc": "Vaga e chora pela noite, dorme profundamente durante o dia."
+            },
+            {
+              "label": "Perda de Hábitos",
+              "desc": "Urina em locais incorretos e esquece comandos básicos."
+            }
+          ]
+        }
+      },
+      {
+        "title": "SDC vs Velhice",
+        "type": "table",
+        "icon": "compare",
+        "description": "Comparativo entre envelhecimento normal e demência",
+        "content": {
+          "headers": [
+            "Comportamento",
+            "Envelhecimento Saudável",
+            "Disfunção Cognitiva (SDC)"
+          ],
+          "rows": [
+            {
+              "comportamento": "Interação Social",
+              "saudavel": "Ligeiramente mais quieto",
+              "sdc": "Ignora visitas e evita carinho"
+            },
+            {
+              "comportamento": "Rotina bucal/sono",
+              "saudavel": "Dorme um pouco mais",
+              "sdc": "Insônia noturna com choro"
+            },
+            {
+              "comportamento": "Reconhecimento",
+              "saudavel": "Reconhece a família e rotina",
+              "sdc": "Assusta-se com pessoas próximas"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Como Tratar",
+        "type": "flowchart",
+        "icon": "bulb",
+        "description": "Abordagens para retardar o avanço da demência",
+        "content": {
+          "steps": [
+            {
+              "step": "Alimentação Mental",
+              "options": [
+                "Suplementação de Antioxidantes",
+                "Ácidos graxos essenciais (DHA)"
+              ]
+            },
+            {
+              "step": "Enriquecimento",
+              "options": [
+                "Brinquedos de farejar",
+                "Caminhadas em rotas novas"
+              ]
+            },
+            {
+              "step": "Adaptação na Casa",
+              "options": [
+                "Evitar mudar móveis de lugar",
+                "Colocar tapetes antiderrapantes"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "footer": {
+      "cta_text": "Dúvidas? Chame no WhatsApp!",
+      "hashtags": "#saudepet #otimizafarmavet"
+    }
+  }
+}

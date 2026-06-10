@@ -1,0 +1,132 @@
+{
+  "versao": "5.0",
+  "ultima_atualizacao": "2026-05-06T12:00:00Z",
+  "atualizado_por": "Antigravity",
+  "secoes": [
+    {
+      "id": "sec_mkt",
+      "titulo": "🚀 Marketing Visual & Social",
+      "descricao": "Instagram (Claude), TikTok, YouTube, Pinterest, LinkedIn, Blog e Ads."
+    },
+    {
+      "id": "sec_prospeccao",
+      "titulo": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "descricao": "Pipeline de Aquisição: Busca -> Qualificação (17h) -> Automação."
+    },
+    {
+      "id": "sec_ltv",
+      "titulo": "🔄 LTV & Fidelização",
+      "descricao": "Reativação de Recompra, Aniversários e Chronics Case."
+    },
+    {
+      "id": "sec_shopify",
+      "titulo": "🛒 Shopify & E-commerce",
+      "descricao": "Vitrine Virtual, Promoções e Gestão de Vendas B2C/B2B."
+    },
+    {
+      "id": "sec_snc",
+      "titulo": "🧠 Sistema Nervoso Central (SNC)",
+      "descricao": "Gestão de Emoção, Tom de Voz, Sensores (Métricas) e Reflexos (Gatilhos)."
+    }
+  ],
+  "tarefas": [
+    {
+      "id": "snc_001",
+      "titulo": "Implementação dos Sensores de Adesão",
+      "descricao": "Criar script para medir taxa de resposta e abandono emocional.",
+      "coluna": "motor",
+      "tags": ["SNC", "Métricas", "IA"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "snc_002",
+      "titulo": "Reflexos de Antecipação e Transbordo",
+      "descricao": "Hooks em Shopify/WhatsApp para lembretes automáticos e acionamento humano em emergências.",
+      "coluna": "motor",
+      "tags": ["SNC", "Gatilhos"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "snc_003",
+      "titulo": "Auditoria Semanal SNC (Crítico de Arte)",
+      "descricao": "Consolidar logs e rodar prompt de avaliação de afeto/tom com Gemini.",
+      "coluna": "cofre",
+      "tags": ["SNC", "Auditoria"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi"
+    },
+      "id": "ig_001",
+      "titulo": "Instagram Engine (Claude)",
+      "descricao": "Carrossel, Status e Reels em produção pelo Claude Code.",
+      "coluna": "motor",
+      "tags": ["Social", "Claude"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "auto"
+    },
+    {
+      "id": "li_001",
+      "titulo": "LinkedIn Carmen CEO",
+      "descricao": "Postagens estratégicas 3x/semana (sem emojis).",
+      "coluna": "motor",
+      "tags": ["B2B", "LinkedIn"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "auto"
+    },
+    {
+      "id": "gm_001",
+      "titulo": "GMB Local Authority",
+      "descricao": "Migração para API Oficial v1 e posts automáticos.",
+      "coluna": "gargalo",
+      "tags": ["GMB", "API"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "semi"
+    },
+    {
+      "id": "tk_001",
+      "titulo": "TikTok UGC Automation",
+      "descricao": "Pipeline 100% automático de vídeos IA para Dropshipping.",
+      "coluna": "gargalo",
+      "tags": ["UGC", "TikTok"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "semi"
+    },
+    {
+      "id": "pr_001",
+      "titulo": "IA Qualificador 17h",
+      "descricao": "Triagem estratégica de leads Aika vs Kyenner.",
+      "coluna": "motor",
+      "tags": ["Vendas", "IA"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "autonomia": "auto"
+    },
+    {
+      "id": "pr_002",
+      "titulo": "Monitor de Concorrentes",
+      "descricao": "Extração de preços Petz/Cobasi via Puppeteer.",
+      "coluna": "motor",
+      "tags": ["Preços", "Web"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "autonomia": "auto"
+    },
+    {
+      "id": "ltv_001",
+      "titulo": "Aniversários Aika",
+      "descricao": "Gestão de presentes e parabéns automáticos.",
+      "coluna": "motor",
+      "tags": ["Fidelização", "WA"],
+      "projeto": "🔄 LTV & Fidelização",
+      "autonomia": "auto"
+    },
+    {
+      "id": "sh_001",
+      "titulo": "Vitrine Virtual Semana",
+      "descricao": "Geração de flyers promocionais para Status.",
+      "coluna": "gargalo",
+      "tags": ["Shopify", "Design"],
+      "projeto": "🛒 Shopify & E-commerce",
+      "autonomia": "semi"
+    }
+  ]
+}

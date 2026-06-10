@@ -1,0 +1,104 @@
+{
+  "posting_time": "2026-07-01 09:00",
+  "dia_nome": "Quarta",
+  "titulo_pin": "O Sexto Sentido dos Pets: Como eles Percebem o Mundo",
+  "descricao_pin": "Como cães e gatos percebem o ambiente? Conheça os incríveis sentidos aguçados dos pets, desde a audição ultrassônica até a detecção de mudanças barométricas antes de tempestades. #sentidospet #curiosidadesanimais #otimizafarmavet",
+  "whatsapp_link": "https://wa.me/5531987936822?text=Olá! Vim pelo Pinterest e gostaria de saber mais sobre comportamento e bem-estar dos pets.",
+  "infographic_data": {
+    "header": {
+      "title": "O Sexto Sentido dos Pets: Como eles Percebem o Mundo",
+      "subtitle": "A INCRÍVEL BIOLOGIA DOS SENTIDOS DE CÃES E GATOS",
+      "category": "CURIOSIDADES",
+      "schedule": "QUARTA, 01 DE JULHO | 09:00"
+    },
+    "columns": [
+      {
+        "title": "Super Sentidos",
+        "type": "diagram",
+        "icon": "check",
+        "description": "Capacidades sensoriais muito superiores às humanas",
+        "content": {
+          "nodes": [
+            {
+              "label": "Super Olfato",
+              "desc": "Cães possuem até 300 milhões de receptores olfativos na trufa."
+            },
+            {
+              "label": "Audição Aguçada",
+              "desc": "Gatos escutam frequências inaudíveis para nós (ultrassons)."
+            },
+            {
+              "label": "Tapete Lúcido",
+              "desc": "Membrana ocular que reflete luz e otimiza visão na penumbra."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Percepções",
+        "type": "table",
+        "icon": "compare",
+        "description": "Coisas incríveis que os pets conseguem detectar",
+        "content": {
+          "headers": [
+            "Fenômeno",
+            "Como Detectam",
+            "Reação do Pet"
+          ],
+          "rows": [
+            {
+              "fenomeno": "Tempestades",
+              "como": "Queda na pressão barométrica",
+              "reacao": "Busca abrigo / Fica inquieto"
+            },
+            {
+              "fenomeno": "Diabetes / Crise",
+              "como": "Odores químicos na pele",
+              "reacao": "Lamber ou alertar tutor"
+            },
+            {
+              "fenomeno": "Emoções",
+              "como": "Leitura de microexpressões",
+              "reacao": "Aproximação afetiva"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Como Apoiar",
+        "type": "flowchart",
+        "icon": "bulb",
+        "description": "Cuidados para respeitar a sensibilidade do pet",
+        "content": {
+          "steps": [
+            {
+              "step": "Estímulos Olfativos",
+              "options": [
+                "Deixar cheirar no passeio",
+                "Farejamento de petiscos"
+              ]
+            },
+            {
+              "step": "Proteção Auditiva",
+              "options": [
+                "Evitar som muito alto em casa",
+                "Proteger de fogos de artifício"
+              ]
+            },
+            {
+              "step": "Ambiente Calmo",
+              "options": [
+                "Evitar luzes piscantes",
+                "Respeitar sonecas no escuro"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "footer": {
+      "cta_text": "Dúvidas? Chame no WhatsApp!",
+      "hashtags": "#saudepet #otimizafarmavet"
+    }
+  }
+}

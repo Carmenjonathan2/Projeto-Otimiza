@@ -1,0 +1,81 @@
+[LOG] [28/04/2026 12:04:17] - ⏳ Aguardando 6189ms (Jitter Multi-Conta: otimiza)...
+[LOG] [28/04/2026 12:04:24] - 
+--- 🕒 Ciclo Iniciado: 28/04/2026 12:04 ---
+[LOG] [28/04/2026 12:04:24] - Token não encontrado ou expirado. Você precisa gerar um novo token.
+[LOG] [28/04/2026 12:04:24] - Autorize visitando: https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fspreadsheets%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.send%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.modify&response_type=code&client_id=498592949707-bds8kks4qghsv8hevcqliv5ruf1bv300.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth2callback
+[LOG] [28/04/2026 12:07:02] - Token salvo em: C:\Users\jonat\OneDrive\Desktop\Projeto Otimiza\cold-email-automation\token_otimiza.json
+[ERR] [28/04/2026 12:07:03] - Erro ao ler planilha: The caller does not have permission
+[LOG] [28/04/2026 12:07:03] - 🔍 Verificando respostas...
+[LOG] [28/04/2026 12:07:06] - 
+✅ Ciclo Finalizado! Total do dia: 0 Quebra-gelo | 0 Bumps
+[LOG] [28/04/2026 12:12:58] - ⏳ Aguardando 5227ms (Jitter Multi-Conta: otimiza)...
+[LOG] [28/04/2026 12:13:03] - 
+--- 🕒 Ciclo Iniciado: 28/04/2026 12:13 ---
+[LOG] [28/04/2026 12:13:04] - 🔍 Verificando respostas...
+[LOG] [28/04/2026 12:13:07] - ✉️ Processando Novo Lead: Responsável [Envio Novo #1]
+[LOG] [28/04/2026 12:13:07] - 🌐 Buscando no Google Maps: 'TRS - Gestão de Condomínios R. Rio Grande do Norte, 1436 - Savassi, Belo Horizonte - MG, 30130-138'...
+[LOG] [28/04/2026 12:13:09] - ⭐ Avaliação Encontrada (5): "Síndico profissional de altíssimo nível...."
+[LOG] [28/04/2026 12:13:20] - ✅ E-mail enviado (Opção A)! Thread ID: 19dd4a6e4996762b
+[LOG] [28/04/2026 12:13:21] - 🔹 Lead [2] atualizado: Enviado
+[LOG] [28/04/2026 12:13:29] - ✉️ Processando Novo Lead: Responsável [Envio Novo #2]
+[LOG] [28/04/2026 12:13:29] - 🌐 Buscando no Google Maps: 'Pilotis Administradora R. Nhanduti, 22 - Caiçaras, Belo Horizonte - MG, 30770-370'...
+[LOG] [28/04/2026 12:13:30] - ⭐ Avaliação Encontrada (4.6): "Estamos a 7 meses com eles e a diferença..."
+[LOG] [28/04/2026 12:13:41] - ✅ E-mail enviado (Opção B)! Thread ID: 19dd4a7365a96bc3
+[LOG] [28/04/2026 12:13:42] - 🔹 Lead [3] atualizado: Enviado
+[LOG] [28/04/2026 12:13:50] - ✉️ Processando Novo Lead: Responsável [Envio Novo #3]
+[LOG] [28/04/2026 12:13:50] - 🌐 Buscando no Google Maps: 'Assertbh - Gestão de Condomínios BH - Administradora de condomínio R. Padre Eustáquio, 2912 - Sala 305 - Padre Eustáquio, Belo Horizonte - MG, 30720-100'...
+[LOG] [28/04/2026 12:13:51] - ⭐ Avaliação Encontrada (3.9): "Sou proprietária de uma unidade administ..."
+[LOG] [28/04/2026 12:14:02] - ✅ E-mail enviado (Opção A)! Thread ID: 19dd4a789ac7f00e
+[LOG] [28/04/2026 12:14:03] - 🔹 Lead [4] atualizado: Enviado
+[LOG] [28/04/2026 12:14:11] - ✉️ Processando Novo Lead: Responsável [Envio Novo #4]
+[LOG] [28/04/2026 12:14:11] - 🌐 Buscando no Google Maps: 'SSC Administradora de Condomínio,Sindico Profissional,Castelo,Pampulha,Ouro Preto R. Castelo da Feira, 272 - Castelo, Belo Horizonte - MG, 31330-030'...
+[LOG] [28/04/2026 12:14:12] - ⭐ Nota Local Localizada: 5
+[LOG] [28/04/2026 12:14:25] - ✅ E-mail enviado (Opção A)! Thread ID: 19dd4a7e23a16f0e
+[LOG] [28/04/2026 12:14:25] - 🔹 Lead [5] atualizado: Enviado
+[LOG] [28/04/2026 12:14:33] - ✉️ Processando Novo Lead: Responsável [Envio Novo #5]
+[LOG] [28/04/2026 12:14:33] - 🌐 Buscando no Google Maps: 'Grupo ACE - Administradora de Condomínios e Serviços em BH Rua Dona Leonídia Leite, 67 - Floresta, Belo Horizonte - MG, 31015-300'...
+[LOG] [28/04/2026 12:14:35] - ⭐ Avaliação Encontrada (4.3): "O Grupo ACE demonstra alto nível de prof..."
+[LOG] [28/04/2026 12:14:46] - ✅ E-mail enviado (Opção B)! Thread ID: 19dd4a8376ca26cb
+[LOG] [28/04/2026 12:14:47] - 🔹 Lead [6] atualizado: Enviado
+[LOG] [28/04/2026 12:14:55] - ✉️ Processando Novo Lead: Responsável [Envio Novo #6]
+[LOG] [28/04/2026 12:14:55] - 🌐 Buscando no Google Maps: 'Innova BH - Administradora de Condomínios Av. Álvares Cabral, 344 - sala 705 - Centro, Belo Horizonte - MG, 30170-911'...
+[LOG] [28/04/2026 12:14:56] - ⭐ Avaliação Encontrada (4.5): "Me auxiliaram em todos os detalhes na ad..."
+[LOG] [28/04/2026 12:15:06] - ✅ E-mail enviado (Opção B)! Thread ID: 19dd4a8802623bc6
+[LOG] [28/04/2026 12:15:06] - 🔹 Lead [7] atualizado: Enviado
+[LOG] [28/04/2026 12:15:14] - ✉️ Processando Novo Lead: Responsável [Envio Novo #7]
+[LOG] [28/04/2026 12:15:14] - 🌐 Buscando no Google Maps: 'PACTO ADMINISTRADORA (Matriz) Rua dos Timbiras, 638 - Funcionários, Belo Horizonte - MG, 30140-068'...
+[LOG] [28/04/2026 12:15:15] - ⭐ Avaliação Encontrada (3.8): "Espetacular, atendimento nota 10, tirou ..."
+[LOG] [28/04/2026 12:15:28] - ✅ E-mail enviado (Opção B)! Thread ID: 19dd4a8d97509ab5
+[LOG] [28/04/2026 12:15:29] - 🔹 Lead [8] atualizado: Enviado
+[LOG] [28/04/2026 12:15:37] - ✉️ Processando Novo Lead: Responsável [Envio Novo #8]
+[LOG] [28/04/2026 12:15:37] - 🌐 Buscando no Google Maps: 'Real Administradora de Condomínios Av. Raja Gabáglia, 3502 - 2° e 3° andares - Estoril, Belo Horizonte - MG, 30494-310'...
+[LOG] [28/04/2026 12:15:38] - ⭐ Avaliação Encontrada (4.4): "Se alguém estiver cogitando contratar es..."
+[LOG] [28/04/2026 12:16:05] - ✅ E-mail enviado (Opção B)! Thread ID: 19dd4a963eefb90a
+[LOG] [28/04/2026 12:16:07] - 🔹 Lead [9] atualizado: Enviado
+[LOG] [28/04/2026 12:16:15] - ✉️ Processando Novo Lead: Responsável [Envio Novo #9]
+[LOG] [28/04/2026 12:16:15] - 🌐 Buscando no Google Maps: 'Agis Gestão Condominial - Administradora de condomínios R. da Bahia, 1345 - 14º andar - Lourdes, Belo Horizonte - MG, 30160-017'...
+[LOG] [28/04/2026 12:16:17] - ⭐ Avaliação Encontrada (4.2): "A Agis está conosco praticamente desde q..."
+[LOG] [28/04/2026 12:16:42] - ✅ E-mail enviado (Opção B)! Thread ID: 19dd4a9fafcedb7d
+[LOG] [28/04/2026 12:16:43] - 🔹 Lead [10] atualizado: Enviado
+[ERR] [28/04/2026 12:16:51] - Erro ao resolver MX para 2x.png: queryMx ENOTFOUND 2x.png
+[LOG] [28/04/2026 12:16:54] - ⚠️ E-mail inválido (Domínio inexistente ou inacessível): Logos-Ahava-Gestao-Condominial-e-Corretora@2x.png - Lead: Responsável
+[LOG] [28/04/2026 12:16:55] - 🔹 Lead [11] atualizado: E-mail Inválido
+[LOG] [28/04/2026 12:16:55] - ✉️ Processando Novo Lead: Responsável [Envio Novo #10]
+[LOG] [28/04/2026 12:16:55] - 🌐 Buscando no Google Maps: 'MultServis Administradora de Condomínios e Síndicos Profissionais R. Marabá, 55 - Santo Antônio, Belo Horizonte - MG, 30350-160'...
+[LOG] [28/04/2026 12:17:07] - ⭐ Avaliação Encontrada (3.7): "Prezada MultServis,
+
+Gostaria de registr..."
+[LOG] [28/04/2026 12:17:28] - ✅ E-mail enviado (Opção A)! Thread ID: 19dd4aaa9573b306
+[LOG] [28/04/2026 12:17:30] - 🔹 Lead [12] atualizado: Enviado
+[LOG] [28/04/2026 12:17:38] - ✉️ Processando Novo Lead: Responsável [Envio Novo #11]
+[LOG] [28/04/2026 12:17:38] - 🌐 Buscando no Google Maps: 'Próspera Administradora R. Malacacheta, 150 - Carlos Prates, Belo Horizonte - MG, 31035-490'...
+[LOG] [28/04/2026 12:17:41] - ⭐ Avaliação Encontrada (4.5): "Excelente, a PRÓSPERA foi a melhor admin..."
+[LOG] [28/04/2026 12:17:52] - ✅ E-mail enviado (Opção B)! Thread ID: 19dd4ab0b65d7221
+[LOG] [28/04/2026 12:17:53] - 🔹 Lead [13] atualizado: Enviado
+[LOG] [28/04/2026 12:18:01] - ✉️ Processando Novo Lead: Responsável [Envio Novo #12]
+[LOG] [28/04/2026 12:18:01] - 🌐 Buscando no Google Maps: 'VMJ IMOVEIS LTDA Av. Olinto Meireles, 1574 - Sala 810 - Milionários, Belo Horizonte - MG, 30620-330'...
+[LOG] [28/04/2026 12:18:03] - ⭐ Avaliação Encontrada (5): "A VMJ Imóveis se destaca como uma empres..."
+[LOG] [28/04/2026 12:18:17] - ✅ E-mail enviado (Opção B)! Thread ID: 19dd4ab6d5fc4d1b
+[LOG] [28/04/2026 12:18:17] - 🔹 Lead [14] atualizado: Enviado
+[LOG] [28/04/2026 12:18:25] - 
+✅ Ciclo Finalizado! Total do dia: 12 Quebra-gelo | 0 Bumps

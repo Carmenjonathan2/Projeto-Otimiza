@@ -1,0 +1,104 @@
+{
+  "posting_time": "2026-06-15 09:00",
+  "dia_nome": "Segunda",
+  "titulo_pin": "Mitos e Verdades sobre a Alimentação Crua (BARF)",
+  "descricao_pin": "Dieta Natural Crua (BARF) para cães e gatos: mitos e verdades. Saiba os reais benefícios para pelagem e digestão e os cuidados higiênicos essenciais que você deve ter antes de iniciar. #dietabarf #alimentacaonaturalpet #otimizafarmavet",
+  "whatsapp_link": "https://wa.me/5531987936822?text=Olá! Vim pelo Pinterest e gostaria de tirar dúvidas sobre alimentação natural para meu pet.",
+  "infographic_data": {
+    "header": {
+      "title": "Mitos e Verdades sobre a Alimentação Crua (BARF)",
+      "subtitle": "ENTENDA OS PRÓS E CONTRAS DA DIETA NATURAL CRUA",
+      "category": "NUTRIÇÃO",
+      "schedule": "SEGUNDA, 15 DE JUNHO | 09:00"
+    },
+    "columns": [
+      {
+        "title": "O que é?",
+        "type": "diagram",
+        "icon": "check",
+        "description": "Composição básica da dieta biologicamente adequada",
+        "content": {
+          "nodes": [
+            {
+              "label": "Carnes e Ossos",
+              "desc": "Ossos carnudos crus de aves ou suínos."
+            },
+            {
+              "label": "Vísceras e Órgãos",
+              "desc": "Fontes ricas em vitaminas lipossolúveis."
+            },
+            {
+              "label": "Vegetais e Suplementos",
+              "desc": "Fibras, minerais e óleos essenciais saudáveis."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Mitos e Verdades",
+        "type": "table",
+        "icon": "compare",
+        "description": "Esclarecendo as dúvidas mais comuns sobre dieta crua",
+        "content": {
+          "headers": [
+            "Afirmação",
+            "Classificação",
+            "Explicação"
+          ],
+          "rows": [
+            {
+              "afirmacao": "Limpa os dentes",
+              "class": "Verdade",
+              "expl": "A mastigação de ossos crus ajuda a remover mecanicamente a placa bucal."
+            },
+            {
+              "afirmacao": "Transmite bactérias",
+              "class": "Verdade",
+              "expl": "Exige higiene rigorosa no preparo e congelamento profilático para evitar salmonela."
+            },
+            {
+              "afirmacao": "Qualquer carne serve",
+              "class": "Mito",
+              "expl": "Exige balanceamento feito por nutrólogo veterinário para evitar desnutrição."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Como Iniciar",
+        "type": "flowchart",
+        "icon": "bulb",
+        "description": "Passos essenciais para uma transição alimentar segura",
+        "content": {
+          "steps": [
+            {
+              "step": "Exames de Rotina",
+              "options": [
+                "Hemograma",
+                "Função renal e hepática"
+              ]
+            },
+            {
+              "step": "Transição Lenta",
+              "options": [
+                "Cozido para semi-cru",
+                "Cru final formulado"
+              ]
+            },
+            {
+              "step": "Manejo Seguro",
+              "options": [
+                "Congelamento prévio",
+                "Desinfecção de utensílios"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "footer": {
+      "cta_text": "Dúvidas? Chame no WhatsApp!",
+      "hashtags": "#saudepet #otimizafarmavet"
+    }
+  }
+}

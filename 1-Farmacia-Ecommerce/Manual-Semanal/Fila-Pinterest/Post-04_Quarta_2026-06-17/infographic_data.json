@@ -1,0 +1,104 @@
+{
+  "posting_time": "2026-06-17 09:00",
+  "dia_nome": "Quarta",
+  "titulo_pin": "Cuidados com Gatos Brancos: O Risco do Câncer de Pele",
+  "descricao_pin": "A exposição solar sem proteção é perigosa para felinos de pelagem branca. Saiba como identificar os sinais precoces do Carcinoma Espinocelular e como proteger o nariz e orelhas do seu gato com filtro solar pet. #gatosbrancos #dermatologiafelina #otimizafarmavet",
+  "whatsapp_link": "https://wa.me/5531987936822?text=Olá! Vim pelo Pinterest e gostaria de cotar filtro solar pet ou marcar consulta.",
+  "infographic_data": {
+    "header": {
+      "title": "Cuidados com Gatos Brancos: O Risco do Câncer de Pele",
+      "subtitle": "PROTEÇÃO SOLAR E CUIDADOS DERMATOLÓGICOS",
+      "category": "SAÚDE",
+      "schedule": "QUARTA, 17 DE JUNHO | 09:00"
+    },
+    "columns": [
+      {
+        "title": "Áreas em Risco",
+        "type": "diagram",
+        "icon": "check",
+        "description": "Zonas desprovidas de melanina e pelos",
+        "content": {
+          "nodes": [
+            {
+              "label": "Orelhas",
+              "desc": "Bordas finas e com pouca cobertura de pelos."
+            },
+            {
+              "label": "Focinho / Nariz",
+              "desc": "Pele rosada e exposta diretamente ao sol."
+            },
+            {
+              "label": "Pálpebras",
+              "desc": "Pele extremamente delicada e sensível."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Sintomas",
+        "type": "table",
+        "icon": "compare",
+        "description": "Evolução clínica do Carcinoma Espinocelular",
+        "content": {
+          "headers": [
+            "Estágio",
+            "Aparência",
+            "Gravidade"
+          ],
+          "rows": [
+            {
+              "estagio": "Inicial",
+              "aparencia": "Vermelhidão leve, descamação nas pontas",
+              "grav": "Leve - Fácil reversão"
+            },
+            {
+              "estagio": "Intermediário",
+              "aparencia": "Feridas pequenas que não cicatrizam",
+              "grav": "Moderada - Exige biópsia"
+            },
+            {
+              "estagio": "Avançado",
+              "aparencia": "Ulcerações profundas e sangramento",
+              "grav": "Grave - Cirúrgico"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Proteção",
+        "type": "flowchart",
+        "icon": "bulb",
+        "description": "Rotina diária para prevenir queimaduras solares",
+        "content": {
+          "steps": [
+            {
+              "step": "Filtro Solar Pet",
+              "options": [
+                "Uso diário nas áreas rosadas",
+                "FPS específico para pets"
+              ]
+            },
+            {
+              "step": "Restrição Solar",
+              "options": [
+                "Manter dentro de casa",
+                "Horário crítico: 10h às 16h"
+              ]
+            },
+            {
+              "step": "Barreiras UV",
+              "options": [
+                "Películas em janelas",
+                "Áreas de sombra na casa"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "footer": {
+      "cta_text": "Dúvidas? Chame no WhatsApp!",
+      "hashtags": "#saudepet #otimizafarmavet"
+    }
+  }
+}

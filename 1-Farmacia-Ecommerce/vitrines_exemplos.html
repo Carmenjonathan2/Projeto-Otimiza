@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase Otimiza - Mivo Style Masterclass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================
+           1. MIVO PREMIUM CORE STYLE & DESIGN SYSTEM
+           ========================================== */
+        :root {
+            /* Brand Colors: Otimiza */
+            --roxo-intenso: #470C51;
+            --roxo-medio: #701C7F;
+            --roxo-glow: rgba(71, 12, 81, 0.15);
+            --lilas-medio: #C48BCE;
+            --lilas-suave: #EACFF0;
+            --lilas-off-white: #F8EEFA;
+            --amarelo-dourado: #FFB800;
+            --amarelo-neon: #FFE600;
+            --branco-puro: #FFFFFF;
+            
+            /* UI Defaults */
+            --bg-body: #FAF7FC;
+            --card-radius: 28px; /* Mivo style uses large playful roundings */
+            --pill-radius: 50px;
+            --shadow-premium: 0 10px 30px -10px rgba(71, 12, 81, 0.12);
+            --shadow-hover: 0 20px 45px -15px rgba(71, 12, 81, 0.22);
+            --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition-smooth: all 0.3s ease;
+        }
+
+        /* Base Reset & Styling */
+        body {
+            font-family: 'Outfit', 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-body);
+            color: #333333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* Highlight highlight text squiggles (doodles/noodles) */
+        .highlight-accent {
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .squiggle-svg {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .underline-squiggle {
+            bottom: -8px;
+            height: 12px;
+        }
+
+        .circle-squiggle {
+            top: -10px;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+        }
+
+        /* Squiggle Stroke Animations */
+        .squiggle-path {
+            stroke: var(--amarelo-dourado);
+            stroke-width: 4;
+            stroke-linecap: round;
+            fill: none;
+            stroke-dasharray: 600;
+            stroke-dashoffset: 600;
+            animation: draw-squiggle 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes draw-squiggle {
+            to { stroke-dashoffset: 0; }
+        }
+
+
+        /* ==========================================
+           2. MULTI-LAYERED PARALLAX WAVY DIVIDERS (NOODLES)
+           ========================================== */
+        .mivo-waves-separator {
+            position: relative;
+            width: 100%;
+            height: 140px;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 8;
+        }
+
+        .mivo-waves-separator svg {
+            position: absolute;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            fill: none;
+        }
+
+        /* Swaying parallax wave layers */
+        .wave-layer-1 {
+            bottom: 0;
+            fill: var(--lilas-off-white);
+            opacity: 0.95;
+            animation: wave-sway 18s linear infinite;
+        }
+
+        .wave-layer-2 {
+            bottom: -5px;
+            fill: var(--lilas-suave);
+            opacity: 0.5;
+            animation: wave-sway-reverse 12s linear infinite;
+        }
+
+        .wave-layer-3 {
+            bottom: -10px;
+            fill: var(--roxo-glow);
+            opacity: 0.3;
+            animation: wave-sway 8s linear infinite;
+        }
+
+        .wave-divider-top {
+            transform: rotate(180deg);
+            margin-top: -1px;
+        }
+
+        @keyframes wave-sway {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-25%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes wave-sway-reverse {
+            0% { transform: translateX(-50%); }
+            50% { transform: translateX(-25%); }
+            100% { transform: translateX(0); }
+        }
+
+
+        /* ==========================================
+           3. SLIDING SHOPPING CART DRAWER (GLASSMORPHIC)
+           ========================================== */
+        .cart-drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(71, 12, 81, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .cart-drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 100%;
+            max-width: 420px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-left: 2px solid rgba(255, 255, 255, 0.6);
+            z-index: 2001;
+            box-shadow: -15px 0 40px rgba(71, 12, 81, 0.15);
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .cart-drawer.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 30px;
+            border-bottom: 1.5px dashed var(--lilas-suave);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-title {
+            color: var(--roxo-intenso);
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-close-btn {
+            background: var(--lilas-off-white);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: var(--roxo-intenso);
+            transition: var(--transition-smooth);
+        }
+
+        .cart-close-btn:hover {
+            background: var(--roxo-intenso);
+            color: white;
+        }
+
+        .cart-items-list {
+            flex: 1;
+            padding: 24px 30px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .empty-cart-state {
+            text-align: center;
+            margin: auto;
+            color: var(--roxo-medio);
+            opacity: 0.6;
+        }
+
+        .empty-cart-state svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+
+        /* Cart Card */
+        .cart-item-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 16px;
+            border-radius: 20px;
+            border: 1.5px solid var(--lilas-suave);
+            box-shadow: 0 4px 15px rgba(71, 12, 81, 0.03);
+            transition: var(--transition-smooth);
+        }
+
+        .cart-item-card:hover {
+            border-color: var(--lilas-medio);
+            transform: translateY(-2px);
+        }
+
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: var(--lilas-off-white);
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-item-img svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            color: var(--roxo-intenso);
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .cart-item-price {
+            color: var(--roxo-medio);
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            border: 1.5px solid var(--lilas-suave);
+            border-radius: 50px;
+            background: var(--lilas-off-white);
+            padding: 2px;
+        }
+
+        .cart-item-btn {
+            border: none;
+            background: none;
+            width: 24px;
+            height: 24px;
+            font-weight: bold;
+            color: var(--roxo-intenso);
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .cart-item-btn:hover {
+            background: var(--lilas-suave);
+        }
+
+        .cart-item-qty {
+            width: 28px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--roxo-intenso);
+        }
+
+        .cart-footer {
+            padding: 30px;
+            border-top: 1.5px dashed var(--lilas-suave);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .cart-summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--roxo-intenso);
+            margin-bottom: 20px;
+        }
+
+        .cart-total-value {
+            font-size: 1.4rem;
+            color: var(--roxo-medio);
+            font-weight: 900;
+        }
+
+        .cart-checkout-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: var(--pill-radius);
+            font-size: 1.05rem;
+        }
+
+
+        /* ==========================================
+           4. VET EM CASA INTERACTIVE appointment scheduler
+           ========================================== */
+        .scheduler-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(71, 12, 81, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 2100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .scheduler-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .scheduler-card {
+            background: var(--branco-puro);
+            width: 100%;
+            max-width: 520px;
+            border-radius: var(--card-radius);
+            border: 2px solid var(--lilas-suave);
+            box-shadow: 0 30px 60px rgba(71, 12, 81, 0.2);
+            overflow: hidden;
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .scheduler-modal.active .scheduler-card {
+            transform: scale(1);
+        }
+
+        .scheduler-header {
+            background: linear-gradient(135deg, var(--roxo-intenso) 0%, var(--roxo-medio) 100%);
+            padding: 24px;
+            color: white;
+            position: relative;
+        }
+
+        .scheduler-title {
+            color: var(--amarelo-dourado);
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .scheduler-header p {
+            margin: 0;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .scheduler-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .scheduler-close:hover {
+            background: var(--amarelo-dourado);
+            color: var(--roxo-intenso);
+        }
+
+        .scheduler-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-height: 480px;
+            overflow-y: auto;
+        }
+
+        .scheduler-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .scheduler-group label {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--roxo-intenso);
+        }
+
+        /* Option selector grids */
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .option-item {
+            border: 1.5px solid var(--lilas-suave);
+            background: var(--lilas-off-white);
+            border-radius: 14px;
+            padding: 12px 6px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--roxo-intenso);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .option-item:hover {
+            border-color: var(--lilas-medio);
+        }
+
+        .option-item.active {
+            background: var(--roxo-medio);
+            color: white;
+            border-color: var(--roxo-intenso);
+            box-shadow: 0 4px 10px rgba(112, 28, 127, 0.2);
+        }
+
+        /* Calendar Grid */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            background: var(--lilas-off-white);
+            padding: 12px;
+            border-radius: 16px;
+            border: 1.5px solid var(--lilas-suave);
+        }
+
+        .calendar-day-header {
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 900;
+            color: var(--roxo-medio);
+            opacity: 0.7;
+            padding-bottom: 4px;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--roxo-intenso);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .calendar-day:hover:not(.disabled) {
+            background: var(--lilas-suave);
+        }
+
+        .calendar-day.active {
+            background: var(--amarelo-dourado);
+            color: var(--roxo-intenso);
+            font-weight: 900;
+        }
+
+        .calendar-day.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .scheduler-footer {
+            padding: 20px 24px;
+            border-top: 1.5px dashed var(--lilas-suave);
+            background: var(--lilas-off-white);
+        }
+
+
+        /* ==========================================
+           5. B2B INTERACTIVE RT VALIDATOR WIDGET
+           ========================================== */
+        .b2b-rt-validator {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px dashed var(--lilas-medio);
+            border-radius: 20px;
+            padding: 24px;
+            margin-top: 40px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: var(--shadow-premium);
+            box-sizing: border-box;
+            transition: var(--transition-smooth);
+        }
+
+        .b2b-rt-validator.validated {
+            border-color: green;
+            background: #E8F9EE;
+        }
+
+        .validator-form {
+            display: flex;
+            gap: 15px;
+        }
+
+        .validator-input {
+            flex: 1;
+            background: white;
+            border: 2px solid var(--lilas-suave);
+            border-radius: 14px;
+            padding: 14px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            color: var(--roxo-intenso);
+            font-weight: 700;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .validator-input:focus {
+            border-color: var(--roxo-medio);
+            box-shadow: 0 0 10px rgba(112, 28, 127, 0.15);
+        }
+
+        .validator-btn {
+            padding: 14px 30px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 10px rgba(71, 12, 81, 0.15);
+        }
+
+        /* Validator feedback steps */
+        .validator-feedback {
+            margin-top: 20px;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            text-align: left;
+        }
+
+        .feedback-step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--roxo-intenso);
+            opacity: 0.5;
+            transition: var(--transition-smooth);
+        }
+
+        .feedback-step.active {
+            opacity: 1;
+        }
+
+        .feedback-step.completed {
+            opacity: 1;
+            color: green;
+        }
+
+        .feedback-step.completed svg {
+            fill: green;
+        }
+
+        .step-spinner {
+            width: 16px;
+            height: 16px;
+            border: 2.5px solid var(--lilas-suave);
+            border-top-color: var(--roxo-medio);
+            border-radius: 50%;
+            animation: step-spin-anim 0.8s linear infinite;
+        }
+
+        @keyframes step-spin-anim {
+            to { transform: rotate(360deg); }
+        }
+
+
+        /* ==========================================
+           6. SECTION CONTROLS & DYNAMIC STICKER COPIES
+           ========================================== */
+        .mivo-console {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid var(--lilas-suave);
+            border-radius: 24px;
+            width: 320px;
+            box-shadow: 0 20px 50px rgba(71, 12, 81, 0.2);
+            padding: 24px;
+            transition: var(--transition-bounce);
+            transform-origin: bottom right;
+        }
+
+        .mivo-console.minimized {
+            width: 60px;
+            height: 60px;
+            padding: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: var(--roxo-intenso);
+            border-color: var(--amarelo-dourado);
+        }
+
+        .mivo-console.minimized .console-content {
+            display: none;
+        }
+
+        .mivo-console.minimized .console-toggle-btn {
+            position: static;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--amarelo-dourado);
+            font-size: 24px;
+            background: none;
+            border: none;
+        }
+
+        .console-toggle-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--lilas-off-white);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--roxo-intenso);
+            transition: var(--transition-smooth);
+        }
+
+        .console-toggle-btn:hover {
+            background: var(--roxo-intenso);
+            color: var(--branco-puro);
+        }
+
+        .console-header {
+            margin-bottom: 18px;
+            border-bottom: 2px dashed var(--lilas-suave);
+            padding-bottom: 12px;
+        }
+
+        .console-title {
+            color: var(--roxo-intenso);
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 800;
+        }
+
+        .console-subtitle {
+            font-size: 0.8rem;
+            color: var(--roxo-medio);
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        .console-controls-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .console-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #444;
+            cursor: pointer;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--roxo-medio);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        .console-btn {
+            background: linear-gradient(135deg, var(--roxo-intenso) 0%, var(--roxo-medio) 100%);
+            color: var(--amarelo-dourado);
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 15px rgba(112, 28, 127, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .console-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(112, 28, 127, 0.4);
+            color: var(--branco-puro);
+        }
+
+        /* ==========================================
+           7. DYNAMIC STICKER SYSTEM & BG DECORATIONS
+           ========================================== */
+        .mivo-sticker {
+            position: absolute;
+            pointer-events: none;
+            z-index: 10;
+            transition: var(--transition-bounce);
+            opacity: 0; /* Animated entry */
+            transform: scale(0.5);
+        }
+
+        .show-stickers .mivo-sticker {
+            opacity: 0.85;
+            transform: scale(1);
+        }
+
+        /* Floating Animation Variations */
+        .float-fast {
+            animation: float-sticker-1 6s ease-in-out infinite;
+        }
+
+        .float-slow {
+            animation: float-sticker-2 10s ease-in-out infinite;
+        }
+
+        .spin-slow {
+            animation: spin-sticker 20s linear infinite;
+        }
+
+        @keyframes float-sticker-1 {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(8deg); }
+        }
+
+        @keyframes float-sticker-2 {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(-12deg); }
+        }
+
+        @keyframes spin-sticker {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Sticker Assets styling */
+        .sticker-flower {
+            fill: var(--lilas-suave);
+            stroke: var(--roxo-intenso);
+            stroke-width: 2;
+            width: 70px;
+            height: 70px;
+        }
+
+        .sticker-paw {
+            fill: var(--lilas-off-white);
+            stroke: var(--lilas-medio);
+            stroke-width: 2.5;
+            width: 60px;
+            height: 60px;
+        }
+
+        .sticker-sparkle {
+            fill: var(--amarelo-dourado);
+            width: 45px;
+            height: 45px;
+            animation: sparkle-pulse 3s infinite ease-in-out;
+        }
+
+        .sticker-heart {
+            fill: #FF7EB9;
+            stroke: var(--roxo-intenso);
+            stroke-width: 2;
+            width: 50px;
+            height: 50px;
+        }
+
+        @keyframes sparkle-pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+            50% { transform: scale(1.2) rotate(45deg); opacity: 1; }
+        }
+
+        /* Positionings */
+        .pos-b2c-left { top: 12%; left: 4%; }
+        .pos-b2c-right { top: 25%; right: 5%; }
+        .pos-servico-left { bottom: 15%; left: 8%; }
+        .pos-servico-right { top: 10%; right: 10%; }
+        .pos-b2b-left { top: 15%; left: 6%; }
+        .pos-b2b-right { bottom: 20%; right: 7%; }
+
+
+        /* ==========================================
+           8. GENERAL SECTIONS AND GRIDS
+           ========================================== */
+        section {
+            padding: 80px 20px;
+            position: relative;
+            box-sizing: border-box;
+            transition: var(--transition-smooth);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+        }
+
+        .vitrine-b2c {
+            background-color: var(--branco-puro);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-header h2 {
+            color: var(--roxo-intenso);
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .section-header .subtitulo {
+            color: var(--roxo-medio);
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        /* Product Grid */
+        .b2c-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        /* MIVO-Style Product Cards */
+        .b2c-card {
+            background-color: var(--branco-puro);
+            border: 2px solid transparent;
+            border-radius: var(--card-radius);
+            padding: 24px;
+            text-align: center;
+            transition: var(--transition-bounce);
+            position: relative;
+            box-shadow: 0 4px 20px rgba(71, 12, 81, 0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Premium class applied by console */
+        .mivo-cards .b2c-card {
+            border-color: var(--lilas-suave);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .b2c-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .mivo-cards .b2c-card:hover {
+            border-color: var(--roxo-medio);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Floating Badge */
+        .floating-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, var(--amarelo-dourado) 0%, #FFA200 100%);
+            color: var(--roxo-intenso);
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: var(--pill-radius);
+            box-shadow: 0 4px 10px rgba(255, 184, 0, 0.3);
+            z-index: 2;
+            transform: rotate(-3deg);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            animation: subtle-badge-pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes subtle-badge-pulse {
+            0%, 100% { transform: rotate(-3deg) scale(1); }
+            50% { transform: rotate(-3deg) scale(1.05); }
+        }
+
+        .b2c-card-img-wrapper {
+            background-color: var(--lilas-off-white);
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 180px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .b2c-card:hover .b2c-card-img-wrapper {
+            background-color: var(--lilas-suave);
+        }
+
+        /* Animated Icon Placement */
+        .b2c-card-img-wrapper svg {
+            width: 100px;
+            height: 100px;
+            transition: var(--transition-bounce);
+        }
+
+        .b2c-card h3 {
+            color: var(--roxo-intenso);
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .b2c-card .preco {
+            color: var(--roxo-medio);
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .preco span {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* MIVO Bouncy CTA Button */
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--amarelo-dourado) 0%, #FFA800 100%);
+            color: var(--roxo-intenso);
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 1rem;
+            transition: var(--transition-bounce);
+            border: 2px solid transparent;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(255, 184, 0, 0.25);
+        }
+
+        .mivo-cards .cta-btn {
+            border-radius: var(--pill-radius);
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.03) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 184, 0, 0.4);
+            background: linear-gradient(135deg, var(--amarelo-neon) 0%, var(--amarelo-dourado) 100%);
+        }
+
+        .cta-btn:active {
+            transform: scale(0.97) translateY(0);
+        }
+
+        .cta-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: var(--transition-bounce);
+        }
+
+        .cta-btn:hover svg {
+            transform: translateX(3px) rotate(-10deg);
+        }
+
+
+        /* ==========================================
+           9. MICRO-ANIMATIONS KEYFRAMES
+           ========================================== */
+        
+        /* 9.1 Pill Capsule Animation (B2C Card 1) */
+        .svg-capsule .cap-top {
+            transition: var(--transition-bounce);
+            transform-origin: 50% 35%;
+        }
+        .svg-capsule .sparkles {
+            opacity: 0;
+            transform: scale(0.5);
+            transform-origin: 50% 50%;
+            transition: var(--transition-bounce);
+        }
+        .b2c-card:hover .svg-capsule .cap-top {
+            transform: translateY(-8px) rotate(-15deg);
+        }
+        .b2c-card:hover .svg-capsule .sparkles {
+            opacity: 1;
+            transform: scale(1.1);
+            animation: sparkles-float 1.5s infinite ease-in-out;
+        }
+        @keyframes sparkles-float {
+            0%, 100% { transform: scale(1) translateY(0); opacity: 0.8; }
+            50% { transform: scale(1.2) translateY(-4px); opacity: 1; }
+        }
+
+        /* 9.2 Ear Dropper Animation (B2C Card 2) */
+        .svg-dropper .drop {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        .svg-dropper .dropper-tip {
+            transition: var(--transition-bounce);
+            transform-origin: 80% 20%;
+        }
+        .svg-dropper .ear-ripple {
+            opacity: 0;
+            transform: scale(0.6);
+            transform-origin: 40% 75%;
+        }
+        .b2c-card:hover .svg-dropper .dropper-tip {
+            transform: rotate(-8deg);
+        }
+        .b2c-card:hover .svg-dropper .drop {
+            animation: droplet-fall 1.6s infinite cubic-bezier(0.55, 0.085, 0.68, 0.53);
+        }
+        .b2c-card:hover .svg-dropper .ear-ripple {
+            animation: ear-rippling 1.6s infinite ease-out;
+        }
+        @keyframes droplet-fall {
+            0% { opacity: 0; transform: translateY(-5px); }
+            30% { opacity: 1; transform: translateY(0px); }
+            70% { opacity: 1; transform: translateY(35px); }
+            80%, 100% { opacity: 0; transform: translateY(35px); }
+        }
+        @keyframes ear-rippling {
+            0%, 65% { opacity: 0; transform: scale(0.6); }
+            75% { opacity: 0.8; transform: scale(1.1); }
+            100% { opacity: 0; transform: scale(1.4); }
+        }
+
+        /* 9.3 Heart Trace Animation (B2C Card 3) */
+        .svg-heart-trace .pulse-heart {
+            transition: var(--transition-bounce);
+            transform-origin: 50% 50%;
+        }
+        .svg-heart-trace .trace-line {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+        }
+        .b2c-card:hover .svg-heart-trace .pulse-heart {
+            animation: heart-beat 0.8s infinite ease-in-out;
+        }
+        .b2c-card:hover .svg-heart-trace .trace-line {
+            animation: trace-draw 1.6s infinite linear;
+        }
+        @keyframes heart-beat {
+            0%, 100% { transform: scale(1); }
+            30% { transform: scale(1.12); }
+            45% { transform: scale(0.95); }
+            60% { transform: scale(1.08); }
+        }
+        @keyframes trace-draw {
+            to { stroke-dashoffset: -100; }
+        }
+
+        /* 9.4 Puppy Face Animation (B2C Card 4) */
+        .svg-puppy .ear-left {
+            transform-origin: 25% 25%;
+            transition: var(--transition-bounce);
+        }
+        .svg-puppy .ear-right {
+            transform-origin: 75% 25%;
+            transition: var(--transition-bounce);
+        }
+        .svg-puppy .eye-left-open { opacity: 1; }
+        .svg-puppy .eye-left-wink { opacity: 0; }
+        
+        .b2c-card:hover .svg-puppy .ear-left {
+            transform: rotate(-10deg);
+        }
+        .b2c-card:hover .svg-puppy .ear-right {
+            transform: rotate(10deg);
+        }
+        .b2c-card:hover .svg-puppy .eye-left-open {
+            animation: wink-open 1.8s infinite step-end;
+        }
+        .b2c-card:hover .svg-puppy .eye-left-wink {
+            animation: wink-closed 1.8s infinite step-end;
+        }
+        @keyframes wink-open {
+            0%, 90%, 100% { opacity: 1; }
+            10%, 80% { opacity: 0; }
+        }
+        @keyframes wink-closed {
+            0%, 90%, 100% { opacity: 0; }
+            10%, 80% { opacity: 1; }
+        }
+
+
+        /* ==========================================
+           10. EXEMPLO 2: VET EM CASA (SERVICE SECTION)
+           ========================================== */
+        .vitrine-servico {
+            background-color: var(--lilas-off-white);
+            z-index: 4;
+        }
+
+        .servico-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .servico-texto {
+            flex: 1.1;
+        }
+
+        .servico-texto h2 {
+            color: var(--roxo-intenso);
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+        }
+
+        .servico-texto p {
+            color: #444;
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .servico-visual {
+            flex: 0.9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Glassmorphic SVG Illustration Wrapper */
+        .servico-visual-wrapper {
+            background: rgba(255, 255, 255, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 40px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: var(--shadow-premium);
+            transition: var(--transition-bounce);
+        }
+
+        .mivo-cards .servico-visual-wrapper {
+            box-shadow: 0 30px 60px -20px rgba(71, 12, 81, 0.15);
+            border-radius: 50px;
+        }
+
+        .servico-visual-wrapper:hover {
+            transform: scale(1.02) rotate(1deg);
+        }
+
+        .servico-visual-wrapper svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .servico-rodape {
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: var(--roxo-intenso);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--branco-puro);
+            padding: 8px 18px;
+            border-radius: var(--pill-radius);
+            width: fit-content;
+            box-shadow: 0 4px 10px rgba(71, 12, 81, 0.05);
+        }
+
+        .servico-rodape::before {
+            content: "📍";
+        }
+
+        /* Illustration animations */
+        .svg-vet-car .car-body {
+            animation: car-bounce 3s infinite ease-in-out;
+            transform-origin: 50% 70%;
+        }
+        .svg-vet-car .wheel-l, .svg-vet-car .wheel-r {
+            animation: wheel-spin 4s infinite linear;
+            transform-origin: 29% 77%;
+        }
+        .svg-vet-car .wheel-r {
+            transform-origin: 71% 77%;
+        }
+        .svg-vet-car .cross-pulse {
+            animation: medical-cross-pulse 2s infinite ease-in-out;
+            transform-origin: 50% 41%;
+        }
+        
+        @keyframes car-bounce {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-4px) rotate(1deg); }
+        }
+        @keyframes wheel-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes medical-cross-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; fill: var(--amarelo-dourado); }
+        }
+
+
+        /* ==========================================
+           11. EXEMPLO 3: B2B (PROFESSIONAL DEFENSE)
+           ========================================== */
+        .vitrine-b2b {
+            background-color: var(--branco-puro);
+            z-index: 3;
+        }
+
+        .b2b-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .b2b-header h2 {
+            color: var(--roxo-intenso);
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+        }
+
+        .selo-autoridade {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--lilas-off-white);
+            padding: 10px 25px;
+            border-radius: var(--pill-radius);
+            border: 2px solid var(--lilas-suave);
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(112, 28, 127, 0.05);
+            transition: var(--transition-bounce);
+        }
+
+        .selo-autoridade:hover {
+            transform: translateY(-3px) scale(1.03);
+            background-color: var(--branco-puro);
+            border-color: var(--lilas-medio);
+        }
+
+        .selo-autoridade img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2.5px solid var(--roxo-intenso);
+        }
+
+        .selo-autoridade .texto-selo {
+            text-align: left;
+        }
+
+        .selo-autoridade span {
+            color: var(--roxo-intenso);
+            font-weight: 800;
+            font-size: 1.05rem;
+            display: block;
+        }
+
+        .selo-autoridade small {
+            color: var(--roxo-medio);
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0.8;
+            display: block;
+        }
+
+        .b2b-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .b2b-card {
+            background-color: var(--branco-puro);
+            border: 2px solid var(--lilas-off-white);
+            border-radius: var(--card-radius);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition-bounce);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mivo-cards .b2b-card {
+            border: 2.5px solid var(--lilas-suave);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .b2b-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .mivo-cards .b2b-card:hover {
+            border-color: var(--roxo-medio);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .b2b-card svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 25px;
+        }
+
+        .b2b-card h3 {
+            color: var(--roxo-intenso);
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .b2b-action {
+            text-align: center;
+        }
+
+        .b2b-action .cta-btn {
+            width: auto;
+            padding: 18px 60px;
+            font-size: 1.2rem;
+            border-radius: 20px;
+        }
+
+        .mivo-cards .b2b-action .cta-btn {
+            border-radius: var(--pill-radius);
+        }
+
+        /* 11.1 Checklist Board SVG (B2B Card 1) */
+        .svg-board .check-1, .svg-board .check-2 {
+            stroke-dasharray: 20;
+            stroke-dashoffset: 20;
+            transition: var(--transition-bounce);
+        }
+        .svg-board .check-1 { transition-delay: 0.1s; }
+        .svg-board .check-2 { transition-delay: 0.3s; }
+        
+        .b2b-card:hover .svg-board .check-1,
+        .b2b-card:hover .svg-board .check-2 {
+            stroke-dashoffset: 0;
+        }
+        .b2b-card:hover .svg-board {
+            animation: wiggle-board 0.6s ease-in-out;
+        }
+        @keyframes wiggle-board {
+            0%, 100% { transform: rotate(0); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        /* 11.2 Law Shield SVG (B2B Card 2) */
+        .svg-shield .shield-glow {
+            fill: none;
+            stroke: var(--amarelo-dourado);
+            stroke-width: 0px;
+            transition: var(--transition-smooth);
+            filter: drop-shadow(0 0 5px var(--amarelo-dourado));
+        }
+        .b2b-card:hover .svg-shield .shield-glow {
+            stroke-width: 2.5px;
+        }
+        .b2b-card:hover .svg-shield {
+            animation: shield-shimmer 1.5s infinite ease-in-out;
+        }
+        @keyframes shield-shimmer {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* 11.3 Chart Grow SVG (B2B Card 3) */
+        .svg-chart .bar-1, .svg-chart .bar-2, .svg-chart .bar-3 {
+            transform: scaleY(0.3);
+            transform-origin: bottom;
+            transition: var(--transition-bounce);
+        }
+        .svg-chart .bar-1 { transition-delay: 0.05s; }
+        .svg-chart .bar-2 { transition-delay: 0.15s; }
+        .svg-chart .bar-3 { transition-delay: 0.25s; }
+        
+        .b2b-card:hover .svg-chart .bar-1,
+        .b2b-card:hover .svg-chart .bar-2,
+        .b2b-card:hover .svg-chart .bar-3 {
+            transform: scaleY(1);
+        }
+
+
+        /* ==========================================
+           12. GLOWS & GLASSMORPHISM CLASSES
+           ========================================== */
+        .glass-theme {
+            background-color: #FAF6FD !important;
+        }
+        
+        .glass-theme .b2c-card, 
+        .glass-theme .b2b-card {
+            background: rgba(255, 255, 255, 0.6) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            border: 2px solid rgba(255, 255, 255, 0.7) !important;
+        }
+
+        .glass-theme .mivo-cards .b2c-card:hover,
+        .glass-theme .mivo-cards .b2b-card:hover {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border-color: var(--roxo-medio) !important;
+        }
+
+
+        /* ==========================================
+           13. CONFETTI & SPARKLES EFFECTS (CANVAS)
+           ========================================== */
+        #effects-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            display: block;
+        }
+
+
+        /* ==========================================
+           14. RESPONSIVENESS AND OUTLETS
+           ========================================== */
+        @media (max-width: 992px) {
+            .b2c-grid { grid-template-columns: repeat(2, 1fr); }
+            .servico-banner { flex-direction: column; text-align: center; gap: 40px; }
+            .servico-visual { text-align: center; }
+            .b2b-grid { grid-template-columns: 1fr; }
+            .mivo-console { right: 15px; bottom: 15px; width: calc(100% - 30px); max-width: 320px; }
+        }
+        @media (max-width: 576px) {
+            .b2c-grid { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 2.2rem; }
+            .servico-texto h2 { font-size: 2.6rem; }
+        }
+    </style>
+</head>
+<body class="show-stickers show-dividers mivo-cards">
+
+    <!-- Canvas for Premium Confetti Animation -->
+    <canvas id="effects-canvas"></canvas>
+
+    <!-- SLIDING SHOPPING CART DRAWER (GLASSMORPHIC) -->
+    <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3 class="cart-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--roxo-medio);"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                <span>Cesta de Compras</span>
+            </h3>
+            <button class="cart-close-btn" onclick="closeCart()">✕</button>
+        </div>
+        <div class="cart-items-list" id="cartItemsList">
+            <!-- Empty state loaded by default -->
+            <div class="empty-cart-state">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                <p style="font-weight: 700; font-size: 1.1rem; margin: 0 0 5px 0;">Sua cesta está vazia</p>
+                <p style="margin: 0; font-size: 0.85rem; opacity: 0.8;">Adicione produtos manipulados Aika para cuidar do seu pet!</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-summary-row">
+                <span>Subtotal Estimado:</span>
+                <span class="cart-total-value" id="cartTotalValue">R$ 0,00</span>
+            </div>
+            <button class="cta-btn cart-checkout-btn" onclick="submitCartCheckout()">
+                <span>Finalizar Pedido via WhatsApp</span>
+                <svg width="18" height="18" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- VET EM CASA INTERACTIVE APPOINTMENT SCHEDULER -->
+    <div class="scheduler-modal" id="schedulerModal">
+        <div class="scheduler-card">
+            <div class="scheduler-header">
+                <h3 class="scheduler-title">📅 Agendar Atendimento</h3>
+                <p>Escolha a melhor data para a visita da equipe veterinária na sua casa.</p>
+                <button class="scheduler-close" onclick="closeScheduler()">✕</button>
+            </div>
+            <div class="scheduler-body">
+                <!-- Step 1: Pet Selection -->
+                <div class="scheduler-group">
+                    <label>Qual é o seu pet?</label>
+                    <div class="option-grid">
+                        <div class="option-item active" onclick="selectPetOption(this, 'Cão 🐶')">Cão 🐶</div>
+                        <div class="option-item" onclick="selectPetOption(this, 'Gato 🐱')">Gato 🐱</div>
+                        <div class="option-item" onclick="selectPetOption(this, 'Outro 🐰')">Outro 🐰</div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Date Grid picker -->
+                <div class="scheduler-group">
+                    <label>Escolha o dia da consulta (Maio 2026)</label>
+                    <div class="calendar-grid">
+                        <!-- headers -->
+                        <div class="calendar-day-header">D</div>
+                        <div class="calendar-day-header">S</div>
+                        <div class="calendar-day-header">T</div>
+                        <div class="calendar-day-header">Q</div>
+                        <div class="calendar-day-header">Q</div>
+                        <div class="calendar-day-header">S</div>
+                        <div class="calendar-day-header">S</div>
+                        
+                        <!-- Empty slots -->
+                        <div class="calendar-day disabled"></div>
+                        <div class="calendar-day disabled"></div>
+                        <div class="calendar-day disabled"></div>
+                        <div class="calendar-day disabled"></div>
+                        <div class="calendar-day disabled">1</div>
+                        <div class="calendar-day disabled">2</div>
+                        <div class="calendar-day disabled">3</div>
+
+                        <!-- Active Days -->
+                        <div class="calendar-day disabled">4</div>
+                        <div class="calendar-day disabled">5</div>
+                        <div class="calendar-day disabled">6</div>
+                        <div class="calendar-day disabled">7</div>
+                        <div class="calendar-day disabled">8</div>
+                        <div class="calendar-day disabled">9</div>
+                        <div class="calendar-day disabled">10</div>
+
+                        <div class="calendar-day disabled">11</div>
+                        <div class="calendar-day disabled">12</div>
+                        <div class="calendar-day disabled">13</div>
+                        <div class="calendar-day disabled">14</div>
+                        <div class="calendar-day disabled">15</div>
+                        <div class="calendar-day disabled">16</div>
+                        <div class="calendar-day disabled">17</div>
+
+                        <div class="calendar-day active" onclick="selectCalendarDay(this, 18)">18</div>
+                        <div class="calendar-day" onclick="selectCalendarDay(this, 19)">19</div>
+                        <div class="calendar-day" onclick="selectCalendarDay(this, 20)">20</div>
+                        <div class="calendar-day" onclick="selectCalendarDay(this, 21)">21</div>
+                        <div class="calendar-day" onclick="selectCalendarDay(this, 22)">22</div>
+                        <div class="calendar-day" onclick="selectCalendarDay(this, 23)">23</div>
+                        <div class="calendar-day disabled">24</div>
+
+                        <div class="calendar-day" onclick="selectCalendarDay(this, 25)">25</div>
+                        <div class="calendar-day" onclick="selectCalendarDay(this, 26)">26</div>
+                        <div class="calendar-day" onclick="selectCalendarDay(this, 27)">27</div>
+                        <div class="calendar-day" onclick="selectCalendarDay(this, 28)">28</div>
+                        <div class="calendar-day" onclick="selectCalendarDay(this, 29)">29</div>
+                        <div class="calendar-day" onclick="selectCalendarDay(this, 30)">30</div>
+                        <div class="calendar-day disabled">31</div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Period/Time selection -->
+                <div class="scheduler-group">
+                    <label>Escolha o período</label>
+                    <div class="option-grid">
+                        <div class="option-item active" onclick="selectTimeOption(this, 'Manhã (08:00 - 12:00) ☀️')">Manhã ☀️</div>
+                        <div class="option-item" onclick="selectTimeOption(this, 'Tarde (13:00 - 18:00) ⛅')">Tarde ⛅</div>
+                        <div class="option-item" onclick="selectTimeOption(this, 'Noite (18:00 - 21:00) 🌙')">Noite 🌙</div>
+                    </div>
+                </div>
+            </div>
+            <div class="scheduler-footer">
+                <button class="cta-btn" onclick="submitAppointmentScheduler()">
+                    <span>Confirmar Pré-Agendamento</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Floating Sticker System -->
+    <!-- B2C Section Stickers -->
+    <svg class="mivo-sticker sticker-flower spin-slow pos-b2c-left" viewBox="0 0 100 100">
+        <path d="M50 15 C40 15 35 25 45 35 C35 25 25 30 25 40 C25 50 35 55 45 45 C35 55 30 65 40 75 C50 85 55 75 45 65 C55 75 65 70 75 60 C85 50 75 45 65 45 C75 45 80 35 70 25 C60 15 55 25 50 15 Z" />
+        <circle cx="50" cy="45" r="10" fill="var(--amarelo-dourado)" />
+    </svg>
+    <svg class="mivo-sticker sticker-sparkle pos-b2c-right" viewBox="0 0 24 24">
+        <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9Z" />
+    </svg>
+
+    <!-- Vet Em Casa Section Stickers -->
+    <svg class="mivo-sticker sticker-paw float-fast pos-servico-left" viewBox="0 0 100 100">
+        <!-- Main Pad -->
+        <path d="M30 60 C25 75 40 85 50 82 C60 85 75 75 70 60 C65 50 35 50 30 60 Z" />
+        <!-- Digital Pads -->
+        <circle cx="22" cy="40" r="8" />
+        <circle cx="38" cy="24" r="9" />
+        <circle cx="62" cy="24" r="9" />
+        <circle cx="78" cy="40" r="8" />
+    </svg>
+    <svg class="mivo-sticker sticker-sparkle pos-servico-right" viewBox="0 0 24 24">
+        <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9Z" />
+    </svg>
+
+    <!-- B2B Section Stickers -->
+    <svg class="mivo-sticker sticker-heart float-slow pos-b2b-left" viewBox="0 0 100 100">
+        <path d="M50 80 C20 60 10 35 30 20 C45 10 50 30 50 30 C50 30 55 10 70 20 C90 35 80 60 50 80 Z" />
+    </svg>
+    <svg class="mivo-sticker sticker-flower spin-slow pos-b2b-right" viewBox="0 0 100 100">
+        <path d="M50 15 C40 15 35 25 45 35 C35 25 25 30 25 40 C25 50 35 55 45 45 C35 55 30 65 40 75 C50 85 55 75 45 65 C55 75 65 70 75 60 C85 50 75 45 65 45 C75 45 80 35 70 25 C60 15 55 25 50 15 Z" />
+        <circle cx="50" cy="45" r="10" fill="var(--amarelo-dourado)" />
+    </svg>
+
+    <!-- MIVO EXPERIENCE CONSOLE -->
+    <div id="mivoConsole" class="mivo-console">
+        <button class="console-toggle-btn" onclick="toggleConsole()" title="Toggle Console">✕</button>
+        <div class="console-content">
+            <div class="console-header">
+                <h3 class="console-title">✨ Painel Mivo Style</h3>
+                <div class="console-subtitle">Veja a estética Mivo em tempo real no seu site!</div>
+            </div>
+            
+            <div class="console-controls-list">
+                <label class="console-option">
+                    <span>Divisórias Curvas (Waves)</span>
+                    <span class="switch">
+                        <input type="checkbox" id="chkDividers" checked onchange="handleControlChange()">
+                        <span class="slider"></span>
+                    </span>
+                </label>
+                <label class="console-option">
+                    <span>Stickers Animados (Branding)</span>
+                    <span class="switch">
+                        <input type="checkbox" id="chkStickers" checked onchange="handleControlChange()">
+                        <span class="slider"></span>
+                    </span>
+                </label>
+                <label class="console-option">
+                    <span>Design de Cards Mivo</span>
+                    <span class="switch">
+                        <input type="checkbox" id="chkCards" checked onchange="handleControlChange()">
+                        <span class="slider"></span>
+                    </span>
+                </label>
+                <label class="console-option">
+                    <span>Efeito Glassmorphism</span>
+                    <span class="switch">
+                        <input type="checkbox" id="chkGlass" onchange="handleControlChange()">
+                        <span class="slider"></span>
+                    </span>
+                </label>
+            </div>
+            
+            <button class="console-btn" onclick="triggerConfetti()">
+                <span>🎉 Efeito Sucesso Mivo</span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ==========================================
+       SECTION 1: VITRINE B2C
+       ========================================== -->
+    <section class="vitrine-b2c">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    Manipulação Veterinária de 
+                    <span class="highlight-accent">
+                        Excelência
+                        <svg class="squiggle-svg circle-squiggle" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path class="squiggle-path" d="M5,50 C5,15 95,10 95,50 C95,85 5,90 10,55 C12,45 40,25 90,15" />
+                        </svg>
+                    </span>
+                </h2>
+                <p class="subtitulo">Doses exatas para a saúde e longevidade do seu pet. Qualidade certificada Aika.</p>
+            </div>
+
+            <div class="b2c-grid">
+                <!-- Card 1: Condroprotetor -->
+                <div class="b2c-card">
+                    <span class="floating-badge">✨ Destaque</span>
+                    <div class="b2c-card-img-wrapper">
+                        <!-- Premium Pill Capsule SVG Animation -->
+                        <svg class="svg-capsule" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="38" y="50" width="24" height="25" rx="12" fill="var(--roxo-intenso)" />
+                            <g class="cap-top">
+                                <rect x="38" y="25" width="24" height="25" rx="12" fill="var(--lilas-medio)" />
+                            </g>
+                            <line x1="38" y1="50" x2="62" y2="50" stroke="var(--branco-puro)" stroke-width="2" />
+                            <g class="sparkles">
+                                <circle cx="28" cy="45" r="3" fill="var(--amarelo-dourado)" />
+                                <circle cx="72" cy="48" r="2.5" fill="var(--amarelo-dourado)" />
+                                <circle cx="50" cy="18" r="2" fill="var(--lilas-suave)" />
+                                <path d="M50 54 L52 58 L56 60 L52 62 L50 66 L48 62 L44 60 L48 58 Z" fill="var(--amarelo-dourado)" />
+                            </g>
+                        </svg>
+                    </div>
+                    <h3>Condroprotetor Premium Aika</h3>
+                    <div class="preco"><span>R$</span>145,00</div>
+                    <button class="cta-btn" onclick="addToCart('Condroprotetor Premium Aika', 145.00, 'capsule')">
+                        <svg viewBox="0 0 24 24"><path d="M17 18C15.89 18 15 18.89 15 20S15.89 22 17 22 19 21.11 19 20 18.11 18 17 18M7 18C5.89 18 5 18.89 5 20S5.89 22 7 22 9 21.11 9 20 8.11 18 7 18M7.2 14.63L7.17 14.75C7.17 14.89 7.28 15 7.42 15H19V17H7C5.89 17 5 16.1 5 15C5 14.44 5.23 13.93 5.59 13.56L6.93 11.13L3.6 4H1V2H5L6.6 5.4H19.55C20.3 5.4 20.89 6.07 20.74 6.8L18.7 14.28C18.5 15 17.85 15.5 17.11 15.5H7.72L7.2 14.63Z"/></svg>
+                        <span>Adicionar à Cesta</span>
+                    </button>
+                </div>
+
+                <!-- Card 2: Tratamento Otológico -->
+                <div class="b2c-card">
+                    <div class="b2c-card-img-wrapper">
+                        <!-- Premium Ear Dropper SVG Animation -->
+                        <svg class="svg-dropper" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M35 70 C25 65 20 50 25 35 C30 20 48 15 55 25 C60 30 58 42 50 45 C45 47 43 55 48 65 C52 73 45 75 35 70 Z" stroke="var(--roxo-intenso)" stroke-width="4" stroke-linecap="round" />
+                            <path class="ear-ripple" d="M35 80 C18 75 10 50 20 30" stroke="var(--lilas-medio)" stroke-width="2" stroke-linecap="round" />
+                            <g class="dropper-tip">
+                                <rect x="58" y="22" width="6" height="15" rx="2" fill="var(--lilas-medio)" transform="rotate(-45 58 22)" />
+                                <rect x="68" y="12" width="12" height="16" rx="4" fill="var(--roxo-intenso)" transform="rotate(-45 68 12)" />
+                                <path d="M57 32 L53 36" stroke="var(--roxo-intenso)" stroke-width="3" />
+                            </g>
+                            <path class="drop" d="M48 42 C48 42 45 47 45 50 C45 53 47 55 50 55 C53 55 55 53 55 50 C55 47 52 42 52 42 Z" fill="var(--amarelo-dourado)" />
+                        </svg>
+                    </div>
+                    <h3>Tratamento Otológico Avançado</h3>
+                    <div class="preco"><span>R$</span>89,90</div>
+                    <button class="cta-btn" onclick="addToCart('Tratamento Otológico Avançado', 89.90, 'dropper')">
+                        <svg viewBox="0 0 24 24"><path d="M17 18C15.89 18 15 18.89 15 20S15.89 22 17 22 19 21.11 19 20 18.11 18 17 18M7 18C5.89 18 5 18.89 5 20S5.89 22 7 22 9 21.11 9 20 8.11 18 7 18M7.2 14.63L7.17 14.75C7.17 14.89 7.28 15 7.42 15H19V17H7C5.89 17 5 16.1 5 15C5 14.44 5.23 13.93 5.59 13.56L6.93 11.13L3.6 4H1V2H5L6.6 5.4H19.55C20.3 5.4 20.89 6.07 20.74 6.8L18.7 14.28C18.5 15 17.85 15.5 17.11 15.5H7.72L7.2 14.63Z"/></svg>
+                        <span>Adicionar à Cesta</span>
+                    </button>
+                </div>
+
+                <!-- Card 3: Antibiótico -->
+                <div class="b2c-card">
+                    <div class="b2c-card-img-wrapper">
+                        <!-- Premium Heart/Trace SVG Animation -->
+                        <svg class="svg-heart-trace" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="pulse-heart" d="M50 78 C25 60 15 40 30 25 C42 13 50 30 50 30 C50 30 58 13 70 25 C85 40 75 60 50 78 Z" fill="var(--lilas-suave)" stroke="var(--roxo-intenso)" stroke-width="3" />
+                            <path class="trace-line" d="M25 45 L38 45 L43 32 L48 58 L53 38 L58 48 L62 45 L75 45" stroke="var(--roxo-intenso)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3>Antibiótico Dose Certa</h3>
+                    <div class="preco"><span>R$</span>112,00</div>
+                    <button class="cta-btn" onclick="addToCart('Antibiótico Dose Certa', 112.00, 'heart')">
+                        <svg viewBox="0 0 24 24"><path d="M17 18C15.89 18 15 18.89 15 20S15.89 22 17 22 19 21.11 19 20 18.11 18 17 18M7 18C5.89 18 5 18.89 5 20S5.89 22 7 22 9 21.11 9 20 8.11 18 7 18M7.2 14.63L7.17 14.75C7.17 14.89 7.28 15 7.42 15H19V17H7C5.89 17 5 16.1 5 15C5 14.44 5.23 13.93 5.59 13.56L6.93 11.13L3.6 4H1V2H5L6.6 5.4H19.55C20.3 5.4 20.89 6.07 20.74 6.8L18.7 14.28C18.5 15 17.85 15.5 17.11 15.5H7.72L7.2 14.63Z"/></svg>
+                        <span>Adicionar à Cesta</span>
+                    </button>
+                </div>
+
+                <!-- Card 4: Suplemento -->
+                <div class="b2c-card">
+                    <span class="floating-badge" style="background: linear-gradient(135deg, #FF7EB9 0%, #FF3D97 100%); color: white;">❤️ Geriátrico</span>
+                    <div class="b2c-card-img-wrapper">
+                        <!-- Premium Puppy Face Animation -->
+                        <svg class="svg-puppy" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="ear-left" d="M22 25 C15 22 12 35 15 45 C18 55 28 50 28 40 Z" fill="var(--roxo-intenso)" />
+                            <path class="ear-right" d="M78 25 C85 22 88 35 85 45 C82 55 72 50 72 40 Z" fill="var(--roxo-intenso)" />
+                            <rect x="25" y="32" width="50" height="40" rx="20" fill="var(--lilas-suave)" stroke="var(--roxo-intenso)" stroke-width="3" />
+                            <ellipse cx="50" cy="58" rx="14" ry="10" fill="var(--branco-puro)" stroke="var(--roxo-intenso)" stroke-width="2" />
+                            <polygon points="46,54 54,54 50,59" fill="var(--roxo-intenso)" />
+                            <circle cx="62" cy="46" r="4" fill="var(--roxo-intenso)" />
+                            <circle class="eye-left-open" cx="38" cy="46" r="4" fill="var(--roxo-intenso)" />
+                            <path class="eye-left-wink" d="M34 46 Q38 50 42 46" stroke="var(--roxo-intenso)" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3>Suplemento Geriátrico Pet</h3>
+                    <div class="preco"><span>R$</span>210,00</div>
+                    <button class="cta-btn" onclick="addToCart('Suplemento Geriátrico Pet', 210.00, 'puppy')">
+                        <svg viewBox="0 0 24 24"><path d="M17 18C15.89 18 15 18.89 15 20S15.89 22 17 22 19 21.11 19 20 18.11 18 17 18M7 18C5.89 18 5 18.89 5 20S5.89 22 7 22 9 21.11 9 20 8.11 18 7 18M7.2 14.63L7.17 14.75C7.17 14.89 7.28 15 7.42 15H19V17H7C5.89 17 5 16.1 5 15C5 14.44 5.23 13.93 5.59 13.56L6.93 11.13L3.6 4H1V2H5L6.6 5.4H19.55C20.3 5.4 20.89 6.07 20.74 6.8L18.7 14.28C18.5 15 17.85 15.5 17.11 15.5H7.72L7.2 14.63Z"/></svg>
+                        <span>Adicionar à Cesta</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multi-Layered Wavy Separator -->
+        <div class="mivo-waves-separator">
+            <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
+                <path class="wave-layer-3" d="M0,70 Q360,110 720,70 T1440,70 L1440,140 L0,140 Z" />
+                <path class="wave-layer-2" d="M0,50 Q360,10 720,50 T1440,50 L1440,140 L0,140 Z" />
+                <path class="wave-layer-1" d="M0,30 Q360,90 720,30 T1440,30 L1440,140 L0,140 Z" />
+            </svg>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+       SECTION 2: VET EM CASA (SERVICE SECTION)
+       ========================================== -->
+    <section class="vitrine-servico">
+        <div class="container">
+            <div class="servico-banner">
+                <div class="servico-texto">
+                    <h2>
+                        A Clínica vai 
+                        <span class="highlight-accent">
+                            até você.
+                            <svg class="squiggle-svg underline-squiggle" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                <path class="squiggle-path" d="M0,5 Q50,0 100,5 M10,8 Q50,3 90,8" style="stroke: var(--roxo-medio);" />
+                            </svg>
+                        </span>
+                    </h2>
+                    <p>Segurança e conforto absoluto para o seu pet sem o estresse do transporte. Agende uma visita domiciliar com nossos médicos veterinários dedicados e viva a melhor experiência de cuidado.</p>
+                    <button onclick="openScheduler()" class="cta-btn" style="width: auto; padding: 18px 45px; border-radius: 20px; background: linear-gradient(135deg, var(--roxo-intenso) 0%, var(--roxo-medio) 100%); color: var(--branco-puro); box-shadow: 0 10px 20px rgba(71, 12, 81, 0.15);">
+                        <span>Agendar Atendimento Domiciliar</span>
+                        <svg style="transform: rotate(-45deg); fill: white;" viewBox="0 0 24 24"><path d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z"/></svg>
+                    </button>
+                    <div class="servico-rodape">Atendimento premium exclusivo em Belo Horizonte.</div>
+                </div>
+                
+                <div class="servico-visual">
+                    <div class="servico-visual-wrapper">
+                        <!-- Premium Interactive Vet Care SVG Illustration -->
+                        <svg class="svg-vet-car" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="75" r="60" fill="var(--branco-puro)" opacity="0.6" />
+                            <path d="M50 110 H150" stroke="var(--roxo-intenso)" stroke-width="3" stroke-linecap="round" />
+                            
+                            <!-- Veterinary Ambulance/Car -->
+                            <g class="car-body">
+                                <rect x="55" y="45" width="80" height="45" rx="8" fill="var(--roxo-intenso)" />
+                                <rect x="110" y="48" width="28" height="22" rx="4" fill="var(--lilas-suave)" />
+                                <circle cx="138" cy="80" r="3" fill="var(--amarelo-dourado)" />
+                                <rect x="50" y="80" width="8" height="8" rx="2" fill="#EACFF0" />
+                                <circle cx="85" cy="67" r="14" fill="var(--branco-puro)" />
+                                <g class="cross-pulse">
+                                    <path d="M85 59 V75 M77 67 H93" stroke="red" stroke-width="4" stroke-linecap="round" />
+                                </g>
+                            </g>
+                            
+                            <!-- Rotating Wheels -->
+                            <circle class="wheel-l" cx="72" cy="98" r="11" fill="#333" stroke="var(--amarelo-dourado)" stroke-width="2.5" />
+                            <circle class="wheel-l" cx="72" cy="98" r="4" fill="white" />
+                            <circle class="wheel-r" cx="118" cy="98" r="11" fill="#333" stroke="var(--amarelo-dourado)" stroke-width="2.5" />
+                            <circle class="wheel-r" cx="118" cy="98" r="4" fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multi-Layered Wavy Separator -->
+        <div class="mivo-waves-separator wave-divider-top">
+            <svg viewBox="0 0 1440 140" preserveAspectRatio="none" style="fill: var(--bg-body);">
+                <path class="wave-layer-3" d="M0,70 Q360,110 720,70 T1440,70 L1440,140 L0,140 Z" />
+                <path class="wave-layer-2" d="M0,50 Q360,10 720,50 T1440,50 L1440,140 L0,140 Z" />
+                <path class="wave-layer-1" d="M0,30 Q360,90 720,30 T1440,30 L1440,140 L0,140 Z" />
+            </svg>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+       SECTION 3: B2B (PROFESSIONAL DEFENSE)
+       ========================================== -->
+    <section class="vitrine-b2b">
+        <div class="container">
+            <div class="b2b-header">
+                <h2>
+                    Segurança Jurídica e Sanitária para o seu 
+                    <span class="highlight-accent">
+                        Negócio
+                        <svg class="squiggle-svg underline-squiggle" viewBox="0 0 100 10" preserveAspectRatio="none">
+                            <path class="squiggle-path" d="M5,2 Q50,8 95,2 M15,5 Q50,11 85,5" />
+                        </svg>
+                    </span>
+                </h2>
+                <div class="selo-autoridade">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&h=150&q=80" alt="Dr Kyenner">
+                    <div class="texto-selo">
+                        <span>Responsabilidade Técnica Otimiza</span>
+                        <small>RT Dr. Kyenner Oliveira • CRMV-MG</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="b2b-grid">
+                <!-- B2B Card 1 -->
+                <div class="b2b-card">
+                    <!-- Interactive checklist board SVG -->
+                    <svg class="svg-board" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="25" y="20" width="50" height="65" rx="8" fill="var(--lilas-off-white)" stroke="var(--roxo-intenso)" stroke-width="3" />
+                        <rect x="35" y="10" width="30" height="12" rx="4" fill="var(--lilas-medio)" stroke="var(--roxo-intenso)" stroke-width="2.5" />
+                        <line x1="38" y1="42" x2="62" y2="42" stroke="var(--roxo-intenso)" stroke-width="3" stroke-linecap="round" />
+                        <line x1="38" y1="58" x2="62" y2="58" stroke="var(--roxo-intenso)" stroke-width="3" stroke-linecap="round" />
+                        <path class="check-1" d="M68 40 L71 44 L78 35" stroke="green" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path class="check-2" d="M68 56 L71 60 L78 51" stroke="green" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h3>Adequação Sanitária</h3>
+                </div>
+
+                <!-- B2B Card 2 -->
+                <div class="b2b-card">
+                    <!-- Law Shield SVG Animation -->
+                    <svg class="svg-shield" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 15 C65 15 75 25 75 45 C75 65 50 85 50 85 C50 85 25 65 25 45 C25 25 35 15 50 15 Z" fill="var(--lilas-suave)" stroke="var(--roxo-intenso)" stroke-width="3.5" />
+                        <path class="shield-glow" d="M50 15 C65 15 75 25 75 45 C75 65 50 85 50 85 C50 85 25 65 25 45 C25 25 35 15 50 15 Z" />
+                        <path d="M50 25 V73 M37 42 H63" stroke="var(--roxo-intenso)" stroke-width="4" stroke-linecap="round" />
+                    </svg>
+                    <h3>Blindagem Jurídica</h3>
+                </div>
+
+                <!-- B2B Card 3 -->
+                <div class="b2b-card">
+                    <!-- 3D Bar Chart SVG Animation -->
+                    <svg class="svg-chart" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="20" y1="80" x2="80" y2="80" stroke="var(--roxo-intenso)" stroke-width="3" stroke-linecap="round" />
+                        <line x1="20" y1="20" x2="20" y2="80" stroke="var(--roxo-intenso)" stroke-width="3" stroke-linecap="round" />
+                        <rect class="bar-1" x="28" y="50" width="12" height="30" rx="3" fill="var(--roxo-intenso)" />
+                        <rect class="bar-2" x="46" y="35" width="12" height="45" rx="3" fill="var(--lilas-medio)" />
+                        <rect class="bar-3" x="64" y="20" width="12" height="60" rx="3" fill="var(--amarelo-dourado)" stroke="var(--roxo-intenso)" stroke-width="2" />
+                    </svg>
+                    <h3>Otimização de Estoque</h3>
+                </div>
+            </div>
+
+            <!-- CRMV Validation Widget -->
+            <div class="b2b-rt-validator" id="b2bValidator">
+                <h4 style="color: var(--roxo-intenso); margin-bottom: 10px; font-weight: 800; font-size: 1.15rem;">🔐 Validador de Responsabilidade Técnica (RT)</h4>
+                <p style="font-size: 0.85rem; color: var(--roxo-medio); margin-bottom: 20px;">Insira o CRMV do médico veterinário para testar a adequação sanitária e blindagem instantânea do seu estoque.</p>
+                <div class="validator-form">
+                    <input type="text" class="validator-input" id="crmvInput" placeholder="Ex: CRMV-MG 17549" value="CRMV-MG 17549">
+                    <button class="cta-btn validator-btn" onclick="startRTValidation()">Validar CRMV</button>
+                </div>
+                <div class="validator-feedback" id="validatorFeedback">
+                    <div class="feedback-step" id="step1">
+                        <div class="step-spinner" id="spin1"></div>
+                        <svg class="step-check" width="16" height="16" viewBox="0 0 24 24" fill="none" style="display:none;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Verificando status ativo no banco de dados CRMV...</span>
+                    </div>
+                    <div class="feedback-step" id="step2">
+                        <div class="step-spinner" id="spin2" style="display:none;"></div>
+                        <svg class="step-check" width="16" height="16" viewBox="0 0 24 24" fill="none" style="display:none;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Autenticando blindagem jurídica de estoque Otimiza...</span>
+                    </div>
+                    <div class="feedback-step" id="step3">
+                        <div class="step-spinner" id="spin3" style="display:none;"></div>
+                        <svg class="step-check" width="16" height="16" viewBox="0 0 24 24" fill="none" style="display:none;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>RT Otimiza Ativo e Integrado!</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="b2b-action" style="margin-top: 40px;">
+                <button class="cta-btn" onclick="triggerB2BConsult()">
+                    <span>Falar com um Consultor Especializado</span>
+                    <svg viewBox="0 0 24 24"><path d="M20,2H4C2.9,2 2,2.9 2,4V22L6,18H20C21.1,18 22,17.1 22,16V4C22,2.9 21.1,2 20,2M20,16H5.2L4,17.2V4H20V16Z"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+       15. SCRIPTS & MIVO STYLE CONSOLE + CART DRAWER
+       ========================================== -->
+    <script>
+        // Shopping Cart Logic
+        let cart = [];
+
+        function openCart() {
+            document.getElementById('cartOverlay').classList.add('active');
+            document.getElementById('cartDrawer').classList.add('active');
+        }
+
+        function closeCart() {
+            document.getElementById('cartOverlay').classList.remove('active');
+            document.getElementById('cartDrawer').classList.remove('active');
+        }
+
+        function addToCart(name, price, iconType) {
+            triggerConfetti();
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, iconType, qty: 1 });
+            }
+            updateCartUI();
+            openCart();
+        }
+
+        function updateCartQty(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const listEl = document.getElementById('cartItemsList');
+            const totalEl = document.getElementById('cartTotalValue');
+            
+            if (cart.length === 0) {
+                listEl.innerHTML = `
+                    <div class="empty-cart-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                        <p style="font-weight: 700; font-size: 1.1rem; margin: 0 0 5px 0;">Sua cesta está vazia</p>
+                        <p style="margin: 0; font-size: 0.85rem; opacity: 0.8;">Adicione produtos manipulados Aika para cuidar do seu pet!</p>
+                    </div>
+                `;
+                totalEl.innerText = 'R$ 0,00';
+                return;
+            }
+
+            let subtotal = 0;
+            let html = '';
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+
+                // Simple SVG picker
+                let svgIcon = '';
+                if (item.iconType === 'capsule') {
+                    svgIcon = `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="38" y="30" width="24" height="40" rx="12" fill="var(--roxo-medio)"/><rect x="38" y="30" width="24" height="20" rx="12" fill="var(--lilas-medio)"/></svg>`;
+                } else if (item.iconType === 'dropper') {
+                    svgIcon = `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35 70 C25 65 20 50 25 35 C30 20 48 15 55 25" stroke="var(--roxo-medio)" stroke-width="6" stroke-linecap="round"/><circle cx="50" cy="50" r="10" fill="var(--amarelo-dourado)"/></svg>`;
+                } else if (item.iconType === 'heart') {
+                    svgIcon = `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 78 C25 60 15 40 30 25 C42 13 50 30 50 30 C50 30 58 13 70 25 C85 40 75 60 50 78 Z" fill="var(--lilas-suave)" stroke="var(--roxo-medio)" stroke-width="5"/></svg>`;
+                } else {
+                    svgIcon = `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="32" width="40" height="35" rx="16" fill="var(--lilas-suave)" stroke="var(--roxo-medio)" stroke-width="5"/></svg>`;
+                }
+
+                html += `
+                    <div class="cart-item-card">
+                        <div class="cart-item-img">${svgIcon}</div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">R$ ${itemTotal.toFixed(2).replace('.', ',')}</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button class="cart-item-btn" onclick="updateCartQty(${index}, -1)">-</button>
+                            <span class="cart-item-qty">${item.qty}</span>
+                            <button class="cart-item-btn" onclick="updateCartQty(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            listEl.innerHTML = html;
+            totalEl.innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+        }
+
+        function submitCartCheckout() {
+            if (cart.length === 0) return;
+            triggerConfetti();
+            let msg = 'Olá Otimiza FarmaVet! Gostaria de encomendar os seguintes medicamentos manipulados Aika:\n\n';
+            cart.forEach(item => {
+                msg += `- ${item.qty}x ${item.name} (R$ ${item.price.toFixed(2).replace('.', ',')} cada)\n`;
+            });
+            msg += `\n*Subtotal Estimado:* ${document.getElementById('cartTotalValue').innerText}\n`;
+            msg += 'Por favor, me informe os próximos passos para envio da receita e pagamento!';
+            
+            const url = `https://wa.me/553135649606?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+
+        // ==========================================
+        // VET EM CASA SCHEDULER WIDGET LOGIC
+        // ==========================================
+        let bookingPet = 'Cão 🐶';
+        let bookingDay = 18;
+        let bookingTime = 'Manhã (08:00 - 12:00) ☀️';
+
+        function openScheduler() {
+            document.getElementById('schedulerModal').classList.add('active');
+        }
+
+        function closeScheduler() {
+            document.getElementById('schedulerModal').classList.remove('active');
+        }
+
+        function selectPetOption(element, val) {
+            bookingPet = val;
+            const group = element.parentElement;
+            group.querySelectorAll('.option-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function selectTimeOption(element, val) {
+            bookingTime = val;
+            const group = element.parentElement;
+            group.querySelectorAll('.option-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function selectCalendarDay(element, day) {
+            bookingDay = day;
+            const grid = element.parentElement;
+            grid.querySelectorAll('.calendar-day').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function submitAppointmentScheduler() {
+            triggerConfetti();
+            closeScheduler();
+            const msg = `📅 *Agendamento Domiciliar Otimiza Vet em Casa*\n\nPet: ${bookingPet}\nData Escolhida: ${bookingDay} de Maio 2026\nPeríodo: ${bookingTime}\n\nSua visita premium foi pré-agendada com sucesso! Direcionando você ao WhatsApp da clínica para confirmar o endereço de Belo Horizonte.`;
+            alert(msg);
+            window.open(`https://wa.me/553135649606?text=${encodeURIComponent(`Olá! Gostaria de confirmar meu pré-agendamento domiciliar de ${bookingPet} para o dia ${bookingDay}/05 no período da ${bookingTime}.`)}`, '_blank');
+        }
+
+        // ==========================================
+        // B2B INTERACTIVE RT VALIDATOR LOGIC
+        // ==========================================
+        function startRTValidation() {
+            const valInput = document.getElementById('crmvInput').value.trim();
+            if (!valInput) {
+                alert('Por favor, insira um CRMV válido para validar o RT.');
+                return;
+            }
+
+            const feedback = document.getElementById('validatorFeedback');
+            const widget = document.getElementById('b2bValidator');
+            feedback.style.display = 'flex';
+            widget.classList.remove('validated');
+
+            // Reset UI states
+            const steps = ['step1', 'step2', 'step3'];
+            steps.forEach(id => {
+                const step = document.getElementById(id);
+                step.classList.remove('active', 'completed');
+                step.querySelector('.step-spinner').style.display = 'none';
+                step.querySelector('.step-check').style.display = 'none';
+            });
+
+            // Step 1 check
+            const step1 = document.getElementById('step1');
+            step1.classList.add('active');
+            const spin1 = document.getElementById('spin1');
+            spin1.style.display = 'block';
+
+            setTimeout(() => {
+                spin1.style.display = 'none';
+                step1.querySelector('.step-check').style.display = 'block';
+                step1.classList.add('completed');
+
+                // Step 2 check
+                const step2 = document.getElementById('step2');
+                step2.classList.add('active');
+                const spin2 = document.getElementById('spin2');
+                spin2.style.display = 'block';
+
+                setTimeout(() => {
+                    spin2.style.display = 'none';
+                    step2.querySelector('.step-check').style.display = 'block';
+                    step2.classList.add('completed');
+
+                    // Step 3 check
+                    const step3 = document.getElementById('step3');
+                    step3.classList.add('active');
+                    const spin3 = document.getElementById('spin3');
+                    spin3.style.display = 'block';
+
+                    setTimeout(() => {
+                        spin3.style.display = 'none';
+                        step3.querySelector('.step-check').style.display = 'block';
+                        step3.classList.add('completed');
+                        
+                        // Final Validation state
+                        widget.classList.add('validated');
+                        triggerConfetti();
+                    }, 1200);
+
+                }, 1000);
+
+            }, 800);
+        }
+
+
+        // ==========================================
+        // MIVO GENERAL CONSOLE CONTROLS
+        // ==========================================
+        function toggleConsole() {
+            const consoleEl = document.getElementById('mivoConsole');
+            consoleEl.classList.toggle('minimized');
+            if (consoleEl.classList.contains('minimized')) {
+                consoleEl.innerHTML = '<button class="console-toggle-btn">⚙️</button>';
+            } else {
+                rebuildConsoleMarkup();
+            }
+        }
+
+        function rebuildConsoleMarkup() {
+            const consoleEl = document.getElementById('mivoConsole');
+            consoleEl.innerHTML = `
+                <button class="console-toggle-btn" onclick="toggleConsole()" title="Toggle Console">✕</button>
+                <div class="console-content">
+                    <div class="console-header">
+                        <h3 class="console-title">✨ Painel Mivo Style</h3>
+                        <div class="console-subtitle">Veja a estética Mivo em tempo real no seu site!</div>
+                    </div>
+                    
+                    <div class="console-controls-list">
+                        <label class="console-option">
+                            <span>Divisórias Curvas (Waves)</span>
+                            <span class="switch">
+                                <input type="checkbox" id="chkDividers" ${document.body.classList.contains('show-dividers') ? 'checked' : ''} onchange="handleControlChange()">
+                                <span class="slider"></span>
+                            </span>
+                        </label>
+                        <label class="console-option">
+                            <span>Stickers Animados (Branding)</span>
+                            <span class="switch">
+                                <input type="checkbox" id="chkStickers" ${document.body.classList.contains('show-stickers') ? 'checked' : ''} onchange="handleControlChange()">
+                                <span class="slider"></span>
+                            </span>
+                        </label>
+                        <label class="console-option">
+                            <span>Design de Cards Mivo</span>
+                            <span class="switch">
+                                <input type="checkbox" id="chkCards" ${document.body.classList.contains('mivo-cards') ? 'checked' : ''} onchange="handleControlChange()">
+                                <span class="slider"></span>
+                            </span>
+                        </label>
+                        <label class="console-option">
+                            <span>Efeito Glassmorphism</span>
+                            <span class="switch">
+                                <input type="checkbox" id="chkGlass" ${document.body.classList.contains('glass-theme') ? 'checked' : ''} onchange="handleControlChange()">
+                                <span class="slider"></span>
+                            </span>
+                        </label>
+                    </div>
+                    
+                    <button class="console-btn" onclick="triggerConfetti()">
+                        <span>🎉 Efeito Sucesso Mivo</span>
+                    </button>
+                </div>
+            `;
+        }
+
+        function handleControlChange() {
+            const chkDividers = document.getElementById('chkDividers').checked;
+            const chkStickers = document.getElementById('chkStickers').checked;
+            const chkCards = document.getElementById('chkCards').checked;
+            const chkGlass = document.getElementById('chkGlass').checked;
+
+            if (chkDividers) document.body.classList.add('show-dividers');
+            else document.body.classList.remove('show-dividers');
+
+            if (chkStickers) document.body.classList.add('show-stickers');
+            else document.body.classList.remove('show-stickers');
+
+            if (chkCards) document.body.classList.add('mivo-cards');
+            else document.body.classList.remove('mivo-cards');
+
+            if (chkGlass) document.body.classList.add('glass-theme');
+            else document.body.classList.remove('glass-theme');
+        }
+
+        function triggerB2BConsult() {
+            triggerConfetti();
+            alert(`💬 Conexão Comercial Otimiza:\nDirecionando para o WhatsApp do nosso consultor veterinário...`);
+            window.open('https://wa.me/553135649606', '_blank');
+        }
+
+        // ==========================================
+        // CANVAS CONFETTI / SPARKLE ENGINE
+        // ==========================================
+        const canvas = document.getElementById('effects-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let particles = [];
+        let animationFrameId = null;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class ConfettiParticle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = -20 - Math.random() * 50;
+                this.size = Math.random() * 12 + 6;
+                this.speedY = Math.random() * 4 + 3;
+                this.speedX = Math.random() * 2 - 1;
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 4 - 2;
+                
+                const colors = ['#470C51', '#701C7F', '#C48BCE', '#FFB800', '#FFE600', '#FF7EB9', '#EACFF0'];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.shape = Math.floor(Math.random() * 3);
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.rotation += this.rotationSpeed;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation * Math.PI / 180);
+                ctx.fillStyle = this.color;
+                
+                ctx.beginPath();
+                if (this.shape === 0) {
+                    ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size);
+                } else if (this.shape === 1) {
+                    ctx.arc(0, 0, this.size/2, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    ctx.moveTo(0, -this.size/2);
+                    ctx.lineTo(this.size/2, this.size/2);
+                    ctx.lineTo(-this.size/2, this.size/2);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+        }
+
+        function triggerConfetti() {
+            particles = [];
+            for (let i = 0; i < 120; i++) {
+                particles.push(new ConfettiParticle());
+            }
+            if (!animationFrameId) {
+                animateParticles();
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            let alive = false;
+            particles.forEach((p, index) => {
+                p.update();
+                p.draw();
+                if (p.y < canvas.height + 20) {
+                    alive = true;
+                }
+            });
+
+            if (alive) {
+                animationFrameId = requestAnimationFrame(animateParticles);
+            } else {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                animationFrameId = null;
+            }
+        }
+
+        // Minimization hover and clicks
+        document.getElementById('mivoConsole').addEventListener('mouseenter', () => {
+            const consoleEl = document.getElementById('mivoConsole');
+            if (consoleEl.classList.contains('minimized')) {
+                consoleEl.style.transform = 'scale(1.1)';
+            }
+        });
+        document.getElementById('mivoConsole').addEventListener('mouseleave', () => {
+            const consoleEl = document.getElementById('mivoConsole');
+            consoleEl.style.transform = '';
+        });
+
+        document.getElementById('mivoConsole').addEventListener('click', (e) => {
+            const consoleEl = document.getElementById('mivoConsole');
+            if (consoleEl.classList.contains('minimized')) {
+                toggleConsole();
+                e.stopPropagation();
+            }
+        });
+    </script>
+</body>
+</html>

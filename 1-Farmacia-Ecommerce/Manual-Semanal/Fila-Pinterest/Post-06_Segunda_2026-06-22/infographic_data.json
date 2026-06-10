@@ -1,0 +1,104 @@
+{
+  "posting_time": "2026-06-22 09:00",
+  "dia_nome": "Segunda",
+  "titulo_pin": "Coprofagia em Cães: Por Que Eles Comem Fezes?",
+  "descricao_pin": "Entenda as causas médicas e comportamentais da coprofagia (cão que come fezes). Descubra tratamentos, exames de rotina e manejos eficientes para solucionar este problema comum. #coprofagia #comportamentocanino #saudepet #otimizafarmavet",
+  "whatsapp_link": "https://wa.me/5531987936822?text=Olá! Vim pelo Pinterest e gostaria de cotar inibidores de coprofagia ou suplementos.",
+  "infographic_data": {
+    "header": {
+      "title": "Coprofagia em Cães: Por Que Eles Comem Fezes?",
+      "subtitle": "ENTENDA AS CAUSAS E SAIBA COMO TRATAR",
+      "category": "COMPORTAMENTO",
+      "schedule": "SEGUNDA, 22 DE JUNHO | 09:00"
+    },
+    "columns": [
+      {
+        "title": "Causas Médicas",
+        "type": "diagram",
+        "icon": "check",
+        "description": "Fatores fisiológicos que geram a coprofagia",
+        "content": {
+          "nodes": [
+            {
+              "label": "Má Absorção",
+              "desc": "Ingredientes não digeridos saem inteiros e atrativos nas fezes."
+            },
+            {
+              "label": "Verminoses",
+              "desc": "Parasitas roubam nutrientes, gerando fome extrema."
+            },
+            {
+              "label": "Deficiências",
+              "desc": "Falta de enzimas pancreáticas específicas ou nutrientes."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Comportamental",
+        "type": "table",
+        "icon": "compare",
+        "description": "Fatores emocionais e ambientais envolvidos",
+        "content": {
+          "headers": [
+            "Gatilho",
+            "Comportamento",
+            "Solução"
+          ],
+          "rows": [
+            {
+              "gatilho": "Busca de atenção",
+              "comportamento": "Cão come fezes para o dono correr atrás",
+              "solucao": "Recolher sem alarde"
+            },
+            {
+              "gatilho": "Medo de bronca",
+              "comportamento": "Ingere as fezes para esconder a sujeira",
+              "solucao": "Parar de punir o pet"
+            },
+            {
+              "gatilho": "Tédio / Isolamento",
+              "comportamento": "Brinca e consome por falta de estímulo",
+              "solucao": "Enriquecimento ambiental"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Plano de Ação",
+        "type": "flowchart",
+        "icon": "bulb",
+        "description": "Passos práticos para resolver o hábito",
+        "content": {
+          "steps": [
+            {
+              "step": "Check-up Clínico",
+              "options": [
+                "Exame de fezes (copro)",
+                "Exames de sangue"
+              ]
+            },
+            {
+              "step": "Manejo Imediato",
+              "options": [
+                "Limpar fezes sem dar bronca",
+                "Distrair pet com petisco"
+              ]
+            },
+            {
+              "step": "Inibidores de Sabor",
+              "options": [
+                "Suplementos antiparasitários",
+                "Produtos específicos na comida"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "footer": {
+      "cta_text": "Dúvidas? Chame no WhatsApp!",
+      "hashtags": "#saudepet #otimizafarmavet"
+    }
+  }
+}

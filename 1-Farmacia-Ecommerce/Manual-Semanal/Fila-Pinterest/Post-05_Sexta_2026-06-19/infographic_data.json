@@ -1,0 +1,96 @@
+{
+  "posting_time": "2026-06-19 09:00",
+  "dia_nome": "Sexta",
+  "titulo_pin": "Gatos e Caixas de Papelão: O Mistério Revelado",
+  "descricao_pin": "Por que os gatos são obcecados por caixas de papelão? Descubra as explicações biológicas, desde a redução de estresse até o isolamento térmico, e veja como enriquecer o ambiente do seu felino. #gatos #comportamentofelino #curiosidadespet #otimizafarmavet",
+  "whatsapp_link": "https://wa.me/5531987936822?text=Olá! Vim pelo Pinterest e gostaria de saber mais sobre comportamento de gatos.",
+  "infographic_data": {
+    "header": {
+      "title": "Gatos e Caixas de Papelão: O Mistério Revelado",
+      "subtitle": "POR QUE ELES AMAM ESPAÇOS CONFINADOS?",
+      "category": "CURIOSIDADES",
+      "schedule": "SEXTA, 19 DE JUNHO | 09:00"
+    },
+    "columns": [
+      {
+        "title": "Motivos",
+        "type": "list",
+        "icon": "check",
+        "description": "A ciência por trás do amor felino pelo papelão",
+        "content": {
+          "items": [
+            {
+              "label": "Alívio de Estresse",
+              "desc": "Estudos mostram que caixas reduzem os níveis de cortisol rapidamente."
+            },
+            {
+              "label": "Isolamento Térmico",
+              "desc": "Papelão mantém o calor. Gatos preferem ambientes quentes (30-36°C)."
+            },
+            {
+              "label": "Zona de Segurança",
+              "desc": "Espaço ideal para se esconder e observar presas sem ser visto."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Tipos Ideais",
+        "type": "diagram",
+        "icon": "compare",
+        "description": "Formatos de caixas que fazem mais sucesso",
+        "content": {
+          "nodes": [
+            {
+              "label": "Pequenas",
+              "desc": "Forçam o gato a se encolher, gerando sensação de conforto."
+            },
+            {
+              "label": "Com Aberturas",
+              "desc": "Excelentes para tocas e jogos de esconde-esconde."
+            },
+            {
+              "label": "Grandes com Furos",
+              "desc": "Espaço de exploração com brinquedos inseridos."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Playground",
+        "type": "flowchart",
+        "icon": "bulb",
+        "description": "Como preparar uma caixa com segurança",
+        "content": {
+          "steps": [
+            {
+              "step": "Inspeção",
+              "options": [
+                "Remover grampos e pregos",
+                "Retirar fitas plásticas"
+              ]
+            },
+            {
+              "step": "Posicionamento",
+              "options": [
+                "Área tranquila",
+                "Locais altos e estáveis"
+              ]
+            },
+            {
+              "step": "Diversão",
+              "options": [
+                "Adicionar petiscos",
+                "Colocar brinquedos ou catnip"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "footer": {
+      "cta_text": "Dúvidas? Chame no WhatsApp!",
+      "hashtags": "#saudepet #otimizafarmavet"
+    }
+  }
+}
