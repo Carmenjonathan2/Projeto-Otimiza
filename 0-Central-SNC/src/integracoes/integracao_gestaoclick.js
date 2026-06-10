@@ -12,17 +12,42 @@ const headers = {
 };
 
 /**
+ * Tenta extrair o CRMV de vários campos possíveis do cliente no GestãoClick.
+ */
+function extrairCrmv(c) {
+    let crmv = c.crmv || null;
+    
+    // Tenta extrair do campo RG (comum para PF)
+    if (!crmv && c.rg && c.rg.toLowerCase().includes('crmv')) {
+        const match = c.rg.match(/crmv\D*(\d+)/i);
+        if (match) crmv = match[1];
+    }
+    
+    // Tenta extrair da Inscrição Municipal (comum para PJ)
+    if (!crmv && c.inscricao_municipal && c.inscricao_municipal.toLowerCase().includes('crmv')) {
+        const match = c.inscricao_municipal.match(/crmv\D*(\d+)/i);
+        if (match) crmv = match[1];
+    }
+    
+    // Tenta extrair do Responsável (outro campo de PJ)
+    if (!crmv && c.responsavel && c.responsavel.toLowerCase().includes('crmv')) {
+        const match = c.responsavel.match(/crmv\D*(\d+)/i);
+        if (match) crmv = match[1];
+    }
+    
+    return crmv;
+}
+
+/**
  * Busca o cadastro do cliente pelo CPF/CNPJ.
- * Identifica se possui tag de Veterinário (B2B).
  */
 async function buscarCadastroPorCPF(cpf) {
-    console.log(`[GESTAOCLICK] Buscando cadastro para CPF: ${cpf}...`);
+    console.log(`[GESTAOCLICK] Buscando cadastro para CPF/CNPJ: ${cpf}...`);
 
     // Limpar caracteres não numéricos
     const docLimpo = cpf.replace(/\D/g, '');
 
     if (ACCESS_TOKEN === "MOCK_GC_ACCESS_TOKEN" || SECRET_TOKEN === "MOCK_GC_SECRET_TOKEN") {
-        // Mock de retorno realista
         if (docLimpo === "06944265630" || docLimpo.includes("8119")) {
             return {
                 id: 99812,
@@ -31,41 +56,128 @@ async function buscarCadastroPorCPF(cpf) {
                 crmv: null
             };
         }
-        
-        // Simular um veterinário cadastrado
         if (docLimpo.includes("9999")) {
             return {
                 id: 11202,
                 nome: "Dr. Marcos Medvet",
                 tipo_cliente: "B2B",
-                crmv: "MG-12345"
+                crmv: "12345"
             };
         }
-
-        return { id: null, nome: null, tipo_cliente: "B2C" }; // Default
+        return { id: null, nome: null, tipo_cliente: "B2C", crmv: null };
     }
 
     try {
-        const response = await axios.get(`${BASE_URL}/clientes?cnpj_cpf=${docLimpo}`, { headers });
-        const clientes = response.data.clientes;
+        // Correção de parâmetro para 'cpf_cnpj' e uso do array correto 'data'
+        const response = await axios.get(`${BASE_URL}/clientes?cpf_cnpj=${docLimpo}`, { headers });
+        const clientes = response.data.data || [];
 
-        if (!clientes || clientes.length === 0) {
-            return { id: null, nome: null, tipo_cliente: "B2C" };
+        if (clientes.length === 0) {
+            return { id: null, nome: null, tipo_cliente: "B2C", crmv: null };
         }
 
         const c = clientes[0];
-        // Verifica se a categoria ou alguma tag indica B2B/Veterinário
         const ehB2B = c.tags && c.tags.toLowerCase().includes("veterinario");
+        const crmv = extrairCrmv(c);
 
         return {
             id: c.id,
             nome: c.nome,
             tipo_cliente: ehB2B ? "B2B" : "B2C",
-            crmv: c.crmv || null
+            crmv: crmv
         };
     } catch (e) {
         console.error(`❌ [GESTAOCLICK] Erro ao buscar cadastro por CPF:`, e.message);
-        return { id: null, nome: null, tipo_cliente: "B2C" };
+        return { id: null, nome: null, tipo_cliente: "B2C", crmv: null };
+    }
+}
+
+/**
+ * Busca o cadastro do cliente pelo CRMV (pesquisando no campo RG/Inscrição Municipal/Responsável).
+ */
+async function buscarCadastroPorCRMV(crmvNumero) {
+    console.log(`[GESTAOCLICK] Buscando cadastro para CRMV: ${crmvNumero}...`);
+    
+    if (ACCESS_TOKEN === "MOCK_GC_ACCESS_TOKEN" || SECRET_TOKEN === "MOCK_GC_SECRET_TOKEN") {
+        if (crmvNumero.includes("23344") || crmvNumero.includes("12345")) {
+            return {
+                id: 11202,
+                nome: "Dr. Marcos Medvet",
+                tipo_cliente: "B2B",
+                crmv: crmvNumero
+            };
+        }
+        return { id: null, nome: null, tipo_cliente: "B2C", crmv: null };
+    }
+
+    try {
+        // Paginamos as primeiras páginas do CRM para encontrar em memória
+        for (let page = 1; page <= 5; page++) {
+            const response = await axios.get(`${BASE_URL}/clientes?page=${page}`, { headers });
+            const clientes = response.data.data || [];
+            if (clientes.length === 0) break;
+
+            for (let c of clientes) {
+                const crmv = extrairCrmv(c);
+                if (crmv && crmv.toString() === crmvNumero.toString()) {
+                    const ehB2B = c.tags && c.tags.toLowerCase().includes("veterinario");
+                    console.log(`✅ [GESTAOCLICK] Cadastro localizado via CRMV! Nome: ${c.nome}`);
+                    return {
+                        id: c.id,
+                        nome: c.nome,
+                        tipo_cliente: ehB2B ? "B2B" : "B2C",
+                        crmv: crmv
+                    };
+                }
+            }
+        }
+        console.log(`ℹ️ [GESTAOCLICK] CRMV ${crmvNumero} não foi localizado no ERP.`);
+        return { id: null, nome: null, tipo_cliente: "B2C", crmv: null };
+    } catch (e) {
+        console.error(`❌ [GESTAOCLICK] Erro ao buscar cadastro por CRMV:`, e.message);
+        return { id: null, nome: null, tipo_cliente: "B2C", crmv: null };
+    }
+}
+
+/**
+ * Busca o cadastro do cliente pelo telefone de contato.
+ */
+async function buscarCadastroPorTelefone(telefone) {
+    console.log(`[GESTAOCLICK] Buscando cadastro para telefone: ${telefone}...`);
+    const telLimpo = telefone.replace(/\D/g, '');
+    
+    if (ACCESS_TOKEN === "MOCK_GC_ACCESS_TOKEN" || SECRET_TOKEN === "MOCK_GC_SECRET_TOKEN") {
+        return { id: null, nome: null, tipo_cliente: "B2C", crmv: null };
+    }
+
+    try {
+        for (let page = 1; page <= 5; page++) {
+            const response = await axios.get(`${BASE_URL}/clientes?page=${page}`, { headers });
+            const clientes = response.data.data || [];
+            if (clientes.length === 0) break;
+
+            for (let c of clientes) {
+                const cCelular = c.celular ? c.celular.replace(/\D/g, '') : "";
+                const cTelefone = c.telefone ? c.telefone.replace(/\D/g, '') : "";
+                
+                if ((cCelular && (cCelular.includes(telLimpo) || telLimpo.includes(cCelular))) ||
+                    (cTelefone && (cTelefone.includes(telLimpo) || telLimpo.includes(cTelefone)))) {
+                    const ehB2B = c.tags && c.tags.toLowerCase().includes("veterinario");
+                    const crmv = extrairCrmv(c);
+                    console.log(`✅ [GESTAOCLICK] Cadastro localizado via telefone! Nome: ${c.nome}`);
+                    return {
+                        id: c.id,
+                        nome: c.nome,
+                        tipo_cliente: ehB2B ? "B2B" : "B2C",
+                        crmv: crmv
+                    };
+                }
+            }
+        }
+        return { id: null, nome: null, tipo_cliente: "B2C", crmv: null };
+    } catch (e) {
+        console.error(`❌ [GESTAOCLICK] Erro ao buscar cadastro por telefone:`, e.message);
+        return { id: null, nome: null, tipo_cliente: "B2C", crmv: null };
     }
 }
 
@@ -92,7 +204,6 @@ async function cadastrarCliente(dados) {
             cep: dados.cep,
             cidade: "Belo Horizonte",
             estado: "MG",
-            // Campos personalizados para o pet
             observacoes: `Pet: ${dados.nomePet} | Raça: ${dados.racaPet} | Idade: ${dados.idadePet}`
         };
 
@@ -109,5 +220,7 @@ async function cadastrarCliente(dados) {
 
 module.exports = {
     buscarCadastroPorCPF,
+    buscarCadastroPorCRMV,
+    buscarCadastroPorTelefone,
     cadastrarCliente
 };

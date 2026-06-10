@@ -84,11 +84,62 @@ app.post('/webhook/zapi', async (req, res) => {
             history: [],
             cpf: null,
             crmv: null,
-            tipo_cliente: null // "B2C" ou "B2B"
+            tipo_cliente: null, // "B2C" ou "B2B"
+            nome_cadastro: null
         };
     }
 
     const chatState = states[phone];
+
+    // 1. Tentar identificar o cliente pelo número de telefone caso ainda não esteja identificado
+    if (!chatState.nome_cadastro && !chatState.tipo_cliente) {
+        const cadastroTel = await gestaoclick.buscarCadastroPorTelefone(phone);
+        if (cadastroTel && cadastroTel.id) {
+            chatState.nome_cadastro = cadastroTel.nome;
+            chatState.tipo_cliente = cadastroTel.tipo_cliente;
+            chatState.crmv = cadastroTel.crmv || chatState.crmv;
+            saveStates(states);
+            console.log(`[GESTAOCLICK] Cliente identificado pelo telefone! Nome: ${chatState.nome_cadastro} | Tipo: ${chatState.tipo_cliente}`);
+        }
+    }
+
+    // 2. Tentar extrair CPF/CNPJ da mensagem
+    const cpfCnpjMatch = clientMessage.match(/(\d{3}\.\d{3}\.\d{3}-\d{2})|(\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2})|(\b\d{11}\b)|(\b\d{14}\b)/);
+    if (cpfCnpjMatch) {
+        const docExtraido = cpfCnpjMatch[0].replace(/\D/g, '');
+        console.log(`[SNC] Documento CPF/CNPJ detectado na mensagem: ${docExtraido}`);
+        chatState.cpf = docExtraido;
+        
+        const cadastroCpf = await gestaoclick.buscarCadastroPorCPF(docExtraido);
+        if (cadastroCpf && cadastroCpf.id) {
+            chatState.nome_cadastro = cadastroCpf.nome;
+            chatState.tipo_cliente = cadastroCpf.tipo_cliente;
+            chatState.crmv = cadastroCpf.crmv || chatState.crmv;
+            console.log(`[GESTAOCLICK] Cadastro localizado via CPF! Nome: ${chatState.nome_cadastro} | Tipo: ${chatState.tipo_cliente}`);
+        } else {
+            console.log(`[GESTAOCLICK] CPF ${docExtraido} não localizado no GestãoClick.`);
+        }
+        saveStates(states);
+    }
+
+    // 3. Tentar extrair CRMV da mensagem
+    const crmvMatch = clientMessage.match(/crmv\s*[-/]?\s*(?:[a-z]{2})?\s*[-/]?\s*(\d+)/i) || 
+                      clientMessage.match(/(\d+)\s*[-/]?\s*crmv/i);
+    if (crmvMatch) {
+        const crmvExtraido = crmvMatch[1];
+        console.log(`[SNC] CRMV detectado na mensagem: ${crmvExtraido}`);
+        chatState.crmv = crmvExtraido;
+        
+        const cadastroCrmv = await gestaoclick.buscarCadastroPorCRMV(crmvExtraido);
+        if (cadastroCrmv && cadastroCrmv.id) {
+            chatState.nome_cadastro = cadastroCrmv.nome;
+            chatState.tipo_cliente = cadastroCrmv.tipo_cliente;
+            console.log(`[GESTAOCLICK] Cadastro localizado via CRMV! Nome: ${chatState.nome_cadastro} | Tipo: ${chatState.tipo_cliente}`);
+        } else {
+            console.log(`[GESTAOCLICK] CRMV ${crmvExtraido} não localizado no GestãoClick.`);
+        }
+        saveStates(states);
+    }
 
     // Sincronizar a mensagem recebida com o Chatwoot imediatamente
     await chatwoot.sincronizarMensagemCliente(phone, clientMessage, clientName);
@@ -160,12 +211,18 @@ app.post('/webhook/zapi', async (req, res) => {
         contextoInjetado += `\n[Contexto de Sistema - Estoque Atualizado]: O produto '${produto}' possui estoque atual de ${infoEstoque.quantidade} unidades com valor de R$ ${infoEstoque.preco}.`;
     }
 
-    // Verificar se o cliente é veterinário no GestãoClick se já tivermos o CPF/CNPJ
-    if (chatState.cpf && !chatState.tipo_cliente) {
-        const infoCadastro = await gestaoclick.buscarCadastroPorCPF(chatState.cpf);
-        chatState.tipo_cliente = infoCadastro.tipo_cliente; // "B2B" ou "B2C"
-        saveStates(states);
-        contextoInjetado += `\n[Contexto de Sistema - CRM]: Cliente já identificado no GestãoClick como segmento '${chatState.tipo_cliente}'.`;
+    // Injetar contexto de CRM do cliente localizado no GestãoClick
+    if (chatState.nome_cadastro) {
+        contextoInjetado += `\n[Contexto de Sistema - CRM]: Cliente IDENTIFICADO no GestãoClick. Nome do Cadastro: '${chatState.nome_cadastro}', Segmento: '${chatState.tipo_cliente}'${chatState.crmv ? `, CRMV: '${chatState.crmv}'` : ''}.
+ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.nome_cadastro}' do cadastro. Como ele(a) já é cadastrado(a) no ERP, NÃO peça mais o CRMV ou CPF e siga direto para o atendimento técnico (caso B2B) ou de tutor (caso B2C). Se for B2B, sempre o(a) trate como Doutor(a) e fale com a persona técnica do Dr. Kyenner.`;
+    } else {
+        contextoInjetado += `\n[Contexto de Sistema - CRM]: Cliente não localizado no GestãoClick.`;
+        if (chatState.crmv) {
+            contextoInjetado += ` CRMV informado: '${chatState.crmv}', mas NÃO localizado no banco de dados.`;
+        }
+        if (chatState.cpf) {
+            contextoInjetado += ` CPF informado: '${chatState.cpf}', mas NÃO localizado no banco de dados.`;
+        }
     }
 
     // Aplicar estratégias de inteligência comercial (Upsell, Cross-sell, Frete, Cartão, Pix, etc.)
