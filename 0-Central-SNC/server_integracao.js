@@ -238,7 +238,6 @@ app.post('/webhook/zapi', async (req, res) => {
     }
 
     // --- DETECÇÃO DE GATILHOS DE SEGURANÇA (SAFETY NET) ---
-    const mensagemLower = clientMessage.toLowerCase();
     const urgenciasClinicas = ["convulsão", "convulsao", "sangrando", "sangramento", "envenenado", "morrendo", "vomitando sangue"];
     const atritosFrustracao = ["atrasado", "atrasou", "errado", "errada", "cancelar", "cancelamento", "reclamar", "procon"];
 
