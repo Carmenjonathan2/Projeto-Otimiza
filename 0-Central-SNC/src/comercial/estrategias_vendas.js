@@ -43,6 +43,10 @@ const REGRAS_B2C = {
     RECUSA_MANIPULADOS_B2C: {
         detectores: ["manipulado", "manipulados", "manipulacao", "manipulação", "formula", "fórmula", "mandar fazer", "aviamento"],
         mensagemInjetada: "[RECUSA B2C - MANIPULADOS ❌]: Use exatamente este template carinhoso: 'Oi [Nome]! Agradecemos o contato. No momento nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o [Pet]! Que ele fique bem logo — estamos na torcida aqui com muita energia positiva! 🐾'"
+    },
+    COMBO_VET_EM_CASA_MULTIPLAS_B2C: {
+        detectores: ["vacina", "v8", "v10", "raiva", "gripe", "giardia", "antirrábica", "antirrabica", "vacinacao", "vacinação"],
+        mensagemInjetada: "[COMBO B2C - VET EM CASA PACOTE 🏠🐾]: Ao oferecer o serviço Vet em Casa, pergunte quantas vacinas o pet precisa tomar e se há mais de um pet em casa. Se precisar de mais de uma vacina ou houver mais de um pet, apresente o valor completo em uma única visita: 'Posso aplicar todas as vacinas necessárias em uma só visita, sem taxa de deslocamento adicional!' Isso aumenta o ticket médio de forma natural e conveniente."
     }
 };
 
@@ -81,6 +85,14 @@ const REGRAS_B2B = {
     RECUSA_MANIPULADOS_B2B: {
         detectores: ["manipulado", "manipulação", "formula", "fórmula", "aviamento", "compounding"],
         mensagemInjetada: "[RECUSA B2B - MANIPULADOS ❌]: Explique de forma direta que não realizamos manipulação. Redirecione para os produtos industrializados disponíveis no portfólio que possam atender a necessidade terapêutica mencionada."
+    },
+    COMBO_VACINA_INSUMOS_B2B: {
+        detectores: ["vacina", "rabisin", "nobivac", "v8", "v10", "raiva", "gripe", "giardia", "injetavel", "injetável", "biológico"],
+        mensagemInjetada: "[COMBO B2B - VACINA + INSUMOS 💉🩹]: Após informar o preço das doses, SEMPRE pergunte sobre os insumos necessários: 'Para aplicação, você vai precisar de seringa de 1ml com agulha 25x7 (pets menores/SC) ou 25x8 (pets maiores/IM). Você já tem insumos ou aproveita e fecha junto? Tenho caixa fechada de 100 un com ótimo custo-benefício.' Isso resolve a necessidade completa do vet e aumenta o ticket de forma natural."
+    },
+    COMBO_INJETAVEL_SERINGA_B2B: {
+        detectores: ["seringa", "agulha", "insumo", "insumos", "cateter", "scalp"],
+        mensagemInjetada: "[COMBO B2B - INJETÁVEIS COMPLETO 💉]: Entenda o tipo de aplicação: IM (intramuscular), SC (subcutânea) ou IV (intravenosa). Sugira a calibração correta de agulha e pergunte se precisam de algodão hidrófilo ou desinfetante para fechar o kit completo. Oferecer o combo completo poupa o vet de fazer vários pedidos separados."
     }
 };
 

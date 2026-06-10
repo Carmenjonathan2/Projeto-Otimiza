@@ -267,10 +267,12 @@ app.post('/webhook/zapi', async (req, res) => {
             tipo_cliente: null, // "B2C" ou "B2B"
             nome_cadastro: null,
             aguardando_crmv: false,
-            aguardando_receita: false,   // true quando aguardando foto da receita veterinária
-            receita_validada: false,      // true quando a receita foi aprovada pela IA
-            medicamento_restrito: null,   // nome do medicamento de controle solicitado
-            produto_sem_estoque: null     // nome do produto com estoque zerado (aciona transferência)
+            aguardando_receita: false,          // true quando aguardando foto da receita
+            receita_validada: false,             // true quando a receita foi aprovada pela IA
+            medicamento_restrito: null,          // medicamento de controle solicitado
+            produto_sem_estoque: null,           // produto com estoque zerado real
+            produto_mencionado: null,            // produto detectado na conversa B2C (para confirmação de compra)
+            aguardando_confirmar_lista_espera: false  // aguardando cliente confirmar lista de espera
         };
     }
 
@@ -450,8 +452,7 @@ app.post('/webhook/zapi', async (req, res) => {
     // A IA pode precisar consultar estoque ou dados no GestãoClick. O script fornece isso injetando contexto temporário.
     let contextoInjetado = "";
 
-    // Se o cliente mencionar algum produto de alta relevância, consultamos o estoque automaticamente
-    // Detectores expandidos para incluir vacinas (B2B) e medicamentos de alto ticket
+    // Consulta de disponibilidade de produto: expandido para incluir vacinas (B2B) e medicamentos de alto ticket
     const produtosRastreados = [
         { chave: "librela",    nome: "Librela 15mg" },
         { chave: "cytopoint",  nome: "Cytopoint" },
@@ -465,18 +466,32 @@ app.post('/webhook/zapi', async (req, res) => {
     if (produtoDetectado) {
         const infoEstoque = await shopify.consultarEstoque(produtoDetectado.nome);
 
-        if (infoEstoque.quantidade === 0) {
-            // ESTOQUE ZERADO: informar cliente + preparar transferência para humano
-            console.log(`🔴 [ESTOQUE] Produto '${produtoDetectado.nome}' com estoque ZERADO. Preparando transferência.`);
-            contextoInjetado += `\n[ESTOQUE ZERADO 🔴 - AÇÃO OBRIGATÓRIA]: O produto '${produtoDetectado.nome}' está MOMENTANEAMENTE FORA DE ESTOQUE (quantidade: 0). ` +
-                `Informe ao cliente com empatia e carinho que estamos em processo de reposição. ` +
-                `Pergunte se ele gostaria de entrar na *lista de espera* para ser avisado assim que chegar. ` +
-                `Após passar essa informação, diga que vai conectá-lo com o Dr. Kyenner para confirmar o prazo estimado de chegada. ` +
-                `Seja acolhedor e transmita confiança de que o produto está a caminho.`;
+        // Rastrear produto mencionado para B2C (usado na detecção de confirmação de compra)
+        if (chatState.tipo_cliente !== "B2B" && !chatState.produto_mencionado) {
+            chatState.produto_mencionado = produtoDetectado.nome;
+            saveStates(states);
+        }
+
+        if (infoEstoque.tipo === 'pedido_especial') {
+            // PEDIDO ESPECIAL: produto disponível via fornecedor, prazo conhecido
+            console.log(`📦 [ESTOQUE] '${produtoDetectado.nome}' é pedido especial. Prazo: ${infoEstoque.prazo}`);
+            contextoInjetado += `\n[Produto Pedido Especial 📦]: O produto '${produtoDetectado.nome}' não fica em estoque físico próprio — fazemos o pedido ao fornecedor assim que o cliente confirma. ` +
+                `Preço: R$ ${infoEstoque.preco}. PRAZO DE ENTREGA: *${infoEstoque.prazo}* após confirmação. ` +
+                `Informe ao cliente que o produto está DISPONÍVEL normalmente, com entrega em ${infoEstoque.prazo}. ` +
+                `Apresente isso como um serviço personalizado e exclusivo, não como limitação. Valorize a conveniência.`;
+        } else if (infoEstoque.quantidade === 0) {
+            // ESTOQUE ZERADO REAL: perguntar lista de espera, aguardar confirmação antes de transferir
+            console.log(`🔴 [ESTOQUE] Produto '${produtoDetectado.nome}' com estoque ZERADO.`);
+            contextoInjetado += `\n[ESTOQUE ZERADO 🔴 - AÇÃO OBRIGATÓRIA]: O produto '${produtoDetectado.nome}' está MOMENTANEAMENTE FORA DE ESTOQUE. ` +
+                `Informe com empatia que estamos em processo de reposição. ` +
+                `Pergunte se o cliente gostaria de entrar na *lista de espera* para ser avisado assim que chegar. ` +
+                `Seja acolhedor e transmita confiança. NÃO diga que vai transferir ainda — aguarde a resposta do cliente.`;
             chatState.produto_sem_estoque = produtoDetectado.nome;
+            chatState.aguardando_confirmar_lista_espera = true;
             saveStates(states);
         } else {
-            contextoInjetado += `\n[Contexto de Sistema - Estoque Atualizado]: O produto '${produtoDetectado.nome}' possui estoque atual de ${infoEstoque.quantidade} unidades com valor de R$ ${infoEstoque.preco}.`;
+            // ESTOQUE NORMAL: informar quantidade e preço
+            contextoInjetado += `\n[Contexto - Estoque Atualizado]: O produto '${produtoDetectado.nome}' possui *${infoEstoque.quantidade} unidades* em estoque, a R$ ${infoEstoque.preco}.`;
         }
     }
 
@@ -497,6 +512,29 @@ app.post('/webhook/zapi', async (req, res) => {
         contextoInjetado += `\n[Contexto de Sistema - COMPLIANCE OK ✅]: Receita veterinária para '${chatState.medicamento_restrito}' foi validada e aprovada pela IA. Você pode prosseguir normalmente com a venda — solicite os dados de entrega e pagamento.`;
     }
 
+    // --- DETECÇÃO DE INTENÇÃO: Lista de espera (P1) e confirmação de compra B2C (P2) ---
+    let listaEsperaConfirmadaNestaMsg = false;
+    let b2cCompraConfirmadaNestaMsg = false;
+
+    // P1: Cliente confirmando que quer entrar na lista de espera (estoque zerado)
+    if (chatState.aguardando_confirmar_lista_espera) {
+        const confirmacoesListaEspera = ["sim", "quero", "gostaria", "ok", "claro", "pode ser", "me avisa", "lista", "aguardo", "coloca", "anota", "com certeza"];
+        if (confirmacoesListaEspera.some(c => mensagemLower.includes(c))) {
+            listaEsperaConfirmadaNestaMsg = true;
+            chatState.aguardando_confirmar_lista_espera = false;
+            saveStates(states);
+            console.log(`⏳ [SNC] Lista de espera confirmada para ${phone}: ${chatState.produto_sem_estoque}`);
+            contextoInjetado += `\n[LISTA DE ESPERA CONFIRMADA ✅]: O cliente confirmou que quer ser avisado quando '${chatState.produto_sem_estoque}' chegar. Responda com entusiasmo dizendo que anotou o interesse e que vai avisar na hora em que o produto chegar. Seja acolhedor e transmita confiança de que vai cuidar disso pessoalmente.`;
+        }
+    }
+
+    // P2: Tutor B2C confirmando intenção de compra (Opção B)
+    const palavrasCompraB2C = ["quero", "vou levar", "fecha", "fechar", "me manda o pix", "manda o pix", "qual o pix", "qual a chave", "link de pagamento", "quero comprar", "vou comprar", "to dentro", "tô dentro", "quero pedir", "pode mandar", "me manda"];
+    if (chatState.tipo_cliente !== "B2B" && chatState.produto_mencionado && palavrasCompraB2C.some(p => mensagemLower.includes(p))) {
+        b2cCompraConfirmadaNestaMsg = true;
+        console.log(`💳 [SNC] Compra B2C confirmada para ${phone}: ${chatState.produto_mencionado}`);
+        contextoInjetado += `\n[COMPRA CONFIRMADA B2C ✅]: O tutor confirmou que quer comprar '${chatState.produto_mencionado}'. Responda confirmando o pedido com entusiasmo e diga que vai conectá-lo com o Dr. Kyenner para finalizar todos os detalhes (endereço de entrega, pagamento e prazo). Seja acolhedor e transmita urgente positiva.`;
+    }
     // Injetar contexto de CRM do cliente localizado no GestãoClick
     if (chatState.nome_cadastro) {
         contextoInjetado += `\n[Contexto de Sistema - CRM]: Cliente IDENTIFICADO no GestãoClick. Nome do Cadastro: '${chatState.nome_cadastro}', Segmento: '${chatState.tipo_cliente}'${chatState.crmv ? `, CRMV: '${chatState.crmv}'` : ''}.
@@ -599,32 +637,30 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
         // Sincronizar com a tela do Chatwoot (para o atendente ver o robô conversando)
         await chatwoot.sincronizarMensagemBot(phone, responseText);
 
-        // --- TRANSFERÊNCIA PÓS-RESPOSTA: B2C (TRIAGEM RÁPIDA) OU ESTOQUE ZERADO ---
-        const PRODUTOS_DETECTADOS_B2C = ["librela", "cytopoint", "simparic", "metilforan", "vacina", "rabisin", "nobivac", "seringa", "agulha", "antirrábica"];
-        const b2cProdutoMencionado = chatState.tipo_cliente !== "B2B" && PRODUTOS_DETECTADOS_B2C.some(p => mensagemLower.includes(p));
-        const deveTransferirEstoqueZero = !!chatState.produto_sem_estoque;
-        const deveTransferirB2C = b2cProdutoMencionado && chatState.tipo_cliente !== "B2B";
-
-        if ((deveTransferirB2C || deveTransferirEstoqueZero) && chatState.owner !== "human") {
+        // --- TRANSFERÊNCIA PÓS-RESPOSTA: somente após confirmação explícita (P1 lista espera / P2 compra) ---
+        if ((b2cCompraConfirmadaNestaMsg || listaEsperaConfirmadaNestaMsg) && chatState.owner !== "human") {
             chatState.owner = "human";
             saveStates(states);
 
-            const motivoTransferencia = deveTransferirEstoqueZero
-                ? `Estoque zerado: ${chatState.produto_sem_estoque}`
-                : `Tutor B2C — triagem concluída`;
+            const motivoTransferencia = listaEsperaConfirmadaNestaMsg
+                ? `Lista de espera confirmada: ${chatState.produto_sem_estoque}`
+                : `Tutor B2C confirmou compra: ${chatState.produto_mencionado}`;
 
-            const notaKyenner = deveTransferirEstoqueZero
-                ? `⏳ *ESTOQUE ZERO:* ${clientName} tem interesse em *${chatState.produto_sem_estoque}*. \nConfirmar prazo de chegada e fazer follow-up quando o estoque entrar. \nTelefone: +${phone}`
-                : `🐾 *TRIAGEM AIKA CONCLUÍDA — TUTOR B2C*\n` +
+            const notaKyenner = listaEsperaConfirmadaNestaMsg
+                ? `⏳ *LISTA DE ESPERA CONFIRMADA:*\n` +
+                  `👤 *Cliente:* ${clientName} (+${phone})\n` +
+                  `📦 *Produto:* ${chatState.produto_sem_estoque}\n` +
+                  `📋 *Ação:* Fazer follow-up assim que o produto entrar no estoque.`
+                : `🐾 *TUTOR CONFIRMOU COMPRA — B2C*\n` +
                   `👤 *Cliente:* ${clientName}\n` +
                   `📱 *Telefone:* +${phone}\n` +
-                  `🛒 *Interesse:* ${clientMessage.substring(0, 120)}\n` +
-                  `✅ *Já recebeu:* saudação + info de produto + preço\n` +
-                  `📋 *Próximo passo:* Dr. Kyenner fecha o atendimento.`;
+                  `🛒 *Produto:* ${chatState.produto_mencionado}\n` +
+                  `💬 *Mensagem:* "${clientMessage.substring(0, 100)}"\n` +
+                  `📋 *Próximo passo:* Dr. Kyenner finaliza endereço, pagamento e prazo.`;
 
             await chatwoot.enviarNotaPrivada(phone, notaKyenner);
             await chatwoot.solicitarSuporteHumano(phone, clientName, motivoTransferencia);
-            console.log(`🔄 [SNC] Transferência pós-resposta ativada para ${phone}. Motivo: ${motivoTransferencia}`);
+            console.log(`🔄 [SNC] Transferência pós-confirmação para ${phone}. Motivo: ${motivoTransferencia}`);
         }
 
     } catch (e) {

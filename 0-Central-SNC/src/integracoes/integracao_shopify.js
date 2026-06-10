@@ -9,7 +9,7 @@ const headers = {
     'Content-Type': 'application/json'
 };
 
-// Dados Mockados de Fallback
+// Dados Mockados de Fallback (para produtos com estoque físico próprio)
 const MOCK_DATA = {
     "librela 15mg": { quantidade: 8, preco: 380.00 },
     "cytopoint": { quantidade: 5, preco: 450.00 },
@@ -17,15 +17,43 @@ const MOCK_DATA = {
     "metilforan": { quantidade: 12, preco: 180.00 }
 };
 
+// Produtos disponíveis via PEDIDO ESPECIAL ao fornecedor
+// A Otimiza NÃO mantém estoque físico desses produtos — fazemos o pedido ao fornecedor assim que o cliente confirma.
+// Para o bot e o cliente, esses produtos aparecem sempre como DISPONÍVEIS (com prazo de entrega informado).
+const PRODUTOS_PEDIDO_ESPECIAL = {
+    "librela":      { preco: 380.00, prazo: "1 a 2 dias úteis" },
+    "librela 15mg": { preco: 380.00, prazo: "1 a 2 dias úteis" },
+    "cytopoint":    { preco: 450.00, prazo: "1 a 2 dias úteis" },
+    "cytopoint 15mg": { preco: 450.00, prazo: "1 a 2 dias úteis" },
+    "cytopoint 30mg": { preco: 580.00, prazo: "1 a 2 dias úteis" },
+};
+
 const fs = require('fs');
 const path = require('path');
 
 /**
- * Consulta a quantidade em estoque e o preço de um produto no arquivo local do GestãoClick.
- * Se o arquivo não existir ou o produto não for encontrado, ativa o fallback.
+ * Consulta a disponibilidade e o preço de um produto.
+ * Para produtos de PEDIDO ESPECIAL, retorna disponível via fornecedor (sem mostrar "estoque zerado").
+ * Para produtos próprios, consulta o arquivo local do GestãoClick com fallback para MOCK_DATA.
  */
 async function consultarEstoque(nomeProduto) {
-    console.log(`[PRODUTOS] Consultando estoque local (GestãoClick) para: "${nomeProduto}"...`);
+    console.log(`[PRODUTOS] Consultando disponibilidade para: "${nomeProduto}"...`);
+
+    // Verificar primeiro se é produto de PEDIDO ESPECIAL (sem estoque físico próprio)
+    const nomeLower = nomeProduto.toLowerCase();
+    const chaveEspecial = Object.keys(PRODUTOS_PEDIDO_ESPECIAL).find(k => nomeLower.includes(k) || k.includes(nomeLower));
+    if (chaveEspecial) {
+        const infoEspecial = PRODUTOS_PEDIDO_ESPECIAL[chaveEspecial];
+        console.log(`📦 [PRODUTOS] '${nomeProduto}' é PEDIDO ESPECIAL. Prazo: ${infoEspecial.prazo} | Preço: R$ ${infoEspecial.preco}`);
+        return {
+            quantidade: 999,                 // sentinel: sempre disponível via fornecedor
+            preco: infoEspecial.preco,
+            tipo: 'pedido_especial',
+            prazo: infoEspecial.prazo
+        };
+    }
+
+    // Para produtos com estoque físico próprio: consulta o arquivo local do GestãoClick
     try {
         const filePath = path.resolve(__dirname, '../../../1-Farmacia-Ecommerce/Sistema de Fidelização Otimiza/estoque_limpo_gestaoclick.json');
         if (fs.existsSync(filePath)) {
