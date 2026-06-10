@@ -108,6 +108,65 @@ function isDuplicateMessage(messageId) {
     }
     return false;
 }
+/**
+ * Envia um alerta no grupo do Telegram configurado no .env.
+ */
+async function enviarAlertaTelegram(mensagem) {
+    const token = process.env.TELEGRAM_BOT_TOKEN;
+    const chatId = process.env.TELEGRAM_CHAT_ID || (process.env.TELEGRAM_CHAT_IDS && process.env.TELEGRAM_CHAT_IDS.split(',')[0]);
+    if (!token || !chatId) {
+        console.log("⚠️ [TELEGRAM] Credenciais de Telegram não configuradas no .env.");
+        return;
+    }
+    try {
+        await axios.post(`https://api.telegram.org/bot${token}/sendMessage`, {
+            chat_id: chatId,
+            text: mensagem,
+            parse_mode: "HTML"
+        });
+        console.log("✅ [TELEGRAM] Alerta comercial enviado com sucesso!");
+    } catch (e) {
+        console.error("❌ [TELEGRAM] Erro ao enviar mensagem para o grupo:", e.response ? e.response.data : e.message);
+    }
+}
+
+// =========================================================================
+// 1.1. AUXILIAR: VALIDAÇÃO MULTIMODAL DE RECEITA VETERINÁRIA (GEMINI VISION)
+// =========================================================================
+async function validarReceitaPorIA(imageUrl, mimeType) {
+    console.log(`[RECEITA-IA] Baixando imagem para validação: ${imageUrl}...`);
+    try {
+        const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+        const imageBuffer = Buffer.from(response.data);
+        const imageBase64 = imageBuffer.toString('base64');
+        const cleanMimeType = (mimeType || 'image/jpeg').split(';')[0].trim();
+
+        console.log(`[RECEITA-IA] Enviando imagem (${imageBuffer.length} bytes, ${cleanMimeType}) ao Gemini Vision...`);
+        const modelVision = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+
+        const promptReceita = `Você é um sistema de compliance farmacêutico veterinário brasileiro. Analise a imagem enviada como RECEITA VETERINÁRIA.\n\nVerifique OBRIGATORIAMENTE:\n1. Assinatura do médico veterinário (manuscrita ou eletrônica)\n2. Carimbo legível com número do CRMV\n3. Nome do paciente (pet) ou tutor\n4. Nome do medicamento prescrito\n\nResponda SOMENTE com JSON válido neste formato exato (sem markdown, sem texto extra):\n{"valida":true,"itens_ok":[],"itens_faltantes":[],"crmv_encontrado":null,"medico_encontrado":null,"pet_encontrado":null,"medicamento_encontrado":null,"motivo_invalidade":null}`;
+
+        const result = await modelVision.generateContent([
+            { inlineData: { data: imageBase64, mimeType: cleanMimeType } },
+            { text: promptReceita }
+        ]);
+
+        let rawText = result.response.text().trim();
+        rawText = rawText.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+        const dados = JSON.parse(rawText);
+        console.log(`[RECEITA-IA] Validação concluída:`, JSON.stringify(dados));
+        return dados;
+    } catch (e) {
+        console.error("❌ [RECEITA-IA] Erro ao validar receita:", e.message);
+        return {
+            valida: false,
+            itens_faltantes: ["erro de processamento"],
+            motivo_invalidade: "Não consegui processar a imagem. Por favor, envie uma foto mais nítida da receita.",
+            crmv_encontrado: null, medico_encontrado: null,
+            pet_encontrado: null, medicamento_encontrado: null
+        };
+    }
+}
 
 // =========================================================================
 // 2. WEBHOOK: RECEBIMENTO DE MENSAGENS DO WHATSAPP (VIA Z-API)
@@ -132,8 +191,9 @@ app.post('/webhook/zapi', async (req, res) => {
         return res.status(200).send('Ignored: duplicate message');
     }
 
-    // Detectar se é uma mensagem de áudio/PTT
+    // Detectar tipo de mensagem: áudio, imagem/documento ou texto
     const isAudio = payload.type === 'audio' || payload.type === 'ptt' || (payload.audio && (payload.audio.url || payload.audio.audioUrl));
+    const isImagem = payload.type === 'image' || payload.type === 'document';
     let clientMessage = "";
     let transcriptionNote = "";
 
@@ -145,6 +205,42 @@ app.post('/webhook/zapi', async (req, res) => {
             transcriptionNote = `📝 *[Transcrição de Áudio]*:\n"${transcrito}"`;
         } else {
             clientMessage = "[Áudio enviado pelo cliente - erro na transcrição]";
+        }
+    } else if (isImagem) {
+        // Extrair URL da imagem ou documento enviado pelo cliente
+        const imageUrl = (payload.image && (payload.image.url || payload.image.imageUrl)) ||
+                         (payload.document && (payload.document.url || payload.document.documentUrl)) ||
+                         payload.url || "";
+        const mimeType = (payload.image && payload.image.mimeType) ||
+                         (payload.document && payload.document.mimeType) || 'image/jpeg';
+
+        console.log(`[BOT] Detectada imagem/documento de ${clientName} (${phone}). URL: ${imageUrl}`);
+
+        // Verificar estado atual do cliente (peek sem bloquear o fluxo principal)
+        const statesPeek = loadStates();
+        const chatStatePeek = statesPeek[phone] || {};
+
+        if (imageUrl && chatStatePeek.aguardando_receita) {
+            console.log(`[RECEITA-IA] Cliente em estado aguardando_receita — validando imagem por IA...`);
+            const resultado = await validarReceitaPorIA(imageUrl, mimeType);
+            if (resultado.valida) {
+                // Atualizar estado imediatamente para que o bloco principal já leia como validada
+                if (statesPeek[phone]) {
+                    statesPeek[phone].receita_validada = true;
+                    statesPeek[phone].aguardando_receita = false;
+                    saveStates(statesPeek);
+                }
+                clientMessage = `[RECEITA VETERINÁRIA VALIDADA PELA IA ✅ — Médico: ${resultado.medico_encontrado || 'identificado'}, Pet: ${resultado.pet_encontrado || 'identificado'}, Medicamento: ${resultado.medicamento_encontrado || 'identificado'}, CRMV: ${resultado.crmv_encontrado || 'identificado'}. Receita completa e aprovada! Prossiga com a confirmação da venda e solicite dados de entrega/pagamento.]`;
+                // Nota de compliance no Chatwoot
+                await chatwoot.enviarNotaPrivada(phone, `✅ RECEITA APROVADA PELA IA — Médico: ${resultado.medico_encontrado}, Pet: ${resultado.pet_encontrado}, Medicamento: ${resultado.medicamento_encontrado}, CRMV: ${resultado.crmv_encontrado}. Venda pode ser liberada.`);
+            } else {
+                clientMessage = `[RECEITA VETERINÁRIA INVÁLIDA ❌ — Itens ausentes/ilegíveis: ${(resultado.itens_faltantes || []).join(', ')}. Motivo: ${resultado.motivo_invalidade}. Oriente o cliente a tirar uma nova foto mais nítida e com todos os itens visíveis.]`;
+                await chatwoot.enviarNotaPrivada(phone, `❌ RECEITA REPROVADA PELA IA — Motivo: ${resultado.motivo_invalidade}. Itens faltantes: ${(resultado.itens_faltantes || []).join(', ')}.`);
+            }
+        } else if (imageUrl) {
+            clientMessage = `[Cliente enviou uma imagem ou documento — possivelmente foto de produto, pet ou referência visual]`;
+        } else {
+            clientMessage = "[Cliente enviou uma imagem sem URL válida]";
         }
     } else {
         clientMessage = (payload.text && payload.text.message) || 
@@ -170,7 +266,10 @@ app.post('/webhook/zapi', async (req, res) => {
             crmv: null,
             tipo_cliente: null, // "B2C" ou "B2B"
             nome_cadastro: null,
-            aguardando_crmv: false
+            aguardando_crmv: false,
+            aguardando_receita: false,   // true quando aguardando foto da receita veterinária
+            receita_validada: false,      // true quando a receita foi aprovada pela IA
+            medicamento_restrito: null    // nome do medicamento de controle solicitado
         };
     }
 
@@ -255,19 +354,43 @@ app.post('/webhook/zapi', async (req, res) => {
         await chatwoot.enviarNotaPrivada(phone, transcriptionNote);
     }
 
-    // Se for um novo veterinário não cadastrado, fazemos a transferência rápida imediatamente
+    // Se for um novo veterinário não cadastrado: CADASTRAR AUTOMATICAMENTE + ALERTAR EQUIPE de forma assíncrona
+    // O atendimento NÃO é interrompido — o vet continua comprando normalmente!
     if (transferNovoVet) {
-        chatState.owner = "human";
+        const dadosCadastroVet = {
+            nome: clientName || `Veterinário CRMV ${chatState.crmv}`,
+            telefone: phone,
+            rg: `CRMV: ${chatState.crmv}`,
+            tags: "veterinario,novo-cadastro-automatico,pendente-validacao",
+            observacoes: `Cadastro automático via WhatsApp em ${new Date().toLocaleString('pt-BR')}. CRMV: ${chatState.crmv}. Telefone: +${phone}. PENDENTE DE VALIDAÇÃO HUMANA.`
+        };
+
+        // Fire-and-forget: cadastra no ERP sem travar o fluxo de atendimento
+        gestaoclick.cadastrarCliente(dadosCadastroVet)
+            .then(r => console.log(`✅ [GESTAOCLICK] Novo vet auto-cadastrado! ID: ${r.id}`))
+            .catch(err => console.error("❌ [GESTAOCLICK] Erro ao cadastrar novo vet:", err.message));
+
+        // Alerta assíncrono para o grupo do Telegram da equipe comercial
+        const alertaTelegram = `🚨 <b>NOVO VET CADASTRADO AUTOMATICAMENTE</b>\n\n` +
+            `👤 <b>Nome:</b> ${clientName}\n` +
+            `🏥 <b>CRMV:</b> ${chatState.crmv}\n` +
+            `📱 <b>WhatsApp:</b> +${phone}\n` +
+            `🕐 <b>Horário:</b> ${new Date().toLocaleString('pt-BR')}\n\n` +
+            `⚠️ <i>Verifique a veracidade do registro no CFMV antes de liberar crédito!</i>`;
+        enviarAlertaTelegram(alertaTelegram); // Fire-and-forget
+
+        // Nota privada no Chatwoot para auditoria interna
+        chatwoot.enviarNotaPrivada(phone,
+            `🚨 NOVO VET AUTO-CADASTRADO: CRMV ${chatState.crmv} | Nome: ${clientName} | WhatsApp: +${phone} | ${new Date().toLocaleString('pt-BR')}. ` +
+            `Cadastro criado automaticamente pela IA. VALIDAÇÃO HUMANA NECESSÁRIA — confira no GestãoClick e verifique o CRMV no CFMV.`
+        );
+
+        // Atualizar estado local: continua como B2B sem transbordo!
+        chatState.nome_cadastro = clientName || `Veterinário CRMV ${chatState.crmv}`;
+        chatState.tipo_cliente = "B2B";
         saveStates(states);
-
-        const msgDespedida = `Doutor(a), identifiquei o seu CRMV (${chatState.crmv}), mas notei que você ainda não possui um cadastro ativo de parceiro no nosso sistema. 
-
-Para a nossa segurança regulatória e para liberar a sua tabela especial com descontos de atacado, estou te transferindo agora mesmo para o Dr. Kyenner Oliver (nosso supervisor), que vai fazer a validação do seu registro profissional e finalizar o seu cadastro rapidinho. Só um minutinho, por favor! 🩺`;
-
-        await zapi.enviarMensagemTexto(phone, msgDespedida);
-        await chatwoot.sincronizarMensagemBot(phone, msgDespedida);
-        await chatwoot.solicitarSuporteHumano(phone, clientName, `Validação de cadastro de novo Veterinário (CRMV: ${chatState.crmv})`);
-        return res.status(200).send('OK: Escalated new B2B customer to human');
+        console.log(`✅ [SNC] Novo vet auto-cadastrado + equipe alertada no Telegram. Atendimento continua normalmente.`);
+        // NÃO retorna aqui — o fluxo continua para o Gemini!
     }
 
     // Se o atendimento estiver com o humano, o bot simplesmente ignora a mensagem
@@ -334,6 +457,23 @@ Para a nossa segurança regulatória e para liberar a sua tabela especial com de
         
         const infoEstoque = await shopify.consultarEstoque(produto);
         contextoInjetado += `\n[Contexto de Sistema - Estoque Atualizado]: O produto '${produto}' possui estoque atual de ${infoEstoque.quantidade} unidades com valor de R$ ${infoEstoque.preco}.`;
+    }
+
+    // --- COMPLIANCE B2C: EXIGÊNCIA DE RECEITA PARA MEDICAMENTOS CONTROLADOS ---
+    const medicamentosRestritos = ["librela", "cytopoint", "metilforan"];
+    const medicamentoRestrito = medicamentosRestritos.find(m => mensagemLower.includes(m));
+    if (medicamentoRestrito && chatState.tipo_cliente !== "B2B" && !chatState.receita_validada) {
+        // Cliente B2C pedindo medicamento de controle sem receita validada ainda
+        chatState.aguardando_receita = true;
+        chatState.medicamento_restrito = medicamentoRestrito;
+        saveStates(states);
+        console.log(`[COMPLIANCE] B2C solicitou '${medicamentoRestrito}' sem receita validada. Ativando aguardando_receita.`);
+        contextoInjetado += `\n[Contexto de Sistema - COMPLIANCE OBRIGATÓRIO 🔒]: O cliente B2C solicitou '${medicamentoRestrito}', medicamento de alto controle. A RECEITA VETERINÁRIA AINDA NÃO FOI ENVIADA/VALIDADA. Você DEVE solicitar, de forma acolhedora (como Aika 🐾), que o cliente envie uma *foto ou PDF da receita veterinária* diretamente aqui no chat. Explique que a receita precisa conter: assinatura do veterinário, carimbo com CRMV legível e nome do pet. Não informe o preço final nem confirme a venda enquanto a receita não for enviada e aprovada pela IA.`;
+    }
+
+    // Injetar status da receita no contexto caso já tenha sido validada
+    if (chatState.receita_validada && chatState.medicamento_restrito) {
+        contextoInjetado += `\n[Contexto de Sistema - COMPLIANCE OK ✅]: Receita veterinária para '${chatState.medicamento_restrito}' foi validada e aprovada pela IA. Você pode prosseguir normalmente com a venda — solicite os dados de entrega e pagamento.`;
     }
 
     // Injetar contexto de CRM do cliente localizado no GestãoClick
