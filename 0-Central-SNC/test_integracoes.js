@@ -114,6 +114,20 @@ async function testarIntegracoes() {
         console.log("🎉 TODOS OS TESTES PASSARAM COM SUCESSO! ✅");
         console.log("=========================================");
 
+        // Rodar suite de QA Conversacional
+        console.log("\n🚀 Iniciando Suite de QA Conversacional...");
+        const { fork } = require('child_process');
+        const qaProcess = fork(path.resolve(__dirname, 'test_qa_conversacional.js'));
+        qaProcess.on('exit', (code) => {
+            if (code !== 0) {
+                console.error(`❌ Suite de QA Conversacional falhou com código: ${code}`);
+                process.exit(code);
+            } else {
+                console.log(`🟢 Suite de QA Conversacional concluída com sucesso!`);
+                process.exit(0);
+            }
+        });
+
     } catch (e) {
         console.error("\n❌ FALHA NOS TESTES:", e);
         process.exit(1);

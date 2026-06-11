@@ -18,9 +18,16 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const fs   = require('fs');
 const path = require('path');
 
-// --- Módulos internos (para montar contexto igual ao server) ---
-const vendas  = require('./src/comercial/estrategias_vendas');
-const shopify = require('./src/integracoes/integracao_shopify');
+// --- Módulos de Produção ---
+const { processarMensagem } = require('./server_integracao');
+const zapi = require('./src/integracoes/integracao_zapi');
+
+// Capturar resposta enviada pelo robô
+let ultimaMensagemEnviada = "";
+zapi.enviarMensagemTexto = async (phone, text) => {
+    ultimaMensagemEnviada = text;
+    return { status: 200, data: { messageId: "mock_id_123" } };
+};
 
 // --- Config ---
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
@@ -29,12 +36,8 @@ if (!GEMINI_API_KEY) {
     process.exit(1);
 }
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const MODELO_RESPOSTAS = 'gemini-3.5-flash';
 const MODELO_JUIZ     = 'gemini-3.5-flash';
 const DELAY_ENTRE_TESTES_MS = 2000; // Evitar rate-limit
-
-const brandbookPath = path.resolve(__dirname, 'diretrizes-e-branding/brandbook_operacoes_otimiza.md');
-const brandbookContent = fs.readFileSync(brandbookPath, 'utf8');
 
 // =========================================================================
 // CENÁRIOS DE TESTE (12 casos de qualidade)
@@ -221,15 +224,6 @@ const CENARIOS = [
 // FUNÇÕES AUXILIARES
 // =========================================================================
 
-async function chamarGemini(systemInstruction, mensagem) {
-    const model = genAI.getGenerativeModel({
-        model: MODELO_RESPOSTAS,
-        systemInstruction
-    });
-    const result = await model.generateContent(mensagem);
-    return result.response.text();
-}
-
 async function avaliarComJuiz(resposta, cenario) {
     const judgeModel = genAI.getGenerativeModel({ model: MODELO_JUIZ });
 
@@ -266,53 +260,53 @@ ou
     }
 }
 
-async function buildSystemInstruction(cenario) {
-    let contextoExtra = '';
-
-    // Contexto de produto/estoque
-    if (cenario.contextoProduto) {
-        const p = cenario.contextoProduto;
-        if (p.tipo === 'pedido_especial') {
-            contextoExtra += `\n[Produto Pedido Especial 📦]: '${p.produto}' NÃO fica em estoque físico próprio — fazemos o pedido ao fornecedor assim que o cliente confirma. Preço: R$ ${p.preco}. PRAZO DE ENTREGA: *${p.prazo}* após confirmação. Informe ao cliente que o produto está DISPONÍVEL normalmente, com entrega em ${p.prazo}.`;
-        } else if (p.tipo === 'estoque_zerado') {
-            contextoExtra += `\n[ESTOQUE ZERADO 🔴]: O produto '${p.produto}' está MOMENTANEAMENTE FORA DE ESTOQUE. Informe com empatia e pergunte se o cliente quer entrar na lista de espera. NÃO diga que vai transferir ainda — aguarde a resposta do cliente.`;
-        } else {
-            contextoExtra += `\n[Estoque Disponível]: '${p.produto}' — ${p.quantidade} unidades em estoque — R$ ${p.preco}.`;
-        }
-    }
-
-    // Contexto de compra confirmada
-    if (cenario.contextoProdutoMencionado) {
-        contextoExtra += `\n[COMPRA CONFIRMADA B2C ✅]: O tutor confirmou que quer comprar '${cenario.contextoProdutoMencionado}'. Responda confirmando o pedido com entusiasmo e diga que vai conectá-lo com o Dr. Kyenner para finalizar endereço, pagamento e prazo.`;
-    }
-
-    // Estratégia comercial baseada na mensagem
-    try {
-        const estrategia = vendas.verificarOportunidadeVenda(cenario.mensagem, cenario.tipoCliente);
-        if (estrategia) {
-            contextoExtra += `\n[Estratégia Comercial Ativa (${cenario.tipoCliente})]: ${estrategia}`;
-        }
-    } catch (e) {
-        // silencioso
-    }
-
-    // Instrução de persona
-    const personaDir = cenario.tipoCliente === 'B2B'
-        ? `[Persona]: Fale EXCLUSIVAMENTE como o Dr. Kyenner (Diretor Veterinário). Tom técnico, direto, de parceria. Use "Doutor/Doutora". Use "tu", "blza" se adequado. Sem emojis infantis.`
-        : `[Persona]: Fale EXCLUSIVAMENTE como a Aika (Mascote Guardiã B2C). Tom acolhedor, carinhoso, empático. Use emojis 💜🐾. NUNCA use "Prezado", "Senhor", "Senhora".`;
-
-    const formatacao = `[Formatação WhatsApp]: Use apenas UM asterisco para negrito (*texto*). Máximo 2 parágrafos curtos. Seja conciso e direto.`;
-
-    return `${brandbookContent}\n\n${contextoExtra}\n\n${personaDir}\n${formatacao}`;
-}
-
 async function rodarCenario(cenario) {
     const prefixo = `  [${cenario.id.toString().padStart(2, '0')}] ${cenario.descricao}`;
     process.stdout.write(`${prefixo}... `);
 
     try {
-        const systemInstruction = await buildSystemInstruction(cenario);
-        const resposta = await chamarGemini(systemInstruction, cenario.mensagem);
+        const phone = `553190000${cenario.id.toString().padStart(3, '0')}`;
+        const stateFilePath = path.resolve(__dirname, 'conversas_state.json');
+
+        // Configurar o estado inicial no arquivo JSON antes de rodar
+        const states = fs.existsSync(stateFilePath) ? JSON.parse(fs.readFileSync(stateFilePath, 'utf8')) : {};
+        
+        states[phone] = {
+            owner: "AI",
+            history: [],
+            cpf: cenario.tipoCliente === 'B2B' ? '9999' : null,
+            crmv: cenario.tipoCliente === 'B2B' ? '12345' : null,
+            tipo_cliente: cenario.tipoCliente,
+            nome_cadastro: cenario.tipoCliente === 'B2B' ? 'Dr. Marcos Medvet' : null,
+            aguardando_crmv: false,
+            aguardando_receita: false,
+            receita_validada: (cenario.id === 3 || cenario.id === 5) ? true : false, // Librela B2C já com receita validada para cotar
+            medicamento_restrito: (cenario.id === 3 || cenario.id === 5) ? "librela" : null,
+            produto_sem_estoque: null,
+            produto_mencionado: cenario.id === 5 ? "Librela 15mg" : null,
+            aguardando_confirmar_lista_espera: false
+        };
+        fs.writeFileSync(stateFilePath, JSON.stringify(states, null, 4), 'utf8');
+
+        // Resetar o capturador de resposta do Z-API
+        ultimaMensagemEnviada = "";
+
+        // Chamar a função real de produção do servidor
+        const payload = {
+            phone,
+            senderName: cenario.tipoCliente === 'B2B' ? "Dra. Ana Lima" : "Vander Luiz",
+            messageId: `msg_${Date.now()}_${cenario.id}`,
+            text: { message: cenario.mensagem }
+        };
+        
+        await processarMensagem(payload);
+
+        const resposta = ultimaMensagemEnviada;
+
+        if (!resposta) {
+            console.log('❌ REPROVADO (Nenhuma resposta enviada pelo Z-API)');
+            return { id: cenario.id, grupo: cenario.grupo, descricao: cenario.descricao, aprovado: false, erro: 'Sem resposta do Z-API' };
+        }
 
         await new Promise(r => setTimeout(r, 800)); // pequena pausa antes do juiz
 
@@ -349,8 +343,15 @@ async function rodarQA() {
     console.log('═'.repeat(60));
     console.log(`📋 Total de cenários: ${CENARIOS.length}`);
     console.log(`🤖 Cada cenário faz 2 chamadas ao Gemini (resposta + juiz)`);
-    console.log(`⏱️  Estimativa: ~${Math.ceil(CENARIOS.length * 2 * 3 / 60)} min (inclui delays de rate-limit)`);
+    console.log(`⏱️  Estimativa: ~2 min (inclui delays de rate-limit)`);
     console.log('═'.repeat(60));
+
+    // Backup de conversas_state.json
+    const stateFilePath = path.resolve(__dirname, 'conversas_state.json');
+    let stateBackup = "";
+    if (fs.existsSync(stateFilePath)) {
+        stateBackup = fs.readFileSync(stateFilePath, 'utf8');
+    }
 
     const resultados = [];
 
@@ -361,14 +362,23 @@ async function rodarQA() {
         grupos[c.grupo].push(c);
     });
 
-    for (const [nomeGrupo, cenarios] of Object.entries(grupos)) {
-        console.log(`\n${nomeGrupo}`);
-        console.log('─'.repeat(55));
-        for (const cenario of cenarios) {
-            const resultado = await rodarCenario(cenario);
-            resultados.push(resultado);
-            // Delay entre testes para respeitar rate-limit da API
-            await new Promise(r => setTimeout(r, DELAY_ENTRE_TESTES_MS));
+    try {
+        for (const [nomeGrupo, cenarios] of Object.entries(grupos)) {
+            console.log(`\n${nomeGrupo}`);
+            console.log('─'.repeat(55));
+            for (const cenario of cenarios) {
+                const resultado = await rodarCenario(cenario);
+                resultados.push(resultado);
+                // Delay entre testes para respeitar rate-limit da API
+                await new Promise(r => setTimeout(r, DELAY_ENTRE_TESTES_MS));
+            }
+        }
+    } finally {
+        // Restaurar backup do estado original
+        if (stateBackup) {
+            fs.writeFileSync(stateFilePath, stateBackup, 'utf8');
+        } else if (fs.existsSync(stateFilePath)) {
+            try { fs.unlinkSync(stateFilePath); } catch (e) {}
         }
     }
 

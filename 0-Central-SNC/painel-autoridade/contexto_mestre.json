@@ -1,6 +1,6 @@
 {
   "versao": "5.0",
-  "ultima_atualizacao": "2026-05-06T12:00:00Z",
+  "ultima_atualizacao": "2026-06-11T09:58:00Z",
   "atualizado_por": "Antigravity",
   "secoes": [
     {
@@ -57,6 +57,7 @@
       "projeto": "🧠 Sistema Nervoso Central (SNC)",
       "autonomia": "semi"
     },
+    {
       "id": "ig_001",
       "titulo": "Instagram Engine (Claude)",
       "descricao": "Carrossel, Status e Reels em produção pelo Claude Code.",

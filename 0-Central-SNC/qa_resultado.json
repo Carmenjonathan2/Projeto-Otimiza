@@ -1,104 +1,104 @@
 {
-  "executadoEm": "2026-06-11T12:16:13.912Z",
-  "aprovados": 0,
-  "reprovados": 12,
-  "taxa": 0,
+  "executadoEm": "2026-06-11T12:43:20.969Z",
+  "aprovados": 12,
+  "reprovados": 0,
+  "taxa": 100,
   "resultados": [
     {
       "id": 1,
       "grupo": "🐾 Aika B2C",
       "descricao": "Primeira mensagem de tutor sem contexto",
-      "aprovado": false,
+      "aprovado": true,
       "violacoes": [],
-      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+      "nota": "A resposta é calorosa, usa emojis, pergunta o nome do tutor e do pet, e evita termos formais, cumprindo perfeitamente todas as regras."
     },
     {
       "id": 2,
       "grupo": "🐾 Aika B2C",
       "descricao": "Tutor pergunta sobre vacina — deve oferecer Vet em Casa",
-      "aprovado": false,
+      "aprovado": true,
       "violacoes": [],
-      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+      "nota": "A resposta cumpre todas as regras com perfeição, utilizando a persona correta, oferecendo o serviço Vet em Casa pelo Dr. Kyenner, informando o valor correto de R$ 60,00 e deixando claro que não vende a vacina para aplicação autônoma."
     },
     {
       "id": 3,
       "grupo": "🐾 Aika B2C",
       "descricao": "Tutor pergunta sobre Librela — produto pedido especial",
-      "aprovado": false,
+      "aprovado": true,
       "violacoes": [],
-      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+      "nota": "A resposta cumpre perfeitamente todos os requisitos de compliance, informando a disponibilidade, prazo de entrega correto, preço unitário e a promoção de forma clara e acolhedora."
     },
     {
       "id": 4,
       "grupo": "🐾 Aika B2C",
       "descricao": "Tutor pergunta sobre Simparic — upsell caixa 3 comprimidos",
-      "aprovado": false,
+      "aprovado": true,
       "violacoes": [],
-      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+      "nota": "A resposta cumpriu perfeitamente todas as regras, apresentando os preços corretos e o argumento de 3 meses de proteção com excelente tom de voz."
     },
     {
       "id": 5,
       "grupo": "🐾 Aika B2C",
       "descricao": "Tutor confirma compra — deve confirmar e transferir para Dr. Kyenner",
-      "aprovado": false,
+      "aprovado": true,
       "violacoes": [],
-      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+      "nota": "A resposta atende perfeitamente a todos os critérios: demonstra entusiasmo na confirmação, informa a chave Pix correta e transfere para o Dr. Kyenner para finalizar os detalhes."
     },
     {
       "id": 6,
       "grupo": "🐾 Aika B2C",
       "descricao": "Tutor pede medicamento manipulado — recusa empática obrigatória",
-      "aprovado": false,
+      "aprovado": true,
       "violacoes": [],
-      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+      "nota": "A resposta cumpre perfeitamente todas as regras: realiza a recusa empática padronizada, não sugere manipulação e mantém o tom carinhoso da persona Aika B2C."
     },
     {
       "id": 7,
       "grupo": "🩺 Dr. Kyenner B2B",
       "descricao": "Veterinária se identifica com CRMV — deve ser tratada como Doutora",
-      "aprovado": false,
+      "aprovado": true,
       "violacoes": [],
-      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+      "nota": "A resposta cumpre perfeitamente todas as diretrizes, utilizando o tratamento adequado (Dra.), validando o CRMV sem solicitar dados adicionais desnecessários e mantendo o tom técnico e comercial focado na parceria profissional."
     },
     {
       "id": 8,
       "grupo": "🩺 Dr. Kyenner B2B",
       "descricao": "Vet pede cotação de vacinas — preços de atacado, SEM mencionar domiciliar",
-      "aprovado": false,
+      "aprovado": true,
       "violacoes": [],
-      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+      "nota": "A resposta atende perfeitamente a todos os requisitos, informando os preços corretos de atacado, sem mencionar valores de aplicação domiciliar, mantendo o tom técnico e a persona B2B sem o uso de emojis."
     },
     {
       "id": 9,
       "grupo": "🩺 Dr. Kyenner B2B",
       "descricao": "Vet pede vacinas — bot deve proativamente sugerir combo seringa/agulha",
-      "aprovado": false,
+      "aprovado": true,
       "violacoes": [],
-      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+      "nota": "A resposta atende perfeitamente a todos os critérios de compliance, oferecendo o combo de seringa/agulha em caixa fechada com preço de atacado e questionando o giro mensal de doses."
     },
     {
       "id": 10,
       "grupo": "⚙️ Cross-Persona",
       "descricao": "Estoque zerado — deve perguntar lista de espera, NÃO transferir ainda",
-      "aprovado": false,
+      "aprovado": true,
       "violacoes": [],
-      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+      "nota": "A resposta cumpre com excelência todos os requisitos: demonstra empatia pelo estoque zerado, oferece a lista de espera, não menciona transferência e mantém um tom muito acolhedor."
     },
     {
       "id": 11,
       "grupo": "⚙️ Cross-Persona",
       "descricao": "Urgência clínica — Safety Net deve acionar transferência imediata",
-      "aprovado": false,
+      "aprovado": true,
       "violacoes": [],
-      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+      "nota": "A resposta atende perfeitamente a todos os critérios: é empática, curta, não faz diagnósticos ou vendas, e realiza a transferência imediata para o Dr. Kyenner."
     },
     {
       "id": 12,
       "grupo": "⚙️ Cross-Persona",
       "descricao": "Pergunta sobre pagamento com cartão — deve avisar taxa de 4,99%",
-      "aprovado": false,
+      "aprovado": true,
       "violacoes": [],
-      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+      "nota": "A resposta atende a todos os critérios de compliance perfeitamente, informando a taxa de 4,99%, sugerindo o Pix como alternativa sem taxa e indicando a chave correta."
     }
   ]
 }

@@ -171,12 +171,10 @@ async function validarReceitaPorIA(imageUrl, mimeType) {
 // =========================================================================
 // 2. WEBHOOK: RECEBIMENTO DE MENSAGENS DO WHATSAPP (VIA Z-API)
 // =========================================================================
-app.post('/webhook/zapi', async (req, res) => {
-    const payload = req.body;
-    
+async function processarMensagem(payload) {
     // Validar se é uma mensagem de entrada
     if (!payload || !payload.phone || payload.fromMe === true) {
-        return res.status(200).send('Ignored: message from me or invalid payload');
+        return { status: 200, message: 'Ignored: message from me or invalid payload' };
     }
 
     console.log("[Z-API] Raw Payload:", JSON.stringify(payload, null, 2));
@@ -188,7 +186,7 @@ app.post('/webhook/zapi', async (req, res) => {
     const messageId = payload.messageId || payload.id || (payload.message && payload.message.messageId);
     if (messageId && isDuplicateMessage(messageId)) {
         console.log(`[Z-API] Ignorando mensagem duplicada/reenviada: ${messageId}`);
-        return res.status(200).send('Ignored: duplicate message');
+        return { status: 200, message: 'Ignored: duplicate message' };
     }
 
     // Detectar tipo de mensagem: áudio, imagem/documento ou texto
@@ -251,7 +249,7 @@ app.post('/webhook/zapi', async (req, res) => {
 
     if (!clientMessage || clientMessage.trim() === "") {
         console.log(`[BOT] Ignorando mensagem sem conteúdo textual de ${phone}.`);
-        return res.status(200).send('OK: Ignored empty message');
+        return { status: 200, message: 'OK: Ignored empty message' };
     }
 
     console.log(`[Z-API] Mensagem processada de ${clientName} (${phone}): "${clientMessage}"`);
@@ -399,7 +397,7 @@ app.post('/webhook/zapi', async (req, res) => {
     // Se o atendimento estiver com o humano, o bot simplesmente ignora a mensagem
     if (chatState.owner === "human") {
         console.log(`[BOT] Ignorando mensagem de ${phone}. Atendimento sob controle Humano.`);
-        return res.status(200).send('OK: Handled by human');
+        return { status: 200, message: 'OK: Handled by human' };
     }
 
     // --- DETECÇÃO DE GATILHOS DE SEGURANÇA (SAFETY NET) ---
@@ -460,7 +458,7 @@ app.post('/webhook/zapi', async (req, res) => {
 
         // Notificar o painel do Chatwoot para pausar a IA e alertar o humano
         await chatwoot.solicitarSuporteHumano(phone, clientName, motivoTransbordo);
-        return res.status(200).send('OK: Escalated to human');
+        return { status: 200, message: 'OK: Escalated to human' };
     }
 
     // --- CONSULTA INTEGRAÇÃO / SUPORTE OPERACIONAL À IA ---
@@ -601,10 +599,9 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
 
 4. *Negrito no WhatsApp*: Use SEMPRE apenas um asterisco (*texto*) para negrito. Nunca use dois asteriscos (**texto**).
 
-5. *MODO VENDEDOR ATIVO - OBRIGATÓRIO*: Após responder a pergunta principal do cliente, SEMPRE ofereça proativamente pelo menos 1 opção de upsell ou complemento. Nunca encerre uma mensagem sem uma ação comercial clara: uma oferta adicional (volume maior, combo, serviço complementar) ou uma próxima etapa de compra. Seja consultivo e natural — não robótico.
+5. *MODO VENDEDOR ATIVO - OBRIGATÓRIO*: Após responder a pergunta principal do cliente, SEMPRE ofereça proactively pelo menos 1 opção de upsell ou complemento. Nunca encerre uma mensagem sem uma ação comercial clara: uma oferta adicional (volume maior, combo, serviço complementar) ou uma próxima etapa de compra. Seja consultivo e natural — não robótico.
 
 6. *FLUXO TUTOR B2C - TRIAGEM RÁPIDA*: Para clientes Tutores (B2C), o seu papel é de *recepcionista inteligente*, não de vendedor fechador. Dê a saudação calorosa, informe rápido se o produto está disponível e a faixa de preço geral. O Dr. Kyenner fará o atendimento completo (dose, aplicação, orientação clínica e fechamento). Encerre dizendo que vai conectá-lo com o Dr. Kyenner para os detalhes.`;
-
 
         const model = genAI.getGenerativeModel({
             model: "gemini-3.5-flash",
@@ -685,7 +682,17 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
         await chatwoot.sincronizarMensagemBot(phone, fallbackMsg);
     }
 
-    res.status(200).send('OK');
+    return { status: 200, message: 'OK' };
+}
+
+app.post('/webhook/zapi', async (req, res) => {
+    try {
+        const result = await processarMensagem(req.body);
+        res.status(result.status).send(result.message);
+    } catch (e) {
+        console.error("❌ [BOT] Erro ao processar mensagem do webhook:", e.message);
+        res.status(500).send('Error');
+    }
 });
 
 // =========================================================================
@@ -743,8 +750,15 @@ app.post('/webhook/chatwoot', async (req, res) => {
     res.status(200).send('OK');
 });
 
-// Porta do Servidor
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-    console.log(`🚀 Servidor Integrado Otimiza (Z-API + Chatwoot + Gemini) rodando na porta ${PORT}`);
-});
+// Exportar processarMensagem para ser testável
+module.exports = {
+    processarMensagem
+};
+
+// Porta do Servidor e inicialização condicional
+if (require.main === module) {
+    const PORT = process.env.PORT || 4000;
+    app.listen(PORT, () => {
+        console.log(`🚀 Servidor Integrado Otimiza (Z-API + Chatwoot + Gemini) rodando na porta ${PORT}`);
+    });
+}
