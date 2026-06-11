@@ -33,33 +33,61 @@ const path = require('path');
 
 /**
  * Busca um produto no JSON local do GestãoClick por nome.
- * Para B2B, tenta variantes com sufixos como " B2B", " Veterinário", " Vet" primeiro.
- * Retorna null se não encontrar.
+ * Suporta a convenção de produto duplicado para precificação B2B vs B2C:
  *
- * Estratégia de produto duplicado no GestãoClick:
- *   - Versão B2C: nome padrão (ex: "Librela 15mg")
- *   - Versão B2B: nome + sufixo (ex: "Librela 15mg B2B" ou "Librela 15mg Veterinário")
+ *   Convenção no GestãoClick (definida com o Kyenner):
+ *   - Versão B2C (tutor):       "Librela 15mg tutor"  ou  "Librela 15mg preço para tutor"
+ *   - Versão B2B (veterinário): "Librela 15mg veterinário"  ou  "Librela 15mg preço para veterinário"
+ *
+ * Se não achar a variante específica, cai no nome genérico (sem sufixo).
  */
 function buscarNoProdutosGC(data, nomeProduto, tipoCliente = 'B2C') {
     const term = nomeProduto.toLowerCase().trim();
 
-    // Para B2B: tentar variantes com sufixo de atacado primeiro
     if (tipoCliente === 'B2B') {
-        const sufixosB2B = [' b2b', ' veterinário', ' veterinario', ' vet', ' atacado', ' profissional'];
+        // Tentar sufixos B2B em ordem de prioridade (convenção Kyenner → alternativas)
+        const sufixosB2B = [
+            ' preço para veterinário',
+            ' preço veterinário',
+            ' para veterinário',
+            ' veterinário',
+            ' veterinario',
+            ' vet',
+            ' b2b',
+            ' atacado'
+        ];
         for (const sufixo of sufixosB2B) {
             const matchB2B = data.find(p =>
                 p.Nome && p.Nome.toLowerCase().includes(term + sufixo)
             );
             if (matchB2B) {
-                console.log(`🏷️ [PRODUTOS] Variante B2B encontrada no GestãoClick: "${matchB2B.Nome}"`);
+                console.log(`🏷️ [PRODUTOS] Variante B2B encontrada: "${matchB2B.Nome}"`);
                 return matchB2B;
+            }
+        }
+    } else {
+        // Tentar sufixos B2C em ordem de prioridade
+        const sufixosB2C = [
+            ' preço para tutor',
+            ' preço tutor',
+            ' para tutor',
+            ' tutor'
+        ];
+        for (const sufixo of sufixosB2C) {
+            const matchB2C = data.find(p =>
+                p.Nome && p.Nome.toLowerCase().includes(term + sufixo)
+            );
+            if (matchB2C) {
+                console.log(`🏷️ [PRODUTOS] Variante B2C (tutor) encontrada: "${matchB2C.Nome}"`);
+                return matchB2C;
             }
         }
     }
 
-    // Para B2C ou fallback B2B: buscar nome sem sufixo (variante padrão)
+    // Fallback: nome genérico sem sufixo
     return data.find(p => p.Nome && p.Nome.toLowerCase().includes(term)) || null;
 }
+
 
 /**
  * Consulta a disponibilidade e o preço de um produto.

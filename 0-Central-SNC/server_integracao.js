@@ -433,12 +433,19 @@ app.post('/webhook/zapi', async (req, res) => {
         motivoTransbordo = "Agendamento de serviço clínico domiciliar";
     }
 
-    // 4. Verificar URGÊNCIA B2B EXPRESSO — vet precisa de entrega em menos de 10 min
-    const urgenciasB2BExpresso = ["urgente", "é pra agora", "pra agora", "para agora", "para já", "pra já", "urgência", "urgencia", "imediatamente", "preciso agora", "é agora", "na clínica agora"];
-    const isUrgenciaB2B = chatState.tipo_cliente === 'B2B' && urgenciasB2BExpresso.some(u => mensagemLower.includes(u));
-    if (isUrgenciaB2B) {
+    // 4. URGÊNCIA GERAL — qualquer cliente que precise do produto/serviço imediatamente
+    // REGRA: antes de prometer qualquer entrega, é necessário entender o problema e verificar
+    // disponibilidade com o fornecedor. Por segurança, transferir para humano.
+    const urgenciasGerais = [
+        "urgente", "urgência", "urgencia",
+        "é pra agora", "pra agora", "para agora",
+        "para já", "pra já", "preciso agora", "preciso pra hoje",
+        "é agora", "imediatamente", "socorro",
+        "passando mal", "tá passando mal", "tô precisando"
+    ];
+    if (urgenciasGerais.some(u => mensagemLower.includes(u))) {
         acionarTransbordo = true;
-        motivoTransbordo = `🚨 PEDIDO B2B EXPRESSO — ${clientName} precisa de entrega urgente`;
+        motivoTransbordo = `⚡ URGÊNCIA — ${clientName} precisa de atendimento imediato`;
     }
 
     if (acionarTransbordo) {
