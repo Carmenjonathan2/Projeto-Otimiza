@@ -29,8 +29,8 @@ if (!GEMINI_API_KEY) {
     process.exit(1);
 }
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const MODELO_RESPOSTAS = 'gemini-2.0-flash';
-const MODELO_JUIZ     = 'gemini-2.0-flash';
+const MODELO_RESPOSTAS = 'gemini-3.5-flash';
+const MODELO_JUIZ     = 'gemini-3.5-flash';
 const DELAY_ENTRE_TESTES_MS = 2000; // Evitar rate-limit
 
 const brandbookPath = path.resolve(__dirname, 'diretrizes-e-branding/brandbook_operacoes_otimiza.md');

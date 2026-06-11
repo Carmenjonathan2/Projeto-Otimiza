@@ -200,16 +200,18 @@ async function cadastrarCliente(dados) {
             cnpj_cpf: dados.cpf ? dados.cpf.replace(/\D/g, '') : "",
             email: dados.email || "",
             telefone: dados.telefone ? dados.telefone.replace(/\D/g, '') : "",
-            endereco: dados.endereco,
-            cep: dados.cep,
-            cidade: "Belo Horizonte",
-            estado: "MG",
-            observacoes: `Pet: ${dados.nomePet} | Raça: ${dados.racaPet} | Idade: ${dados.idadePet}`
+            endereco: dados.endereco || "",
+            cep: dados.cep || "",
+            cidade: dados.cidade || "Belo Horizonte",
+            estado: dados.estado || "MG",
+            rg: dados.rg || "",
+            tags: dados.tags || "",
+            observacoes: dados.observacoes || `Pet: ${dados.nomePet || ''} | Raça: ${dados.racaPet || ''} | Idade: ${dados.idadePet || ''}`
         };
 
         const response = await axios.post(`${BASE_URL}/clientes`, payload, { headers });
         return {
-            id: response.data.id,
+            id: response.data.id || (response.data.data && response.data.data.id),
             status: "success"
         };
     } catch (e) {

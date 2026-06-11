@@ -433,6 +433,14 @@ app.post('/webhook/zapi', async (req, res) => {
         motivoTransbordo = "Agendamento de serviço clínico domiciliar";
     }
 
+    // 4. Verificar URGÊNCIA B2B EXPRESSO — vet precisa de entrega em menos de 10 min
+    const urgenciasB2BExpresso = ["urgente", "é pra agora", "pra agora", "para agora", "para já", "pra já", "urgência", "urgencia", "imediatamente", "preciso agora", "é agora", "na clínica agora"];
+    const isUrgenciaB2B = chatState.tipo_cliente === 'B2B' && urgenciasB2BExpresso.some(u => mensagemLower.includes(u));
+    if (isUrgenciaB2B) {
+        acionarTransbordo = true;
+        motivoTransbordo = `🚨 PEDIDO B2B EXPRESSO — ${clientName} precisa de entrega urgente`;
+    }
+
     if (acionarTransbordo) {
         console.log(`🚨 [SNC] Transbordo acionado para ${phone} por: ${motivoTransbordo}`);
         chatState.owner = "human";
@@ -464,7 +472,7 @@ app.post('/webhook/zapi', async (req, res) => {
     const produtoDetectado = produtosRastreados.find(p => mensagemLower.includes(p.chave));
 
     if (produtoDetectado) {
-        const infoEstoque = await shopify.consultarEstoque(produtoDetectado.nome);
+        const infoEstoque = await shopify.consultarEstoque(produtoDetectado.nome, chatState.tipo_cliente || 'B2C');
 
         // Rastrear produto mencionado para B2C (usado na detecção de confirmação de compra)
         if (chatState.tipo_cliente !== "B2B" && !chatState.produto_mencionado) {

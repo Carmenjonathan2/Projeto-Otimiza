@@ -32,56 +32,104 @@ const fs = require('fs');
 const path = require('path');
 
 /**
- * Consulta a disponibilidade e o preço de um produto.
- * Para produtos de PEDIDO ESPECIAL, retorna disponível via fornecedor (sem mostrar "estoque zerado").
- * Para produtos próprios, consulta o arquivo local do GestãoClick com fallback para MOCK_DATA.
+ * Busca um produto no JSON local do GestãoClick por nome.
+ * Para B2B, tenta variantes com sufixos como " B2B", " Veterinário", " Vet" primeiro.
+ * Retorna null se não encontrar.
+ *
+ * Estratégia de produto duplicado no GestãoClick:
+ *   - Versão B2C: nome padrão (ex: "Librela 15mg")
+ *   - Versão B2B: nome + sufixo (ex: "Librela 15mg B2B" ou "Librela 15mg Veterinário")
  */
-async function consultarEstoque(nomeProduto) {
-    console.log(`[PRODUTOS] Consultando disponibilidade para: "${nomeProduto}"...`);
+function buscarNoProdutosGC(data, nomeProduto, tipoCliente = 'B2C') {
+    const term = nomeProduto.toLowerCase().trim();
 
-    // Verificar primeiro se é produto de PEDIDO ESPECIAL (sem estoque físico próprio)
-    const nomeLower = nomeProduto.toLowerCase();
-    const chaveEspecial = Object.keys(PRODUTOS_PEDIDO_ESPECIAL).find(k => nomeLower.includes(k) || k.includes(nomeLower));
-    if (chaveEspecial) {
-        const infoEspecial = PRODUTOS_PEDIDO_ESPECIAL[chaveEspecial];
-        console.log(`📦 [PRODUTOS] '${nomeProduto}' é PEDIDO ESPECIAL. Prazo: ${infoEspecial.prazo} | Preço: R$ ${infoEspecial.preco}`);
-        return {
-            quantidade: 999,                 // sentinel: sempre disponível via fornecedor
-            preco: infoEspecial.preco,
-            tipo: 'pedido_especial',
-            prazo: infoEspecial.prazo
-        };
+    // Para B2B: tentar variantes com sufixo de atacado primeiro
+    if (tipoCliente === 'B2B') {
+        const sufixosB2B = [' b2b', ' veterinário', ' veterinario', ' vet', ' atacado', ' profissional'];
+        for (const sufixo of sufixosB2B) {
+            const matchB2B = data.find(p =>
+                p.Nome && p.Nome.toLowerCase().includes(term + sufixo)
+            );
+            if (matchB2B) {
+                console.log(`🏷️ [PRODUTOS] Variante B2B encontrada no GestãoClick: "${matchB2B.Nome}"`);
+                return matchB2B;
+            }
+        }
     }
 
-    // Para produtos com estoque físico próprio: consulta o arquivo local do GestãoClick
+    // Para B2C ou fallback B2B: buscar nome sem sufixo (variante padrão)
+    return data.find(p => p.Nome && p.Nome.toLowerCase().includes(term)) || null;
+}
+
+/**
+ * Consulta a disponibilidade e o preço de um produto.
+ * Suporta precificação diferenciada B2B vs B2C via produto duplicado no GestãoClick.
+ * Para PEDIDO ESPECIAL (Librela, Cytopoint): tenta GestãoClick primeiro, fallback no mapa fixo.
+ * Para estoque próprio: consulta GestãoClick com consciência de tipo de cliente.
+ *
+ * @param {string} nomeProduto - Nome do produto a consultar
+ * @param {string} tipoCliente - "B2B" (veterinário) ou "B2C" (tutor). Default: "B2C"
+ */
+async function consultarEstoque(nomeProduto, tipoCliente = 'B2C') {
+    console.log(`[PRODUTOS] Consultando "${nomeProduto}" para ${tipoCliente}...`);
+
+    const nomeLower = nomeProduto.toLowerCase();
+
+    // ─── Passo 1: Verificar se é PEDIDO ESPECIAL ──────────────────────────
+    const chaveEspecial = Object.keys(PRODUTOS_PEDIDO_ESPECIAL).find(
+        k => nomeLower.includes(k) || k.includes(nomeLower)
+    );
+
+    if (chaveEspecial) {
+        const infoEspecial = PRODUTOS_PEDIDO_ESPECIAL[chaveEspecial];
+
+        // Tentar buscar preço atualizado no GestãoClick antes de usar o valor fixo
+        try {
+            const filePath = path.resolve(__dirname, '../../../1-Farmacia-Ecommerce/Sistema de Fidelização Otimiza/estoque_limpo_gestaoclick.json');
+            if (fs.existsSync(filePath)) {
+                const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+                const match = buscarNoProdutosGC(data, nomeProduto, tipoCliente);
+                if (match) {
+                    const precoGC = parseFloat(match.Valor.replace(/\./g, '').replace(',', '.'));
+                    if (!isNaN(precoGC) && precoGC > 0) {
+                        console.log(`📦 [PRODUTOS] '${nomeProduto}' é PEDIDO ESPECIAL. Preço GestãoClick (${tipoCliente}): R$ ${precoGC} | Prazo: ${infoEspecial.prazo}`);
+                        return { quantidade: 999, preco: precoGC, tipo: 'pedido_especial', prazo: infoEspecial.prazo };
+                    }
+                }
+            }
+        } catch (e) { /* silencioso: usa fallback abaixo */ }
+
+        // Fallback: valor fixo do mapa
+        console.log(`📦 [PRODUTOS] '${nomeProduto}' é PEDIDO ESPECIAL (preço fixo). Prazo: ${infoEspecial.prazo} | Preço: R$ ${infoEspecial.preco}`);
+        return { quantidade: 999, preco: infoEspecial.preco, tipo: 'pedido_especial', prazo: infoEspecial.prazo };
+    }
+
+    // ─── Passo 2: Produto com estoque físico → GestãoClick ────────────────
     try {
         const filePath = path.resolve(__dirname, '../../../1-Farmacia-Ecommerce/Sistema de Fidelização Otimiza/estoque_limpo_gestaoclick.json');
         if (fs.existsSync(filePath)) {
             const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-            const term = nomeProduto.toLowerCase();
-            
-            // Buscar correspondência exata ou parcial no nome
-            const match = data.find(p => p.Nome && p.Nome.toLowerCase().includes(term));
+            const match = buscarNoProdutosGC(data, nomeProduto, tipoCliente);
+
             if (match) {
-                // Formatar valores numéricos do GestãoClick (ex: "65,85" -> 65.85)
-                const preco = parseFloat(match.Valor.replace(/\./g, '').replace(',', '.'));
+                const preco    = parseFloat(match.Valor.replace(/\./g, '').replace(',', '.'));
                 const quantidade = parseFloat(match.Estoque.replace(/\./g, '').replace(',', '.'));
-                
-                console.log(`🎯 [PRODUTOS] Produto localizado no GestãoClick: "${match.Nome}" | Preço: R$ ${preco} | Estoque: ${quantidade}`);
+                console.log(`🎯 [PRODUTOS] GestãoClick: "${match.Nome}" | R$ ${preco} | ${quantidade} un`);
                 return {
                     quantidade: isNaN(quantidade) ? 0 : quantidade,
-                    preco: isNaN(preco) ? 0.00 : preco
+                    preco:      isNaN(preco)       ? 0.00 : preco
                 };
             }
         }
     } catch (e) {
-        console.warn(`⚠️ [PRODUTOS] Erro ao ler estoque local do GestãoClick (${e.message}). Ativando fallback.`);
+        console.warn(`⚠️ [PRODUTOS] Erro ao ler GestãoClick (${e.message}). Ativando fallback.`);
     }
 
-    // Fallback padrão se não encontrar ou arquivo falhar
+    // ─── Passo 3: Fallback MOCK (desenvolvimento/testes) ──────────────────
     const key = nomeProduto.toLowerCase();
     return MOCK_DATA[key] || { quantidade: 0, preco: 0.00 };
 }
+
 
 /**
  * Cria um Pedido Rascunho (Draft Order) na Shopify para separar os produtos.

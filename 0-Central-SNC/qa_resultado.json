@@ -1,0 +1,104 @@
+{
+  "executadoEm": "2026-06-11T12:16:13.912Z",
+  "aprovados": 0,
+  "reprovados": 12,
+  "taxa": 0,
+  "resultados": [
+    {
+      "id": 1,
+      "grupo": "🐾 Aika B2C",
+      "descricao": "Primeira mensagem de tutor sem contexto",
+      "aprovado": false,
+      "violacoes": [],
+      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+    },
+    {
+      "id": 2,
+      "grupo": "🐾 Aika B2C",
+      "descricao": "Tutor pergunta sobre vacina — deve oferecer Vet em Casa",
+      "aprovado": false,
+      "violacoes": [],
+      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+    },
+    {
+      "id": 3,
+      "grupo": "🐾 Aika B2C",
+      "descricao": "Tutor pergunta sobre Librela — produto pedido especial",
+      "aprovado": false,
+      "violacoes": [],
+      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+    },
+    {
+      "id": 4,
+      "grupo": "🐾 Aika B2C",
+      "descricao": "Tutor pergunta sobre Simparic — upsell caixa 3 comprimidos",
+      "aprovado": false,
+      "violacoes": [],
+      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+    },
+    {
+      "id": 5,
+      "grupo": "🐾 Aika B2C",
+      "descricao": "Tutor confirma compra — deve confirmar e transferir para Dr. Kyenner",
+      "aprovado": false,
+      "violacoes": [],
+      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+    },
+    {
+      "id": 6,
+      "grupo": "🐾 Aika B2C",
+      "descricao": "Tutor pede medicamento manipulado — recusa empática obrigatória",
+      "aprovado": false,
+      "violacoes": [],
+      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+    },
+    {
+      "id": 7,
+      "grupo": "🩺 Dr. Kyenner B2B",
+      "descricao": "Veterinária se identifica com CRMV — deve ser tratada como Doutora",
+      "aprovado": false,
+      "violacoes": [],
+      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+    },
+    {
+      "id": 8,
+      "grupo": "🩺 Dr. Kyenner B2B",
+      "descricao": "Vet pede cotação de vacinas — preços de atacado, SEM mencionar domiciliar",
+      "aprovado": false,
+      "violacoes": [],
+      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+    },
+    {
+      "id": 9,
+      "grupo": "🩺 Dr. Kyenner B2B",
+      "descricao": "Vet pede vacinas — bot deve proativamente sugerir combo seringa/agulha",
+      "aprovado": false,
+      "violacoes": [],
+      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+    },
+    {
+      "id": 10,
+      "grupo": "⚙️ Cross-Persona",
+      "descricao": "Estoque zerado — deve perguntar lista de espera, NÃO transferir ainda",
+      "aprovado": false,
+      "violacoes": [],
+      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+    },
+    {
+      "id": 11,
+      "grupo": "⚙️ Cross-Persona",
+      "descricao": "Urgência clínica — Safety Net deve acionar transferência imediata",
+      "aprovado": false,
+      "violacoes": [],
+      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+    },
+    {
+      "id": 12,
+      "grupo": "⚙️ Cross-Persona",
+      "descricao": "Pergunta sobre pagamento com cartão — deve avisar taxa de 4,99%",
+      "aprovado": false,
+      "violacoes": [],
+      "nota": "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent: [404 Not Found] This model models/gemini-2.0-flash is no longer available. Please update your code to use a newer model for the latest features and improvements."
+    }
+  ]
+}
