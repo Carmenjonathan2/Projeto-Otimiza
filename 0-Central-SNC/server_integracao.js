@@ -735,6 +735,28 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
 
     return { status: 200, message: 'OK' };
 }
+app.get('/status', (req, res) => {
+    res.json({
+        status: "online",
+        modo_silencioso: process.env.MODO_SILENCIOSO,
+        is_silent_evaluated: process.env.MODO_SILENCIOSO !== 'false',
+        chatwoot: {
+            url: process.env.CHATWOOT_API_URL || "https://hub.chatwoot.app.br",
+            account_id: process.env.CHATWOOT_ACCOUNT_ID || "39",
+            inbox_id: process.env.CHATWOOT_INBOX_ID || "76",
+            key_configured: !!process.env.CHATWOOT_API_KEY
+        },
+        zapi: {
+            instance_id: process.env.ZAPI_INSTANCE_ID,
+            token_configured: !!process.env.ZAPI_TOKEN
+        },
+        gemini: {
+            key_configured: !!process.env.GEMINI_API_KEY
+        },
+        time: new Date().toISOString()
+    });
+});
+
 
 app.post('/webhook/zapi', async (req, res) => {
     try {
