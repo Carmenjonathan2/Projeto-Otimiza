@@ -111,6 +111,6 @@ O contato pode iniciar de duas formas:
 
 ## ⚠️ Regras Operacionais de Transição de Etapa
 
-1.  **Não pule a qualificação:** Nunca envie orçamento para um tutor sem entender a receita e qual o animalzinho, e nunca mande o Pix sem enviar o PDF do Espelho do Pedido correspondente.
+1.  **Não pule a qualificação:** Nunca envie orçamento para um tutor sem entender a receita e qual o pet, e nunca mande o Pix sem enviar o PDF do Espelho do Pedido correspondente.
 2.  **Alerta de Segurança (Transbordamento Humano):** Se um veterinário parceiro pedir um produto urgente (ex: *"Preciso de 3 vacinas V10 para agora, meu cliente já está na recepção"*), a estagiária deve interromper qualquer tarefa secundária, acionar a logística imediatamente e responder no chat com a placa do motorista em menos de 10 minutos.
 3.  **Segurança do Faturamento:** Nunca libere a moto ou a retirada física na loja antes de receber e anexar o comprovante de pagamento no sistema.

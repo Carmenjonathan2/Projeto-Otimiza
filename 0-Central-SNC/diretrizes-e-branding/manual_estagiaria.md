@@ -70,7 +70,7 @@ Antes de faturar, envie o template abaixo para cadastrar o cliente. Explique que
 > \*Número:\*
 > \*Complemento:\*
 > 
-> \*Nome do animalzinho:\*
+> \*Nome do pet:\*
 > \*Idade:\*
 > \*Raça:\*
 > \*Sexo:\*
@@ -112,7 +112,7 @@ Com os dados coletados, gere o PDF do espelho do pedido no sistema. Envie o arqu
 * **Instruções de Recebimento:** Pergunte se há restrição de horário ou se, em caso de ausência, pode deixar com vizinhos (anote o número da casa deles).
 
 ### Etapa 5: Pós-Venda e Fidelização (LTV)
-* **Follow-up de 24h:** Mande uma mensagem atenciosa perguntando se a entrega chegou direitinho e como o animalzinho reagiu ao medicamento.
+* **Follow-up de 24h:** Mande uma mensagem atenciosa perguntando se a entrega chegou direitinho e como o pet reagiu ao medicamento.
 * **Cronograma de Recompra (Pacientes Crônicos):** Se o pet usa medicamentos contínuos (para 30 dias), configure um lembrete para entrar em contato no **25º dia** sugerindo a reposição para evitar a interrupção do tratamento.
 
 ---

@@ -69,7 +69,7 @@ Sempre que despachar o pedido (geralmente via Uber Moto ou 99App), mande os deta
 
 ### Objeção: "Não me sinto seguro em passar meu CPF no WhatsApp para fazer o cadastro."
 *   **A Abordagem Correta (Aika - Empatia e Cuidado):**
-    > *"Entendo perfeitamente sua preocupação com a segurança dos dados, Vander! Esse cadastro é importante porque nós somos uma farmácia especializada, e nossa equipe veterinária acompanha a evolução da saúde do seu animalzinho no pós-venda.*
+    > *"Entendo perfeitamente sua preocupação com a segurança dos dados, Vander! Esse cadastro é importante porque nós somos uma farmácia especializada, e nossa equipe veterinária acompanha a evolução da saúde do seu pet no pós-venda.*
     >
     > *Mas não se preocupe, podemos seguir sem travar sua compra! Se preferir, você pode fazer o pagamento por aqui e passar para retirar o produto pessoalmente na nossa loja na Av. Abílio Machado, 514, Sala 08. Aproveitamos e tomamos um café fresquinho! O que fica melhor para você?"*
 

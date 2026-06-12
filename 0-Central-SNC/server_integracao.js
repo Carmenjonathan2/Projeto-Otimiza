@@ -21,6 +21,18 @@ const vendas = require('./src/comercial/estrategias_vendas');
 const app = express();
 app.use(bodyParser.json());
 
+// Função auxiliar para enviar mensagens ao cliente ou interceptá-las em Modo Silencioso
+async function enviarMensagemBot(phone, text) {
+    const isSilent = process.env.MODO_SILENCIOSO !== 'false';
+    if (isSilent) {
+        console.log(`[MODO SILENCIOSO] IA Sugestão para ${phone}: "${text}"`);
+        await chatwoot.enviarNotaPrivada(phone, `🤖 *[Sugestão da IA - Copiloto]*:\n${text}`);
+        return;
+    }
+    await zapi.enviarMensagemTexto(phone, text);
+    await chatwoot.sincronizarMensagemBot(phone, text);
+}
+
 // Banco de dados de estado em arquivo JSON local (Simulando persistência de estado das conversas)
 const STATE_FILE = path.resolve(__dirname, 'conversas_state.json');
 function loadStates() {
@@ -452,9 +464,8 @@ async function processarMensagem(payload) {
         saveStates(states);
 
         // Enviar mensagem de despedida carinhosa da IA
-        const despedida = `${clientName}, compreendo perfeitamente a sua solicitação e quero garantir que você tenha o melhor suporte possível. Estou transferindo a nossa conversa agora mesmo para o Dr. Kyenner Oliver (nosso supervisor), que vai te ajudar pessoalmente com isso. Só um minutinho, por favor! 🩺`;
-        await zapi.enviarMensagemTexto(phone, despedida);
-        await chatwoot.sincronizarMensagemBot(phone, despedida);
+        const despedida = `${clientName}, compreendo perfeitamente a sua solicitação e quero garantir que você tenha o melhor suporte possível. Estou transferindo a nossa conversa agora mesmo para o Kyenner (nosso veterinário), que vai te ajudar pessoalmente com isso. Só um minutinho, por favor! 🩺`;
+        await enviarMensagemBot(phone, despedida);
 
         // Notificar o painel do Chatwoot para pausar a IA e alertar o humano
         await chatwoot.solicitarSuporteHumano(phone, clientName, motivoTransbordo);
@@ -468,15 +479,54 @@ async function processarMensagem(payload) {
     // Consulta de disponibilidade de produto: expandido para incluir vacinas (B2B) e medicamentos de alto ticket
     const produtosRastreados = [
         { chave: "librela",    nome: "Librela 15mg" },
+        { chave: "lybrela",    nome: "Librela 15mg" },
         { chave: "cytopoint",  nome: "Cytopoint" },
-        { chave: "simparic",   nome: "Simparic 10mg" },
+        { chave: "neptra",     nome: "Neptra" },
+        { chave: "milteforan", nome: "Milteforan" },
         { chave: "metilforan", nome: "Metilforan" },
+        { chave: "simparic",   nome: "Simparic 10mg" },
         { chave: "rabisin",    nome: "Rabisin" },
-        { chave: "nobivac",    nome: "Nobivac V8" }
+        { chave: "nobivac",    nome: "Nobivac V8" },
+        { chave: "bravecto",   nome: "Bravecto" }
     ];
     const produtoDetectado = produtosRastreados.find(p => mensagemLower.includes(p.chave));
 
     if (produtoDetectado) {
+        // Se for cliente B2C (Tutor)
+        if (chatState.tipo_cliente !== "B2B") {
+            const B2C_TOP4 = ["librela", "lybrela", "cytopoint", "milteforan", "metilforan", "neptra"];
+            const isTop4 = B2C_TOP4.includes(produtoDetectado.chave);
+            const isVacina = ["rabisin", "nobivac"].includes(produtoDetectado.chave);
+
+            if (!isTop4 && !isVacina) {
+                // É um produto B2C fora do Top 4 (ex: Simparic, Bravecto) -> Trava de 2 pontos
+                const infoEstoque = await shopify.consultarEstoque(produtoDetectado.nome, 'B2C');
+                if (infoEstoque.quantidade > 0) {
+                    console.log(`[SNC] Outro produto B2C (${produtoDetectado.nome}) em estoque. Transferindo para Kyenner.`);
+                    chatState.owner = "human";
+                    saveStates(states);
+
+                    const despedida = `Olá! Verifiquei no sistema e temos o *${produtoDetectado.nome}* disponível. Vou transferir o seu atendimento agora mesmo para o Kyenner (nosso veterinário), que vai te passar as informações de valores e finalizar tudo com você. Só um instantinho! 🐾`;
+                    await enviarMensagemBot(phone, despedida);
+
+                    await chatwoot.enviarNotaPrivada(phone, `🚨 [SNC - INTEGRAÇÃO B2C]: O cliente solicitou *${produtoDetectado.nome}*. Temos em estoque! Preço cadastrado no ERP: R$ ${infoEstoque.preco}. O robô transferiu o atendimento sem passar o preço, conforme regras de estoque para produtos fora do Top 4.`);
+                    await chatwoot.solicitarSuporteHumano(phone, clientName, `Solicitação de ${produtoDetectado.nome} em estoque`);
+                    return { status: 200, message: 'OK: Escalated to human for in-stock B2C product' };
+                } else {
+                    console.log(`[SNC] Outro produto B2C (${produtoDetectado.nome}) esgotado. Informando indisponibilidade.`);
+
+                    const indisponivel = `Olá! Verifiquei aqui no sistema, mas infelizmente no momento não temos o *${produtoDetectado.nome}* disponível em nosso estoque. 🐾`;
+
+                    chatState.history.push({ role: 'user', content: clientMessage });
+                    chatState.history.push({ role: 'model', content: indisponivel });
+                    saveStates(states);
+
+                    await enviarMensagemBot(phone, indisponivel);
+                    return { status: 200, message: 'OK: Product out of stock' };
+                }
+            }
+        }
+
         const infoEstoque = await shopify.consultarEstoque(produtoDetectado.nome, chatState.tipo_cliente || 'B2C');
 
         // Rastrear produto mencionado para B2C (usado na detecção de confirmação de compra)
@@ -488,13 +538,14 @@ async function processarMensagem(payload) {
         if (infoEstoque.tipo === 'pedido_especial') {
             // PEDIDO ESPECIAL: produto disponível via fornecedor, prazo conhecido
             console.log(`📦 [ESTOQUE] '${produtoDetectado.nome}' é pedido especial. Prazo: ${infoEstoque.prazo}`);
-            contextoInjetado += `\n[Produto Pedido Especial 📦]: O produto '${produtoDetectado.nome}' não fica em estoque físico próprio — fazemos o pedido ao fornecedor assim que o cliente confirma. ` +
-                `Preço: R$ ${infoEstoque.preco}. PRAZO DE ENTREGA: *${infoEstoque.prazo}* após confirmação. ` +
-                `Informe ao cliente que o produto está DISPONÍVEL normalmente, com entrega em ${infoEstoque.prazo}. ` +
-                `Apresente isso como um serviço personalizado e exclusivo, não como limitação. Valorize a conveniência.`;
-        } else if (infoEstoque.quantidade === 0) {
-            // ESTOQUE ZERADO REAL: perguntar lista de espera, aguardar confirmação antes de transferir
-            console.log(`🔴 [ESTOQUE] Produto '${produtoDetectado.nome}' com estoque ZERADO.`);
+            contextoInjetado += `\n[Produto Pedido Especial 📦]: O produto '${produtoDetectado.nome}' está disponível! ` +
+                `Preço: R$ ${infoEstoque.preco}. PRAZO DE ENTREGA PREVISTO: 1 a 2 dias úteis. ` +
+                `Informe ao cliente de forma direta que o produto está DISPONÍVEL e que a entrega é prevista para 1 ou 2 dias. ` +
+                `Explique que, após verificar a disponibilidade em estoque, daremos a previsão exata de entrega para ele. ` +
+                `NUNCA mencione distribuidor, fornecedor, terceiros ou que faremos pedido ao distribuidor/fornecedor no atendimento ao cliente.`;
+        } else if (infoEstoque.quantidade <= 0) {
+            // ESTOQUE ZERADO REAL (estoque zerado ou negativo): perguntar lista de espera, aguardar confirmação antes de transferir
+            console.log(`🔴 [ESTOQUE] Produto '${produtoDetectado.nome}' com estoque ZERADO (ou negativo: ${infoEstoque.quantidade}).`);
             contextoInjetado += `\n[ESTOQUE ZERADO 🔴 - AÇÃO OBRIGATÓRIA]: O produto '${produtoDetectado.nome}' está MOMENTANEAMENTE FORA DE ESTOQUE. ` +
                 `Informe com empatia que estamos em processo de reposição. ` +
                 `Pergunte se o cliente gostaria de entrar na *lista de espera* para ser avisado assim que chegar. ` +
@@ -546,12 +597,12 @@ async function processarMensagem(payload) {
     if (chatState.tipo_cliente !== "B2B" && chatState.produto_mencionado && palavrasCompraB2C.some(p => mensagemLower.includes(p))) {
         b2cCompraConfirmadaNestaMsg = true;
         console.log(`💳 [SNC] Compra B2C confirmada para ${phone}: ${chatState.produto_mencionado}`);
-        contextoInjetado += `\n[COMPRA CONFIRMADA B2C ✅]: O tutor confirmou que quer comprar '${chatState.produto_mencionado}'. Responda confirmando o pedido com entusiasmo e diga que vai conectá-lo com o Dr. Kyenner para finalizar todos os detalhes (endereço de entrega, pagamento e prazo). Seja acolhedor e transmita urgente positiva.`;
+        contextoInjetado += `\n[COMPRA CONFIRMADA B2C ✅]: O tutor confirmou que quer comprar '${chatState.produto_mencionado}'. Responda confirmando o pedido com entusiasmo e diga que vai conectá-lo com o Kyenner para finalizar todos os detalhes (endereço de entrega, pagamento e prazo). Seja acolhedor e transmita urgente positiva.`;
     }
     // Injetar contexto de CRM do cliente localizado no GestãoClick
     if (chatState.nome_cadastro) {
         contextoInjetado += `\n[Contexto de Sistema - CRM]: Cliente IDENTIFICADO no GestãoClick. Nome do Cadastro: '${chatState.nome_cadastro}', Segmento: '${chatState.tipo_cliente}'${chatState.crmv ? `, CRMV: '${chatState.crmv}'` : ''}.
-ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.nome_cadastro}' do cadastro. Como ele(a) já é cadastrado(a) no ERP, NÃO peça mais o CRMV ou CPF e siga direto para o atendimento técnico (caso B2B) ou de tutor (caso B2C). Se for B2B, sempre o(a) trate como Doutor(a) e fale com a persona técnica do Dr. Kyenner.`;
+ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.nome_cadastro}' do cadastro. Como ele(a) já é cadastrado(a) no ERP, NÃO peça mais o CRMV ou CPF e siga direto para o atendimento técnico (caso B2B) ou de tutor (caso B2C). Se for B2B, fale com ele(a) de forma direta e profissional, chamando pelo nome próprio e usando a persona do Kyenner/Kiki (nunca use títulos honoríficos como Dr. ou Dra.).`;
     } else {
         contextoInjetado += `\n[Contexto de Sistema - CRM]: Cliente não localizado no GestãoClick.`;
         if (chatState.crmv) {
@@ -568,31 +619,24 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
         contextoInjetado += `\n[Estratégia Comercial Ativa (${chatState.tipo_cliente || 'B2C'})]: ${oportunidadeVenda}`;
     }
 
-    // Salvar histórico da conversa
-    chatState.history.push({ role: 'user', content: clientMessage });
-    if (chatState.history.length > 20) chatState.history.shift(); // Limitar histórico para 20 mensagens
-
-    // --- CHAMADA DA IA (GEMINI) ---
-    try {
-        const systemInstructionConcise = brandbookContent + "\n" + contextoInjetado + "\n" + 
-`[Diretriz de Concisão, Persona e Formatação - CRÍTICO]:
+    const systemInstructionConcise = `[Diretriz de Concisão, Persona e Formatação - CRÍTICO]:
 1. **Identificação da Persona**:
-   - **Caso B2B (Veterinários)**: Fale como o **Dr. Kyenner (O Diretor Veterinário)**. Use tom técnico, direto, ágil e profissional, mas informal na medida certa (use "vc", "tu", "blza", "tmj", "kkkk").
-     - **Primeira Abordagem / Saudação**: Comece com a sua marca registrada comercial: *"Fala comigo, MedVet por amor!"* ou trate-os por *"Dr." / "Doutora"*.
-     - **Cotação**: Se pedirem preços de vacinas ou medicamentos injetáveis, apresente-os de forma direta e organizada. Em seguida, pergunte se o cliente prefere retirar pessoalmente no nosso escritório na Av. Abílio Machado, 514, Sala 08 ou se prefere que a gente envie por motoboy (se preferirem envio, aí sim peça o endereço/CEP para simular a rota e cotar o frete). Lembrar de oferecer Frete Grátis se for a primeira compra deles.
-     - **Cadastro**: Se o cliente for B2B e ainda NÃO estiver cadastrado no sistema (não identificado), peça educadamente o número do seu **CRMV** para liberar a tabela de atacado de parceiros (avise que o cadastro profissional passará por validação rápida). Veterinários ativos no sistema são isentos de apresentar receita médica para estoque clínico.
-   - **Caso B2C (Tutores)**: Fale como a **Aika (A Guardiã Mascote)**. Use tom acolhedor, empático, carinhoso e amigável (use emojis como 💜, 🐾).
-     - **Restrição**: Nunca use termos frios ou formais como "Prezado", "Senhor", "Senhora". Pergunte o nome do pet logo no início para personalizar o cuidado.
+   - **Caso B2B (Veterinários)**: Fale como o **Kyenner**. Use um tom técnico, científico, direto e cooperativo de parceria operacional. A comunicação com veterinários deve ser o mais curta, limpa e enxuta possível (sem enrolação, pois eles não leem textos longos).
+     - **Saudação**: Comece de forma direta e sem formalidades honoríficas. **NUNCA use termos como Dr., Doutor, Dra., ou Doutora** (os clientes veterinários não gostam disso e preferem um contato direto). Trate-os pelo nome. Kyenner prefere ser chamado pelo seu nome próprio Kyenner, nunca como Dr. Kyenner ou Dr. Kiki (ele não gosta de formalidades). Ao se identificar no início das mensagens B2B, apresente-se como Kyenner (evite o apelido Kiki para manter o tom profissional da parceria).
+     - **Cotação**: Se pedirem preços de vacinas ou medicamentos injetáveis, apresente-os de forma direta, curta e organizada. Em seguida, pergunte se o cliente prefere retirar pessoalmente no nosso escritório na Av. Abílio Machado, 514, Sala 08 ou se prefere que a gente envie por motoboy (se preferirem envio, aí sim peça o CEP para simular a rota e cotar o frete). Lembrar de oferecer Frete Grátis se for a primeira compra deles. Sempre faça a pergunta consultiva: "Quantas doses você costuma aplicar por mês?" para ajudar a sugerir o melhor lote/desconto.
+     - **Cadastro**: Se o cliente for B2B e ainda NÃO estiver cadastrado no sistema (não identificado), peça de forma direta o número do seu **CRMV** para liberar a tabela de atacado de parceiros (avise que o cadastro profissional passará por validação rápida). Veterinários ativos no sistema são isentos de apresentar receita médica para estoque clínico. Se o cliente já informar o CRMV na mensagem inicial, você DEVE reconhecer e citar expressamente o número do CRMV informado na sua resposta (ex: "CRMV [número] anotado" ou "CRMV [número] cadastrado").
+   - **Caso B2C (Tutores)**: Responda como o **Atendimento Otimiza (Aika)**. Adote um tom profissional, direto, prestativo e acolhedor, mas sem ser infantil, informal ou "florzinha". Evite absolutamente qualquer diminutivo (como "animalzinho", "parceirinho", "gatinho"), expressões sentimentais (como "com todo carinho", "muita energia positiva") e reduza emojis ao mínimo (no máximo 1 emoji simples como 💜 ou 🐾 por mensagem, apenas para polidez). Refira-se ao pet de forma direta como "pet", "animal", "paciente" ou pelo próprio nome dele.
+     - **Restrição de Cargo**: Refira-se ao Kyenner apenas como *nosso veterinário*, NUNCA use o termo *diretor* ou *diretor veterinário* ao falar com tutores.
+     - **Restrição**: Nunca use termos excessivamente formais ou distantes como "Prezado", "Senhor", "Senhora". Dê boas-vindas amigáveis, pergunte o nome do tutor e o nome do pet logo na primeira interação de forma direta e natural para personalizar o registro.
      - **Cadastro**: Só peça os dados de CPF e endereço do tutor para faturamento APÓS a cotação ser aceita e ele confirmar que deseja fechar a compra.
 
 2. **Lei de Compliance de Receitas, Vacinas e Preços (PROIBIDO MISTURAR - LEI SUPREMA)**:
    - **Para Clientes B2C (Tutores)**:
      - **EXIGÊNCIA RÍGIDA DE RECEITA**: Para medicamentos controlados (como Metilforan, que exige receita oficial do MAPA) e de alta complexidade (Librela e Cytopoint), é **obrigatório** exigir do tutor a foto ou PDF da receita veterinária assinada no chat antes de finalizar a venda.
+     - **PRODUTOS PEDIDO ESPECIAL (Librela/Cytopoint)**: NUNCA diga que o produto está sem estoque ou indisponível. Diga que está disponível e que a entrega é prevista para 1 ou 2 dias. Você deve incluir a informação de que a previsão exata de entrega será fornecida após a verificação de disponibilidade em nosso estoque/sistema. NUNCA mencione distribuidor, fornecedor, terceiros ou que faremos pedido a eles.
      - **PREÇOS DE ATACADO SÃO CONFIDENCIAIS**: Nunca informe preços de vacinas avulsas/custo de veterinário (como R$ 15,90 ou R$ 44,50). É estritamente proibido!
      - **PROIBIDO VENDER VACINA AVULSA**: Diga que, por segurança regulatória, nós não vendemos vacinas soltas para aplicação própria dos tutores.
-     - **APENAS VET EM CASA (APLICADO)**: Ofereça apenas o serviço completo de aplicação em domicílio pelo Dr. Kyenner ("Vet em Casa"). Passe exclusivamente os preços da tabela aplicados: *Antirrábica R$ 60,00*, *V8/V9 R$ 70,00*, *V10 R$ 80,00*, *Gripe R$ 90,00*, *Giardia R$ 97,00* (todos com aplicação inclusa). Explique que há uma taxa de deslocamento calculada pelo CEP.
-   - **Para Clientes B2B (Veterinários)**:
-     - **PREÇOS DE ATACADO EXCLUSIVOS**: Informe apenas os preços de vacinas avulsas da tabela de parceiros (como *Rabisin R$ 17,90*, *Nobivac V8 R$ 44,50*, *Nobivac V5 R$ 59,90*).
+     - **APENAS VET EM CASA (APLICADO)**: Ofereça apenas o serviço completo de aplicação em domicílio pelo nosso veterinário ("Vet em Casa"). Passe exclusivamente os preços da tabela aplicados: *Antirrábica R$ 60,00*, *V8/V9 R$ 70,00*, *V10 R$ 80,00*, *Gripe R$ 90,00*, *Giardia R$ 97,00* (todos com aplicação inclusa). Explique que há uma taxa de deslocamento calculada pelo CEP.
      - **NÃO MENCIONE PREÇO DOMICILIAR/APLICAÇÃO**: Nunca fale sobre os preços de aplicação em domicílio de R$ 60,00 ou R$ 70,00. O veterinário compra para o seu próprio estoque clínico e aplica ele mesmo.
 
 3. *Diretriz de Concisão*: Seja direto e simpático. Responda em no máximo 1 ou 2 parágrafos curtos. Evite listar todos os produtos ou fazer respostas longas. Cite apenas as 2 ou 3 principais opções.
@@ -601,11 +645,22 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
 
 5. *MODO VENDEDOR ATIVO - OBRIGATÓRIO*: Após responder a pergunta principal do cliente, SEMPRE ofereça proactively pelo menos 1 opção de upsell ou complemento. Nunca encerre uma mensagem sem uma ação comercial clara: uma oferta adicional (volume maior, combo, serviço complementar) ou uma próxima etapa de compra. Seja consultivo e natural — não robótico.
 
-6. *FLUXO TUTOR B2C - TRIAGEM RÁPIDA*: Para clientes Tutores (B2C), o seu papel é de *recepcionista inteligente*, não de vendedor fechador. Dê a saudação calorosa, informe rápido se o produto está disponível e a faixa de preço geral. O Dr. Kyenner fará o atendimento completo (dose, aplicação, orientação clínica e fechamento). Encerre dizendo que vai conectá-lo com o Dr. Kyenner para os detalhes.`;
+6. *FLUXO TUTOR B2C - TRIAGEM RÁPIDA*: Para clientes Tutores (B2C), o seu papel é de *recepcionista inteligente e ágil*, não de vendedor fechador. Dê uma saudação direta e acolhedora, informe rapidamente se o produto está disponível e a faixa de preço geral. O Kyenner fará o atendimento completo e faturamento. Encerre de forma prática e gentil dizendo que vai conectá-lo com o Kyenner para finalizar. **EXCEÇÃO**: Se o produto solicitado estiver esgotado/fora de estoque, NÃO diga que vai transferir a conversa para o Kyenner; em vez disso, apenas ofereça a lista de espera e alternativas, aguardando a resposta do cliente.
+7. *REGRA DE PAGAMENTO / PIX*: Sempre que o cliente (B2B ou B2C) perguntar sobre formas de pagamento, parcelamento ou cartão de crédito, você DEVE informar a taxa de 4.99% do cartão e fornecer OBRIGATORIAMENTE a chave Pix oficial: *(31) 98793-6822* (C6 Bank | Solução Farmacêutica Otimiza).
+8. **MENSAGENS DE PROPAGANDA, SPAM OU PARCERIAS DE TERCEIROS (VENDENDO SERVIÇOS PARA A OTIMIZA)**: Se a mensagem do cliente for uma propaganda, oferta de serviço (marketing, software, agência, contabilidade, etc.) ou proposta de parceria, você **NÃO deve aplicar a regra de Modo Vendedor Ativo**, nem perguntar se ele é tutor/veterinário ou pedir CPF/CRMV. Responda de forma simples, polida e muito curta: *"Agradecemos o contato e a apresentação! No momento não temos interesse em novas contratações ou parcerias desse tipo. Obrigado."*
+9. **MENSAGENS AMBÍGUAS OU SEM CONTEXTO CLARO**: Se o cliente mandar uma mensagem sem contexto definido ou confusa (como "Oi, tudo bem?"), responda de forma natural e acolhedora, pergunte o nome dele e do pet para personalizar o registro inicial, e pergunte como pode ajudar com base no que ele escreveu. Não dispare de imediato a pergunta sobre se ele é tutor/veterinário ou solicitações de CPF/CRMV.`;
+
+    // Salvar histórico da conversa
+    chatState.history.push({ role: 'user', content: clientMessage });
+    if (chatState.history.length > 20) chatState.history.shift(); // Limitar histórico para 20 mensagens
+
+    // --- CHAMADA DA IA (GEMINI) ---
+    try {
+        const systemInstructionConciseWithContext = brandbookContent + "\n" + contextoInjetado + "\n" + systemInstructionConcise;
 
         const model = genAI.getGenerativeModel({
             model: "gemini-3.5-flash",
-            systemInstruction: systemInstructionConcise
+            systemInstruction: systemInstructionConciseWithContext
         });
 
         // Formatar o histórico para o formato do Gemini
@@ -628,7 +683,7 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
             // Se falhar no tom de voz, força uma reescrita rápida ou uma resposta neutra acolhedora
             responseText = chatState.tipo_cliente === 'B2B' ?
                 "Olá! Desculpe a resposta anterior. Seguem as informações técnicas corretas do seu pedido. Como posso agilizar hoje?" :
-                "Oi! Peço desculpas pela mensagem anterior. O que eu mais quero é te ajudar a cuidar do seu animalzinho! Como posso ajudar você e ele agora? 💜";
+                "Olá! Peço desculpas pela mensagem anterior. Estou à disposição para ajudar com a saúde do seu pet. Como posso lhe auxiliar agora? 💜";
         }
 
         // Se a resposta da IA contém a palavra crmv (de forma a pedir o CRMV), ativamos o estado aguardando_crmv
@@ -644,10 +699,7 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
         saveStates(states);
 
         // Enviar a resposta via Z-API
-        await zapi.enviarMensagemTexto(phone, responseText);
-
-        // Sincronizar com a tela do Chatwoot (para o atendente ver o robô conversando)
-        await chatwoot.sincronizarMensagemBot(phone, responseText);
+        await enviarMensagemBot(phone, responseText);
 
         // --- TRANSFERÊNCIA PÓS-RESPOSTA: somente após confirmação explícita (P1 lista espera / P2 compra) ---
         if ((b2cCompraConfirmadaNestaMsg || listaEsperaConfirmadaNestaMsg) && chatState.owner !== "human") {
@@ -668,7 +720,7 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
                   `📱 *Telefone:* +${phone}\n` +
                   `🛒 *Produto:* ${chatState.produto_mencionado}\n` +
                   `💬 *Mensagem:* "${clientMessage.substring(0, 100)}"\n` +
-                  `📋 *Próximo passo:* Dr. Kyenner finaliza endereço, pagamento e prazo.`;
+                  `📋 *Próximo passo:* Kyenner finaliza endereço, pagamento e prazo.`;
 
             await chatwoot.enviarNotaPrivada(phone, notaKyenner);
             await chatwoot.solicitarSuporteHumano(phone, clientName, motivoTransferencia);
@@ -678,8 +730,7 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
     } catch (e) {
         console.error("❌ Erro ao chamar a API do Gemini:", e);
         const fallbackMsg = "Oi! Tive uma oscilação rápida aqui na minha rede. Você poderia repetir o que precisa, por favor? 💜";
-        await zapi.enviarMensagemTexto(phone, fallbackMsg);
-        await chatwoot.sincronizarMensagemBot(phone, fallbackMsg);
+        await enviarMensagemBot(phone, fallbackMsg);
     }
 
     return { status: 200, message: 'OK' };

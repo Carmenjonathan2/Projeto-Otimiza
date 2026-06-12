@@ -21,6 +21,7 @@ const path = require('path');
 // --- Módulos de Produção ---
 const { processarMensagem } = require('./server_integracao');
 const zapi = require('./src/integracoes/integracao_zapi');
+const shopify = require('./src/integracoes/integracao_shopify');
 
 // Capturar resposta enviada pelo robô
 let ultimaMensagemEnviada = "";
@@ -30,6 +31,7 @@ zapi.enviarMensagemTexto = async (phone, text) => {
 };
 
 // --- Config ---
+process.env.MODO_SILENCIOSO = 'false'; // Garantir que os testes de QA sempre rodem em modo ativo
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 if (!GEMINI_API_KEY) {
     console.error('❌ GEMINI_API_KEY não encontrada no .env');
@@ -64,10 +66,11 @@ const CENARIOS = [
         tipoCliente: 'B2C',
         mensagem: 'Oi! Meu cachorro precisa tomar vacina antirrábica. Vocês vendem?',
         regrasJuiz: [
-            'A resposta DEVE oferecer o serviço Vet em Casa (aplicação domiciliar pelo Dr. Kyenner)',
+            'A resposta DEVE oferecer o serviço Vet em Casa (aplicação domiciliar pelo nosso veterinário)',
             'A resposta NÃO pode informar preços de custo de vacinas avulsas (como R$ 17,90 ou R$ 44,50)',
             'A resposta NÃO pode sugerir que o tutor compre a vacina para aplicar sozinho em casa',
-            'Deve mencionar o valor da aplicação domiciliar (R$ 60,00 para antirrábica)'
+            'Deve mencionar o valor da aplicação domiciliar (R$ 60,00 para antirrábica)',
+            'A resposta NÃO deve referir-se ao veterinário como diretor ou diretor veterinário (pode chamá-lo de nosso veterinário ou Kyenner)'
         ]
     },
     {
@@ -84,7 +87,9 @@ const CENARIOS = [
         mensagem: 'Minha cachorra tem artrite. O veterinário receitou Librela. Vocês têm em estoque?',
         regrasJuiz: [
             'A resposta DEVE informar que o produto está disponível (nunca dizer "fora de estoque" para pedido especial)',
-            'A resposta DEVE mencionar o prazo de entrega (1 a 2 dias úteis)',
+            'A resposta DEVE mencionar que a entrega é prevista para 1 ou 2 dias',
+            'A resposta DEVE mencionar que daremos a previsão de entrega após verificar a disponibilidade ou confirmar o pedido',
+            'A resposta NÃO pode mencionar distribuidor, fornecedor, terceiros ou que fará pedido a eles',
             'A resposta DEVE mencionar o preço: R$ 380,00 por ampola',
             'A resposta deve informar ou mencionar a promoção de 2 ampolas por R$ 350,00 cada'
         ]
@@ -92,7 +97,7 @@ const CENARIOS = [
     {
         id: 4,
         grupo: '🐾 Aika B2C',
-        descricao: 'Tutor pergunta sobre Simparic — upsell caixa 3 comprimidos',
+        descricao: 'Tutor pergunta sobre Simparic (outros produtos) — deve transferir para Kyenner sem dar o preço',
         tipoCliente: 'B2C',
         contextoProduto: {
             tipo: 'estoque_normal',
@@ -102,21 +107,22 @@ const CENARIOS = [
         },
         mensagem: 'Quero Simparic para meu golden de 18kg. Qual o preço?',
         regrasJuiz: [
-            'A resposta deve informar o preço do Simparic (R$ 104,50 avulso)',
-            'A resposta deve proativamente oferecer a caixa de 3 comprimidos (R$ 269,90) como melhor custo-benefício',
-            'A resposta deve mencionar que a caixa de 3 garante 3 meses de proteção contínua'
+            'A resposta NÃO deve informar o preço do Simparic',
+            'A resposta DEVE informar de forma acolhedora que o produto está disponível',
+            'A resposta DEVE informar que vai transferir a conversa para o Kyenner para ele passar os valores',
+            'A resposta NÃO deve propor ofertas ou combos (regra de outros produtos B2C em estoque)'
         ]
     },
     {
         id: 5,
         grupo: '🐾 Aika B2C',
-        descricao: 'Tutor confirma compra — deve confirmar e transferir para Dr. Kyenner',
+        descricao: 'Tutor confirma compra — deve confirmar e transferir para Kyenner',
         tipoCliente: 'B2C',
         contextoProdutoMencionado: 'Librela 15mg',
         mensagem: 'Quero comprar sim! Pode me passar o pix para pagar?',
         regrasJuiz: [
             'A resposta deve confirmar o pedido positivamente com entusiasmo',
-            'A resposta deve mencionar que vai conectar com o Dr. Kyenner ou responsável para finalizar os detalhes',
+            'A resposta deve mencionar que vai conectar com o Kyenner ou Kiki para finalizar os detalhes',
             'A resposta deve informar ou mencionar a chave Pix: (31) 98793-6822'
         ]
     },
@@ -133,36 +139,36 @@ const CENARIOS = [
         ]
     },
 
-    // ─── GRUPO 2: Persona B2B — Dr. Kyenner ──────────────────────────────
+    // ─── GRUPO 2: Persona B2B — Kyenner ──────────────────────────────
     {
         id: 7,
-        grupo: '🩺 Dr. Kyenner B2B',
-        descricao: 'Veterinária se identifica com CRMV — deve ser tratada como Doutora',
+        grupo: '🩺 Kyenner B2B',
+        descricao: 'Veterinária se identifica com CRMV — deve ser tratada pelo nome',
         tipoCliente: 'B2B',
         mensagem: 'Boa tarde, sou a Dra. Ana Lima, CRMV 15234. Gostaria de fazer um pedido de vacinas.',
         regrasJuiz: [
-            'A resposta deve tratar a veterinária com o título "Doutora" ou "Dra."',
+            'A resposta NÃO deve usar títulos formais ou honoríficos como Doutor, Doutora, Dr., ou Dra.',
             'A resposta deve reconhecer o CRMV e prosseguir diretamente para cotação ou atendimento',
             'A resposta NÃO deve pedir CPF ou outros documentos pessoais de um vet que já informou CRMV',
-            'Tom deve ser técnico, direto e de parceria profissional (persona Dr. Kyenner)'
+            'Tom deve ser técnico, direto e de parceria profissional (persona Kyenner)'
         ]
     },
     {
         id: 8,
-        grupo: '🩺 Dr. Kyenner B2B',
+        grupo: '🩺 Kyenner B2B',
         descricao: 'Vet pede cotação de vacinas — preços de atacado, SEM mencionar domiciliar',
         tipoCliente: 'B2B',
         mensagem: 'Me passa o preço da Rabisin e do Nobivac V8, por favor.',
         regrasJuiz: [
             'A resposta DEVE informar os preços de atacado das vacinas (Rabisin R$ 17,90, Nobivac V8 R$ 44,50)',
             'A resposta NÃO pode mencionar preços de aplicação domiciliar (R$ 60, R$ 70, R$ 80) — isso é exclusivo B2C',
-            'A resposta deve usar tom técnico e direto (persona Dr. Kyenner, não Aika)',
+            'A resposta deve usar tom técnico e direto (persona Kyenner, não Aika)',
             'NÃO deve usar emojis infantis ou tom excessivamente afetivo'
         ]
     },
     {
         id: 9,
-        grupo: '🩺 Dr. Kyenner B2B',
+        grupo: '🩺 Kyenner B2B',
         descricao: 'Vet pede vacinas — bot deve proativamente sugerir combo seringa/agulha',
         tipoCliente: 'B2B',
         mensagem: 'Quero fechar 20 doses de Rabisin.',
@@ -177,7 +183,7 @@ const CENARIOS = [
     {
         id: 10,
         grupo: '⚙️ Cross-Persona',
-        descricao: 'Estoque zerado — deve perguntar lista de espera, NÃO transferir ainda',
+        descricao: 'Estoque zerado (outros produtos B2C) — deve informar que não temos, NÃO oferecer lista de espera e NÃO transferir',
         tipoCliente: 'B2C',
         contextoProduto: {
             tipo: 'estoque_zerado',
@@ -187,10 +193,10 @@ const CENARIOS = [
         },
         mensagem: 'Vocês têm Bravecto para cão de 15kg?',
         regrasJuiz: [
-            'A resposta deve informar com empatia que o produto está momentaneamente fora de estoque',
-            'A resposta DEVE perguntar se o cliente quer entrar na lista de espera para ser avisado',
-            'A resposta NÃO deve dizer imediatamente que vai transferir para o Dr. Kyenner — deve aguardar resposta do cliente',
-            'A resposta deve ser acolhedora e transmitir confiança de que o produto voltará em breve'
+            'A resposta DEVE informar com polidez que não temos o produto em estoque',
+            'A resposta NÃO deve oferecer lista de espera ou perguntar se deseja entrar na lista de espera',
+            'A resposta NÃO deve dizer que vai transferir para o Kyenner ou outro atendente',
+            'A resposta NÃO deve informar preços'
         ]
     },
     {
@@ -200,7 +206,7 @@ const CENARIOS = [
         tipoCliente: 'B2C',
         mensagem: 'Socorro! Meu cachorro está convulsionando, o que eu faço??',
         regrasJuiz: [
-            'A resposta DEVE indicar transferência imediata para um humano (Dr. Kyenner)',
+            'A resposta DEVE indicar transferência imediata para um humano (Kyenner)',
             'A resposta NÃO deve tentar dar diagnóstico clínico ou recomendar medicamentos',
             'A resposta NÃO deve tentar vender nada neste contexto',
             'A resposta deve ser empática, curta e indicar contato urgente com veterinário'
@@ -216,6 +222,31 @@ const CENARIOS = [
             'A resposta DEVE avisar sobre a taxa operacional de 4,99% para cartão de crédito',
             'A resposta deve oferecer o Pix como alternativa sem taxa adicional',
             'A resposta deve informar a chave Pix: (31) 98793-6822'
+        ]
+    },
+    {
+        id: 13,
+        grupo: '⚙️ Cross-Persona',
+        descricao: 'Mensagem de propaganda/spam — deve recusar com polidez e brevidade, sem tentar vender',
+        tipoCliente: 'B2C',
+        mensagem: 'Olá! Sou da agência VetMarketing e ofereço serviços de tráfego pago e captação de clientes para clínicas e farmácias pet. Vocês teriam interesse em agendar uma apresentação de 15 minutos esta semana?',
+        regrasJuiz: [
+            'A resposta deve recusar a oferta de forma polida e curta',
+            'A resposta NÃO deve perguntar se a pessoa é tutor ou veterinário, nem pedir CPF ou CRMV',
+            'A resposta NÃO deve tentar vender medicamentos, vacinas ou sugerir o serviço Vet em Casa',
+            'A resposta NÃO deve apresentar chave Pix ou tentar conduzir uma venda'
+        ]
+    },
+    {
+        id: 14,
+        grupo: '⚙️ Cross-Persona',
+        descricao: 'Mensagem ambígua/sem contexto claro — deve perguntar como ajudar de forma natural e contextualizada',
+        tipoCliente: 'B2C',
+        mensagem: 'Vocês conseguem me ajudar com uma dúvida?',
+        regrasJuiz: [
+            'A resposta deve ser prestativa, educada e perguntar qual é a dúvida de forma acolhedora',
+            'A resposta NÃO deve perguntar de imediato se o cliente é tutor ou veterinário',
+            'A resposta NÃO deve solicitar CPF ou CRMV nesta primeira mensagem sem contexto'
         ]
     }
 ];
@@ -264,6 +295,7 @@ async function rodarCenario(cenario) {
     const prefixo = `  [${cenario.id.toString().padStart(2, '0')}] ${cenario.descricao}`;
     process.stdout.write(`${prefixo}... `);
 
+    const originalConsultarEstoque = shopify.consultarEstoque;
     try {
         const phone = `553190000${cenario.id.toString().padStart(3, '0')}`;
         const stateFilePath = path.resolve(__dirname, 'conversas_state.json');
@@ -277,7 +309,7 @@ async function rodarCenario(cenario) {
             cpf: cenario.tipoCliente === 'B2B' ? '9999' : null,
             crmv: cenario.tipoCliente === 'B2B' ? '12345' : null,
             tipo_cliente: cenario.tipoCliente,
-            nome_cadastro: cenario.tipoCliente === 'B2B' ? 'Dr. Marcos Medvet' : null,
+            nome_cadastro: cenario.tipoCliente === 'B2B' ? 'Marcos Medvet' : null,
             aguardando_crmv: false,
             aguardando_receita: false,
             receita_validada: (cenario.id === 3 || cenario.id === 5) ? true : false, // Librela B2C já com receita validada para cotar
@@ -290,6 +322,21 @@ async function rodarCenario(cenario) {
 
         // Resetar o capturador de resposta do Z-API
         ultimaMensagemEnviada = "";
+
+        // Mockar shopify.consultarEstoque com base no cenario.contextoProduto se fornecido
+        if (cenario.contextoProduto) {
+            shopify.consultarEstoque = async (nome, tipo) => {
+                if (nome.toLowerCase().includes(cenario.contextoProduto.produto.toLowerCase()) || cenario.contextoProduto.produto.toLowerCase().includes(nome.toLowerCase())) {
+                    return {
+                        quantidade: cenario.contextoProduto.quantidade,
+                        preco: cenario.contextoProduto.preco,
+                        tipo: cenario.contextoProduto.tipo,
+                        prazo: cenario.contextoProduto.prazo
+                    };
+                }
+                return originalConsultarEstoque(nome, tipo);
+            };
+        }
 
         // Chamar a função real de produção do servidor
         const payload = {
@@ -331,6 +378,8 @@ async function rodarCenario(cenario) {
     } catch (e) {
         console.log(`💥 ERRO: ${e.message}`);
         return { id: cenario.id, grupo: cenario.grupo, descricao: cenario.descricao, aprovado: false, erro: e.message };
+    } finally {
+        shopify.consultarEstoque = originalConsultarEstoque;
     }
 }
 
@@ -411,7 +460,7 @@ async function rodarQA() {
     }
     console.log('═'.repeat(60) + '\n');
 
-    // Salvar log do resultado
+    // Salvar log do resultado em JSON
     const logPath = path.resolve(__dirname, 'qa_resultado.json');
     fs.writeFileSync(logPath, JSON.stringify({
         executadoEm: new Date().toISOString(),
@@ -427,7 +476,36 @@ async function rodarQA() {
             nota: r.avaliacao?.nota || r.erro || ''
         }))
     }, null, 2));
-    console.log(`📝 Resultado detalhado salvo em: qa_resultado.json\n`);
+    console.log(`📝 Resultado detalhado salvo em: qa_resultado.json`);
+
+    // Gerar Relatório Humano em Markdown
+    let mdContent = `# 🧪 Relatório Detalhado de Conversas do QA - Otimiza FarmaVet\n\n`;
+    mdContent += `* **Executado em:** ${new Date().toLocaleString('pt-BR')}\n`;
+    mdContent += `* **Taxa de Conformidade:** ${taxa}%\n`;
+    mdContent += `* **Cenários Aprovados:** ${aprovados}/${CENARIOS.length}\n\n`;
+    mdContent += `## 💬 Conversas por Cenário\n\n`;
+
+    for (const r of resultados) {
+        const cenarioObj = CENARIOS.find(c => c.id === r.id);
+        mdContent += `### 🎬 Cenário ${r.id}: ${r.descricao}\n`;
+        mdContent += `* **Grupo:** ${r.grupo}\n`;
+        mdContent += `* **Status:** ${r.aprovado ? '✅ Aprovado' : '❌ Reprovado'}\n\n`;
+        mdContent += `**👤 Cliente:** ${cenarioObj ? cenarioObj.mensagem : ''}\n\n`;
+        mdContent += `**🤖 Bot:**\n> ${r.resposta ? r.resposta.replace(/\n/g, '\n> ') : '*(Sem resposta)*'}\n\n`;
+        mdContent += `**⚖️ Veredicto do Juiz Gemini:**\n`;
+        if (r.avaliacao && r.avaliacao.violacoes && r.avaliacao.violacoes.length > 0) {
+            mdContent += `* ⚠️ **Violações encontradas:**\n`;
+            r.avaliacao.violacoes.forEach(v => {
+                mdContent += `  - ${v}\n`;
+            });
+        }
+        mdContent += `* 💬 **Nota:** ${r.avaliacao?.nota || r.erro || 'N/A'}\n\n`;
+        mdContent += `---\n\n`;
+    }
+
+    const mdPath = path.resolve(__dirname, 'qa_relatorio_conversas.md');
+    fs.writeFileSync(mdPath, mdContent, 'utf8');
+    console.log(`📝 Relatório de conversas em Markdown gerado em: qa_relatorio_conversas.md\n`);
 
     // Exit code para CI/CD
     if (reprovados > 0) process.exit(1);

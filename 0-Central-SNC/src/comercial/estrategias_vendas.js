@@ -30,7 +30,7 @@ const REGRAS_B2C = {
     },
     TAXA_CARTAO_B2C: {
         detectores: ["cartao", "cartão", "credito", "crédito", "link de pagamento", "parcelar", "parcela", "vezes"],
-        mensagemInjetada: "[INFO B2C - PAGAMENTO CARTÃO 💳]: Avise educadamente sobre a taxa operacional de 4,99% para pagamentos via cartão de crédito/link de pagamento. Sugira o Pix como alternativa sem taxas adicionais para economizar."
+        mensagemInjetada: "[INFO B2C - PAGAMENTO CARTÃO 💳]: Avise educadamente sobre a taxa operacional de 4,99% para pagamentos via cartão de crédito/link de pagamento. Sugira o Pix como alternativa sem taxas adicionais para economizar, informando a chave Pix oficial: telefone *(31) 98793-6822* (Banco C6 Bank | Solução Farmacêutica Otimiza)."
     },
     CHAVE_PIX_B2C: {
         detectores: ["pix", "pagar", "pagamento", "transferencia", "transferência", "dados bancarios", "dados bancários", "conta"],
@@ -42,7 +42,7 @@ const REGRAS_B2C = {
     },
     RECUSA_MANIPULADOS_B2C: {
         detectores: ["manipulado", "manipulados", "manipulacao", "manipulação", "formula", "fórmula", "mandar fazer", "aviamento"],
-        mensagemInjetada: "[RECUSA B2C - MANIPULADOS ❌]: Use exatamente este template carinhoso: 'Oi [Nome]! Agradecemos o contato. No momento nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o [Pet]! Que ele fique bem logo — estamos na torcida aqui com muita energia positiva! 🐾'"
+        mensagemInjetada: "[RECUSA B2C - MANIPULADOS ❌]: Use exatamente este template: 'Olá, [Nome]! Agradecemos o contato. No momento nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o [Pet]! Esperamos que ele se recupere o mais breve possível. Se precisar de outros medicamentos de fábrica ou serviços, ficamos à disposição! 🐾'"
     },
     COMBO_VET_EM_CASA_MULTIPLAS_B2C: {
         detectores: ["vacina", "v8", "v10", "raiva", "gripe", "giardia", "antirrábica", "antirrabica", "vacinacao", "vacinação"],

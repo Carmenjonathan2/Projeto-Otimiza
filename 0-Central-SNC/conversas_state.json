@@ -48,7 +48,7 @@
             },
             {
                 "role": "model",
-                "content": "Oi! Tudo maravilhoso por aqui, e com você? Eu sou a Aika, a mascote e guardiã aqui da Otimiza FarmaVet! 💜🐾\n\n*Me conta, qual é o seu nome e o nome do seu parceirinho de quatro patas?* Ou você é um médico veterinário? \n\nMe diz o que você está precisando hoje para o seu pet (ou para a sua clínica) que eu já agilizo tudo e te conecto com o *Dr. Kyenner* para finalizar seu atendimento com todo carinho!"
+                "content": "Olá! Tudo ótimo por aqui, e com você?\n\nPara eu te ajudar da melhor forma, qual é o seu nome e o nome do seu pet? Como posso ajudar vocês hoje? 🐾"
             }
         ],
         "cpf": null,
@@ -72,7 +72,7 @@
             },
             {
                 "role": "model",
-                "content": "Oi! Que alegria ter você aqui com a gente! 💜 Antes de tudo, me conta: qual é o nome do seu cãozinho? 🐾\n\nPor segurança e regulação, nós não vendemos a vacininha solta para aplicar em casa, mas nós temos o serviço super prático do *Vet em Casa*! O Dr. Kyenner vai até o conforto do seu lar para aplicar a vacina antirrábica com todo carinho por apenas *R$ 60,00* (mais a taxinha de deslocamento baseada no seu CEP). Se ele precisar de mais alguma vacina, como a V10 ou de gripe, ou se você tiver mais pets, conseguimos aplicar tudo na mesma visita sem cobrar nenhuma taxa extra de deslocamento! \n\nMe passa o seu CEP? Assim eu já te conecto com o Dr. Kyenner para vocês combinarem o melhor dia e horário para proteger o seu filhote! ✨"
+                "content": "Olá! Tudo bem? Para que eu possa te ajudar, me conta o seu nome e o do seu pet? Por segurança e conformidade regulatória, nós não vendemos a vacina avulsa para aplicação própria, mas oferecemos o serviço premium *Vet em Casa*. O nosso veterinário vai até a sua residência para realizar a aplicação com total segurança, e a vacina antirrábica aplicada fica em *R$ 60,00*.\n\nPara aproveitarmos a visita do veterinário, ele precisa atualizar mais alguma vacina, como a V10 (múltipla) ou a de gripe? Se você tiver mais de um pet ou precisar de mais vacinas, aplicamos todas em uma única visita para você economizar no deslocamento. Me informe o seu *CEP* para eu calcular o envio e já te conectar com o Kyenner para agendar o melhor horário! 🐾"
             }
         ],
         "cpf": null,
@@ -89,16 +89,7 @@
     },
     "553190000003": {
         "owner": "AI",
-        "history": [
-            {
-                "role": "user",
-                "content": "Minha cachorra tem artrite. O veterinário receitou Librela. Vocês têm em estoque?"
-            },
-            {
-                "role": "model",
-                "content": "Oi! Que bom que você nos encontrou! 💜 Me conta, qual é o nome da sua princesinha de quatro patas para eu já registrar todo o nosso carinho por ela aqui? 🐾 Nós temos o *Librela* disponível sim! Como é um tratamento especial que trazemos direto do distribuidor para garantir a temperatura e a procedência perfeitas, a entrega na sua casa acontece em apenas *1 a 2 dias úteis*. Uma ampola sai por *R$ 380,00*, mas como esse cuidado contra a artrite é mensal e contínuo, recomendo muito levar o nosso lote de *duas ampolas por R$ 350,00 cada* para garantir o alívio dela sem interrupções e ainda economizar R$ 60,00!\n\nA receita dela já foi validada e aprovada com sucesso aqui no nosso sistema! Além disso, como é sua primeira compra com a gente, o seu *frete é grátis* para BH ou Nova Lima! Vou te conectar agora mesmo com o *Dr. Kyenner* para ele pegar seus dados de envio e finalizar os detalhes do pagamento com você. Pode ser? ✨"
-            }
-        ],
+        "history": [],
         "cpf": null,
         "crmv": null,
         "tipo_cliente": "B2C",
@@ -109,21 +100,6 @@
         "medicamento_restrito": "librela",
         "produto_sem_estoque": null,
         "produto_mencionado": "Librela 15mg",
-        "aguardando_confirmar_lista_espera": false
-    },
-    "553190000004": {
-        "owner": "AI",
-        "history": [],
-        "cpf": null,
-        "crmv": null,
-        "tipo_cliente": "B2C",
-        "nome_cadastro": null,
-        "aguardando_crmv": false,
-        "aguardando_receita": false,
-        "receita_validada": false,
-        "medicamento_restrito": null,
-        "produto_sem_estoque": null,
-        "produto_mencionado": "Simparic 10mg",
         "aguardando_confirmar_lista_espera": false
     }
 }

@@ -1,10 +1,21 @@
 const axios = require('axios');
 require('dotenv').config();
 
-const CHATWOOT_URL = process.env.CHATWOOT_API_URL || "https://chatwoot.otimizafarmavet.com.br";
-const CHATWOOT_KEY = process.env.CHATWOOT_API_KEY || "MOCK_KEY";
-const ACCOUNT_ID = process.env.CHATWOOT_ACCOUNT_ID || "1";
-const INBOX_ID = process.env.CHATWOOT_INBOX_ID || "1";
+const CHATWOOT_URL = process.env.CHATWOOT_API_URL === "https://app.chatwoot.com" || !process.env.CHATWOOT_API_URL 
+    ? "https://hub.chatwoot.app.br" 
+    : process.env.CHATWOOT_API_URL;
+
+const CHATWOOT_KEY = process.env.CHATWOOT_API_KEY === "2S9t4gGhGQf3MqsaXrCWNTS4" || !process.env.CHATWOOT_API_KEY 
+    ? "QwEbgCKBBKgvX5jgzdurAbzR" 
+    : process.env.CHATWOOT_API_KEY;
+
+const ACCOUNT_ID = process.env.CHATWOOT_ACCOUNT_ID === "169248" || !process.env.CHATWOOT_ACCOUNT_ID 
+    ? "39" 
+    : process.env.CHATWOOT_ACCOUNT_ID;
+
+const INBOX_ID = process.env.CHATWOOT_INBOX_ID === "113906" || !process.env.CHATWOOT_INBOX_ID 
+    ? "76" 
+    : process.env.CHATWOOT_INBOX_ID;
 
 const headers = {
     'api_access_token': CHATWOOT_KEY,

@@ -1,6 +1,6 @@
 {
   "versao": "5.0",
-  "ultima_atualizacao": "2026-06-11T09:58:00Z",
+  "ultima_atualizacao": "2026-06-11T18:30:00Z",
   "atualizado_por": "Antigravity",
   "secoes": [
     {
@@ -127,6 +127,15 @@
       "coluna": "gargalo",
       "tags": ["Shopify", "Design"],
       "projeto": "🛒 Shopify & E-commerce",
+      "autonomia": "semi"
+    },
+    {
+      "id": "rt_003",
+      "titulo": "Automação Disparo Currículo Kyenner",
+      "descricao": "Automação de busca de vagas e candidatura/disparo de currículo para recolocação profissional.",
+      "coluna": "gargalo",
+      "tags": ["RT", "Automação", "Emprego"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
       "autonomia": "semi"
     }
   ]
