@@ -1,4 +1,6 @@
 const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
 
 const ACCESS_TOKEN = process.env.GESTAOCLICK_ACCESS_TOKEN || "MOCK_GC_ACCESS_TOKEN";
@@ -220,9 +222,138 @@ async function cadastrarCliente(dados) {
     }
 }
 
+// Dados Mockados de Fallback (para produtos com estoque físico próprio)
+const MOCK_DATA = {
+    "librela 15mg": { quantidade: 8, preco: 380.00 },
+    "cytopoint": { quantidade: 5, preco: 450.00 },
+    "simparic 10mg": { quantidade: 14, preco: 104.50 },
+    "metilforan": { quantidade: 12, preco: 180.00 }
+};
+
+// Produtos disponíveis via PEDIDO ESPECIAL ao fornecedor
+const PRODUTOS_PEDIDO_ESPECIAL = {
+    "librela":      { preco: 380.00, prazo: "1 a 2 dias úteis" },
+    "librela 15mg": { preco: 380.00, prazo: "1 a 2 dias úteis" },
+    "cytopoint":    { preco: 450.00, prazo: "1 a 2 dias úteis" },
+    "cytopoint 15mg": { preco: 450.00, prazo: "1 a 2 dias úteis" },
+    "cytopoint 30mg": { preco: 580.00, prazo: "1 a 2 dias úteis" },
+};
+
+function buscarNoProdutosGC(data, nomeProduto, tipoCliente = 'B2C') {
+    const term = nomeProduto.toLowerCase().trim();
+
+    if (tipoCliente === 'B2B') {
+        const sufixosB2B = [
+            ' preço para veterinário',
+            ' preço veterinário',
+            ' para veterinário',
+            ' veterinário',
+            ' veterinario',
+            ' vet',
+            ' b2b',
+            ' atacado'
+        ];
+        for (const sufixo of sufixosB2B) {
+            const matchB2B = data.find(p =>
+                p.Nome && p.Nome.toLowerCase().includes(term + sufixo)
+            );
+            if (matchB2B) {
+                console.log(`🏷️ [PRODUTOS] Variante B2B encontrada: "${matchB2B.Nome}"`);
+                return matchB2B;
+            }
+        }
+    } else {
+        const sufixosB2C = [
+            ' preço para tutor',
+            ' preço tutor',
+            ' para tutor',
+            ' tutor'
+        ];
+        for (const sufixo of sufixosB2C) {
+            const matchB2C = data.find(p =>
+                p.Nome && p.Nome.toLowerCase().includes(term + sufixo)
+            );
+            if (matchB2C) {
+                console.log(`🏷️ [PRODUTOS] Variante B2C (tutor) encontrada: "${matchB2C.Nome}"`);
+                return matchB2C;
+            }
+        }
+    }
+
+    return data.find(p => p.Nome && p.Nome.toLowerCase().includes(term)) || null;
+}
+
+async function consultarEstoque(nomeProduto, tipoCliente = 'B2C') {
+    console.log(`[PRODUTOS] Consultando "${nomeProduto}" para ${tipoCliente}...`);
+
+    const nomeLower = nomeProduto.toLowerCase();
+
+    // ─── Passo 1: Verificar se é PEDIDO ESPECIAL ──────────────────────────
+    const chaveEspecial = Object.keys(PRODUTOS_PEDIDO_ESPECIAL).find(
+        k => nomeLower.includes(k) || k.includes(nomeLower)
+    );
+
+    if (chaveEspecial) {
+        const infoEspecial = PRODUTOS_PEDIDO_ESPECIAL[chaveEspecial];
+
+        try {
+            const filePath = path.resolve(__dirname, '../../../1-Farmacia-Ecommerce/Sistema de Fidelização Otimiza/estoque_limpo_gestaoclick.json');
+            if (fs.existsSync(filePath)) {
+                const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+                const match = buscarNoProdutosGC(data, nomeProduto, tipoCliente);
+                if (match) {
+                    const precoGC = parseFloat(match.Valor.replace(/\./g, '').replace(',', '.'));
+                    if (!isNaN(precoGC) && precoGC > 0) {
+                        console.log(`📦 [PRODUTOS] '${nomeProduto}' é PEDIDO ESPECIAL. Preço GestãoClick (${tipoCliente}): R$ ${precoGC} | Prazo: ${infoEspecial.prazo}`);
+                        return { quantidade: 999, preco: precoGC, tipo: 'pedido_especial', prazo: infoEspecial.prazo };
+                    }
+                }
+            }
+        } catch (e) { /* silencioso */ }
+
+        console.log(`📦 [PRODUTOS] '${nomeProduto}' é PEDIDO ESPECIAL (preço fixo). Prazo: ${infoEspecial.prazo} | Preço: R$ ${infoEspecial.preco}`);
+        return { quantidade: 999, preco: infoEspecial.preco, tipo: 'pedido_especial', prazo: infoEspecial.prazo };
+    }
+
+    // ─── Passo 2: Produto com estoque físico → GestãoClick ────────────────
+    let readSuccess = false;
+    try {
+        const filePath = path.resolve(__dirname, '../../../1-Farmacia-Ecommerce/Sistema de Fidelização Otimiza/estoque_limpo_gestaoclick.json');
+        if (fs.existsSync(filePath)) {
+            const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            readSuccess = true;
+            const match = buscarNoProdutosGC(data, nomeProduto, tipoCliente);
+
+            if (match) {
+                const preco    = parseFloat(match.Valor.replace(/\./g, '').replace(',', '.'));
+                const quantidade = parseFloat(match.Estoque.replace(/\./g, '').replace(',', '.'));
+                console.log(`🎯 [PRODUTOS] GestãoClick: "${match.Nome}" | R$ ${preco} | ${quantidade} un`);
+                return {
+                    quantidade: isNaN(quantidade) ? 0 : quantidade,
+                    preco:      isNaN(preco)       ? 0.00 : preco
+                };
+            }
+        } else {
+            console.warn(`⚠️ [PRODUTOS] Arquivo GestãoClick não encontrado em ${filePath}`);
+        }
+    } catch (e) {
+        console.warn(`⚠️ [PRODUTOS] Erro ao ler GestãoClick (${e.message}).`);
+    }
+
+    if (process.env.NODE_ENV !== 'test' && !readSuccess) {
+        console.error("❌ [PRODUTOS] Falha crítica de leitura do banco de produtos em produção!");
+        return { quantidade: 0, preco: 0.00, erro: true };
+    }
+
+    // ─── Passo 3: Fallback MOCK (desenvolvimento/testes) ──────────────────
+    const key = nomeProduto.toLowerCase();
+    return MOCK_DATA[key] || { quantidade: 0, preco: 0.00 };
+}
+
 module.exports = {
     buscarCadastroPorCPF,
     buscarCadastroPorCRMV,
     buscarCadastroPorTelefone,
-    cadastrarCliente
+    cadastrarCliente,
+    consultarEstoque
 };

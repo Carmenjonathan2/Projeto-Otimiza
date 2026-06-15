@@ -21,7 +21,7 @@ const path = require('path');
 // --- Módulos de Produção ---
 const { processarMensagem } = require('./server_integracao');
 const zapi = require('./src/integracoes/integracao_zapi');
-const shopify = require('./src/integracoes/integracao_shopify');
+const gestaoclick = require('./src/integracoes/integracao_gestaoclick');
 
 // Capturar resposta enviada pelo robô
 let ultimaMensagemEnviada = "";
@@ -296,7 +296,7 @@ async function rodarCenario(cenario) {
     const prefixo = `  [${cenario.id.toString().padStart(2, '0')}] ${cenario.descricao}`;
     process.stdout.write(`${prefixo}... `);
 
-    const originalConsultarEstoque = shopify.consultarEstoque;
+    const originalConsultarEstoque = gestaoclick.consultarEstoque;
     try {
         const phone = `553190000${cenario.id.toString().padStart(3, '0')}`;
         const stateFilePath = path.resolve(__dirname, 'conversas_state.json');
@@ -324,9 +324,9 @@ async function rodarCenario(cenario) {
         // Resetar o capturador de resposta do Z-API
         ultimaMensagemEnviada = "";
 
-        // Mockar shopify.consultarEstoque com base no cenario.contextoProduto se fornecido
+        // Mockar gestaoclick.consultarEstoque com base no cenario.contextoProduto se fornecido
         if (cenario.contextoProduto) {
-            shopify.consultarEstoque = async (nome, tipo) => {
+            gestaoclick.consultarEstoque = async (nome, tipo) => {
                 if (nome.toLowerCase().includes(cenario.contextoProduto.produto.toLowerCase()) || cenario.contextoProduto.produto.toLowerCase().includes(nome.toLowerCase())) {
                     return {
                         quantidade: cenario.contextoProduto.quantidade,
@@ -380,7 +380,7 @@ async function rodarCenario(cenario) {
         console.log(`💥 ERRO: ${e.message}`);
         return { id: cenario.id, grupo: cenario.grupo, descricao: cenario.descricao, aprovado: false, erro: e.message };
     } finally {
-        shopify.consultarEstoque = originalConsultarEstoque;
+        gestaoclick.consultarEstoque = originalConsultarEstoque;
     }
 }
 

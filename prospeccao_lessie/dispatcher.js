@@ -1,11 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const { google } = require('googleapis');
-require('dotenv').config({ path: path.resolve(__dirname, '../../../../.env') });
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
-const WHATSAPP_QUEUE_FILE = path.resolve(__dirname, '../../../../lessie_whatsapp_queue.json');
-const LEADS_DB_FILE = path.resolve(__dirname, '../../../../lessie_leads_db.json');
-const LEADS_REPORT_FILE = path.resolve(__dirname, '../../../../lessie_leads_report.md');
+const WHATSAPP_QUEUE_FILE = path.resolve(__dirname, 'lessie_whatsapp_queue.json');
+const LEADS_DB_FILE = path.resolve(__dirname, 'lessie_leads_db.json');
+const LEADS_REPORT_FILE = path.resolve(__dirname, 'lessie_leads_report.md');
 
 /**
  * Tenta carregar o token de autenticação do Google do diretório do cold-email-automation.
@@ -17,11 +17,10 @@ async function getGoogleAuth() {
         process.env.GOOGLE_REDIRECT_URI
     );
 
-    // Tenta caminhos comuns de token no projeto
     const possibleTokenPaths = [
-        path.resolve(__dirname, '../../../../2-RT-Compliance/cold-email-automation/token.json'),
-        path.resolve(__dirname, '../../../../2-RT-Compliance/cold-email-automation/token_otimiza.json'),
-        path.resolve(__dirname, '../../../../token.json')
+        path.resolve(__dirname, '../2-RT-Compliance/cold-email-automation/token.json'),
+        path.resolve(__dirname, '../2-RT-Compliance/cold-email-automation/token_otimiza.json'),
+        path.resolve(__dirname, '../token.json')
     ];
 
     let tokenLoaded = false;

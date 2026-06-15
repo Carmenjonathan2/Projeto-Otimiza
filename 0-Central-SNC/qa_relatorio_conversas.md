@@ -1,6 +1,6 @@
 # 🧪 Relatório Detalhado de Conversas do QA - Otimiza FarmaVet
 
-* **Executado em:** 15/06/2026, 12:07:53
+* **Executado em:** 15/06/2026, 12:42:43
 * **Taxa de Conformidade:** 100%
 * **Cenários Aprovados:** 14/14
 
@@ -13,12 +13,12 @@
 **👤 Cliente:** Oi, tudo bem?
 
 **🤖 Bot:**
-> Olá! Tudo ótimo por aqui, obrigada! 😊
+> Olá! Tudo bem? Meu nome é Aika, sou a assistente da Otimiza FarmaVet.
 > 
-> Para que eu possa te atender da melhor forma, qual é o seu nome e o nome do seu pet? Como posso te ajudar hoje na Otimiza FarmaVet?
+> Para personalizarmos seu atendimento, qual é o seu nome e o nome do seu pet? Como posso ajudar vocês hoje? 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta é acolhedora, usa emoji, pergunta pelos nomes do tutor e do pet, e evita formalidades, cumprindo todas as regras.
+* 💬 **Nota:** A resposta é acolhedora, se apresenta, pergunta os nomes para personalização e usa emoji, sem termos formais.
 
 ---
 
@@ -29,16 +29,12 @@
 **👤 Cliente:** Oi! Meu cachorro precisa tomar vacina antirrábica. Vocês vendem?
 
 **🤖 Bot:**
-> Olá! Sim, protegemos seu pet contra a raiva com total segurança. Qual o seu nome e o nome do seu pet, por favor?
+> Olá! Sim, nós oferecemos a vacina antirrábica através do nosso serviço *Vet em Casa*, onde o Dr. Kyenner vai até sua residência para aplicar a vacina com total segurança e conforto para seu pet.
 > 
-> Por segurança regulatória, nós não vendemos vacinas injetáveis avulsas para aplicação própria. Oferecemos o serviço premium *Vet em Casa*, onde o Kyenner (nosso veterinário) vai até sua residência para aplicar a vacina com todo o cuidado técnico.
-> 
-> A vacina antirrábica, já com a aplicação inclusa, tem o valor de *R$ 60,00*. Para calcular a taxa de deslocamento, poderia me informar o CEP completo da sua residência, por gentileza?
-> 
-> Aproveitando, se o seu pet precisar de outras vacinas ou se você tiver mais de um pet em casa, podemos aplicar todas as doses necessárias em uma única visita, sem cobrar deslocamento adicional! Isso torna o serviço mais prático e econômico. O que acha? 🐾
+> A vacina antirrábica, com aplicação inclusa, custa *R$ 60,00*. Para que eu possa calcular a taxa de deslocamento do veterinário, qual é o seu CEP, por favor? E aproveitando, qual o seu nome e o nome do seu cachorro? 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA está em total conformidade com todas as regras de compliance e oferece o serviço Vet em Casa de forma clara e completa.
+* 💬 **Nota:** A resposta da IA atende a todas as regras de compliance, oferecendo o serviço Vet em Casa com o valor correto para a aplicação domiciliar da vacina antirrábica e solicitando as informações necessárias.
 
 ---
 
@@ -49,16 +45,14 @@
 **👤 Cliente:** Minha cachorra tem artrite. O veterinário receitou Librela. Vocês têm em estoque?
 
 **🤖 Bot:**
-> Olá! Fico feliz em poder ajudar com a saúde da sua cachorra. Para que eu possa personalizar o seu registro e te atender melhor, qual o seu nome e o nome da sua cachorra?
+> Olá! Sim, temos o *Librela 15mg* disponível e a entrega é prevista para 1 a 2 dias úteis. Após verificarmos a disponibilidade em estoque, confirmaremos a previsão exata para você. Cada ampola custa R$ 380,00.
 > 
-> O *Librela 15mg* está disponível e a entrega é prevista para 1 ou 2 dias. Após verificarmos a disponibilidade em nosso estoque, confirmamos a previsão exata de entrega para você.
+> Para garantir a continuidade do tratamento da osteoartrite da sua cachorra, que é fundamental, temos uma oferta especial: na compra de duas unidades, cada ampola sai por *R$ 350,00*, totalizando R$ 700,00.
 > 
-> O valor da ampola é de R$ 380,00. Como o tratamento da osteoartrite é mensal e a consistência é fundamental para o resultado clínico, temos uma oferta especial: na compra de *duas unidades*, cada ampola sai por *R$ 350,00* (totalizando R$ 700,00), garantindo uma economia e a continuidade do cuidado.
-> 
-> Para seguir as normas regulatórias e garantir a segurança da sua cachorra, precisamos da receita veterinária antes de finalizar o pedido. Você pode me enviar aqui mesmo uma foto ou PDF? Ela precisa ter: assinatura do veterinário, carimbo com o CRMV legível e o nome da sua cachorra. 🐾 Quer fechar?
+> Qual o seu nome e o nome da sua cachorra? Podemos prosseguir com o pedido? 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA está em total conformidade com todas as regras de compliance especificadas.
+* 💬 **Nota:** A resposta da IA está em total conformidade com todas as regras de compliance e fornece todas as informações necessárias de forma clara e profissional, incluindo a disponibilidade, prazos e promoção.
 
 ---
 
@@ -72,7 +66,7 @@
 > Olá! Verifiquei no sistema e temos o *Simparic 10mg* disponível. Vou transferir o seu atendimento agora mesmo para o Kyenner (nosso veterinário), que vai te passar as informações de valores e finalizar tudo com você. Só um instantinho! 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta cumpriu todas as regras de compliance, informando a disponibilidade do produto de forma acolhedora e encaminhando para o Kyenner para informações de valores, sem mencionar preços ou ofertas.
+* 💬 **Nota:** A resposta cumpriu todas as regras, informando a disponibilidade, transferindo para o Kyenner para valores e mantendo a persona acolhedora.
 
 ---
 
@@ -83,14 +77,14 @@
 **👤 Cliente:** Quero comprar sim! Pode me passar o pix para pagar?
 
 **🤖 Bot:**
-> Seu pedido foi confirmado com sucesso! Que ótimo que o *[Pet]* vai receber o *Librela 15mg* e ter esse cuidado especial.
+> Que excelente notícia! Seu pedido está confirmado. 💜
 > 
-> Para o pagamento via Pix, nossa chave oficial é o telefone *(31) 98793-6822* (C6 Bank, em nome de Solução Farmacêutica Otimiza).
+> A chave Pix para o pagamento é o telefone *(31) 98793-6822* (C6 Bank | Solução Farmacêutica Otimiza).
 > 
-> Agora, para que possamos finalizar os detalhes da entrega e confirmar o prazo exato para você, vou te conectar com o Kyenner. Ele vai cuidar de tudo para garantir que seu pedido chegue o mais rápido possível! 🐾
+> Assim que o pagamento for confirmado, conectarei você com o Kyenner para finalizarmos todos os detalhes da entrega e o prazo para o seu pedido.
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta cumpre todas as regras de compliance, confirmando o pedido com entusiasmo, informando a chave Pix e mencionando a conexão com Kyenner.
+* 💬 **Nota:** A resposta confirmou o pedido com entusiasmo, mencionou a conexão com o Kyenner e informou corretamente a chave Pix.
 
 ---
 
@@ -102,9 +96,11 @@
 
 **🤖 Bot:**
 > Boa tarde! Olá! Agradecemos o contato. No momento nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o seu pet! Esperamos que ele se recupere o mais breve possível. Se precisar de outros medicamentos de fábrica ou serviços, ficamos à disposição! 🐾
+> 
+> Para te atender melhor, qual é o seu nome e o nome do seu pet?
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta utiliza a recusa empática padronizada e transmite uma mensagem carinhosa e positiva, sem sugerir a manipulação de medicamentos.
+* 💬 **Nota:** A resposta utilizou a recusa empática padronizada, foi carinhosa, positiva e não sugeriu a manipulação de medicamentos.
 
 ---
 
@@ -115,16 +111,16 @@
 **👤 Cliente:** Boa tarde, sou a Dra. Ana Lima, CRMV 15234. Gostaria de fazer um pedido de vacinas.
 
 **🤖 Bot:**
-> Olá, Ana! Sou o Kyenner da Otimiza FarmaVet. CRMV 15234 cadastrado aqui!
+> Boa tarde, Ana! Kyenner aqui. Seu CRMV *15234* está anotado em nosso sistema.
 > 
-> Para seu pedido de vacinas, temos a *Rabisin* (Raiva) por *R$ 17,90* a dose e a *Nobivac V8* por *R$ 44,50* a dose. Para otimizar seu estoque, oferecemos *caixas fechadas* com *descontos progressivos* por volume. Quantas doses você costuma aplicar por mês, Ana? Assim consigo te indicar o melhor lote, com *nota fiscal completa* e *condições de prazo para parceiros*.
+> Quais vacinas você gostaria de pedir hoje? Temos um excelente custo-benefício em caixas fechadas com desconto progressivo para parceiros. Para ter uma ideia e maximizar seu desconto, quantas doses você costuma aplicar por mês?
 > 
-> Aproveitando, para a aplicação, você vai precisar de *seringas e agulhas*? Tenho caixa fechada de 100 unidades com *ótimo custo-benefício*, por exemplo, seringa de 1ml com agulha 25x7 (para SC em pets menores) ou 25x8 (para IM em pets maiores).
+> Além das vacinas, para aplicação, você vai precisar de seringa de 1ml com agulha 25x7 (para SC) ou 25x8 (para IM)? Você já tem esses insumos ou aproveita e fecha junto? Tenho caixa fechada de 100 unidades com ótimo custo-benefício!
 > 
-> Você prefere *retirar pessoalmente* aqui na Av. Abílio Machado, 514, Sala 08 ou que enviemos por *motoboy*? Se for motoboy, pode me passar o CEP para simularmos a rota e o frete?
+> Me informe também se prefere retirar aqui no nosso escritório (Av. Abílio Machado, 514, Sala 08) ou se prefere que a gente envie por motoboy. Se for envio, me manda o CEP por favor para eu simular a rota e cotar o frete.
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta cumpre todas as regras: trata a veterinária pelo nome, reconhece o CRMV, não pede documentos adicionais e mantém um tom técnico, direto e de parceria profissional, oferecendo soluções e antecipando necessidades.
+* 💬 **Nota:** A resposta segue todas as regras de compliance, tratando a veterinária pelo nome, reconhecendo o CRMV, não pedindo documentos adicionais e mantendo um tom técnico e de parceria profissional.
 
 ---
 
@@ -135,21 +131,18 @@
 **👤 Cliente:** Me passa o preço da Rabisin e do Nobivac V8, por favor.
 
 **🤖 Bot:**
-> Olá Marcos,
+> Olá Marcos Medvet!
 > 
-> Confirmado seu cadastro com CRMV 12345.
-> Os valores para parceiro são:
-> *   *Rabisin* (Raiva): *R$ 17,90* a dose (temos 100 unidades disponíveis).
-> *   *Nobivac V8*: *R$ 44,50* a dose.
+> A *Rabisin* sai a *R$ 17,90* a dose, e a *Nobivac V8* está por *R$ 44,50* a dose.
 > 
-> Quantas doses você costuma aplicar por mês? Assim consigo te passar o desconto de volume para caixas fechadas, com nota fiscal completa e condição de prazo para parceiros.
+> Para otimizar seu estoque, temos condições especiais para caixas fechadas. *Quantas doses você costuma aplicar por mês* para eu calcular o melhor lote e desconto para você?
 > 
-> Para aplicação, vai precisar de seringas e agulhas? Tenho caixa de 100 unidades (1ml com agulha 25x7 para SC, ou 25x8 para IM) com ótimo custo-benefício para aproveitar o mesmo envio.
+> E para as aplicações, você vai precisar de seringa de 1ml com agulha 25x7 (para SC) ou 25x8 (para IM)? Temos caixas fechadas de 100 unidades com ótimo custo-benefício, podemos incluir no pedido.
 > 
-> Quer retirar no escritório ou prefere que a gente envie por motoboy? Se for envio, qual seria o CEP?
+> Você prefere retirar aqui no nosso escritório (Av. Abílio Machado, 514, Sala 08) ou prefere que a gente envie por motoboy? Se for envio, qual seria o CEP para eu simular a rota e cotar o frete?
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta informa corretamente os preços de atacado, não menciona aplicação domiciliar, mantém um tom técnico e direto e não usa emojis ou tom afetivo. Perfeito para a persona Kyenner B2B.
+* 💬 **Nota:** A resposta atende a todas as regras de compliance, fornecendo os preços corretos, mantendo um tom técnico e direto B2B, sem menção a serviços B2C ou uso de emojis.
 
 ---
 
@@ -160,18 +153,20 @@
 **👤 Cliente:** Quero fechar 20 doses de Rabisin.
 
 **🤖 Bot:**
-> Olá, Marcos! Tudo certo por aqui.
+> Olá, Marcos! Tudo bem?
 > 
-> Para as 20 doses de *Rabisin*, o valor fica em R$ 358,00. Temos 100 unidades em estoque atualmente. Você costuma aplicar quantas doses por mês? Pois temos condições especiais para caixas fechadas com um ótimo custo-benefício.
+> Ótima escolha! Temos o *Rabisin* disponível. O valor para veterinários é de *R$ 17,90* por dose. Para 20 doses, o total fica em *R$ 358,00*.
 > 
-> Para a aplicação, você vai precisar de seringa de 1ml com agulha 25x7 (para SC em pets pequenos) ou 25x8 (para IM em pets maiores). Você já tem esses insumos ou aproveita para fechar junto? Temos caixa fechada de 100 unidades com um valor excelente.
+> Marcos, você costuma aplicar quantas doses por mês? Temos condições especiais para caixas fechadas, o que pode otimizar ainda mais o custo para você.
 > 
-> Você prefere retirar o pedido aqui no nosso escritório (Av. Abílio Machado, 514, Sala 08) ou gostaria que enviássemos por motoboy? Se for por motoboy, me passe o CEP para eu simular a rota e cotar o frete.
+> Para a aplicação, você vai precisar de seringas de 1ml com agulha 25x7 (para SC) ou 25x8 (para IM)? Você já tem insumos em estoque ou aproveita para fechar junto? Tenho caixa de 100 unidades com ótimo custo-benefício.
 > 
-> Para o pagamento, você pode usar nosso Pix * (31) 98793-6822* (C6 Bank | Solução Farmacêutica Otimiza). Se preferir parcelar no cartão, a taxa de 4,99% é repassada, ok?
+> Você prefere retirar pessoalmente aqui no nosso escritório na Av. Abílio Machado, 514, Sala 08, ou podemos enviar por motoboy? Se for envio, qual seria o CEP para eu cotar o frete?
+> 
+> Para finalizar o pedido, nossa chave Pix é *(31) 98793-6822* (C6 Bank | Solução Farmacêutica Otimiza).
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA cumpriu todas as regras de compliance, sendo proativa na oferta de insumos e na sugestão de custo-benefício por quantidade.
+* 💬 **Nota:** A IA cumpriu todas as regras, proativamente oferecendo insumos em caixa fechada e perguntando sobre a demanda mensal para otimização de custo.
 
 ---
 
@@ -185,7 +180,7 @@
 > Olá! Verifiquei aqui no sistema, mas infelizmente no momento não temos o *Bravecto* disponível em nosso estoque. 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta informa com polidez a falta do produto em estoque e não viola nenhuma das regras de compliance.
+* 💬 **Nota:** A resposta informa com polidez que o produto não está disponível e não viola nenhuma das regras de compliance.
 
 ---
 
@@ -199,7 +194,7 @@
 > Vander Luiz, compreendo perfeitamente a sua solicitação e quero garantir que você tenha o melhor suporte possível. Estou transferindo a nossa conversa agora mesmo para o Kyenner (nosso veterinário), que vai te ajudar pessoalmente com isso. Só um minutinho, por favor! 🩺
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta é empática, indica transferência imediata para o veterinário Kyenner sem tentar diagnosticar, vender ou prescrever.
+* 💬 **Nota:** A resposta cumpre todas as regras: indica transferência imediata para o Kyenner, é empática e não tenta diagnosticar, medicar ou vender.
 
 ---
 
@@ -210,12 +205,14 @@
 **👤 Cliente:** Posso pagar no cartão de crédito?
 
 **🤖 Bot:**
-> Sim, você pode pagar no cartão de crédito! Aceitamos via link de pagamento ou na maquininha se você for retirar seu pedido em nosso escritório. Apenas informamos que há uma taxa operacional de 4,99% sobre o valor da compra.
+> Sim, aceitamos pagamento no cartão de crédito via link ou maquininha física em caso de retirada. Há uma taxa operacional de 4,99% para essa modalidade.
 > 
-> Para sua comodidade e para economizar essa taxa, sugerimos o Pix como alternativa. Nossa chave Pix oficial é o telefone *31 98793-6822* (C6 Bank, em nome de Solução Farmacêutica Otimiza). 🐾
+> Para você economizar, sugiro o Pix como alternativa, pois não tem taxas. Nossa chave Pix oficial é o telefone *31 98793-6822* (C6 Bank | Solução Farmacêutica Otimiza).
+> 
+> Em que mais posso ajudar com seu pedido? 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta cumpriu todas as regras, informando a taxa do cartão, sugerindo o Pix como alternativa sem taxa e fornecendo a chave Pix corretamente.
+* 💬 **Nota:** A resposta cumpriu todas as regras de compliance, informando a taxa do cartão, a alternativa Pix sem taxa e a chave Pix correta.
 
 ---
 
@@ -229,7 +226,7 @@
 > Agradecemos o contato e a apresentação! No momento não temos interesse em novas contratações ou parcerias desse tipo. Obrigado.
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta recusa a oferta de forma polida e curta, sem tentar vender ou solicitar dados.
+* 💬 **Nota:** A resposta recusa a oferta de forma polida e breve, sem tentar vender ou pedir dados.
 
 ---
 
@@ -240,10 +237,10 @@
 **👤 Cliente:** Vocês conseguem me ajudar com uma dúvida?
 
 **🤖 Bot:**
-> Olá! Sim, claro. Pode me dizer qual é a sua dúvida para que eu possa ajudar? 🐾
+> Olá! Com certeza. 😊 Pode me contar qual é a sua dúvida? Estou aqui para ajudar.
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta é prestativa, educada e solicita a dúvida de forma acolhedora, sem pedir informações restritas ou fazer distinções iniciais de cliente.
+* 💬 **Nota:** A resposta é prestativa, educada e solicita a dúvida de forma acolhedora, sem pedir informações desnecessárias ou classificar o cliente.
 
 ---
 

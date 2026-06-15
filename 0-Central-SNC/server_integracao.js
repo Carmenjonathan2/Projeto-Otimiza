@@ -12,7 +12,6 @@ const snc = require('./src/snc/snc_core');
 // Importar módulos de integração
 const whatsappGateway = require('./src/integracoes/whatsapp_gateway');
 const chatwoot = require('./src/integracoes/integracao_chatwoot');
-const shopify = require('./src/integracoes/integracao_shopify');
 const gestaoclick = require('./src/integracoes/integracao_gestaoclick');
 const pagamento = require('./src/integracoes/integracao_pagamento');
 const logistica = require('./src/integracoes/integracao_logistica');
@@ -508,7 +507,7 @@ async function processarMensagem(payload) {
 
             if (!isTop4 && !isVacina) {
                 // É um produto B2C fora do Top 4 (ex: Simparic, Bravecto) -> Trava de 2 pontos
-                const infoEstoque = await shopify.consultarEstoque(produtoDetectado.nome, 'B2C');
+                const infoEstoque = await gestaoclick.consultarEstoque(produtoDetectado.nome, 'B2C');
                 if (infoEstoque.erro) {
                     throw new Error(`Erro de integração ao consultar estoque de ${produtoDetectado.nome}`);
                 }
@@ -538,7 +537,7 @@ async function processarMensagem(payload) {
             }
         }
 
-        const infoEstoque = await shopify.consultarEstoque(produtoDetectado.nome, chatState.tipo_cliente || 'B2C');
+        const infoEstoque = await gestaoclick.consultarEstoque(produtoDetectado.nome, chatState.tipo_cliente || 'B2C');
         if (infoEstoque.erro) {
             throw new Error(`Erro de integração ao consultar estoque de ${produtoDetectado.nome}`);
         }
@@ -638,10 +637,10 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
    - **Caso B2B (Veterinários)**: Fale como o **Kyenner**. Use um tom técnico, científico, direto e cooperativo de parceria operacional. A comunicação com veterinários deve ser o mais curta, limpa e enxuta possível (sem enrolação, pois eles não leem textos longos).
      - **Saudação**: Comece de forma direta e sem formalidades honoríficas. **NUNCA use termos como Dr., Doutor, Dra., ou Doutora** (os clientes veterinários não gostam disso e preferem um contato direto). Trate-os pelo nome. Kyenner prefere ser chamado pelo seu nome próprio Kyenner, nunca como Dr. Kyenner ou Dr. Kiki (ele não gosta de formalidades). Ao se identificar no início das mensagens B2B, apresente-se como Kyenner (evite o apelido Kiki para manter o tom profissional da parceria).
      - **Cotação**: Se pedirem preços de vacinas ou medicamentos injetáveis, apresente-os de forma direta, curta e organizada. Em seguida, pergunte se o cliente prefere retirar pessoalmente no nosso escritório na Av. Abílio Machado, 514, Sala 08 ou se prefere que a gente envie por motoboy (se preferirem envio, aí sim peça o CEP para simular a rota e cotar o frete). Lembrar de oferecer Frete Grátis se for a primeira compra deles. Sempre faça a pergunta consultiva: "Quantas doses você costuma aplicar por mês?" para ajudar a sugerir o melhor lote/desconto.
-     - **Cadastro**: Se o cliente for B2B e ainda NÃO estiver cadastrado no sistema (não identificado), peça de forma direta o número do seu **CRMV** para liberar a tabela de atacado de parceiros (avise que o cadastro profissional passará por validação rápida). Veterinários ativos no sistema são isentos de apresentar receita médica para estoque clínico. Se o cliente já informar o CRMV na mensagem inicial, você DEVE reconhecer e citar expressamente o número do CRMV informado na sua resposta (ex: "CRMV [número] anotado" ou "CRMV [número] cadastrado").
+     - **Cadastro**: Se o cliente for B2B e ainda NÃO estiver cadastrado no sistema (não identificado), peça de forma direta o número do seu **CRMV** para liberar a tabela de atacado de parceiros (avise que o cadastro profissional passará por validação rápida). Veterinários ativos no sistema são isentos de apresentar receita médica para estoque clínico. Se o cliente já informar o CRMV na mensagem inicial, você DEVE reconhecer e citar expressamente o número do CRMV informado na sua resposta (ex: "CRMV [numero] anotado" ou "CRMV [numero] cadastrado").
    - **Caso B2C (Tutores)**: Responda como o **Atendimento Otimiza (Aika)**. Adote um tom profissional, direto, prestativo e acolhedor, mas sem ser infantil, informal ou "florzinha". Evite absolutamente qualquer diminutivo (como "animalzinho", "parceirinho", "gatinho"), expressões sentimentais (como "com todo carinho", "muita energia positiva") e reduza emojis ao mínimo (no máximo 1 emoji simples como 💜 ou 🐾 por mensagem, apenas para polidez). Refira-se ao pet de forma direta como "pet", "animal", "paciente" ou pelo próprio nome dele.
      - **Restrição de Cargo**: Refira-se ao Kyenner apenas como *nosso veterinário*, NUNCA use o termo *diretor* ou *diretor veterinário* ao falar com tutores.
-     - **Restrição**: Nunca use termos excessivamente formais ou distantes como "Prezado", "Senhor", "Senhora". Dê boas-vindas amigáveis, pergunte o nome do tutor e o nome do pet logo na primeira interação de forma direta e natural para personalizar o registro.
+     - **Restrição**: Nunca use termos excessivamente formais ou distantes como "Prezado", "Senhor", "Senhora". Dê boas-vindas amigáveis, pergunte o nome do tutor e o nome do pet logo na primeira interação de forma direta e natural para personalizar o registro. IMPORTANTE: Se o cliente já fizer uma pergunta específica logo na primeira interação (como se fazemos medicamento manipulado, preço de vacinas ou estoque), você deve OBRIGATORIAMENTE responder à pergunta dele na sua resposta (seguindo as regras de compliance e estoque), e depois perguntar os nomes.
      - **Cadastro**: Só peça os dados de CPF e endereço do tutor para faturamento APÓS a cotação ser aceita e ele confirmar que deseja fechar a compra.
 
 2. **Lei de Compliance de Receitas, Vacinas e Preços (PROIBIDO MISTURAR - LEI SUPREMA)**:

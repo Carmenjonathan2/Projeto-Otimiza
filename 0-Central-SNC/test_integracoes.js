@@ -9,7 +9,6 @@ const path = require('path');
 
 const zapi = require('./src/integracoes/integracao_zapi');
 const chatwoot = require('./src/integracoes/integracao_chatwoot');
-const shopify = require('./src/integracoes/integracao_shopify');
 const gestaoclick = require('./src/integracoes/integracao_gestaoclick');
 const pagamento = require('./src/integracoes/integracao_pagamento');
 const logistica = require('./src/integracoes/integracao_logistica');
@@ -51,9 +50,9 @@ async function testarIntegracoes() {
         assert.ok(resultManipulados.includes("MANIPULADOS"), "Falha ao detectar recusa de manipulados");
         console.log("✅ Detectou recusa padrão para medicamentos manipulados.");
 
-        // 2. Testar consulta de estoque na Shopify
-        console.log("\n🔍 Testando consulta de estoque (Shopify)...");
-        const infoLibrela = await shopify.consultarEstoque("Librela 15mg");
+        // 2. Testar consulta de estoque no GestãoClick
+        console.log("\n🔍 Testando consulta de estoque (GestãoClick)...");
+        const infoLibrela = await gestaoclick.consultarEstoque("Librela 15mg");
         console.log(`✅ Estoque Librela: ${infoLibrela.quantidade} un | Preço: R$ ${infoLibrela.preco}`);
         assert.equal(infoLibrela.preco, 380.00, "Valor do Librela difere da tabela");
 

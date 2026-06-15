@@ -1,7 +1,7 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const path = require('path');
 const fs = require('fs');
-require('dotenv').config({ path: path.resolve(__dirname, '../../../../.env') });
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 const { launchBrowser, searchGoogleMaps, dorkSocialProfiles } = require('./searcher');
 const { crawlWebsite } = require('./crawler');

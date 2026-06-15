@@ -41,3 +41,8 @@ node_modules
 **/token_conta2.json
 **/token_otimiza.json
 **/client_secret*.json
+
+# Local logs
+0-Central-SNC/conversas_log.jsonl
+*.jsonl
+

@@ -3064,5 +3064,41 @@
     "Nome": "Zoetis V4",
     "Valor": "57,90",
     "Estoque": "-1,00"
+  },
+  {
+    "Código": "17306-VET",
+    "Nome": "VACINA RAIVA RABISIN preço para veterinário",
+    "Valor": "17,90",
+    "Estoque": "100,00"
+  },
+  {
+    "Código": "17306-TUTOR",
+    "Nome": "VACINA RAIVA RABISIN preço para tutor",
+    "Valor": "22,90",
+    "Estoque": "100,00"
+  },
+  {
+    "Código": "17305-VET",
+    "Nome": "VACINA RECOMBITEK V8 preço para veterinário",
+    "Valor": "44,50",
+    "Estoque": "100,00"
+  },
+  {
+    "Código": "17305-TUTOR",
+    "Nome": "VACINA RECOMBITEK V8 preço para tutor",
+    "Valor": "70,00",
+    "Estoque": "100,00"
+  },
+  {
+    "Código": "17305-NOBIVAC-VET",
+    "Nome": "VACINA NOBIVAC V8 preço para veterinário",
+    "Valor": "44,50",
+    "Estoque": "100,00"
+  },
+  {
+    "Código": "17305-NOBIVAC-TUTOR",
+    "Nome": "VACINA NOBIVAC V8 preço para tutor",
+    "Valor": "70,00",
+    "Estoque": "100,00"
   }
 ]

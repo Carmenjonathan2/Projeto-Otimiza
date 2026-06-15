@@ -14,7 +14,7 @@ async function getLatestConvs() {
     try {
         console.log(`[CHATWOOT] Buscando as conversas mais recentes...`);
         const res = await axios.get(`${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}/conversations`, { headers });
-        const convs = res.data?.meta ? res.data.payload : res.data;
+        const convs = res.data?.data?.payload || res.data?.payload || (Array.isArray(res.data) ? res.data : []);
         
         console.log(`[CHATWOOT] Encontradas ${convs?.length || 0} conversas.`);
         if (!convs || convs.length === 0) return;
@@ -31,8 +31,9 @@ async function getLatestConvs() {
             // Imprimir as 5 últimas mensagens
             const lastMsgs = msgs.slice(-5);
             for (let msg of lastMsgs) {
-                const sender = msg.sender ? msg.sender.name : (msg.message_type === 'incoming' ? 'Cliente' : 'Bot');
-                console.log(`      [${msg.message_type}] ${sender}: "${msg.content}"`);
+                const sender = msg.sender ? msg.sender.name : (msg.message_type === 1 ? 'Bot/Agent' : 'Cliente');
+                const privateStr = msg.private ? '[PRIVATE NOTE]' : '[PUBLIC]';
+                console.log(`      ${privateStr} [Type:${msg.message_type}] ${sender}: "${msg.content}"`);
             }
         }
     } catch (e) {
