@@ -31,6 +31,7 @@ zapi.enviarMensagemTexto = async (phone, text) => {
 };
 
 // --- Config ---
+process.env.NODE_ENV = 'test';
 process.env.MODO_SILENCIOSO = 'false'; // Garantir que os testes de QA sempre rodem em modo ativo
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 if (!GEMINI_API_KEY) {
@@ -38,8 +39,8 @@ if (!GEMINI_API_KEY) {
     process.exit(1);
 }
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const MODELO_JUIZ     = 'gemini-3.5-flash';
-const DELAY_ENTRE_TESTES_MS = 2000; // Evitar rate-limit
+const MODELO_JUIZ     = 'gemini-2.5-flash';
+const DELAY_ENTRE_TESTES_MS = 4000; // Evitar rate-limit
 
 // =========================================================================
 // CENÁRIOS DE TESTE (12 casos de qualidade)

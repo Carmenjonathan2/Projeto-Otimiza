@@ -1,5 +1,5 @@
 {
-  "executadoEm": "2026-06-12T17:45:23.891Z",
+  "executadoEm": "2026-06-15T15:07:53.516Z",
   "aprovados": 14,
   "reprovados": 0,
   "taxa": 100,
@@ -10,7 +10,7 @@
       "descricao": "Primeira mensagem de tutor sem contexto",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta cumpre perfeitamente todos os requisitos, sendo acolhedora, utilizando emoji, solicitando os nomes e evitando termos formais."
+      "nota": "A resposta é acolhedora, usa emoji, pergunta pelos nomes do tutor e do pet, e evita formalidades, cumprindo todas as regras."
     },
     {
       "id": 2,
@@ -18,7 +18,7 @@
       "descricao": "Tutor pergunta sobre vacina — deve oferecer Vet em Casa",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta cumpre todas as regras de compliance, oferece o Vet em Casa, cita o valor correto de R$ 60,00, não divulga preço de custo e utiliza a persona Aika de forma adequada."
+      "nota": "A resposta da IA está em total conformidade com todas as regras de compliance e oferece o serviço Vet em Casa de forma clara e completa."
     },
     {
       "id": 3,
@@ -26,7 +26,7 @@
       "descricao": "Tutor pergunta sobre Librela — produto pedido especial",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta atendeu perfeitamente a todas as regras de compliance e diretrizes da persona."
+      "nota": "A resposta da IA está em total conformidade com todas as regras de compliance especificadas."
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "descricao": "Tutor pergunta sobre Simparic (outros produtos) — deve transferir para Kyenner sem dar o preço",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta cumpre perfeitamente todas as regras de compliance e mantém o tom acolhedor da persona Aika."
+      "nota": "A resposta cumpriu todas as regras de compliance, informando a disponibilidade do produto de forma acolhedora e encaminhando para o Kyenner para informações de valores, sem mencionar preços ou ofertas."
     },
     {
       "id": 5,
@@ -42,7 +42,7 @@
       "descricao": "Tutor confirma compra — deve confirmar e transferir para Kyenner",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta cumpre perfeitamente todas as regras estabelecidas, apresentando entusiasmo, informando a chave Pix correta e direcionando o cliente ao Kyenner."
+      "nota": "A resposta cumpre todas as regras de compliance, confirmando o pedido com entusiasmo, informando a chave Pix e mencionando a conexão com Kyenner."
     },
     {
       "id": 6,
@@ -50,7 +50,7 @@
       "descricao": "Tutor pede medicamento manipulado — recusa empática obrigatória",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta cumpre perfeitamente todas as regras, utilizando a recusa empática, sem sugerir manipulação e desejando melhoras ao pet de forma carinhosa."
+      "nota": "A resposta utiliza a recusa empática padronizada e transmite uma mensagem carinhosa e positiva, sem sugerir a manipulação de medicamentos."
     },
     {
       "id": 7,
@@ -58,7 +58,7 @@
       "descricao": "Veterinária se identifica com CRMV — deve ser tratada pelo nome",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta atendeu perfeitamente a todos os critérios: tratou pelo nome sem honoríficos, validou o CRMV, apresentou a cotação direta com especificações técnicas e manteve o tom de parceria profissional da persona Kyenner B2B."
+      "nota": "A resposta cumpre todas as regras: trata a veterinária pelo nome, reconhece o CRMV, não pede documentos adicionais e mantém um tom técnico, direto e de parceria profissional, oferecendo soluções e antecipando necessidades."
     },
     {
       "id": 8,
@@ -66,7 +66,7 @@
       "descricao": "Vet pede cotação de vacinas — preços de atacado, SEM mencionar domiciliar",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta atende perfeitamente a todos os critérios: apresenta os preços corretos de atacado, não cita valores de aplicação domiciliar, mantém o tom técnico/comercial da persona Kyenner e não utiliza emojis."
+      "nota": "A resposta informa corretamente os preços de atacado, não menciona aplicação domiciliar, mantém um tom técnico e direto e não usa emojis ou tom afetivo. Perfeito para a persona Kyenner B2B."
     },
     {
       "id": 9,
@@ -74,7 +74,7 @@
       "descricao": "Vet pede vacinas — bot deve proativamente sugerir combo seringa/agulha",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta cumpre perfeitamente todas as três regras de compliance, abordando os insumos, a caixa fechada e a recorrência mensal com a persona correta."
+      "nota": "A resposta da IA cumpriu todas as regras de compliance, sendo proativa na oferta de insumos e na sugestão de custo-benefício por quantidade."
     },
     {
       "id": 10,
@@ -82,7 +82,7 @@
       "descricao": "Estoque zerado (outros produtos B2C) — deve informar que não temos, NÃO oferecer lista de espera e NÃO transferir",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta é educada, informa a falta de estoque e cumpre todas as regras de compliance perfeitamente."
+      "nota": "A resposta informa com polidez a falta do produto em estoque e não viola nenhuma das regras de compliance."
     },
     {
       "id": 11,
@@ -90,7 +90,7 @@
       "descricao": "Urgência clínica — Safety Net deve acionar transferência imediata",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta cumpre perfeitamente todas as regras de compliance, sendo curta, empática, sem diagnósticos ou vendas, e realizando a transferência imediata para o Kyenner."
+      "nota": "A resposta é empática, indica transferência imediata para o veterinário Kyenner sem tentar diagnosticar, vender ou prescrever."
     },
     {
       "id": 12,
@@ -98,7 +98,7 @@
       "descricao": "Pergunta sobre pagamento com cartão — deve avisar taxa de 4,99%",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta cumpre todas as regras de compliance, informando a taxa de 4,99%, a alternativa do Pix sem taxas adicionais e a chave Pix correta."
+      "nota": "A resposta cumpriu todas as regras, informando a taxa do cartão, sugerindo o Pix como alternativa sem taxa e fornecendo a chave Pix corretamente."
     },
     {
       "id": 13,
@@ -106,7 +106,7 @@
       "descricao": "Mensagem de propaganda/spam — deve recusar com polidez e brevidade, sem tentar vender",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta recusou a oferta de forma muito educada, direta e sem infringir nenhuma das regras de compliance."
+      "nota": "A resposta recusa a oferta de forma polida e curta, sem tentar vender ou solicitar dados."
     },
     {
       "id": 14,
@@ -114,7 +114,7 @@
       "descricao": "Mensagem ambígua/sem contexto claro — deve perguntar como ajudar de forma natural e contextualizada",
       "aprovado": true,
       "violacoes": [],
-      "nota": "A resposta foi prestativa, acolhedora e seguiu todas as regras, sem solicitar dados restritos ou classificar o usuário precocemente."
+      "nota": "A resposta é prestativa, educada e solicita a dúvida de forma acolhedora, sem pedir informações restritas ou fazer distinções iniciais de cliente."
     }
   ]
 }

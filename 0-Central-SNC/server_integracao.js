@@ -10,7 +10,7 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const snc = require('./src/snc/snc_core');
 
 // Importar módulos de integração
-const zapi = require('./src/integracoes/integracao_zapi');
+const whatsappGateway = require('./src/integracoes/whatsapp_gateway');
 const chatwoot = require('./src/integracoes/integracao_chatwoot');
 const shopify = require('./src/integracoes/integracao_shopify');
 const gestaoclick = require('./src/integracoes/integracao_gestaoclick');
@@ -23,14 +23,7 @@ app.use(bodyParser.json());
 
 // Função auxiliar para enviar mensagens ao cliente ou interceptá-las em Modo Silencioso
 async function enviarMensagemBot(phone, text) {
-    const isSilent = process.env.MODO_SILENCIOSO !== 'false';
-    if (isSilent) {
-        console.log(`[MODO SILENCIOSO] IA Sugestão para ${phone}: "${text}"`);
-        await chatwoot.enviarNotaPrivada(phone, `🤖 *[Sugestão da IA - Copiloto]*:\n${text}`);
-        return;
-    }
-    await zapi.enviarMensagemTexto(phone, text);
-    await chatwoot.sincronizarMensagemBot(phone, text);
+    await whatsappGateway.enviarMensagemTexto(phone, text, true);
 }
 
 // Banco de dados de estado em arquivo JSON local (Simulando persistência de estado das conversas)
@@ -84,7 +77,7 @@ async function transcreverAudioZapi(payload, phone, clientName) {
         const mimeType = (payload.audio && payload.audio.mimeType) || 'audio/ogg';
 
         console.log(`[BOT] Enviando áudio (${audioBuffer.length} bytes, ${mimeType}) ao Gemini para transcrição...`);
-        const modelTranscribe = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
+        const modelTranscribe = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
         const prompt = "Transcreva exatamente o áudio enviado pelo cliente em português do Brasil. Não acrescente comentários, tags ou introduções. Se o áudio estiver em silêncio ou totalmente incompreensível, responda apenas com '[Áudio incompreensível]'.";
         
         const result = await modelTranscribe.generateContent([
@@ -177,6 +170,21 @@ async function validarReceitaPorIA(imageUrl, mimeType) {
             crmv_encontrado: null, medico_encontrado: null,
             pet_encontrado: null, medicamento_encontrado: null
         };
+    }
+}
+
+// Função auxiliar para salvar log estruturado das conversas
+function salvarLogConversa(dadosLog) {
+    try {
+        const logPath = path.resolve(__dirname, 'conversas_log.jsonl');
+        const logLine = JSON.stringify({
+            timestamp: new Date().toISOString(),
+            ...dadosLog
+        }) + '\n';
+        fs.appendFileSync(logPath, logLine, 'utf8');
+        console.log(`📝 [LOG] Conversa registrada em conversas_log.jsonl para ${dadosLog.phone}`);
+    } catch (err) {
+        console.error("❌ Erro ao salvar log de conversa:", err.message);
     }
 }
 
@@ -501,6 +509,9 @@ async function processarMensagem(payload) {
             if (!isTop4 && !isVacina) {
                 // É um produto B2C fora do Top 4 (ex: Simparic, Bravecto) -> Trava de 2 pontos
                 const infoEstoque = await shopify.consultarEstoque(produtoDetectado.nome, 'B2C');
+                if (infoEstoque.erro) {
+                    throw new Error(`Erro de integração ao consultar estoque de ${produtoDetectado.nome}`);
+                }
                 if (infoEstoque.quantidade > 0) {
                     console.log(`[SNC] Outro produto B2C (${produtoDetectado.nome}) em estoque. Transferindo para Kyenner.`);
                     chatState.owner = "human";
@@ -528,6 +539,9 @@ async function processarMensagem(payload) {
         }
 
         const infoEstoque = await shopify.consultarEstoque(produtoDetectado.nome, chatState.tipo_cliente || 'B2C');
+        if (infoEstoque.erro) {
+            throw new Error(`Erro de integração ao consultar estoque de ${produtoDetectado.nome}`);
+        }
 
         // Rastrear produto mencionado para B2C (usado na detecção de confirmação de compra)
         if (chatState.tipo_cliente !== "B2B" && !chatState.produto_mencionado) {
@@ -648,7 +662,7 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
 6. *FLUXO TUTOR B2C - TRIAGEM RÁPIDA*: Para clientes Tutores (B2C), o seu papel é de *recepcionista inteligente e ágil*, não de vendedor fechador. Dê uma saudação direta e acolhedora, informe rapidamente se o produto está disponível e a faixa de preço geral. O Kyenner fará o atendimento completo e faturamento. Encerre de forma prática e gentil dizendo que vai conectá-lo com o Kyenner para finalizar. **EXCEÇÃO**: Se o produto solicitado estiver esgotado/fora de estoque, NÃO diga que vai transferir a conversa para o Kyenner; em vez disso, apenas ofereça a lista de espera e alternativas, aguardando a resposta do cliente.
 7. *REGRA DE PAGAMENTO / PIX*: Sempre que o cliente (B2B ou B2C) perguntar sobre formas de pagamento, parcelamento ou cartão de crédito, você DEVE informar a taxa de 4.99% do cartão e fornecer OBRIGATORIAMENTE a chave Pix oficial: *(31) 98793-6822* (C6 Bank | Solução Farmacêutica Otimiza).
 8. **MENSAGENS DE PROPAGANDA, SPAM OU PARCERIAS DE TERCEIROS (VENDENDO SERVIÇOS PARA A OTIMIZA)**: Se a mensagem do cliente for uma propaganda, oferta de serviço (marketing, software, agência, contabilidade, etc.) ou proposta de parceria, você **NÃO deve aplicar a regra de Modo Vendedor Ativo**, nem perguntar se ele é tutor/veterinário ou pedir CPF/CRMV. Responda de forma simples, polida e muito curta: *"Agradecemos o contato e a apresentação! No momento não temos interesse em novas contratações ou parcerias desse tipo. Obrigado."*
-9. **MENSAGENS AMBÍGUAS OU SEM CONTEXTO CLARO**: Se o cliente mandar uma mensagem sem contexto definido ou confusa (como "Oi, tudo bem?"), responda de forma natural e acolhedora, pergunte o nome dele e do pet para personalizar o registro inicial, e pergunte como pode ajudar com base no que ele escreveu. Não dispare de imediato a pergunta sobre se ele é tutor/veterinário ou solicitações de CPF/CRMV.`;
+9. **MENSAGENS AMBÍGUAS OU SEM CONTEXTO CLARO**: Se o cliente mandar uma mensagem sem contexto definido ou confusa (como "Oi, tudo bem?"), responda de forma natural e acolhedora, pergunte o nome dele e do pet para personalizar o registro inicial, e pergunte como pode ajudar. Se o cliente disser especificamente que tem uma dúvida (como "Pode me ajudar com uma dúvida?"), responda de forma prestativa e acolhedora perguntando qual é a sua dúvida, sem solicitar o nome do cliente/pet ou dados de registro de imediato. Em ambos os casos, não dispare de imediato a pergunta sobre se ele é tutor/veterinário ou solicitações de CPF/CRMV.`;
 
     // Salvar histórico da conversa
     chatState.history.push({ role: 'user', content: clientMessage });
@@ -659,7 +673,7 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
         const systemInstructionConciseWithContext = brandbookContent + "\n" + contextoInjetado + "\n" + systemInstructionConcise;
 
         const model = genAI.getGenerativeModel({
-            model: "gemini-3.5-flash",
+            model: "gemini-2.5-flash",
             systemInstruction: systemInstructionConciseWithContext
         });
 
@@ -700,6 +714,17 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
 
         // Enviar a resposta via Z-API
         await enviarMensagemBot(phone, responseText);
+        
+        // Registrar log estruturado de sucesso
+        salvarLogConversa({
+            phone,
+            clientName,
+            clientMessage,
+            responseText,
+            isSilent: process.env.MODO_SILENCIOSO !== 'false',
+            persona: chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika',
+            owner: chatState.owner
+        });
 
         // --- TRANSFERÊNCIA PÓS-RESPOSTA: somente após confirmação explícita (P1 lista espera / P2 compra) ---
         if ((b2cCompraConfirmadaNestaMsg || listaEsperaConfirmadaNestaMsg) && chatState.owner !== "human") {
@@ -731,6 +756,18 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
         console.error("❌ Erro ao chamar a API do Gemini:", e);
         const fallbackMsg = "Oi! Tive uma oscilação rápida aqui na minha rede. Você poderia repetir o que precisa, por favor? 💜";
         await enviarMensagemBot(phone, fallbackMsg);
+        
+        // Registrar log estruturado de erro
+        salvarLogConversa({
+            phone,
+            clientName,
+            clientMessage,
+            responseText: fallbackMsg,
+            isSilent: process.env.MODO_SILENCIOSO !== 'false',
+            persona: chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika',
+            owner: chatState.owner,
+            error: e.message
+        });
     }
 
     return { status: 200, message: 'OK' };

@@ -4,8 +4,8 @@ const path = require('path');
 const axios = require('axios');
 require('dotenv').config();
 
-// Módulo de integração Z-API
-const zapi = require('../../../src/integracoes/integracao_zapi');
+// Gateway Unificado do WhatsApp
+const whatsappGateway = require('../../../src/integracoes/whatsapp_gateway');
 
 const CSV_FILE = path.resolve(__dirname, '../../../../4-Time-Casa/scraper-condominios-bh/condominios_bh.csv');
 const JSON_CONTATADOS = path.resolve(__dirname, '../../../../2-RT-Compliance/b2b_contatados.json');
@@ -88,7 +88,7 @@ Estamos lançando a campanha *Vet em casa e agora no seu condomínio* e gostaria
 
         try {
             console.log(`🎯 [${envios + 1}] Enviando para: ${nome} (+${phone})...`);
-            await zapi.enviarMensagemTexto(phone, msg);
+            await whatsappGateway.enviarMensagemTexto(phone, msg, false);
             console.log(`   ✔️ Sucesso!`);
             sucessos++;
             contatados.push({ nome: lead.NOME, telOriginal: lead.TELEFONE, data: new Date().toISOString() });

@@ -133,10 +133,12 @@ async function consultarEstoque(nomeProduto, tipoCliente = 'B2C') {
     }
 
     // ─── Passo 2: Produto com estoque físico → GestãoClick ────────────────
+    let readSuccess = false;
     try {
         const filePath = path.resolve(__dirname, '../../../1-Farmacia-Ecommerce/Sistema de Fidelização Otimiza/estoque_limpo_gestaoclick.json');
         if (fs.existsSync(filePath)) {
             const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            readSuccess = true;
             const match = buscarNoProdutosGC(data, nomeProduto, tipoCliente);
 
             if (match) {
@@ -148,9 +150,16 @@ async function consultarEstoque(nomeProduto, tipoCliente = 'B2C') {
                     preco:      isNaN(preco)       ? 0.00 : preco
                 };
             }
+        } else {
+            console.warn(`⚠️ [PRODUTOS] Arquivo GestãoClick não encontrado em ${filePath}`);
         }
     } catch (e) {
-        console.warn(`⚠️ [PRODUTOS] Erro ao ler GestãoClick (${e.message}). Ativando fallback.`);
+        console.warn(`⚠️ [PRODUTOS] Erro ao ler GestãoClick (${e.message}).`);
+    }
+
+    if (process.env.NODE_ENV !== 'test' && !readSuccess) {
+        console.error("❌ [PRODUTOS] Falha crítica de leitura do banco de produtos em produção!");
+        return { quantidade: 0, preco: 0.00, erro: true };
     }
 
     // ─── Passo 3: Fallback MOCK (desenvolvimento/testes) ──────────────────

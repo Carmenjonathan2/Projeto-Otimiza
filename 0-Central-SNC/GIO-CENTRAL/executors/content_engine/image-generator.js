@@ -37,7 +37,7 @@ async function gerarImagemBase(sugestaoVisual, frenteDeNegocio, temaPost = "post
     É ESTRITAMENTE PROIBIDO gerar ou renderizar letras, palavras, textos soltos ou marcas d'água em toda a imagem.`;
 
     try {
-        const model = genAI.getGenerativeModel({ model: "gemini-3.1-flash-image-preview" });
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-image" });
         const result = await model.generateContent(prompt);
         
         const response = result.response;

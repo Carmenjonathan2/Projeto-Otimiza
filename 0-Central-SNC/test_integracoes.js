@@ -3,6 +3,7 @@
  * Valida a conexão entre os módulos e as estratégias de vendas.
  */
 
+process.env.NODE_ENV = 'test';
 const assert = require('assert');
 const path = require('path');
 
