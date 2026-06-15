@@ -42,11 +42,14 @@ class SNC {
         const textoLower = texto.toLowerCase();
         
         if (persona === 'Aika') {
-            // Aika B2C: Afeto, Cuidado, sem frieza.
-            const palavrasProibidas = ['prezado', 'senhor', 'termo', 'contrato'];
+            // Aika B2C: Afeto, Cuidado, sem termos corporativos frios ou burocráticos.
+            const palavrasProibidas = [
+                'prezado', 'senhor', 'senhora', 'sr.', 'sra.',
+                'termo', 'contrato', 'diretor', 'diretor veterinário', 'vigilância sanitária'
+            ];
             for (let p of palavrasProibidas) {
                 if (textoLower.includes(p)) {
-                    this.log(`Filtro SNC (Aika) REPROVOU texto. Palavra robótica: ${p}`);
+                    this.log(`Filtro SNC (Aika) REPROVOU texto. Palavra robótica/inadequada: "${p}"`);
                     return false;
                 }
             }
@@ -54,14 +57,22 @@ class SNC {
         }
 
         if (persona === 'Kyenner') {
-            // Kyenner B2B: Autoridade, Ciência, Respeito, sem emojis infantis.
-            const palavrasProibidas = ['fofinho', 'auau', 'miau', 'titio'];
+            // Kyenner B2B: Autoridade, Ciência, sem infantilidades e sem títulos honoríficos.
+            const palavrasProibidas = ['fofinho', 'auau', 'miau', 'titio', 'animalzinho', 'parceirinho'];
             for (let p of palavrasProibidas) {
                 if (textoLower.includes(p)) {
-                    this.log(`Filtro SNC (Kyenner) REPROVOU texto. Palavra inadequada para B2B: ${p}`);
+                    this.log(`Filtro SNC (Kyenner) REPROVOU texto. Palavra inadequada para B2B: "${p}"`);
                     return false;
                 }
             }
+
+            // Kyenner prefere ser informal e de parceria: evitar Dr, Dra, Doutor, Doutora
+            const regexHonorifico = /\b(dr|dra|doutor|doutora)\b/i;
+            if (regexHonorifico.test(textoLower)) {
+                this.log(`Filtro SNC (Kyenner) REPROVOU texto. Contém título honorífico (Dr/Dra/Doutor/Doutora).`);
+                return false;
+            }
+
             return true;
         }
 

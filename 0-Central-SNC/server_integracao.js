@@ -37,12 +37,19 @@ function loadStates() {
     }
     return {};
 }
+let writeQueue = Promise.resolve();
 function saveStates(states) {
-    fs.writeFileSync(STATE_FILE, JSON.stringify(states, null, 4), 'utf8');
+    writeQueue = writeQueue.then(async () => {
+        try {
+            await fs.promises.writeFile(STATE_FILE, JSON.stringify(states, null, 4), 'utf8');
+        } catch (e) {
+            console.error("❌ [ESTADO] Erro ao salvar conversas_state.json:", e.message);
+        }
+    });
 }
 
 // Carregar o Brand Book e Regras de Negócio para instruir o Gemini
-const brandbookPath = path.resolve(__dirname, './diretrizes-e-branding/brandbook_operacoes_otimiza.md');
+const brandbookPath = path.resolve(__dirname, './diretrizes-e-branding/brandbook_resumido.md');
 let brandbookContent = "";
 if (fs.existsSync(brandbookPath)) {
     brandbookContent = fs.readFileSync(brandbookPath, 'utf8');
@@ -337,14 +344,16 @@ async function processarMensagem(payload) {
     }
 
     // 3. Tentar extrair CRMV da mensagem
-    const crmvMatch = clientMessage.match(/crmv\s*[-/]?\s*(?:[a-z]{2})?\s*[-/]?\s*(\d+)/i) || 
-                      clientMessage.match(/(\d+)\s*[-/]?\s*crmv/i);
     let crmvExtraido = null;
-    if (chatState.aguardando_crmv && clientMessage.trim().match(/^\d{4,6}$/)) {
+    if (chatState.aguardando_crmv && clientMessage.trim().match(/^\d{3,6}$/)) {
         crmvExtraido = clientMessage.trim();
         console.log(`[SNC] Detectado CRMV numérico bruto na mensagem (aguardando_crmv ativa): ${crmvExtraido}`);
-    } else if (crmvMatch) {
-        crmvExtraido = crmvMatch[1];
+    } else if (mensagemLower.includes('crmv')) {
+        const matchNum = clientMessage.match(/\b\d{3,6}\b/);
+        if (matchNum) {
+            crmvExtraido = matchNum[0];
+            console.log(`[SNC] CRMV extraído dinamicamente da mensagem: ${crmvExtraido}`);
+        }
     }
 
     let transferNovoVet = false;
@@ -359,8 +368,40 @@ async function processarMensagem(payload) {
             chatState.tipo_cliente = "B2B";
             console.log(`[GESTAOCLICK] Cadastro localizado via CRMV! Nome: ${chatState.nome_cadastro}`);
         } else {
-            console.log(`[GESTAOCLICK] CRMV ${crmvExtraido} não localizado no GestãoClick. Preparando transbordo para validação.`);
-            transferNovoVet = true;
+            console.log(`[GESTAOCLICK] CRMV ${crmvExtraido} não localizado no GestãoClick. Validando registro profissional via CFMV...`);
+            const cfmv = require('./src/integracoes/integracao_cfmv');
+            const resultadoValidacao = await cfmv.validarCRMV(crmvExtraido);
+
+            if (resultadoValidacao.valido) {
+                transferNovoVet = true;
+            } else {
+                console.log(`[SNC] CRMV ${crmvExtraido} inválido ou pendente de validação humana pelo CFMV. Negando B2B automático.`);
+                chatState.tipo_cliente = "B2C"; // Mantém em atendimento geral (B2C)
+                chatState.aguardando_crmv = false;
+                saveStates(states);
+
+                // Notificar Telegram e Chatwoot
+                const alertaTelegram = `⚠️ <b>TENTATIVA DE ACESSO B2B NEGADA</b>\n\n` +
+                    `👤 <b>Nome:</b> ${clientName || 'Não identificado'}\n` +
+                    `🏥 <b>CRMV Informado:</b> ${crmvExtraido}\n` +
+                    `📱 <b>WhatsApp:</b> +${phone}\n` +
+                    `❌ <b>Motivo:</b> ${resultadoValidacao.motivo}\n\n` +
+                    `<i>IA pausada. Cliente transferido para o Kyenner para suporte e liberação manual.</i>`;
+                enviarAlertaTelegram(alertaTelegram);
+
+                await chatwoot.enviarNotaPrivada(phone,
+                    `⚠️ TENTATIVA B2B FALHOU: CRMV ${crmvExtraido} informado por ${clientName} não pôde ser validado automaticamente no CFMV. Motivo: ${resultadoValidacao.motivo}. Transferindo para humano.`
+                );
+
+                await chatwoot.solicitarSuporteHumano(phone, clientName || `Cliente CRMV ${crmvExtraido}`, `CRMV ${crmvExtraido} pendente de validação manual.`);
+                chatState.owner = "human";
+                saveStates(states);
+
+                // Enviar resposta amigável informando a transferência e abortar
+                const msgFalha = `Olá, *${clientName || 'tudo bem'}*! Não consegui validar o CRMV *${crmvExtraido}* automaticamente em nosso cadastro profissional. Vou transferir você agora mesmo para o Kyenner para darmos andamento ao seu atendimento de forma manual, tudo bem? Só um minutinho! 🐾`;
+                await enviarMensagemBot(phone, msgFalha);
+                return { status: 200, message: 'OK: Transferred due to failed CRMV validation' };
+            }
         }
         chatState.aguardando_crmv = false; // Resetar
         saveStates(states);
@@ -496,79 +537,84 @@ async function processarMensagem(payload) {
         { chave: "nobivac",    nome: "Nobivac V8" },
         { chave: "bravecto",   nome: "Bravecto" }
     ];
-    const produtoDetectado = produtosRastreados.find(p => mensagemLower.includes(p.chave));
+    const produtosDetectados = produtosRastreados.filter(p => mensagemLower.includes(p.chave));
 
-    if (produtoDetectado) {
+    if (produtosDetectados.length > 0) {
         // Se for cliente B2C (Tutor)
         if (chatState.tipo_cliente !== "B2B") {
             const B2C_TOP4 = ["librela", "lybrela", "cytopoint", "milteforan", "metilforan", "neptra"];
-            const isTop4 = B2C_TOP4.includes(produtoDetectado.chave);
-            const isVacina = ["rabisin", "nobivac"].includes(produtoDetectado.chave);
+            for (const prod of produtosDetectados) {
+                const isTop4 = B2C_TOP4.includes(prod.chave);
+                const isVacina = ["rabisin", "nobivac"].includes(prod.chave);
 
-            if (!isTop4 && !isVacina) {
-                // É um produto B2C fora do Top 4 (ex: Simparic, Bravecto) -> Trava de 2 pontos
-                const infoEstoque = await gestaoclick.consultarEstoque(produtoDetectado.nome, 'B2C');
-                if (infoEstoque.erro) {
-                    throw new Error(`Erro de integração ao consultar estoque de ${produtoDetectado.nome}`);
-                }
-                if (infoEstoque.quantidade > 0) {
-                    console.log(`[SNC] Outro produto B2C (${produtoDetectado.nome}) em estoque. Transferindo para Kyenner.`);
-                    chatState.owner = "human";
-                    saveStates(states);
+                if (!isTop4 && !isVacina) {
+                    // É um produto B2C fora do Top 4 (ex: Simparic, Bravecto) -> Trava de 2 pontos
+                    const infoEstoque = await gestaoclick.consultarEstoque(prod.nome, 'B2C');
+                    if (infoEstoque.erro) {
+                        throw new Error(`Erro de integração ao consultar estoque de ${prod.nome}`);
+                    }
+                    if (infoEstoque.quantidade > 0) {
+                        console.log(`[SNC] Outro produto B2C (${prod.nome}) em estoque. Transferindo para Kyenner.`);
+                        chatState.owner = "human";
+                        saveStates(states);
 
-                    const despedida = `Olá! Verifiquei no sistema e temos o *${produtoDetectado.nome}* disponível. Vou transferir o seu atendimento agora mesmo para o Kyenner (nosso veterinário), que vai te passar as informações de valores e finalizar tudo com você. Só um instantinho! 🐾`;
-                    await enviarMensagemBot(phone, despedida);
+                        const despedida = `Olá! Verifiquei no sistema e temos o *${prod.nome}* disponível. Vou transferir o seu atendimento agora mesmo para o Kyenner (nosso veterinário), que vai te passar as informações de valores e finalizar tudo com você. Só um instantinho! 🐾`;
+                        await enviarMensagemBot(phone, despedida);
 
-                    await chatwoot.enviarNotaPrivada(phone, `🚨 [SNC - INTEGRAÇÃO B2C]: O cliente solicitou *${produtoDetectado.nome}*. Temos em estoque! Preço cadastrado no ERP: R$ ${infoEstoque.preco}. O robô transferiu o atendimento sem passar o preço, conforme regras de estoque para produtos fora do Top 4.`);
-                    await chatwoot.solicitarSuporteHumano(phone, clientName, `Solicitação de ${produtoDetectado.nome} em estoque`);
-                    return { status: 200, message: 'OK: Escalated to human for in-stock B2C product' };
-                } else {
-                    console.log(`[SNC] Outro produto B2C (${produtoDetectado.nome}) esgotado. Informando indisponibilidade.`);
+                        await chatwoot.enviarNotaPrivada(phone, `🚨 [SNC - INTEGRAÇÃO B2C]: O cliente solicitou *${prod.nome}*. Temos em estoque! Preço cadastrado no ERP: R$ ${infoEstoque.preco}. O robô transferiu o atendimento sem passar o preço, conforme regras de estoque para produtos fora do Top 4.`);
+                        await chatwoot.solicitarSuporteHumano(phone, clientName, `Solicitação de ${prod.nome} em estoque`);
+                        return { status: 200, message: 'OK: Escalated to human for in-stock B2C product' };
+                    } else {
+                        console.log(`[SNC] Outro produto B2C (${prod.nome}) esgotado. Informando indisponibilidade.`);
 
-                    const indisponivel = `Olá! Verifiquei aqui no sistema, mas infelizmente no momento não temos o *${produtoDetectado.nome}* disponível em nosso estoque. 🐾`;
+                        const indisponivel = `Olá! Verifiquei aqui no sistema, mas infelizmente no momento não temos o *${prod.nome}* disponível em nosso estoque. 🐾`;
 
-                    chatState.history.push({ role: 'user', content: clientMessage });
-                    chatState.history.push({ role: 'model', content: indisponivel });
-                    saveStates(states);
+                        chatState.history.push({ role: 'user', content: clientMessage });
+                        chatState.history.push({ role: 'model', content: indisponivel });
+                        saveStates(states);
 
-                    await enviarMensagemBot(phone, indisponivel);
-                    return { status: 200, message: 'OK: Product out of stock' };
+                        await enviarMensagemBot(phone, indisponivel);
+                        return { status: 200, message: 'OK: Product out of stock' };
+                    }
                 }
             }
         }
 
-        const infoEstoque = await gestaoclick.consultarEstoque(produtoDetectado.nome, chatState.tipo_cliente || 'B2C');
-        if (infoEstoque.erro) {
-            throw new Error(`Erro de integração ao consultar estoque de ${produtoDetectado.nome}`);
-        }
+        // Processar estoque de todos os produtos detectados no texto da mensagem
+        for (const prod of produtosDetectados) {
+            const infoEstoque = await gestaoclick.consultarEstoque(prod.nome, chatState.tipo_cliente || 'B2C');
+            if (infoEstoque.erro) {
+                throw new Error(`Erro de integração ao consultar estoque de ${prod.nome}`);
+            }
 
-        // Rastrear produto mencionado para B2C (usado na detecção de confirmação de compra)
-        if (chatState.tipo_cliente !== "B2B" && !chatState.produto_mencionado) {
-            chatState.produto_mencionado = produtoDetectado.nome;
-            saveStates(states);
-        }
+            // Rastrear produto mencionado para B2C (usado na detecção de confirmação de compra)
+            if (chatState.tipo_cliente !== "B2B" && !chatState.produto_mencionado) {
+                chatState.produto_mencionado = prod.nome;
+                saveStates(states);
+            }
 
-        if (infoEstoque.tipo === 'pedido_especial') {
-            // PEDIDO ESPECIAL: produto disponível via fornecedor, prazo conhecido
-            console.log(`📦 [ESTOQUE] '${produtoDetectado.nome}' é pedido especial. Prazo: ${infoEstoque.prazo}`);
-            contextoInjetado += `\n[Produto Pedido Especial 📦]: O produto '${produtoDetectado.nome}' está disponível! ` +
-                `Preço: R$ ${infoEstoque.preco}. PRAZO DE ENTREGA PREVISTO: 1 a 2 dias úteis. ` +
-                `Informe ao cliente de forma direta que o produto está DISPONÍVEL e que a entrega é prevista para 1 ou 2 dias. ` +
-                `Explique que, após verificar a disponibilidade em estoque, daremos a previsão exata de entrega para ele. ` +
-                `NUNCA mencione distribuidor, fornecedor, terceiros ou que faremos pedido ao distribuidor/fornecedor no atendimento ao cliente.`;
-        } else if (infoEstoque.quantidade <= 0) {
-            // ESTOQUE ZERADO REAL (estoque zerado ou negativo): perguntar lista de espera, aguardar confirmação antes de transferir
-            console.log(`🔴 [ESTOQUE] Produto '${produtoDetectado.nome}' com estoque ZERADO (ou negativo: ${infoEstoque.quantidade}).`);
-            contextoInjetado += `\n[ESTOQUE ZERADO 🔴 - AÇÃO OBRIGATÓRIA]: O produto '${produtoDetectado.nome}' está MOMENTANEAMENTE FORA DE ESTOQUE. ` +
-                `Informe com empatia que estamos em processo de reposição. ` +
-                `Pergunte se o cliente gostaria de entrar na *lista de espera* para ser avisado assim que chegar. ` +
-                `Seja acolhedor e transmita confiança. NÃO diga que vai transferir ainda — aguarde a resposta do cliente.`;
-            chatState.produto_sem_estoque = produtoDetectado.nome;
-            chatState.aguardando_confirmar_lista_espera = true;
-            saveStates(states);
-        } else {
-            // ESTOQUE NORMAL: informar quantidade e preço
-            contextoInjetado += `\n[Contexto - Estoque Atualizado]: O produto '${produtoDetectado.nome}' possui *${infoEstoque.quantidade} unidades* em estoque, a R$ ${infoEstoque.preco}.`;
+            if (infoEstoque.tipo === 'pedido_especial') {
+                // PEDIDO ESPECIAL: produto disponível via fornecedor, prazo conhecido
+                console.log(`📦 [ESTOQUE] '${prod.nome}' é pedido especial. Prazo: ${infoEstoque.prazo}`);
+                contextoInjetado += `\n[Produto Pedido Especial 📦]: O produto '${prod.nome}' está disponível! ` +
+                    `Preço: R$ ${infoEstoque.preco}. PRAZO DE ENTREGA PREVISTO: 1 a 2 dias úteis. ` +
+                    `Informe ao cliente de forma direta que o produto está DISPONÍVEL e que a entrega é prevista para 1 ou 2 dias. ` +
+                    `Explique que, após verificar a disponibilidade em estoque, daremos a previsão exata de entrega para ele. ` +
+                    `NUNCA mencione distribuidor, fornecedor, terceiros ou que faremos pedido ao distribuidor/fornecedor no atendimento ao cliente.`;
+            } else if (infoEstoque.quantidade <= 0) {
+                // ESTOQUE ZERADO REAL (estoque zerado ou negativo): perguntar lista de espera, aguardar confirmação antes de transferir
+                console.log(`🔴 [ESTOQUE] Produto '${prod.nome}' com estoque ZERADO.`);
+                contextoInjetado += `\n[Contexto - Estoque Esgotado 🔴]: O produto '${prod.nome}' está MOMENTANEAMENTE FORA DE ESTOQUE. ` +
+                    `Informe com empatia que estamos em processo de reposição. ` +
+                    `Pergunte se o cliente gostaria de entrar na *lista de espera* para ser avisado assim que chegar. ` +
+                    `Seja acolhedor e transmita confiança. NÃO diga que vai transferir ainda — aguarde a resposta do cliente.`;
+                chatState.produto_sem_estoque = prod.nome;
+                chatState.aguardando_confirmar_lista_espera = true;
+                saveStates(states);
+            } else {
+                // ESTOQUE NORMAL: informar quantidade e preço
+                contextoInjetado += `\n[Contexto - Estoque Atualizado]: O produto '${prod.nome}' possui *${infoEstoque.quantidade} unidades* em estoque, a R$ ${infoEstoque.preco}.`;
+            }
         }
     }
 
@@ -661,11 +707,11 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
 6. *FLUXO TUTOR B2C - TRIAGEM RÁPIDA*: Para clientes Tutores (B2C), o seu papel é de *recepcionista inteligente e ágil*, não de vendedor fechador. Dê uma saudação direta e acolhedora, informe rapidamente se o produto está disponível e a faixa de preço geral. O Kyenner fará o atendimento completo e faturamento. Encerre de forma prática e gentil dizendo que vai conectá-lo com o Kyenner para finalizar. **EXCEÇÃO**: Se o produto solicitado estiver esgotado/fora de estoque, NÃO diga que vai transferir a conversa para o Kyenner; em vez disso, apenas ofereça a lista de espera e alternativas, aguardando a resposta do cliente.
 7. *REGRA DE PAGAMENTO / PIX*: Sempre que o cliente (B2B ou B2C) perguntar sobre formas de pagamento, parcelamento ou cartão de crédito, você DEVE informar a taxa de 4.99% do cartão e fornecer OBRIGATORIAMENTE a chave Pix oficial: *(31) 98793-6822* (C6 Bank | Solução Farmacêutica Otimiza).
 8. **MENSAGENS DE PROPAGANDA, SPAM OU PARCERIAS DE TERCEIROS (VENDENDO SERVIÇOS PARA A OTIMIZA)**: Se a mensagem do cliente for uma propaganda, oferta de serviço (marketing, software, agência, contabilidade, etc.) ou proposta de parceria, você **NÃO deve aplicar a regra de Modo Vendedor Ativo**, nem perguntar se ele é tutor/veterinário ou pedir CPF/CRMV. Responda de forma simples, polida e muito curta: *"Agradecemos o contato e a apresentação! No momento não temos interesse em novas contratações ou parcerias desse tipo. Obrigado."*
-9. **MENSAGENS AMBÍGUAS OU SEM CONTEXTO CLARO**: Se o cliente mandar uma mensagem sem contexto definido ou confusa (como "Oi, tudo bem?"), responda de forma natural e acolhedora, pergunte o nome dele e do pet para personalizar o registro inicial, e pergunte como pode ajudar. Se o cliente disser especificamente que tem uma dúvida (como "Pode me ajudar com uma dúvida?"), responda de forma prestativa e acolhedora perguntando qual é a sua dúvida, sem solicitar o nome do cliente/pet ou dados de registro de imediato. Em ambos os casos, não dispare de imediato a pergunta sobre se ele é tutor/veterinário ou solicitações de CPF/CRMV.`;
+9. **MENSAGENS AMBÍGUAS OU SEM CONTEXTO CLARO**: Se o cliente mandar uma mensagem sem contexto definido ou confusa (como "Oi, tudo bem?"), responda de forma natural e acolhedora, pergunte o nome dele e do pet para personalizar o registro inicial, e pergunte como pode ajudar. Se o cliente disser especificamente que tem uma dúvida (como "Pode me ajudar com uma dúvida?"), responda de forma acolhedora, simpática, natural e prestativa se identificando como Aika da Otimiza FarmaVet (ex: "Olá! Com certeza, posso ajudar sim. Pode me dizer qual é a sua dúvida? Estou à disposição para ajudar você e seu pet! 🐾"), sem solicitar dados de CPF/CRMV ou identificação de imediato. Em ambos os casos, não dispare de imediato a pergunta sobre se ele é tutor/veterinário ou solicitações de CPF/CRMV.`;
 
     // Salvar histórico da conversa
     chatState.history.push({ role: 'user', content: clientMessage });
-    if (chatState.history.length > 20) chatState.history.shift(); // Limitar histórico para 20 mensagens
+    if (chatState.history.length > 10) chatState.history.shift(); // Limitar histórico para 10 mensagens (5 turnos) para manter foco e economia de prompt
 
     // --- CHAMADA DA IA (GEMINI) ---
     try {

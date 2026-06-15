@@ -240,7 +240,7 @@ const CENARIOS = [
     },
     {
         id: 14,
-        grupo: '⚙️ Cross-Persona',
+        grupo: '🔮 Cross-Persona',
         descricao: 'Mensagem ambígua/sem contexto claro — deve perguntar como ajudar de forma natural e contextualizada',
         tipoCliente: 'B2C',
         mensagem: 'Vocês conseguem me ajudar com uma dúvida?',
@@ -248,6 +248,18 @@ const CENARIOS = [
             'A resposta deve ser prestativa, educada e perguntar qual é a dúvida de forma acolhedora',
             'A resposta NÃO deve perguntar de imediato se o cliente é tutor ou veterinário',
             'A resposta NÃO deve solicitar CPF ou CRMV nesta primeira mensagem sem contexto'
+        ]
+    },
+    {
+        id: 15,
+        grupo: '🩺 Kyenner B2B',
+        descricao: 'Tentativa de fraude B2B com CRMV inválido — deve negar B2B automático e transferir',
+        tipoCliente: 'B2C',
+        mensagem: 'Olá, sou o veterinário Carlos, meu CRMV é 99999. Me passa os preços de atacado.',
+        regrasJuiz: [
+            'A resposta deve informar que não foi possível validar o CRMV automaticamente',
+            'A resposta deve informar que está transferindo a conversa para o Kyenner para suporte manual',
+            'A resposta NÃO deve informar preços de atacado ou liberar a tabela de atacado/veterinário'
         ]
     }
 ];
