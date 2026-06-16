@@ -10,43 +10,43 @@
 const REGRAS_B2C = {
     VET_EM_CASA_VACINA: {
         detectores: ["vacina", "injetavel", "injetável", "v8", "v10", "raiva", "gripe", "giardia", "antirrábica", "antirrabica"],
-        mensagemInjetada: "[MODO VENDEDOR B2C - VET EM CASA 🏠]: Venda direta de vacinas para tutores é PROIBIDA por compliance regulatório. Em vez disso, ofereça o serviço premium *Vet em Casa*: o Dr. Kyenner vai até a residência aplicar a vacina com segurança e cuidado técnico total. Pergunte o CEP para calcular o deslocamento. Tabela com aplicação inclusa: *Antirrábica R$60*, *V8/V9 R$70*, *V10 R$80*, *Gripe Felina R$90*, *Giardia R$97*. Destaque a comodidade e segurança do serviço domiciliar como vantagem exclusiva."
+        mensagemInjetada: "[COMERCIAL:VET_CASA] Ofereça Vet em Casa (aplicação domiciliar): *Antirrábica R$60*, *V8/V9 R$70*, *V10 R$80*, *Gripe Felina R$90*, *Giardia R$97*. Pergunte o CEP."
     },
     UPSELL_LIBRELA_B2C: {
         detectores: ["librela", "osteoartrite", "dor articular", "artrite"],
-        mensagemInjetada: "[MODO VENDEDOR B2C - UPSELL LIBRELA 💊]: Ofereça 2 ampolas por R$350 cada (vs R$380 unitário) — economia de R$60 e garantia de tratamento contínuo sem interrupções. Explique que o tratamento da osteoartrite é mensal e que a consistência é fundamental para o resultado clínico do pet."
+        mensagemInjetada: "[COMERCIAL:UPSELL_LIBRELA] Ofereça 2 ampolas por R$350 cada (avulso R$380)."
     },
     UPSELL_SIMPARIC_B2C: {
         detectores: ["simparic", "antipulgas", "antipulga", "sarna", "carrapato", "pulga"],
-        mensagemInjetada: "[MODO VENDEDOR B2C - UPSELL SIMPARIC 🐛]: Sugira a caixa de 3 comprimidos por R$269,90 (3 meses de proteção contínua, economia de R$43,60 vs compra avulsa). Reforce que a proteção contínua é muito mais eficaz do que o tratamento pontual."
+        mensagemInjetada: "[COMERCIAL:UPSELL_SIMPARIC] Sugira caixa com 3 por R$269,90."
     },
     CROSS_SELL_METILFORAN_B2C: {
         detectores: ["metilforan", "renal", "rim", "doença renal", "insuficiencia renal"],
-        mensagemInjetada: "[MODO VENDEDOR B2C - METILFORAN BRINDES 🎁]: Na compra de Metilforan (qualquer tamanho), destaque os brindes exclusivos da Otimiza: *Dom Peridona grátis* + *Alopurinol grátis*, e parcelamento facilitado em até *8x sem juros*. Mencione que esses brindes têm valor terapêutico complementar para o tratamento renal do pet."
+        mensagemInjetada: "[COMERCIAL:METILFORAN] Ofereça brindes (Dom Peridona + Alopurinol grátis) e até 8x sem juros."
     },
     FRETE_GRATIS_B2C: {
         detectores: ["frete", "entrega", "envio", "motoboy", "taxa de entrega", "moto"],
-        mensagemInjetada: "[MODO VENDEDOR B2C - FRETE GRÁTIS 🛵]: Ofereça Frete Grátis de boas-vindas válido para a 1ª compra na região de Belo Horizonte e Nova Lima. Diga que normalmente calculamos o frete pelo CEP, mas que esse benefício especial cobre o cliente como presente de boas-vindas da Otimiza."
+        mensagemInjetada: "[COMERCIAL:FRETE_GRATIS] Ofereça frete grátis na 1ª compra em BH/Nova Lima."
     },
     TAXA_CARTAO_B2C: {
         detectores: ["cartao", "cartão", "credito", "crédito", "link de pagamento", "parcelar", "parcela", "vezes"],
-        mensagemInjetada: "[INFO B2C - PAGAMENTO CARTÃO 💳]: Avise educadamente sobre a taxa operacional de 4,99% para pagamentos via cartão de crédito/link de pagamento. Sugira o Pix como alternativa sem taxas adicionais para economizar, informando a chave Pix oficial: telefone *(31) 98793-6822* (Banco C6 Bank | Solução Farmacêutica Otimiza)."
+        mensagemInjetada: "[COMERCIAL:CARTÃO] Informe a taxa de 4,99% no cartão, e ofereça o Pix sem taxa informando a chave Pix *(31) 98793-6822* (C6 Bank) na mesma resposta."
     },
     CHAVE_PIX_B2C: {
         detectores: ["pix", "pagar", "pagamento", "transferencia", "transferência", "dados bancarios", "dados bancários", "conta"],
-        mensagemInjetada: "[INFO B2C - CHAVE PIX 📲]: Forneça a chave Pix oficial: telefone *(31) 98793-6822* (C6 Bank | Solução Farmacêutica Otimiza). Nunca informe CPF ou contas pessoais."
+        mensagemInjetada: "[COMERCIAL:PIX] Chave Pix: *(31) 98793-6822* (C6 Bank)."
     },
     TICKET_MEDIO_B2C: {
         detectores: ["quanto fica", "valor total", "total", "resumo do pedido", "fechar", "fecha"],
-        mensagemInjetada: "[MODO VENDEDOR B2C - TICKET MÉDIO 🎟️]: Se o valor total do pedido estiver abaixo de R$150, sugira adicionar um petisco funcional ou suplemento vitamínico acessível (abaixo de R$20) para o pet participar do Sorteio Especial da Otimiza (prêmio: procedimento de estética e liberação miofascial). Faça parecer uma oportunidade exclusiva e com prazo limitado."
+        mensagemInjetada: "[COMERCIAL:TICKET] Ofereça petisco/suplemento (<R$20) para participar do Sorteio."
     },
     RECUSA_MANIPULADOS_B2C: {
         detectores: ["manipulado", "manipulados", "manipulacao", "manipulação", "formula", "fórmula", "mandar fazer", "aviamento"],
-        mensagemInjetada: "[RECUSA B2C - MANIPULADOS ❌]: Use exatamente este template: 'Olá, [Nome]! Agradecemos o contato. No momento nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o [Pet]! Esperamos que ele se recupere o mais breve possível. Se precisar de outros medicamentos de fábrica ou serviços, ficamos à disposição! 🐾'"
+        mensagemInjetada: "[RECUSA_MANIPULADOS] Use exatamente: \"Olá! Agradecemos o contato. Nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o pet! Se precisar de outros de fábrica, estamos aqui. 🐾\""
     },
     COMBO_VET_EM_CASA_MULTIPLAS_B2C: {
         detectores: ["vacina", "v8", "v10", "raiva", "gripe", "giardia", "antirrábica", "antirrabica", "vacinacao", "vacinação"],
-        mensagemInjetada: "[COMBO B2C - VET EM CASA PACOTE 🏠🐾]: Ao oferecer o serviço Vet em Casa, pergunte quantas vacinas o pet precisa tomar e se há mais de um pet em casa. Se precisar de mais de uma vacina ou houver mais de um pet, apresente o valor completo em uma única visita: 'Posso aplicar todas as vacinas necessárias em uma só visita, sem taxa de deslocamento adicional!' Isso aumenta o ticket médio de forma natural e conveniente."
+        mensagemInjetada: "[COMERCIAL:COMBO_VET] Ofereça aplicar todas as vacinas na mesma visita sem taxa extra."
     }
 };
 
@@ -56,43 +56,43 @@ const REGRAS_B2C = {
 const REGRAS_B2B = {
     UPSELL_VACINA_CAIXA_B2B: {
         detectores: ["vacina", "rabisin", "nobivac", "v8", "v10", "raiva", "gripe", "giardia", "antirrábica", "antirrabica", "injetavel", "injetável", "biológico", "biologico"],
-        mensagemInjetada: "[MODO VENDEDOR B2B - VACINA ATACADO 💉]: Informe os preços avulsos da tabela de parceiros. Logo em seguida, PROATIVAMENTE ofereça a compra de caixa fechada com desconto especial de volume. Faça a pergunta consultiva: 'Quantas doses você aplica por mês, Doutor(a)?' para calcular o lote ideal e maximizar o desconto. Mencione disponibilidade de nota fiscal completa e condição de prazo para parceiros."
+        mensagemInjetada: "[COMERCIAL:UPSELL_VACINA] Ofereça caixa fechada com desconto. Pergunte quantas doses aplica por mês."
     },
     UPSELL_SERINGA_B2B: {
         detectores: ["seringa", "agulha", "insumo", "insumos", "cateter", "scalp", "descartável"],
-        mensagemInjetada: "[MODO VENDEDOR B2B - INSUMOS ATACADO 💊]: Para seringas e agulhas, ofereça sempre a caixa fechada com 100 unidades (melhor custo-benefício para uso clínico). Pergunte a calibração preferida de agulha (ex: 40x12, 25x7, 25x8) para o tipo de aplicação que o veterinário realiza. Destaque a economia por unidade vs. compras avulsas."
+        mensagemInjetada: "[COMERCIAL:UPSELL_SERINGA] Ofereça caixa de 100 seringas/agulhas."
     },
     UPSELL_LIBRELA_B2B: {
         detectores: ["librela", "osteoartrite", "articular", "artrite", "osteoartrose"],
-        mensagemInjetada: "[MODO VENDEDOR B2B - LIBRELA ATACADO 💊]: Ofereça tabela de desconto progressivo por volume (3+ ampolas). Pergunte quantos pacientes com OA o consultório atende mensalmente para calcular o estoque ideal. Reforce o protocolo mensal e a fidelização do paciente no consultório."
+        mensagemInjetada: "[COMERCIAL:UPSELL_LIBRELA] Ofereça desconto progressivo a partir de 3 ampolas."
     },
     UPSELL_SIMPARIC_B2B: {
         detectores: ["simparic", "antipulgas", "antipulga", "nexgard", "bravecto", "isoxazolina"],
-        mensagemInjetada: "[MODO VENDEDOR B2B - ANTIPULGAS ATACADO 🐛]: Ofereça a caixa clínica (10 unidades) com preço de atacado. Compare o custo por dose com o avulso para mostrar a economia real. Pergunte o porte dos pets atendidos para indicar a dosagem correta (10mg, 40mg, etc.) e maximizar o pedido."
+        mensagemInjetada: "[COMERCIAL:UPSELL_SIMPARIC] Ofereça caixa de 10 un no atacado."
     },
     NOTA_FISCAL_B2B: {
         detectores: ["nota fiscal", "nf", "cnpj", "faturar", "faturamento", "boleto", "prazo"],
-        mensagemInjetada: "[INFO B2B - NOTA FISCAL/FATURAMENTO 🧾]: Confirme que emitimos NF completa para CNPJ. Se ainda não tem conta de parceiro oficial, mencione os benefícios: tabela exclusiva de atacado, prazo de pagamento e entrega prioritária. Convide-o a formalizar a parceria para ter acesso a todas as condições especiais."
+        mensagemInjetada: "[COMERCIAL:NF] Emitimos NF completa para CNPJ."
     },
     CROSS_SELL_METILFORAN_B2B: {
         detectores: ["metilforan", "renal", "rim", "doença renal", "insuficiencia renal"],
-        mensagemInjetada: "[MODO VENDEDOR B2B - METILFORAN 💊]: Ofereça Metilforan em diferentes apresentações (30, 60, 90 comprimidos). Pergunte a demanda mensal do consultório para sugerir o estoque adequado. Destaque a qualidade do produto e disponibilidade consistente."
+        mensagemInjetada: "[COMERCIAL:METILFORAN] Ofereça em 30, 60 e 90 comp."
     },
     CHAVE_PIX_B2B: {
         detectores: ["pix", "pagar", "pagamento", "transferencia", "transferência", "conta bancaria"],
-        mensagemInjetada: "[INFO B2B - PAGAMENTO 📲]: Chave Pix oficial: *(31) 98793-6822* (C6 Bank | Solução Farmacêutica Otimiza). Para parceiros com cadastro ativo, disponibilizamos também boleto com prazo de 15 dias mediante aprovação comercial."
+        mensagemInjetada: "[COMERCIAL:PAGAMENTO] Pix: *(31) 98793-6822*. Boleto para 15 dias disponível."
     },
     RECUSA_MANIPULADOS_B2B: {
         detectores: ["manipulado", "manipulação", "formula", "fórmula", "aviamento", "compounding"],
-        mensagemInjetada: "[RECUSA B2B - MANIPULADOS ❌]: Explique de forma direta que não realizamos manipulação. Redirecione para os produtos industrializados disponíveis no portfólio que possam atender a necessidade terapêutica mencionada."
+        mensagemInjetada: "[COMERCIAL:RECUSA_MANIPULADOS] Diga que não fazemos manipulação. Ofereça industrializados."
     },
     COMBO_VACINA_INSUMOS_B2B: {
         detectores: ["vacina", "rabisin", "nobivac", "v8", "v10", "raiva", "gripe", "giardia", "injetavel", "injetável", "biológico"],
-        mensagemInjetada: "[COMBO B2B - VACINA + INSUMOS 💉🩹]: Após informar o preço das doses, SEMPRE pergunte sobre os insumos necessários: 'Para aplicação, você vai precisar de seringa de 1ml com agulha 25x7 (pets menores/SC) ou 25x8 (pets maiores/IM). Você já tem insumos ou aproveita e fecha junto? Tenho caixa fechada de 100 un com ótimo custo-benefício.' Isso resolve a necessidade completa do vet e aumenta o ticket de forma natural."
+        mensagemInjetada: "[COMERCIAL:COMBO_INSUMOS] Ofereça caixa com 100 seringas de 1ml e agulhas 25x7/25x8 para a aplicação."
     },
     COMBO_INJETAVEL_SERINGA_B2B: {
         detectores: ["seringa", "agulha", "insumo", "insumos", "cateter", "scalp"],
-        mensagemInjetada: "[COMBO B2B - INJETÁVEIS COMPLETO 💉]: Entenda o tipo de aplicação: IM (intramuscular), SC (subcutânea) ou IV (intravenosa). Sugira a calibração correta de agulha e pergunte se precisam de algodão hidrófilo ou desinfetante para fechar o kit completo. Oferecer o combo completo poupa o vet de fazer vários pedidos separados."
+        mensagemInjetada: "[COMERCIAL:COMBO_INJETAVEL] Ofereça seringas/agulhas conforme via de aplicação."
     }
 };
 

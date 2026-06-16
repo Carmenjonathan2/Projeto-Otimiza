@@ -93,7 +93,7 @@ async function transcreverAudioZapi(payload, phone, clientName) {
         const mimeType = (payload.audio && payload.audio.mimeType) || 'audio/ogg';
 
         console.log(`[BOT] Enviando áudio (${audioBuffer.length} bytes, ${mimeType}) ao Gemini para transcrição...`);
-        const modelTranscribe = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+        const modelTranscribe = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
         const prompt = "Transcreva exatamente o áudio enviado pelo cliente em português do Brasil. Não acrescente comentários, tags ou introduções. Se o áudio estiver em silêncio ou totalmente incompreensível, responda apenas com '[Áudio incompreensível]'.";
         
         const result = await modelTranscribe.generateContent([
@@ -163,7 +163,10 @@ async function validarReceitaPorIA(imageUrl, mimeType) {
         const cleanMimeType = (mimeType || 'image/jpeg').split(';')[0].trim();
 
         console.log(`[RECEITA-IA] Enviando imagem (${imageBuffer.length} bytes, ${cleanMimeType}) ao Gemini Vision...`);
-        const modelVision = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+        const modelVision = genAI.getGenerativeModel({
+            model: "gemini-2.0-flash",
+            generationConfig: { maxOutputTokens: 250, temperature: 0.1 }
+        });
 
         const promptReceita = `Você é um sistema de compliance farmacêutico veterinário brasileiro. Analise a imagem enviada como RECEITA VETERINÁRIA.\n\nVerifique OBRIGATORIAMENTE:\n1. Assinatura do médico veterinário (manuscrita ou eletrônica)\n2. Carimbo legível com número do CRMV\n3. Nome do paciente (pet) ou tutor\n4. Nome do medicamento prescrito\n\nResponda SOMENTE com JSON válido neste formato exato (sem markdown, sem texto extra):\n{"valida":true,"itens_ok":[],"itens_faltantes":[],"crmv_encontrado":null,"medico_encontrado":null,"pet_encontrado":null,"medicamento_encontrado":null,"motivo_invalidade":null}`;
 
@@ -204,6 +207,12 @@ function salvarLogConversa(dadosLog) {
     }
 }
 
+// Função auxiliar para limpar títulos honoríficos de nomes
+function limparNomeCliente(nome) {
+    if (!nome) return nome;
+    return nome.replace(/\b(dr|dra|doutor|doutora|drs|dras)\b\.?\s*/gi, '').trim();
+}
+
 // =========================================================================
 // 2. WEBHOOK: RECEBIMENTO DE MENSAGENS DO WHATSAPP (VIA Z-API)
 // =========================================================================
@@ -216,7 +225,8 @@ async function processarMensagem(payload) {
     console.log("[Z-API] Raw Payload:", JSON.stringify(payload, null, 2));
 
     const phone = payload.phone;
-    const clientName = payload.senderName || "Cliente";
+    const clientName = limparNomeCliente(payload.senderName || "Cliente");
+    let crmvAnotadoParaInjetar = null;
 
     // Deduplicação de mensagens
     const messageId = payload.messageId || payload.id || (payload.message && payload.message.messageId);
@@ -326,7 +336,7 @@ async function processarMensagem(payload) {
     if (!chatState.nome_cadastro && !chatState.tipo_cliente) {
         const cadastroTel = await gestaoclick.buscarCadastroPorTelefone(phone);
         if (cadastroTel && cadastroTel.id) {
-            chatState.nome_cadastro = cadastroTel.nome;
+            chatState.nome_cadastro = limparNomeCliente(cadastroTel.nome);
             chatState.tipo_cliente = cadastroTel.tipo_cliente;
             chatState.crmv = cadastroTel.crmv || chatState.crmv;
             saveStates(states);
@@ -343,7 +353,7 @@ async function processarMensagem(payload) {
         
         const cadastroCpf = await gestaoclick.buscarCadastroPorCPF(docExtraido);
         if (cadastroCpf && cadastroCpf.id) {
-            chatState.nome_cadastro = cadastroCpf.nome;
+            chatState.nome_cadastro = limparNomeCliente(cadastroCpf.nome);
             chatState.tipo_cliente = cadastroCpf.tipo_cliente;
             chatState.crmv = cadastroCpf.crmv || chatState.crmv;
             console.log(`[GESTAOCLICK] Cadastro localizado via CPF! Nome: ${chatState.nome_cadastro} | Tipo: ${chatState.tipo_cliente}`);
@@ -374,9 +384,10 @@ async function processarMensagem(payload) {
         
         const cadastroCrmv = await gestaoclick.buscarCadastroPorCRMV(crmvExtraido);
         if (cadastroCrmv && cadastroCrmv.id) {
-            chatState.nome_cadastro = cadastroCrmv.nome;
+            chatState.nome_cadastro = limparNomeCliente(cadastroCrmv.nome);
             chatState.tipo_cliente = "B2B";
             console.log(`[GESTAOCLICK] Cadastro localizado via CRMV! Nome: ${chatState.nome_cadastro}`);
+            crmvAnotadoParaInjetar = { crmv: crmvExtraido, nome: chatState.nome_cadastro.split(' ')[0] };
         } else {
             console.log(`[GESTAOCLICK] CRMV ${crmvExtraido} não localizado no GestãoClick. Validando registro profissional via CFMV...`);
             const cfmv = require('./src/integracoes/integracao_cfmv');
@@ -384,6 +395,7 @@ async function processarMensagem(payload) {
 
             if (resultadoValidacao.valido) {
                 transferNovoVet = true;
+                crmvAnotadoParaInjetar = { crmv: crmvExtraido, nome: clientName.split(' ')[0] };
             } else {
                 console.log(`[SNC] CRMV ${crmvExtraido} inválido ou pendente de validação humana pelo CFMV. Negando B2B automático.`);
                 chatState.tipo_cliente = "B2C"; // Mantém em atendimento geral (B2C)
@@ -457,7 +469,7 @@ async function processarMensagem(payload) {
         );
 
         // Atualizar estado local: continua como B2B sem transbordo!
-        chatState.nome_cadastro = clientName || `Veterinário CRMV ${chatState.crmv}`;
+        chatState.nome_cadastro = limparNomeCliente(clientName || `Veterinário CRMV ${chatState.crmv}`);
         chatState.tipo_cliente = "B2B";
         saveStates(states);
         console.log(`✅ [SNC] Novo vet auto-cadastrado + equipe alertada no Telegram. Atendimento continua normalmente.`);
@@ -533,6 +545,9 @@ async function processarMensagem(payload) {
     // --- CONSULTA INTEGRAÇÃO / SUPORTE OPERACIONAL À IA ---
     // A IA pode precisar consultar estoque ou dados no GestãoClick. O script fornece isso injetando contexto temporário.
     let contextoInjetado = "";
+    if (crmvAnotadoParaInjetar) {
+        contextoInjetado += `\n[INSTRUÇÃO DE CRMV - MANDATÓRIA]: Cite que o CRMV *${crmvAnotadoParaInjetar.crmv}* foi anotado, chame o cliente pelo primeiro nome próprio sem títulos (ex: chame Beatriz ao invés de Dra. Beatriz) e pergunte como pode ajudar. Exemplo: "${crmvAnotadoParaInjetar.nome}, CRMV *${crmvAnotadoParaInjetar.crmv}* anotado. Como posso ajudar com seu pedido hoje?"`;
+    }
 
     // Consulta de disponibilidade de produto: expandido para incluir vacinas (B2B) e medicamentos de alto ticket
     const produtosRastreados = [
@@ -606,24 +621,17 @@ async function processarMensagem(payload) {
             if (infoEstoque.tipo === 'pedido_especial') {
                 // PEDIDO ESPECIAL: produto disponível via fornecedor, prazo conhecido
                 console.log(`📦 [ESTOQUE] '${prod.nome}' é pedido especial. Prazo: ${infoEstoque.prazo}`);
-                contextoInjetado += `\n[Produto Pedido Especial 📦]: O produto '${prod.nome}' está disponível! ` +
-                    `Preço: R$ ${infoEstoque.preco}. PRAZO DE ENTREGA PREVISTO: 1 a 2 dias úteis. ` +
-                    `Informe ao cliente de forma direta que o produto está DISPONÍVEL e que a entrega é prevista para 1 ou 2 dias. ` +
-                    `Explique que, após verificar a disponibilidade em estoque, daremos a previsão exata de entrega para ele. ` +
-                    `NUNCA mencione distribuidor, fornecedor, terceiros ou que faremos pedido ao distribuidor/fornecedor no atendimento ao cliente.`;
+                contextoInjetado += `\n[INSTRUÇÃO DE ESTOQUE]: O produto está disponível por R$ ${infoEstoque.preco}. Informe o preço de R$ 380 unitário e a promoção de R$ 350 cada na compra de 2 ampolas. Diga que a entrega é em 1 a 2 dias úteis, e que a previsão exata de entrega será dada após confirmarmos o pedido. NUNCA cite distribuidor ou fornecedor.`;
             } else if (infoEstoque.quantidade <= 0) {
                 // ESTOQUE ZERADO REAL (estoque zerado ou negativo): perguntar lista de espera, aguardar confirmação antes de transferir
                 console.log(`🔴 [ESTOQUE] Produto '${prod.nome}' com estoque ZERADO.`);
-                contextoInjetado += `\n[Contexto - Estoque Esgotado 🔴]: O produto '${prod.nome}' está MOMENTANEAMENTE FORA DE ESTOQUE. ` +
-                    `Informe com empatia que estamos em processo de reposição. ` +
-                    `Pergunte se o cliente gostaria de entrar na *lista de espera* para ser avisado assim que chegar. ` +
-                    `Seja acolhedor e transmita confiança. NÃO diga que vai transferir ainda — aguarde a resposta do cliente.`;
+                contextoInjetado += `\n[INSTRUÇÃO DE ESTOQUE]: O produto está esgotado. Ofereça a lista de espera e aguarde o cliente responder (NÃO diga que vai transferir ainda).`;
                 chatState.produto_sem_estoque = prod.nome;
                 chatState.aguardando_confirmar_lista_espera = true;
                 saveStates(states);
             } else {
                 // ESTOQUE NORMAL: informar quantidade e preço
-                contextoInjetado += `\n[Contexto - Estoque Atualizado]: O produto '${prod.nome}' possui *${infoEstoque.quantidade} unidades* em estoque, a R$ ${infoEstoque.preco}.`;
+                contextoInjetado += `\n[INSTRUÇÃO DE ESTOQUE]: O produto está disponível. Temos ${infoEstoque.quantidade} unidades por R$ ${infoEstoque.preco}.`;
             }
         }
     }
@@ -637,12 +645,12 @@ async function processarMensagem(payload) {
         chatState.medicamento_restrito = medicamentoRestrito;
         saveStates(states);
         console.log(`[COMPLIANCE] B2C solicitou '${medicamentoRestrito}' sem receita validada. Ativando aguardando_receita.`);
-        contextoInjetado += `\n[Contexto de Sistema - COMPLIANCE OBRIGATÓRIO 🔒]: O cliente B2C solicitou '${medicamentoRestrito}', medicamento de alto controle. A RECEITA VETERINÁRIA AINDA NÃO FOI ENVIADA/VALIDADA. Você DEVE solicitar, de forma acolhedora (como Aika 🐾), que o cliente envie uma *foto ou PDF da receita veterinária* diretamente aqui no chat. Explique que a receita precisa conter: assinatura do veterinário, carimbo com CRMV legível e nome do pet. Não informe o preço final nem confirme a venda enquanto a receita não for enviada e aprovada pela IA.`;
+        contextoInjetado += `\n[INSTRUÇÃO DE COMPLIANCE]: Receita pendente para ${medicamentoRestrito}. Peça foto ou PDF da receita contendo carimbo, CRMV legível, assinatura e nome do pet. NÃO confirme preço nem venda.`;
     }
 
     // Injetar status da receita no contexto caso já tenha sido validada
     if (chatState.receita_validada && chatState.medicamento_restrito) {
-        contextoInjetado += `\n[Contexto de Sistema - COMPLIANCE OK ✅]: Receita veterinária para '${chatState.medicamento_restrito}' foi validada e aprovada pela IA. Você pode prosseguir normalmente com a venda — solicite os dados de entrega e pagamento.`;
+        contextoInjetado += `\n[INSTRUÇÃO DE COMPLIANCE]: Receita para ${chatState.medicamento_restrito} validada. Prossiga com o pedido, dados de entrega e faturamento.`;
     }
 
     // --- DETECÇÃO DE INTENÇÃO: Lista de espera (P1) e confirmação de compra B2C (P2) ---
@@ -657,7 +665,7 @@ async function processarMensagem(payload) {
             chatState.aguardando_confirmar_lista_espera = false;
             saveStates(states);
             console.log(`⏳ [SNC] Lista de espera confirmada para ${phone}: ${chatState.produto_sem_estoque}`);
-            contextoInjetado += `\n[LISTA DE ESPERA CONFIRMADA ✅]: O cliente confirmou que quer ser avisado quando '${chatState.produto_sem_estoque}' chegar. Responda com entusiasmo dizendo que anotou o interesse e que vai avisar na hora em que o produto chegar. Seja acolhedor e transmita confiança de que vai cuidar disso pessoalmente.`;
+            contextoInjetado += `\n[INSTRUÇÃO DE VENDA]: O cliente quer entrar na lista de espera. Diga com entusiasmo que anotou e vai avisar quando chegar.`;
         }
     }
 
@@ -666,33 +674,106 @@ async function processarMensagem(payload) {
     if (chatState.tipo_cliente !== "B2B" && chatState.produto_mencionado && palavrasCompraB2C.some(p => mensagemLower.includes(p))) {
         b2cCompraConfirmadaNestaMsg = true;
         console.log(`💳 [SNC] Compra B2C confirmada para ${phone}: ${chatState.produto_mencionado}`);
-        contextoInjetado += `\n[COMPRA CONFIRMADA B2C ✅]: O tutor confirmou que quer comprar '${chatState.produto_mencionado}'. Responda confirmando o pedido com entusiasmo e diga que vai conectá-lo com o Kyenner para finalizar todos os detalhes (endereço de entrega, pagamento e prazo). Seja acolhedor e transmita urgente positiva.`;
+        contextoInjetado += `\n[INSTRUÇÃO DE VENDA]: Compra confirmada de ${chatState.produto_mencionado}. Responda confirmando o pedido de forma positiva e entusiasmada, forneça a chave Pix *(31) 98793-6822* (C6 Bank) e diga que vai conectar com o Kyenner para finalizar os detalhes de entrega.`;
     }
     // Injetar contexto de CRM do cliente localizado no GestãoClick
     if (chatState.nome_cadastro) {
-        contextoInjetado += `\n[Contexto de Sistema - CRM]: Cliente IDENTIFICADO no GestãoClick. Nome do Cadastro: '${chatState.nome_cadastro}', Segmento: '${chatState.tipo_cliente}'${chatState.crmv ? `, CRMV: '${chatState.crmv}'` : ''}.
-ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.nome_cadastro}' do cadastro. Como ele(a) já é cadastrado(a) no ERP, NÃO peça mais o CRMV ou CPF e siga direto para o atendimento técnico (caso B2B) ou de tutor (caso B2C). Se for B2B, fale com ele(a) de forma direta e profissional, chamando pelo nome próprio e usando a persona do Kyenner/Kiki (nunca use títulos honoríficos como Dr. ou Dra.).`;
+        contextoInjetado += `\n[INSTRUÇÃO DE CRM]: Nome do cliente cadastrado é '${chatState.nome_cadastro}' (${chatState.tipo_cliente}). NÃO peça CRMV ou CPF. Fale com ele chamando pelo nome próprio. Se B2B, fale como Kyenner, sem Dr/Dra.`;
     } else {
-        contextoInjetado += `\n[Contexto de Sistema - CRM]: Cliente não localizado no GestãoClick.`;
-        if (chatState.crmv) {
-            contextoInjetado += ` CRMV informado: '${chatState.crmv}', mas NÃO localizado no banco de dados.`;
-        }
-        if (chatState.cpf) {
-            contextoInjetado += ` CPF informado: '${chatState.cpf}', mas NÃO localizado no banco de dados.`;
-        }
+        contextoInjetado += `\n[INSTRUÇÃO DE CRM]: Cliente não localizado no GestãoClick. CPF/CRMV pendente.`;
     }
 
     // Aplicar estratégias de inteligência comercial segmentadas por tipo de cliente (B2B ou B2C)
     const oportunidadeVenda = vendas.verificarOportunidadeVenda(clientMessage, chatState.tipo_cliente);
     if (oportunidadeVenda) {
-        contextoInjetado += `\n[Estratégia Comercial Ativa (${chatState.tipo_cliente || 'B2C'})]: ${oportunidadeVenda}`;
+        contextoInjetado += `\n[INSTRUÇÃO DE VENDAS]: ${oportunidadeVenda}`;
     }
 
-    const systemInstructionConcise = `[Diretriz de Concisão, Estilo e Formatação - CRÍTICO]:
-1. **Concisão**: Seja direto e simpático. Responda em no máximo 1 ou 2 parágrafos curtos. Evite listas longas de produtos. Cite apenas as 2 ou 3 principais opções relevantes.
-2. **Negrito no WhatsApp**: Use SEMPRE apenas um asterisco (*texto*) para formatar negritos. Nunca use dois asteriscos (**texto**).
-3. **Modo Vendedor Ativo**: Após responder a dúvida principal, ofereça proativamente pelo menos 1 opção de upsell ou complemento (lote maior, combo, etc.) ou uma próxima etapa clara de compra. Seja consultivo e natural. (Exceção: Spam/propaganda).
-4. **Fluxo Tutor B2C (Triagem)**: Seu papel com tutores é de recepcionista inteligente e ágil. Dê boas-vindas, informe disponibilidade e faixa de preço geral, e encerre dizendo que vai conectá-lo com o Kyenner para finalizar. (Exceção: se o produto estiver esgotado, ofereça lista de espera e aguarde a resposta do cliente antes de transferir).`;
+    // Se o cliente B2C perguntar sobre vacinas ou aplicação, injetar instrução clara de Vet em Casa
+    if (chatState.tipo_cliente !== "B2B") {
+        const vacinaKeywords = ["vacina", "antirrábica", "antirrabica", "v8", "v9", "v10", "gripe", "giardia", "raiva", "imunização", "imunizacao"];
+        if (vacinaKeywords.some(kw => mensagemLower.includes(kw))) {
+            contextoInjetado += `\n[INSTRUÇÃO DE VACINA B2C - MANDATÓRIA]: Ofereça o serviço **Vet em Casa** com aplicação domiciliar por nosso veterinário. Valores: Antirrábica *R$60*, V8/V9 *R$70*, V10 *R$80*, Gripe *R$90*, Giardia *R$97*. Não vendemos vacinas avulsas nem para aplicar sozinho. Peça os nomes do tutor e pet se for o primeiro contato.`;
+        }
+    }
+
+    let activeSystemInstruction = "";
+    if (chatState.tipo_cliente === 'B2B') {
+        activeSystemInstruction = `[ESTILO DE RESPOSTA — KYENNER B2B — OBRIGATÓRIO]:
+Você é o Kyenner, atendente B2B da farmácia. Você atende médicos veterinários parceiros.
+Responda de forma extremamente técnica, direta, curta (máximo 2 frases) e estritamente profissional.
+
+Regras de Ouro:
+- MÁXIMO 2 frases por mensagem.
+- NUNCA use emojis (como 🐾, 💜) nem termos afetivos ou infantis (fofinho, auau, parceirinho).
+- NUNCA use títulos honoríficos como Dr., Dra., Doutor ou Doutora, mesmo que o veterinário se apresente assim. Chame o veterinário apenas pelo nome próprio sem títulos (ex: chame Beatriz ao invés de Dra. Beatriz).
+- NUNCA termine com "Estou à disposição", "Qualquer dúvida estou aqui", ou "Posso ajudar com mais algo?".
+- NUNCA faça resumos ou repetições.
+- Negrito: use apenas *texto* (um asterisco) para preço, nome de produto ou ação importante.
+- Cotação de vacinas: Informe os preços de atacado das vacinas (ex: Rabisin *R$ 17,90*, Nobivac V8 *R$ 44,50*). NUNCA mencione preços de aplicação domiciliar nem ofereça Vet em Casa.
+- Pedido de vacinas: Você DEVE usar até 3 frases para: 1) Informar o preço (Rabisin *R$ 17,90*, Nobivac V8 *R$ 44,50*); 2) Oferecer proativamente a caixa fechada com 100 seringas de 1ml e agulhas para a aplicação; 3) Perguntar quantas doses costuma aplicar por mês para sugerir o lote ideal. Exemplo: "Rabisin fica *R$ 17,90* a dose. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação? Quantas doses você aplica por mês?"
+- Se houver instruções específicas de estoque ou preços de atacado no contexto, informe os preços e quantidades exatamente como constam no contexto.
+- Se a resposta couber em poucas palavras, seja breve.`;
+    } else {
+        activeSystemInstruction = `[ESTILO DE RESPOSTA — AIKA B2C — OBRIGATÓRIO]:
+Você é a Aika, atendente virtual B2C da farmácia. Você atende tutores de pets.
+Responda de forma acolhedora, simpática, direta e curta (máximo 2 frases), como um atendente ocupado mas carinhoso.
+
+Regras de Ouro:
+- MÁXIMO 2 frases por mensagem.
+- Use sempre exatamente 1 emoji amigável (como 🐾 ou 💜). NUNCA termine sem emoji.
+- NUNCA termine com "Estou à disposição", "Qualquer dúvida estou aqui", ou "Posso ajudar com mais algo?".
+- NUNCA use termos formais como Prezado, Senhor, Senhora.
+- NUNCA faça resumos ou repetições.
+- Negrito: use apenas *texto* (um asterisco) para preço, nome de produto ou ação importante.
+- Primeiro contato/Saudação: Se for apenas uma saudação, responda de forma acolhedora ("Olá! Tudo ótimo por aqui! 🐾") e peça o nome do tutor e do pet.
+- Dúvida geral sem contexto (ex: "Vocês conseguem me ajudar com uma dúvida?"): Responda de forma prestativa e acolhedora, perguntando como pode ajudar, sem pedir dados ainda. Exemplo: "Olá! Sim, claro. Como posso te ajudar hoje? 🐾"
+- Dúvida de vacina: Informe que é proibida a venda avulsa, mas oferecemos o serviço **Vet em Casa** com aplicação inclusa pelo nosso veterinário. Informe os preços (Antirrábica *R$60*, V8/V9 *R$70*, V10 *R$80*, Gripe *R$90*, Giardia *R$97*), e se for primeiro contato pergunte os nomes (tutor e pet). Exemplo: "Para vacinas oferecemos o Vet em Casa com aplicação por nosso veterinário (Antirrábica *R$60*, V8 *R$70*). Qual o seu nome e do seu pet? 🐾"
+- Dúvida de Librela/Cytopoint (pedido especial): Informe que está disponível por *R$ 380* a ampola (ou promoção de *R$ 350* cada levando duas), com prazo de entrega de 1 a 2 dias úteis, e que a previsão exata de entrega será dada após confirmar o pedido. Se for primeiro contato, pergunte os nomes (tutor e pet). Exemplo: "Temos sim! Fica *R$ 380* a ampola (ou *R$ 350* cada levando duas), com entrega em 1 a 2 dias úteis (daremos previsão exata após o pedido). Qual o seu nome e do seu pet? 🐾"
+- Confirmação de compra: Confirme o pedido de forma positiva e entusiasmada, forneça a chave Pix *(31) 98793-6822* (C6 Bank) e diga que o Kyenner já vai entrar em contato para combinar a entrega. Exemplo: "Que ótimo! O pix é *(31) 98793-6822* (C6 Bank) e o Kyenner já entra em contato para combinar a entrega! 🐾"
+- Dúvida de cartão/Pix: Informe a taxa de 4,99% para cartão de crédito, e ofereça o Pix sem taxa adicional pela chave *(31) 98793-6822* (C6 Bank). Exemplo: "Aceitamos cartão com taxa de 4,99%, ou Pix sem taxa pela chave *(31) 98793-6822* (C6 Bank). Como prefere? 🐾"
+- Se houver instruções específicas de estoque, preço ou compliance, você DEVE incluir todas as informações solicitadas (mesmo que precise usar 2 frases).
+- Se a resposta couber em poucas palavras, seja breve.`;
+    }
+
+    // Short-circuit: mensagens triviais não precisam de IA
+    const msgTrim = clientMessage.trim().toLowerCase();
+    const temAlertaReceita = chatState.aguardando_receita === true || 
+                             contextoInjetado.toLowerCase().includes('compliance') || 
+                             contextoInjetado.toLowerCase().includes('receita');
+    const greetings = ['oi', 'ola', 'olá', 'hi'];
+
+    if (!temAlertaReceita) {
+        const triviaisSemResposta = ['ok', 'okay', 'beleza', 'blz', 'valeu', 'vlw',
+            'obrigado', 'obrigada', 'obg', 'tks', 'thanks', '👍', '👌', '🙏',
+            'perfeito', 'top', 'fechado'];
+        const triviaisDespedida = ['tchau', 'até mais', 'até logo', 'flw',
+            'bom dia', 'boa tarde', 'boa noite'];
+
+        if (triviaisSemResposta.includes(msgTrim) || (msgTrim.length <= 2 && !greetings.includes(msgTrim))) {
+            console.log(`[SHORT-CIRCUIT] Trivial ignorada (sem resposta): "${msgTrim}"`);
+            salvarLogConversa({
+                phone, clientName, clientMessage, responseText: '[trivial-no-reply]',
+                isSilent: process.env.MODO_SILENCIOSO !== 'false',
+                persona: chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika',
+                owner: chatState.owner, shortCircuit: true
+            });
+            return { status: 200, message: 'OK: trivial no-reply' };
+        }
+
+        if (triviaisDespedida.includes(msgTrim)) {
+            const despedida = chatState.tipo_cliente === 'B2B'
+                ? 'Até mais!' : 'Até logo! 🐾';
+            await enviarMensagemBot(phone, despedida);
+            salvarLogConversa({
+                phone, clientName, clientMessage, responseText: despedida,
+                isSilent: process.env.MODO_SILENCIOSO !== 'false',
+                persona: chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika',
+                owner: chatState.owner, shortCircuit: true
+            });
+            return { status: 200, message: 'OK: trivial farewell' };
+        }
+    }
 
     // Salvar histórico da conversa
     chatState.history.push({ role: 'user', content: clientMessage });
@@ -700,12 +781,17 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
 
     // --- CHAMADA DA IA (GEMINI) ---
     try {
-        const systemInstructionConciseWithContext = regrasCriticasContent + "\n" + contextoInjetado + "\n" + systemInstructionConcise;
+        const systemInstructionConciseWithContext = regrasCriticasContent + "\n" + contextoInjetado + "\n" + activeSystemInstruction;
         console.log(`[IA] Prompt instrução total length: ${systemInstructionConciseWithContext.length} caracteres.`);
 
         const model = genAI.getGenerativeModel({
-            model: "gemini-2.5-flash",
-            systemInstruction: systemInstructionConciseWithContext
+            model: "gemini-2.5-flash-lite",
+            systemInstruction: systemInstructionConciseWithContext,
+            generationConfig: {
+                maxOutputTokens: 150,   // ~100 palavras = limite duro de tamanho
+                temperature: 0.3,        // menos variação, mais previsível
+                topP: 0.8
+            }
         });
 
         // Formatar o histórico para o formato do Gemini
@@ -718,16 +804,23 @@ ATENÇÃO: Responda de forma altamente personalizada usando o nome '${chatState.
 
         const result = await chatGemini.sendMessage(clientMessage);
         let responseText = result.response.text();
+        console.log(`[IA] Resposta crua da IA length: ${responseText.length} caracteres.`);
 
         // Limpar formatação de negrito do markdown (de **texto** para *texto*) para compatibilidade com WhatsApp
         responseText = responseText.replace(/\*\*(.*?)\*\*/g, '*$1*');
+
+        // Post-processing to strip honorifics (Dr/Dra/Doutor/Doutora) in B2B to prevent validation failures
+        if (chatState.tipo_cliente === 'B2B') {
+            responseText = responseText.replace(/\b(dr|dra|doutor|doutora)\b\.?\s*/gi, '');
+        }
+        console.log(`[IA] Resposta processada length: ${responseText.length} caracteres.`);
 
         // Passar pelo Filtro de Tom de Voz (SNC)
         const tomValido = snc.validarTomDeVoz(chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika', responseText);
         if (!tomValido) {
             // Se falhar no tom de voz, força uma reescrita rápida ou uma resposta neutra acolhedora
             responseText = chatState.tipo_cliente === 'B2B' ?
-                "Olá! Desculpe a resposta anterior. Seguem as informações técnicas corretas do seu pedido. Como posso agilizar hoje?" :
+                "Seguem as informações técnicas do seu pedido. Como podemos prosseguir hoje?" :
                 "Olá! Peço desculpas pela mensagem anterior. Estou à disposição para ajudar com a saúde do seu pet. Como posso lhe auxiliar agora? 💜";
         }
 

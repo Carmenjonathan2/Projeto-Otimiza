@@ -1,7 +1,7 @@
 {
   "versao": "5.0",
-  "ultima_atualizacao": "2026-06-16T15:15:00Z",
-  "atualizado_por": "Antigravity",
+  "ultima_atualizacao": "2026-06-16T19:33:00Z",
+  "atualizado_por": "antigravity",
   "secoes": [
     {
       "id": "sec_mkt",
@@ -168,6 +168,61 @@
       "tags": ["Observabilidade", "Logs"],
       "projeto": "🧠 Sistema Nervoso Central (SNC)",
       "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "custo_001",
+      "titulo": "gargalo.custo.modelo-mais-barato",
+      "descricao": "Trocado chat e transcrição para gemini-2.5-flash-lite + limite maxOutputTokens 150/250.",
+      "coluna": "motor",
+      "tags": ["Custo", "API", "Gemini"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prompt_002",
+      "titulo": "gargalo.ia.voz-humana-ocupada",
+      "descricao": "Instruções segregadas Aika/Kyenner com tom 'vendedor ocupado' e limite estrito de frases.",
+      "coluna": "motor",
+      "tags": ["Persona", "Tom"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "custo_002",
+      "titulo": "gargalo.custo.short-circuit-triviais",
+      "descricao": "Short-circuit de mensagens curtas/triviais sem dúvida ou receita pendente.",
+      "coluna": "motor",
+      "tags": ["Custo", "Otimização"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prompt_003",
+      "titulo": "gargalo.custo.contexto-injetado-verboso",
+      "descricao": "Redução do contexto dinâmico injetado para tags compactas e eficientes.",
+      "coluna": "motor",
+      "tags": ["Prompt", "Otimização"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "custo_003",
+      "titulo": "cofre.custo.context-caching-gemini",
+      "descricao": "Usar Gemini Context Caching para system + regras_criticas. Gemini suporta cache desse prefixo por hora via API CachedContent. Economia esperada: 60-75% de input cost.",
+      "coluna": "cofre",
+      "tags": ["Custo", "Cache"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi",
       "atualizado_em": "2026-06-16",
       "atualizado_por": "antigravity"
     }

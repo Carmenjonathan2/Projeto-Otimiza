@@ -7,9 +7,11 @@ Esta pasta é dedicada ao projeto de integração do WhatsApp Comercial com a pl
 * **Transbordo Inteligente (SNC):** Permitir que quando o robô de atendimento comercial (copiloto comercial) encontre uma pergunta de saúde complexa ou o cliente solicite atenção humana, a conversa seja transferida para um operador humano dentro do Chatwoot.
 * **Histórico Centralizado:** Centralizar a leitura de conversas e logs de atendimento para monitoramento de satisfação e conversão de vendas.
 
-## 📂 Próximos Passos
-* Adicionar scripts de Webhook do Chatwoot.
-* Configurações de API e tokens de conexão.
+## 🤖 Configurações e Limites da IA (Gemini Engine)
+* **Modelo Principal (Chat):** `gemini-2.5-flash-lite` (reduz os custos em até 5x por token mantendo alta capacidade conversacional).
+* **Modelos Auxiliares:** `gemini-2.5-flash-lite` para transcrição de áudio e `gemini-2.0-flash` com `maxOutputTokens: 250` para validação multimodal de receitas.
+* **Limite Duro de Saída:** Configurado com `maxOutputTokens: 150` no chat principal para garantir respostas no tom "vendedor ocupado" (mediana <= 20 palavras).
+* **Short-Circuit de Mensagens Triviais:** Mensagens curtas/triviais sem dúvida ativa ou receita pendente (ex: "ok", "valeu", "obrigado", "👍") ignoram a chamada à API do Gemini economizando custos. Despedidas triviais recebem saudações estáticas pré-programadas de acordo com a persona.
 
 ## 📊 Monitoramento e Observabilidade (Modo Silencioso)
 
