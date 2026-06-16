@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "node 0-Central-SNC/server_integracao.js"
+    "start": "node 0-Central-SNC/server_integracao.js",
+    "revisar-logs": "node 0-Central-SNC/scripts/revisar_logs_silencioso.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",

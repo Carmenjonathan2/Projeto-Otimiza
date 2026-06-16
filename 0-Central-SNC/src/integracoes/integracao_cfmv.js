@@ -1,4 +1,4 @@
-const PRE_APPROVED_CRMVS = new Set(['15234', '12345']);
+const PRE_APPROVED_CRMVS = new Set((process.env.CRMV_TEST_WHITELIST || '').split(',').map(s => s.trim()).filter(Boolean));
 
 /**
  * Valida a regularidade de um CRMV.
@@ -14,10 +14,11 @@ async function validarCRMV(crmv, uf = 'MG') {
         return { valido: false, motivo: "Formato de CRMV inválido (deve conter apenas de 3 a 6 dígitos numéricos)." };
     }
 
-    // 2. Liberar de forma instantânea CRMVs conhecidos/usados nos testes
-    if (PRE_APPROVED_CRMVS.has(crmvLimpo)) {
+    // 2. Liberar de forma instantânea CRMVs conhecidos/usados nos testes (APENAS em ambiente de teste)
+    const isTestEnv = process.env.NODE_ENV === 'test' || process.env.MODO_TESTE === 'true';
+    if (isTestEnv && PRE_APPROVED_CRMVS.has(crmvLimpo)) {
         console.log(`[CFMV] CRMV ${crmvLimpo} pré-aprovado para testes de integração.`);
-        return { valido: true, nome: "Dra. Ana Lima (MOCK)" };
+        return { valido: true, nome: null, fonte: 'whitelist-teste' };
     }
 
 

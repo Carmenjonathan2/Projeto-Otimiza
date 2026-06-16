@@ -1,6 +1,6 @@
 {
   "versao": "5.0",
-  "ultima_atualizacao": "2026-06-11T18:30:00Z",
+  "ultima_atualizacao": "2026-06-16T15:15:00Z",
   "atualizado_por": "Antigravity",
   "secoes": [
     {
@@ -137,6 +137,39 @@
       "tags": ["RT", "Automação", "Emprego"],
       "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
       "autonomia": "semi"
+    },
+    {
+      "id": "cfmv_001",
+      "titulo": "gargalo.cfmv.crmvs-teste-em-producao",
+      "descricao": "Restringir whitelist de CRMVs de teste ao ambiente de teste e retornar resposta generica.",
+      "coluna": "motor",
+      "tags": ["CFMV", "Segurança"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prompt_001",
+      "titulo": "gargalo.ia.system-prompt-inchado",
+      "descricao": "Remover jargoes e regras do system instruction no codigo e criar regras_criticas.md.",
+      "coluna": "motor",
+      "tags": ["Prompt", "Gemini"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_001",
+      "titulo": "cofre.observabilidade.dashboard-logs",
+      "descricao": "Criar script de dashboard CLI revisar_logs_silencioso.js para analise das sugestoes da IA.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Logs"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
     }
   ]
 }

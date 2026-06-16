@@ -32,6 +32,7 @@ zapi.enviarMensagemTexto = async (phone, text) => {
 
 // --- Config ---
 process.env.NODE_ENV = 'test';
+process.env.CRMV_TEST_WHITELIST = '15234,12345';
 process.env.MODO_SILENCIOSO = 'false'; // Garantir que os testes de QA sempre rodem em modo ativo
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 if (!GEMINI_API_KEY) {
@@ -146,7 +147,7 @@ const CENARIOS = [
         grupo: '🩺 Kyenner B2B',
         descricao: 'Veterinária se identifica com CRMV — deve ser tratada pelo nome',
         tipoCliente: 'B2B',
-        mensagem: 'Boa tarde, sou a Dra. Ana Lima, CRMV 15234. Gostaria de fazer um pedido de vacinas.',
+        mensagem: 'Boa tarde, sou a Dra. Beatriz Santos, CRMV 15234. Gostaria de fazer um pedido de vacinas.',
         regrasJuiz: [
             'A resposta NÃO deve usar títulos formais ou honoríficos como Doutor, Doutora, Dr., ou Dra.',
             'A resposta deve reconhecer o CRMV e prosseguir diretamente para cotação ou atendimento',
@@ -354,7 +355,7 @@ async function rodarCenario(cenario) {
         // Chamar a função real de produção do servidor
         const payload = {
             phone,
-            senderName: cenario.tipoCliente === 'B2B' ? "Dra. Ana Lima" : "Vander Luiz",
+            senderName: cenario.tipoCliente === 'B2B' ? "Dra. Beatriz Santos" : "Vander Luiz",
             messageId: `msg_${Date.now()}_${cenario.id}`,
             text: { message: cenario.mensagem }
         };
