@@ -293,6 +293,179 @@ app.post('/api/public/book', bookingLimiter, [
     res.status(201).json({ message: "Agendamento confirmado com sucesso! Nos vemos no sábado." });
 });
 
+// GET /saude (Painel de Saúde para a Carmen)
+app.get('/saude', (req, res) => {
+    console.log(`[PAINEL-SAUDE] Visita ao painel de saúde em ${new Date().toISOString()}`);
+    res.sendFile(path.join(__dirname, 'public', 'painel_saude.html'));
+});
+
+// GET /api/saude-dados
+app.get('/api/saude-dados', (req, res) => {
+    try {
+        // Garantir dotenv carregado
+        require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env') });
+
+        const custoFile = path.join(__dirname, '..', 'custo_diario.json');
+        const logFile = path.join(__dirname, '..', 'conversas_log.jsonl');
+        const relatoriosDir = path.join(__dirname, '..', 'relatorios');
+
+        // 1. Ler custos
+        let custos = {};
+        if (fs.existsSync(custoFile)) {
+            try {
+                custos = JSON.parse(fs.readFileSync(custoFile, 'utf8'));
+            } catch (e) {
+                custos = {};
+            }
+        }
+
+        const hojeStr = new Date().toISOString().split('T')[0];
+        const esteMesStr = hojeStr.substring(0, 7); // "YYYY-MM"
+
+        const custoHoje = custos[hojeStr] ? custos[hojeStr].custo_usd_estimado : 0.0;
+        let custoMes = 0.0;
+        for (const d of Object.keys(custos)) {
+            if (d.startsWith(esteMesStr)) {
+                custoMes += custos[d].custo_usd_estimado;
+            }
+        }
+
+        const limitKillSwitch = parseFloat(process.env.CUSTO_KILL_SWITCH_USD || '10.00');
+        const isMuted = process.env.MODO_SILENCIOSO === 'true';
+        let statusKillSwitch = "verde";
+        if (isMuted || custoHoje >= limitKillSwitch) {
+            statusKillSwitch = "vermelho";
+        } else if (custoHoje >= limitKillSwitch * 0.5) {
+            statusKillSwitch = "amarelo";
+        }
+
+        // Últimos 7 dias de custos para sparkline
+        const ultimos7Dias = [];
+        for (let i = 6; i >= 0; i--) {
+            const d = new Date(Date.now() - i * 24 * 60 * 60 * 1000);
+            const dStr = d.toISOString().split('T')[0];
+            const diaCusto = custos[dStr] || { chamadas: 0, custo_usd_estimado: 0.0 };
+            ultimos7Dias.push({
+                data: dStr,
+                chamadas: diaCusto.chamadas,
+                custo: diaCusto.custo_usd_estimado
+            });
+        }
+
+        // 2. Ler logs de conversas
+        let logs = [];
+        if (fs.existsSync(logFile)) {
+            try {
+                const content = fs.readFileSync(logFile, 'utf8');
+                logs = content.trim().split('\n').filter(Boolean).map(line => JSON.parse(line));
+            } catch (e) {
+                logs = [];
+            }
+        }
+
+        const agora = Date.now();
+        const limite24h = agora - 24 * 60 * 60 * 1000;
+        const logs24h = logs.filter(log => new Date(log.timestamp).getTime() >= limite24h);
+
+        // Top 5 telefones por chamadas nas últimas 24h
+        const phoneCounts = {};
+        for (const log of logs24h) {
+            const phone = log.phone;
+            const name = log.clientName || 'Cliente';
+            if (!phoneCounts[phone]) {
+                phoneCounts[phone] = { phone, name, count: 0 };
+            }
+            phoneCounts[phone].count++;
+        }
+        const top5Phones = Object.values(phoneCounts)
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 5);
+
+        // Calcular estatísticas das últimas 24h
+        const sessoes24h = {};
+        let totalInteracoes = logs24h.length;
+        let shortCircuits = 0;
+        let errosGemini = 0;
+
+        for (const log of logs24h) {
+            const phone = log.phone;
+            if (!sessoes24h[phone]) {
+                sessoes24h[phone] = { hasTransbordo: false };
+            }
+            const textLower = (log.responseText || '').toLowerCase();
+            if (textLower.includes('transferir') || textLower.includes('transferindo') || textLower.includes('suporte manual') || log.owner === 'human') {
+                sessoes24h[phone].hasTransbordo = true;
+            }
+            if (log.shortCircuit || log.responseText === '[trivial-no-reply]' || textLower === 'até mais!' || textLower === 'até logo! 🐾') {
+                shortCircuits++;
+            }
+            if (log.error) {
+                errosGemini++;
+            }
+        }
+
+        const totalSessoes = Object.keys(sessoes24h).length;
+        let transbordos = 0;
+        for (const phone of Object.keys(sessoes24h)) {
+            if (sessoes24h[phone].hasTransbordo) {
+                transbordos++;
+            }
+        }
+
+        const taxaTransbordo = totalSessoes > 0 ? ((transbordos / totalSessoes) * 100).toFixed(1) : "0.0";
+        const pctShortCircuit = totalInteracoes > 0 ? ((shortCircuits / totalInteracoes) * 100).toFixed(1) : "0.0";
+        const pctErros = totalInteracoes > 0 ? ((errosGemini / totalInteracoes) * 100).toFixed(1) : "0.0";
+
+        // 3. Ler última análise semanal
+        let relatorioHtml = "<p style='color: var(--text-light); text-align: center;'>Nenhuma análise semanal encontrada na pasta <code>relatorios</code>.</p>";
+        if (fs.existsSync(relatoriosDir)) {
+            try {
+                const files = fs.readdirSync(relatoriosDir).filter(f => f.startsWith('analise_semanal_') && f.endsWith('.md'));
+                if (files.length > 0) {
+                    files.sort();
+                    const ultimoArquivo = files[files.length - 1];
+                    const relPath = path.join(relatoriosDir, ultimoArquivo);
+                    const mdContent = fs.readFileSync(relPath, 'utf8');
+                    
+                    // Conversor simples Markdown para HTML
+                    relatorioHtml = mdContent
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;")
+                        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                        .replace(/^\* (.*$)/gim, '<li>$1</li>')
+                        .replace(/^\d+\. (.*$)/gim, '<li>$1</li>')
+                        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+                        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+                        .replace(/\n/gim, '<br />');
+                }
+            } catch (err) {
+                console.error("Erro ao carregar análise semanal:", err.message);
+            }
+        }
+
+        res.json({
+            custo_hoje: custoHoje,
+            custo_mes: custoMes,
+            status_kill_switch: statusKillSwitch,
+            limite_kill_switch: limitKillSwitch,
+            modo_silencioso: isMuted,
+            ultimos_7_dias: ultimos7Dias,
+            top_5_phones: top5Phones,
+            taxa_transbordo: taxaTransbordo,
+            pct_short_circuit: pctShortCircuit,
+            pct_erros: pctErros,
+            relatorio_semanal_html: relatorioHtml,
+            ultima_atualizacao: new Date().toISOString()
+        });
+    } catch (e) {
+        console.error("Erro ao gerar dados de saúde:", e.message);
+        res.status(500).json({ error: "Erro interno ao ler dados de saúde" });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`⚙️  Painel de Autoridade rodando em http://localhost:${PORT}`);
     console.log(`📁 Banco de dados conectado: ${DB_FILE}`);

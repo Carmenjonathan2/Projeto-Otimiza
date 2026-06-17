@@ -38,9 +38,13 @@ function loadStates() {
     return {};
 }
 let writeQueue = Promise.resolve();
-function saveStates(states) {
+function saveStates(states, activePhone) {
     writeQueue = writeQueue.then(async () => {
         try {
+            const agoraISO = new Date().toISOString();
+            if (activePhone && states[activePhone]) {
+                states[activePhone].ultima_atividade = agoraISO;
+            }
             await fs.promises.writeFile(STATE_FILE, JSON.stringify(states, null, 4), 'utf8');
         } catch (e) {
             console.error("❌ [ESTADO] Erro ao salvar conversas_state.json:", e.message);
@@ -294,7 +298,7 @@ async function processarMensagem(payload) {
                 if (statesPeek[phone]) {
                     statesPeek[phone].receita_validada = true;
                     statesPeek[phone].aguardando_receita = false;
-                    saveStates(statesPeek);
+                    saveStates(statesPeek, phone);
                 }
                 clientMessage = `[RECEITA VETERINÁRIA VALIDADA PELA IA ✅ — Médico: ${resultado.medico_encontrado || 'identificado'}, Pet: ${resultado.pet_encontrado || 'identificado'}, Medicamento: ${resultado.medicamento_encontrado || 'identificado'}, CRMV: ${resultado.crmv_encontrado || 'identificado'}. Receita completa e aprovada! Prossiga com a confirmação da venda e solicite dados de entrega/pagamento.]`;
                 // Nota de compliance no Chatwoot
@@ -351,7 +355,7 @@ async function processarMensagem(payload) {
     if (isB2BMention && chatState.tipo_cliente !== "B2B") {
         console.log(`[SNC] Identificado tom B2B/Veterinário na mensagem de entrada de ${phone}.`);
         chatState.tipo_cliente = "B2B";
-        saveStates(states);
+        saveStates(states, phone);
     }
 
     // 1. Tentar identificar o cliente pelo número de telefone caso ainda não esteja identificado no ERP
@@ -361,7 +365,7 @@ async function processarMensagem(payload) {
             chatState.nome_cadastro = limparNomeCliente(cadastroTel.nome);
             chatState.tipo_cliente = cadastroTel.tipo_cliente;
             chatState.crmv = cadastroTel.crmv || chatState.crmv;
-            saveStates(states);
+            saveStates(states, phone);
             console.log(`[GESTAOCLICK] Cliente identificado pelo telefone! Nome: ${chatState.nome_cadastro} | Tipo: ${chatState.tipo_cliente}`);
         }
     }
@@ -382,7 +386,7 @@ async function processarMensagem(payload) {
         } else {
             console.log(`[GESTAOCLICK] CPF ${docExtraido} não localizado no GestãoClick.`);
         }
-        saveStates(states);
+        saveStates(states, phone);
     }
 
     // 3. Tentar extrair CRMV da mensagem
@@ -422,7 +426,7 @@ async function processarMensagem(payload) {
                 console.log(`[SNC] CRMV ${crmvExtraido} inválido ou pendente de validação humana pelo CFMV. Negando B2B automático.`);
                 chatState.tipo_cliente = "B2C"; // Mantém em atendimento geral (B2C)
                 chatState.aguardando_crmv = false;
-                saveStates(states);
+                saveStates(states, phone);
 
                 // Notificar Telegram e Chatwoot
                 const alertaTelegram = `⚠️ <b>TENTATIVA DE ACESSO B2B NEGADA</b>\n\n` +
@@ -439,7 +443,7 @@ async function processarMensagem(payload) {
 
                 await chatwoot.solicitarSuporteHumano(phone, clientName || `Cliente CRMV ${crmvExtraido}`, `CRMV ${crmvExtraido} pendente de validação manual.`);
                 chatState.owner = "human";
-                saveStates(states);
+                saveStates(states, phone);
 
                 // Enviar resposta amigável informando a transferência e abortar
                 const msgFalha = `Olá, *${clientName || 'tudo bem'}*! Não consegui validar o CRMV *${crmvExtraido}* automaticamente em nosso cadastro profissional. Vou transferir você agora mesmo para o Kyenner para darmos andamento ao seu atendimento de forma manual, tudo bem? Só um minutinho! 🐾`;
@@ -448,7 +452,7 @@ async function processarMensagem(payload) {
             }
         }
         chatState.aguardando_crmv = false; // Resetar
-        saveStates(states);
+        saveStates(states, phone);
     }
 
     // Sincronizar a mensagem recebida com o Chatwoot imediatamente
@@ -493,7 +497,7 @@ async function processarMensagem(payload) {
         // Atualizar estado local: continua como B2B sem transbordo!
         chatState.nome_cadastro = limparNomeCliente(clientName || `Veterinário CRMV ${chatState.crmv}`);
         chatState.tipo_cliente = "B2B";
-        saveStates(states);
+        saveStates(states, phone);
         console.log(`✅ [SNC] Novo vet auto-cadastrado + equipe alertada no Telegram. Atendimento continua normalmente.`);
         // NÃO retorna aqui — o fluxo continua para o Gemini!
     }
@@ -553,7 +557,7 @@ async function processarMensagem(payload) {
     if (acionarTransbordo) {
         console.log(`🚨 [SNC] Transbordo acionado para ${phone} por: ${motivoTransbordo}`);
         chatState.owner = "human";
-        saveStates(states);
+        saveStates(states, phone);
 
         // Enviar mensagem de despedida carinhosa da IA
         const despedida = `${clientName}, compreendo perfeitamente a sua solicitação e quero garantir que você tenha o melhor suporte possível. Estou transferindo a nossa conversa agora mesmo para o Kyenner (nosso veterinário), que vai te ajudar pessoalmente com isso. Só um minutinho, por favor! 🩺`;
@@ -603,7 +607,7 @@ async function processarMensagem(payload) {
                     if (infoEstoque.quantidade > 0) {
                         console.log(`[SNC] Outro produto B2C (${prod.nome}) em estoque. Transferindo para Kyenner.`);
                         chatState.owner = "human";
-                        saveStates(states);
+                        saveStates(states, phone);
 
                         const despedida = `Olá! Verifiquei no sistema e temos o *${prod.nome}* disponível. Vou transferir o seu atendimento agora mesmo para o Kyenner (nosso veterinário), que vai te passar as informações de valores e finalizar tudo com você. Só um instantinho! 🐾`;
                         await enviarMensagemBot(phone, despedida);
@@ -618,7 +622,7 @@ async function processarMensagem(payload) {
 
                         chatState.history.push({ role: 'user', content: clientMessage });
                         chatState.history.push({ role: 'model', content: indisponivel });
-                        saveStates(states);
+                        saveStates(states, phone);
 
                         await enviarMensagemBot(phone, indisponivel);
                         return { status: 200, message: 'OK: Product out of stock' };
@@ -637,7 +641,7 @@ async function processarMensagem(payload) {
             // Rastrear produto mencionado para B2C (usado na detecção de confirmação de compra)
             if (chatState.tipo_cliente !== "B2B" && !chatState.produto_mencionado) {
                 chatState.produto_mencionado = prod.nome;
-                saveStates(states);
+                saveStates(states, phone);
             }
 
             if (infoEstoque.tipo === 'pedido_especial') {
@@ -650,7 +654,7 @@ async function processarMensagem(payload) {
                 contextoInjetado += `\n[INSTRUÇÃO DE ESTOQUE]: O produto está esgotado. Ofereça a lista de espera e aguarde o cliente responder (NÃO diga que vai transferir ainda).`;
                 chatState.produto_sem_estoque = prod.nome;
                 chatState.aguardando_confirmar_lista_espera = true;
-                saveStates(states);
+                saveStates(states, phone);
             } else {
                 // ESTOQUE NORMAL: informar quantidade e preço
                 contextoInjetado += `\n[INSTRUÇÃO DE ESTOQUE]: O produto está disponível. Temos ${infoEstoque.quantidade} unidades por R$ ${infoEstoque.preco}.`;
@@ -665,7 +669,7 @@ async function processarMensagem(payload) {
         // Cliente B2C pedindo medicamento de controle sem receita validada ainda
         chatState.aguardando_receita = true;
         chatState.medicamento_restrito = medicamentoRestrito;
-        saveStates(states);
+        saveStates(states, phone);
         console.log(`[COMPLIANCE] B2C solicitou '${medicamentoRestrito}' sem receita validada. Ativando aguardando_receita.`);
         contextoInjetado += `\n[INSTRUÇÃO DE COMPLIANCE]: Receita pendente para ${medicamentoRestrito}. Peça foto ou PDF da receita contendo carimbo, CRMV legível, assinatura e nome do pet. NÃO confirme preço nem venda.`;
     }
@@ -685,7 +689,7 @@ async function processarMensagem(payload) {
         if (confirmacoesListaEspera.some(c => mensagemLower.includes(c))) {
             listaEsperaConfirmadaNestaMsg = true;
             chatState.aguardando_confirmar_lista_espera = false;
-            saveStates(states);
+            saveStates(states, phone);
             console.log(`⏳ [SNC] Lista de espera confirmada para ${phone}: ${chatState.produto_sem_estoque}`);
             contextoInjetado += `\n[INSTRUÇÃO DE VENDA]: O cliente quer entrar na lista de espera. Diga com entusiasmo que anotou e vai avisar quando chegar.`;
         }
@@ -937,7 +941,7 @@ Regras:
 
         // Salvar a resposta no histórico da IA
         chatState.history.push({ role: 'model', content: responseText });
-        saveStates(states);
+        saveStates(states, phone);
 
         // Enviar a resposta via Z-API
         await enviarMensagemBot(phone, responseText);
@@ -956,7 +960,7 @@ Regras:
         // --- TRANSFERÊNCIA PÓS-RESPOSTA: somente após confirmação explícita (P1 lista espera / P2 compra) ---
         if ((b2cCompraConfirmadaNestaMsg || listaEsperaConfirmadaNestaMsg) && chatState.owner !== "human") {
             chatState.owner = "human";
-            saveStates(states);
+            saveStates(states, phone);
 
             const motivoTransferencia = listaEsperaConfirmadaNestaMsg
                 ? `Lista de espera confirmada: ${chatState.produto_sem_estoque}`
@@ -1064,7 +1068,7 @@ app.post('/webhook/chatwoot', async (req, res) => {
         if (states[phone].owner !== "human") {
             console.log(`ℹ️ [CHATWOOT] Atendente enviou mensagem manual. Pausando bot para o cliente ${phone}.`);
             states[phone].owner = "human";
-            saveStates(states);
+            saveStates(states, phone);
         }
     }
 
@@ -1074,14 +1078,14 @@ app.post('/webhook/chatwoot', async (req, res) => {
         states[phone].owner = "AI";
         // Limpar histórico antigo para dar contexto novo na próxima conversa
         states[phone].history = [];
-        saveStates(states);
+        saveStates(states, phone);
     }
 
     // 3. Se a conversa for explicitamente re-atribuída para o bot
     if (event.event === "conversation_updated" && event.assignee && event.assignee.email === "bot@otimizafarmavet.com.br") {
         console.log(`🤖 [CHATWOOT] Conversa re-atribuída para o bot. Ativando IA para o cliente ${phone}.`);
         states[phone].owner = "AI";
-        saveStates(states);
+        saveStates(states, phone);
     }
 
     res.status(200).send('OK');

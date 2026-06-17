@@ -1,7 +1,9 @@
 {
   "scripts": {
     "start": "node 0-Central-SNC/server_integracao.js",
-    "revisar-logs": "node 0-Central-SNC/scripts/revisar_logs_silencioso.js"
+    "revisar-logs": "node 0-Central-SNC/scripts/revisar_logs_silencioso.js",
+    "analise-semanal": "node 0-Central-SNC/scripts/analise_semanal_logs.js",
+    "limpar-estado": "node 0-Central-SNC/scripts/limpar_estado_inativo.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",

@@ -1,6 +1,6 @@
 {
-  "versao": "5.0",
-  "ultima_atualizacao": "2026-06-16T20:49:00Z",
+  "versao": "5.1",
+  "ultima_atualizacao": "2026-06-17T13:00:00Z",
   "atualizado_por": "antigravity",
   "secoes": [
     {
@@ -246,6 +246,50 @@
       "projeto": "🧠 Sistema Nervoso Central (SNC)",
       "autonomia": "auto",
       "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_003",
+      "titulo": "gargalo.aprendizado.analise-semanal-ia",
+      "descricao": "Análise semanal automatizada de logs utilizando Gemini-2.5-Flash-Lite para avaliar compliance, tom e conformidade.",
+      "coluna": "motor",
+      "tags": ["Auditoria", "Gemini", "Logs"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "maint_001",
+      "titulo": "gargalo.manutencao.limpar-estado-inativo",
+      "descricao": "Rotina de limpeza de estados inativos obsoletos no banco de dados local com base no TTL configurado.",
+      "coluna": "motor",
+      "tags": ["Manutenção", "Performance"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_004",
+      "titulo": "gargalo.observabilidade.painel-saude-html",
+      "descricao": "Painel de saúde web-based e responsivo com métricas de custo, volume de chamadas (sparkline) e relatórios de IA.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Dashboard", "HTML"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "qual_001",
+      "titulo": "cofre.qualidade.validador-semantico",
+      "descricao": "Substituir filtro simples de tom de voz por um juiz Gemini para prevenir alucinações de preço, regras de negócio e tom.",
+      "coluna": "cofre",
+      "tags": ["Qualidade", "Compliance", "Gemini"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi",
+      "atualizado_em": "2026-06-17",
       "atualizado_por": "antigravity"
     }
   ]
