@@ -41,16 +41,7 @@
     },
     "553190000001": {
         "owner": "AI",
-        "history": [
-            {
-                "role": "user",
-                "content": "Oi, tudo bem?"
-            },
-            {
-                "role": "model",
-                "content": "Olá! Tudo ótimo por aqui, e com você?\n\nPara eu te ajudar da melhor forma, qual é o seu nome e o nome do seu pet? Como posso ajudar vocês hoje? 🐾"
-            }
-        ],
+        "history": [],
         "cpf": null,
         "crmv": null,
         "tipo_cliente": "B2C",
@@ -65,16 +56,7 @@
     },
     "553190000002": {
         "owner": "AI",
-        "history": [
-            {
-                "role": "user",
-                "content": "Oi! Meu cachorro precisa tomar vacina antirrábica. Vocês vendem?"
-            },
-            {
-                "role": "model",
-                "content": "Olá! Tudo bem? Para que eu possa te ajudar, me conta o seu nome e o do seu pet? Por segurança e conformidade regulatória, nós não vendemos a vacina avulsa para aplicação própria, mas oferecemos o serviço premium *Vet em Casa*. O nosso veterinário vai até a sua residência para realizar a aplicação com total segurança, e a vacina antirrábica aplicada fica em *R$ 60,00*.\n\nPara aproveitarmos a visita do veterinário, ele precisa atualizar mais alguma vacina, como a V10 (múltipla) ou a de gripe? Se você tiver mais de um pet ou precisar de mais vacinas, aplicamos todas em uma única visita para você economizar no deslocamento. Me informe o seu *CEP* para eu calcular o envio e já te conectar com o Kyenner para agendar o melhor horário! 🐾"
-            }
-        ],
+        "history": [],
         "cpf": null,
         "crmv": null,
         "tipo_cliente": "B2C",
@@ -89,6 +71,41 @@
     },
     "553190000003": {
         "owner": "AI",
+        "history": [
+            {
+                "role": "user",
+                "content": "Minha cachorra tem artrite. O veterinário receitou Librela. Vocês têm em estoque?"
+            }
+        ],
+        "cpf": null,
+        "crmv": null,
+        "tipo_cliente": "B2C",
+        "nome_cadastro": null,
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": true,
+        "medicamento_restrito": "librela",
+        "produto_sem_estoque": null,
+        "produto_mencionado": "Librela 15mg",
+        "aguardando_confirmar_lista_espera": false
+    },
+    "553190000004": {
+        "owner": "human",
+        "history": [],
+        "cpf": null,
+        "crmv": null,
+        "tipo_cliente": "B2C",
+        "nome_cadastro": null,
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": false,
+        "medicamento_restrito": null,
+        "produto_sem_estoque": null,
+        "produto_mencionado": null,
+        "aguardando_confirmar_lista_espera": false
+    },
+    "553190000005": {
+        "owner": "AI",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -100,6 +117,155 @@
         "medicamento_restrito": "librela",
         "produto_sem_estoque": null,
         "produto_mencionado": "Librela 15mg",
+        "aguardando_confirmar_lista_espera": false
+    },
+    "553190000006": {
+        "owner": "AI",
+        "history": [],
+        "cpf": null,
+        "crmv": null,
+        "tipo_cliente": "B2C",
+        "nome_cadastro": null,
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": false,
+        "medicamento_restrito": null,
+        "produto_sem_estoque": null,
+        "produto_mencionado": null,
+        "aguardando_confirmar_lista_espera": false
+    },
+    "553190000007": {
+        "owner": "AI",
+        "history": [
+            {
+                "role": "user",
+                "content": "Boa tarde, sou a Dra. Beatriz Santos, CRMV 15234. Gostaria de fazer um pedido de vacinas."
+            }
+        ],
+        "cpf": "9999",
+        "crmv": "15234",
+        "tipo_cliente": "B2B",
+        "nome_cadastro": "Beatriz Santos",
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": false,
+        "medicamento_restrito": null,
+        "produto_sem_estoque": null,
+        "produto_mencionado": null,
+        "aguardando_confirmar_lista_espera": false
+    },
+    "553190000008": {
+        "owner": "AI",
+        "history": [],
+        "cpf": "9999",
+        "crmv": "12345",
+        "tipo_cliente": "B2B",
+        "nome_cadastro": "Marcos Medvet",
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": false,
+        "medicamento_restrito": null,
+        "produto_sem_estoque": null,
+        "produto_mencionado": null,
+        "aguardando_confirmar_lista_espera": false
+    },
+    "553190000009": {
+        "owner": "AI",
+        "history": [],
+        "cpf": "9999",
+        "crmv": "12345",
+        "tipo_cliente": "B2B",
+        "nome_cadastro": "Marcos Medvet",
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": false,
+        "medicamento_restrito": null,
+        "produto_sem_estoque": null,
+        "produto_mencionado": null,
+        "aguardando_confirmar_lista_espera": false
+    },
+    "553190000015": {
+        "owner": "human",
+        "history": [],
+        "cpf": null,
+        "crmv": "99999",
+        "tipo_cliente": "B2C",
+        "nome_cadastro": null,
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": false,
+        "medicamento_restrito": null,
+        "produto_sem_estoque": null,
+        "produto_mencionado": null,
+        "aguardando_confirmar_lista_espera": false
+    },
+    "553190000010": {
+        "owner": "AI",
+        "history": [
+            {
+                "role": "user",
+                "content": "Vocês têm Bravecto para cão de 15kg?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Verifiquei aqui no sistema, mas infelizmente no momento não temos o *Bravecto* disponível em nosso estoque. 🐾"
+            }
+        ],
+        "cpf": null,
+        "crmv": null,
+        "tipo_cliente": "B2C",
+        "nome_cadastro": null,
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": false,
+        "medicamento_restrito": null,
+        "produto_sem_estoque": null,
+        "produto_mencionado": null,
+        "aguardando_confirmar_lista_espera": false
+    },
+    "553190000011": {
+        "owner": "human",
+        "history": [],
+        "cpf": null,
+        "crmv": null,
+        "tipo_cliente": "B2C",
+        "nome_cadastro": null,
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": false,
+        "medicamento_restrito": null,
+        "produto_sem_estoque": null,
+        "produto_mencionado": null,
+        "aguardando_confirmar_lista_espera": false
+    },
+    "553190000012": {
+        "owner": "AI",
+        "history": [],
+        "cpf": null,
+        "crmv": null,
+        "tipo_cliente": "B2C",
+        "nome_cadastro": null,
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": false,
+        "medicamento_restrito": null,
+        "produto_sem_estoque": null,
+        "produto_mencionado": null,
+        "aguardando_confirmar_lista_espera": false
+    },
+    "553190000013": {
+        "owner": "AI",
+        "history": [],
+        "cpf": null,
+        "crmv": null,
+        "tipo_cliente": "B2C",
+        "nome_cadastro": null,
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": false,
+        "medicamento_restrito": null,
+        "produto_sem_estoque": null,
+        "produto_mencionado": null,
         "aguardando_confirmar_lista_espera": false
     }
 }

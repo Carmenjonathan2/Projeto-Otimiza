@@ -1,6 +1,6 @@
 {
   "versao": "5.0",
-  "ultima_atualizacao": "2026-06-16T19:33:00Z",
+  "ultima_atualizacao": "2026-06-16T20:49:00Z",
   "atualizado_por": "antigravity",
   "secoes": [
     {
@@ -217,12 +217,34 @@
     },
     {
       "id": "custo_003",
-      "titulo": "cofre.custo.context-caching-gemini",
+      "titulo": "gargalo.custo.context-caching-gemini",
       "descricao": "Usar Gemini Context Caching para system + regras_criticas. Gemini suporta cache desse prefixo por hora via API CachedContent. Economia esperada: 60-75% de input cost.",
-      "coluna": "cofre",
+      "coluna": "motor",
       "tags": ["Custo", "Cache"],
       "projeto": "🧠 Sistema Nervoso Central (SNC)",
-      "autonomia": "semi",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_002",
+      "titulo": "gargalo.observabilidade.alerta-custo",
+      "descricao": "Contador diário de custos com alerta Telegram acima de limite e kill-switch ativando MODO_SILENCIOSO.",
+      "coluna": "motor",
+      "tags": ["Custo", "Observabilidade"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prot_001",
+      "titulo": "gargalo.protecao.rate-limit-por-cliente",
+      "descricao": "Rate-limit por telefone em memória impedindo abusos e loops de IA no WhatsApp.",
+      "coluna": "motor",
+      "tags": ["Segurança", "WhatsApp"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
       "atualizado_em": "2026-06-16",
       "atualizado_por": "antigravity"
     }

@@ -96,6 +96,34 @@ try {
     console.log('----------------------------------------------------------------');
     console.log(`🔄 Taxa de Transbordo Humano: ${taxaTransbordo}% (${transbordoCount}/${totalConversas24h})`);
     console.log('================================================================');
+
+    const custoFilePath = path.resolve(__dirname, '../custo_diario.json');
+    console.log('\n💵 RESUMO DE CUSTOS DIÁRIOS (ÚLTIMOS 7 DIAS):');
+    if (!fs.existsSync(custoFilePath)) {
+        console.log('   (Nenhum histórico de custos registrado)');
+    } else {
+        try {
+            const custoData = JSON.parse(fs.readFileSync(custoFilePath, 'utf8'));
+            const datas = Object.keys(custoData).sort().slice(-7);
+            
+            if (datas.length === 0) {
+                console.log('   (Nenhum registro de custos encontrado)');
+            } else {
+                let totalCusto = 0;
+                datas.forEach(d => {
+                    const dia = custoData[d];
+                    console.log(`   • ${d}: USD ${dia.custo_usd_estimado.toFixed(4)} | ${dia.chamadas} chamadas | Predominante: ${dia.modelo_predominante}`);
+                    totalCusto += dia.custo_usd_estimado;
+                });
+                const mediaCusto = totalCusto / datas.length;
+                console.log(`   ----------------------------------------------------------------`);
+                console.log(`   💸 TOTAL (7 dias): USD ${totalCusto.toFixed(4)} | MÉDIA DIÁRIA: USD ${mediaCusto.toFixed(4)}`);
+            }
+        } catch (e) {
+            console.log(`   ⚠️ Erro ao ler custos diários: ${e.message}`);
+        }
+    }
+    console.log('================================================================');
     
     console.log('\n🔝 5 CONVERSAS MAIS LONGAS (Últimas 24h):');
     listConversas.sort((a, b) => b.messageCount - a.messageCount);

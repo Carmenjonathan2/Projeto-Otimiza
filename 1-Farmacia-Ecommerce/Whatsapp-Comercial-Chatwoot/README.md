@@ -28,3 +28,28 @@ npm run revisar-logs
 * **Taxa de Transbordo Humano:** Percentual de conversas onde a última mensagem transferiu o cliente para o atendimento humano (`owner === 'human'`).
 * **5 Conversas mais Longas:** Ranking de conversas mais extensas (maior engajamento) para fins de auditoria fina.
 * **Erros de API:** Detalhes dos logs que apresentaram falhas de conexão/timeout com a API do Gemini.
+
+## ⚡ Otimizações e Hardening (Ciclo 4)
+
+### 1. Context Caching (Gemini Context Caching)
+O context caching armazena em cache o prompt estático (Regras Críticas + instruções da Persona ativa) por 1 hora na API do Gemini, reduzindo o custo de input em até 75%.
+* **Ativação:** Defina `GEMINI_CACHE_ENABLED="true"` no arquivo `.env`.
+* **Desativação (Debug/Desenvolvimento):** Defina `GEMINI_CACHE_ENABLED="false"`. O sistema cairá automaticamente no fallback tradicional recarregando todo o prompt estático a cada requisição.
+
+### 2. Monitor de Custos (`custo_diario.json`)
+Todas as chamadas faturáveis ao Gemini registram metadados de tokens e custos diários em `0-Central-SNC/custo_diario.json`.
+* **Estrutura de campos:**
+  * `chamadas`: Total de requisições enviadas ao modelo no dia corrente.
+  * `input_tokens`: Soma de tokens enviados na entrada (não-cacheados).
+  * `output_tokens`: Soma de tokens gerados na resposta pela IA.
+  * `cached_tokens`: Soma de tokens recuperados a partir do Gemini Context Cache (custo ~4x menor).
+  * `custo_usd_estimado`: Custo acumulado diário em USD (calculado com base em tabela fixa interna).
+  * `modelo_predominante`: Nome do último modelo Gemini utilizado (`gemini-2.5-flash-lite`).
+* **Configuração de Alertas e Kill-Switch:**
+  * `CUSTO_ALERTA_TELEGRAM_USD`: Limite acumulado diário (USD) para emitir notificação de aviso no Telegram (default: `2.00`).
+  * `CUSTO_KILL_SWITCH_USD`: Limite máximo diário (USD). Caso ultrapassado, o bot força a ativação do `MODO_SILENCIOSO="true"` na memória do servidor para cessar novas chamadas faturáveis de chat e envia um alerta crítico de emergência (default: `10.00`).
+
+### 3. Rate-Limiting por Telefone
+Previne abusos de flooding ou loops de bots na API.
+* **RATE_LIMIT_JANELA_SEGUNDOS**: Tamanho da janela de monitoramento por telefone (default: `60` segundos).
+* **RATE_LIMIT_MAX_MSG**: Quantidade máxima de mensagens permitida por cliente na janela (default: `8` mensagens). Caso excedido, as mensagens adicionais retornam imediatamente status `200` (no-reply) sem invocar o Gemini. O Chatwoot recebe uma nota privada de alerta na primeira mensagem excedente.

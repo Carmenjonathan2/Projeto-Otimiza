@@ -48,13 +48,9 @@ function saveStates(states) {
     });
 }
 
-// Carregar o Brand Book e Regras de Negócio em memória (para RAG futuro)
+// Brand Book e Regras de Negócio (RAG futuro desativado no startup)
 const brandbookPath = path.resolve(__dirname, './diretrizes-e-branding/brandbook_resumido.md');
-let brandbookContent = "";
-if (fs.existsSync(brandbookPath)) {
-    brandbookContent = fs.readFileSync(brandbookPath, 'utf8');
-    console.log("✅ Brand Book carregado com sucesso em memória.");
-} else {
+if (!fs.existsSync(brandbookPath)) {
     console.warn("⚠️ Alerta: Arquivo de Brand Book não encontrado.");
 }
 
@@ -213,6 +209,9 @@ function limparNomeCliente(nome) {
     return nome.replace(/\b(dr|dra|doutor|doutora|drs|dras)\b\.?\s*/gi, '').trim();
 }
 
+// Map em memória para rate-limit por telefone (proteção contra abusos e pico de custos)
+const taxaPorTelefone = new Map();
+
 // =========================================================================
 // 2. WEBHOOK: RECEBIMENTO DE MENSAGENS DO WHATSAPP (VIA Z-API)
 // =========================================================================
@@ -225,6 +224,29 @@ async function processarMensagem(payload) {
     console.log("[Z-API] Raw Payload:", JSON.stringify(payload, null, 2));
 
     const phone = payload.phone;
+
+    // Rate-limit por cliente (proteção contra flooding/abuso)
+    const janela = parseInt(process.env.RATE_LIMIT_JANELA_SEGUNDOS || '60') * 1000;
+    const maxMsg = parseInt(process.env.RATE_LIMIT_MAX_MSG || '8');
+    const agora = Date.now();
+    const reg = taxaPorTelefone.get(phone) || { contador: 0, janelaInicio: agora };
+
+    if (agora - reg.janelaInicio > janela) {
+        reg.contador = 0;
+        reg.janelaInicio = agora;
+    }
+    reg.contador++;
+    taxaPorTelefone.set(phone, reg);
+
+    if (reg.contador > maxMsg) {
+        console.log(`[RATE-LIMIT] ${phone} passou ${maxMsg} msgs em ${janela/1000}s. Ignorando.`);
+        // Só uma vez por janela alerta o Chatwoot
+        if (reg.contador === maxMsg + 1) {
+            await chatwoot.enviarNotaPrivada(phone, `⚠️ Rate-limit: cliente enviou ${reg.contador} mensagens em menos de ${janela/1000}s. Bot pausado até a janela resetar.`);
+        }
+        return { status: 200, message: 'OK: rate-limited' };
+    }
+
     const clientName = limparNomeCliente(payload.senderName || "Cliente");
     let crmvAnotadoParaInjetar = null;
 
@@ -716,24 +738,22 @@ Regras de Ouro:
 - Se a resposta couber em poucas palavras, seja breve.`;
     } else {
         activeSystemInstruction = `[ESTILO DE RESPOSTA — AIKA B2C — OBRIGATÓRIO]:
-Você é a Aika, atendente virtual B2C da farmácia. Você atende tutores de pets.
-Responda de forma acolhedora, simpática, direta e curta (máximo 2 frases), como um atendente ocupado mas carinhoso.
+Você é a Aika, atendente virtual B2C da farmácia. Atende tutores de pets.
+Responda de forma acolhedora, simpática, direta e curta (máximo 2 frases).
 
-Regras de Ouro:
+Regras:
 - MÁXIMO 2 frases por mensagem.
 - Use sempre exatamente 1 emoji amigável (como 🐾 ou 💜). NUNCA termine sem emoji.
-- NUNCA termine com "Estou à disposição", "Qualquer dúvida estou aqui", ou "Posso ajudar com mais algo?".
-- NUNCA use termos formais como Prezado, Senhor, Senhora.
-- NUNCA faça resumos ou repetições.
-- Negrito: use apenas *texto* (um asterisco) para preço, nome de produto ou ação importante.
-- Primeiro contato/Saudação: Se for apenas uma saudação, responda de forma acolhedora ("Olá! Tudo ótimo por aqui! 🐾") e peça o nome do tutor e do pet.
-- Dúvida geral sem contexto (ex: "Vocês conseguem me ajudar com uma dúvida?"): Responda de forma prestativa e acolhedora, perguntando como pode ajudar, sem pedir dados ainda. Exemplo: "Olá! Sim, claro. Como posso te ajudar hoje? 🐾"
-- Dúvida de vacina: Informe que é proibida a venda avulsa, mas oferecemos o serviço **Vet em Casa** com aplicação inclusa pelo nosso veterinário. Informe os preços (Antirrábica *R$60*, V8/V9 *R$70*, V10 *R$80*, Gripe *R$90*, Giardia *R$97*), e se for primeiro contato pergunte os nomes (tutor e pet). Exemplo: "Para vacinas oferecemos o Vet em Casa com aplicação por nosso veterinário (Antirrábica *R$60*, V8 *R$70*). Qual o seu nome e do seu pet? 🐾"
-- Dúvida de Librela/Cytopoint (pedido especial): Informe que está disponível por *R$ 380* a ampola (ou promoção de *R$ 350* cada levando duas), com prazo de entrega de 1 a 2 dias úteis, e que a previsão exata de entrega será dada após confirmar o pedido. Se for primeiro contato, pergunte os nomes (tutor e pet). Exemplo: "Temos sim! Fica *R$ 380* a ampola (ou *R$ 350* cada levando duas), com entrega em 1 a 2 dias úteis (daremos previsão exata após o pedido). Qual o seu nome e do seu pet? 🐾"
-- Confirmação de compra: Confirme o pedido de forma positiva e entusiasmada, forneça a chave Pix *(31) 98793-6822* (C6 Bank) e diga que o Kyenner já vai entrar em contato para combinar a entrega. Exemplo: "Que ótimo! O pix é *(31) 98793-6822* (C6 Bank) e o Kyenner já entra em contato para combinar a entrega! 🐾"
-- Dúvida de cartão/Pix: Informe a taxa de 4,99% para cartão de crédito, e ofereça o Pix sem taxa adicional pela chave *(31) 98793-6822* (C6 Bank). Exemplo: "Aceitamos cartão com taxa de 4,99%, ou Pix sem taxa pela chave *(31) 98793-6822* (C6 Bank). Como prefere? 🐾"
-- Se houver instruções específicas de estoque, preço ou compliance, você DEVE incluir todas as informações solicitadas (mesmo que precise usar 2 frases).
-- Se a resposta couber em poucas palavras, seja breve.`;
+- NUNCA termine com "Estou à disposição", "Qualquer dúvida estou aqui", ou "Posso ajudar?".
+- NUNCA use termos formais (Prezado, Senhor, Senhora) nem faça resumos/repetições.
+- Negrito: use apenas *texto* para preço, produto ou ação importante.
+- Primeiro contato/Saudação: Padrão: acolha de forma simpática e peça o nome do tutor e pet.
+- Dúvida geral sem contexto: Padrão: confirme ajuda de forma acolhedora e peça a dúvida.
+- Vacina: Padrão: venda avulsa proibida. Ofereça **Vet em Casa** (Antirrábica *R$60*, V8/V9 *R$70*, V10 *R$80*), peça nomes se início.
+- Librela/Cytopoint (pedido especial): Padrão: disponível por *R$ 380* (ou *R$ 350* cada comprando 2), prazo de 1 a 2 dias (previsão exata pós-pedido), peça nomes se início.
+- Confirmação de compra: Padrão: confirme com entusiasmo, envie Pix *(31) 98793-6822* (C6 Bank), avise que o Kyenner agendará a entrega.
+- Cartão/Pix: Padrão: taxa de 4,99% no cartão, ou Pix sem taxa pela chave *(31) 98793-6822* (C6 Bank).
+- Inclua todas as informações de estoque/compliance das instruções do contexto.`;
     }
 
     // Short-circuit: mensagens triviais não precisam de IA
@@ -781,28 +801,92 @@ Regras de Ouro:
 
     // --- CHAMADA DA IA (GEMINI) ---
     try {
-        const systemInstructionConciseWithContext = regrasCriticasContent + "\n" + contextoInjetado + "\n" + activeSystemInstruction;
-        console.log(`[IA] Prompt instrução total length: ${systemInstructionConciseWithContext.length} caracteres.`);
+        let model;
+        const geminiCache = require('./src/integracoes/gemini_cache');
+        const systemInstructionStaticText = regrasCriticasContent + "\n" + activeSystemInstruction;
 
-        const model = genAI.getGenerativeModel({
-            model: "gemini-2.5-flash-lite",
-            systemInstruction: systemInstructionConciseWithContext,
-            generationConfig: {
-                maxOutputTokens: 150,   // ~100 palavras = limite duro de tamanho
-                temperature: 0.3,        // menos variação, mais previsível
-                topP: 0.8
+        const cacheName = await geminiCache.getOrCreateCache(
+            chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika',
+            'gemini-2.5-flash-lite',
+            systemInstructionStaticText
+        );
+
+        let chatGemini;
+        let messageToSend = clientMessage;
+
+        if (cacheName) {
+            // Usar o cache para economizar input tokens
+            model = genAI.getGenerativeModelFromCachedContent({
+                name: cacheName,
+                model: 'models/gemini-2.5-flash-lite'
+            }, {
+                generationConfig: {
+                    maxOutputTokens: 150,
+                    temperature: 0.3,
+                    topP: 0.8
+                }
+            });
+
+            // Decisão de Arquitetura: Como a API do Gemini não permite modificar ou injetar novas
+            // systemInstructions dinâmicas no momento da chamada ao utilizar cachedContent, o contexto
+            // dinâmico (como dados de estoque, CRM, compliance detectados no turno) é injetado diretamente
+            // no início da mensagem enviada no chat (messageToSend) para preservar a eficiência do cache estático.
+            messageToSend = contextoInjetado ? `[INSTRUÇÕES DINÂMICAS DE CONTEXTO E COMPLIANCE]:\n${contextoInjetado}\n\n[Mensagem do Cliente]: ${clientMessage}` : clientMessage;
+
+            // Formatar histórico para o Gemini excluindo a última mensagem adicionada acima em chatState.history
+            const historyWithoutCurrent = chatState.history.slice(0, -1);
+            chatGemini = model.startChat({
+                history: historyWithoutCurrent.map(h => ({
+                    role: h.role === 'user' ? 'user' : 'model',
+                    parts: [{ text: h.content }]
+                }))
+            });
+        } else {
+            // Fallback sem cache
+            const systemInstructionConciseWithContext = regrasCriticasContent + "\n" + contextoInjetado + "\n" + activeSystemInstruction;
+            model = genAI.getGenerativeModel({
+                model: "gemini-2.5-flash-lite",
+                systemInstruction: systemInstructionConciseWithContext,
+                generationConfig: {
+                    maxOutputTokens: 150,
+                    temperature: 0.3,
+                    topP: 0.8
+                }
+            });
+
+            chatGemini = model.startChat({
+                history: chatState.history.map(h => ({
+                    role: h.role === 'user' ? 'user' : 'model',
+                    parts: [{ text: h.content }]
+                }))
+            });
+        }
+
+        let result;
+        let attempts = 0;
+        const maxAttempts = 3;
+        while (attempts < maxAttempts) {
+            try {
+                result = await chatGemini.sendMessage(messageToSend);
+                break;
+            } catch (err) {
+                attempts++;
+                const isTransient = err.message && (
+                    err.message.includes('503') || 
+                    err.message.includes('429') || 
+                    err.message.includes('Service Unavailable') || 
+                    err.message.includes('Resource Exhausted') ||
+                    err.message.includes('overloaded')
+                );
+                if (isTransient && attempts < maxAttempts) {
+                    const delay = attempts * 1500;
+                    console.warn(`⚠️ [GEMINI] Erro temporário detectado (${err.message}). Tentando novamente em ${delay}ms (Tentativa ${attempts}/${maxAttempts})...`);
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                } else {
+                    throw err;
+                }
             }
-        });
-
-        // Formatar o histórico para o formato do Gemini
-        const chatGemini = model.startChat({
-            history: chatState.history.map(h => ({
-                role: h.role === 'user' ? 'user' : 'model',
-                parts: [{ text: h.content }]
-            }))
-        });
-
-        const result = await chatGemini.sendMessage(clientMessage);
+        }
         let responseText = result.response.text();
         console.log(`[IA] Resposta crua da IA length: ${responseText.length} caracteres.`);
 
@@ -814,6 +898,25 @@ Regras de Ouro:
             responseText = responseText.replace(/\b(dr|dra|doutor|doutora)\b\.?\s*/gi, '');
         }
         console.log(`[IA] Resposta processada length: ${responseText.length} caracteres.`);
+
+        // Monitorar e registrar custos de tokens
+        const usageMetadata = result.response.usageMetadata;
+        if (usageMetadata) {
+            const promptTokens = usageMetadata.promptTokenCount || 0;
+            const candidateTokens = usageMetadata.candidatesTokenCount || 0;
+            const cachedTokens = usageMetadata.cachedContentTokenCount || 0;
+            
+            console.log(`[IA] Usage Metadata: promptTokens=${promptTokens}, candidateTokens=${candidateTokens}, cachedTokens=${cachedTokens}`);
+
+            const custoMonitor = require('./src/observabilidade/custo_monitor');
+            custoMonitor.registrarChamada({
+                promptTokens,
+                candidateTokens,
+                cachedTokens,
+                model: 'gemini-2.5-flash-lite',
+                persona: chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika'
+            });
+        }
 
         // Passar pelo Filtro de Tom de Voz (SNC)
         const tomValido = snc.validarTomDeVoz(chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika', responseText);
