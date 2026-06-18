@@ -1,0 +1,25 @@
+{
+  "_doc": "Tabela oficial Vet em Casa (B2C aplicado). Atualizar AQUI quando RT mudar valor — system instruction e regras críticas leem esse arquivo em runtime. NÃO inverter ordem dos campos sem revisar o gerador de prompt.",
+  "atualizado_em": "2026-06-17",
+  "atualizado_por": "claude",
+  "moeda": "BRL",
+  "vacinas": [
+    { "nome": "Antirrábica", "preco": 60.00 },
+    { "nome": "V8/V9", "preco": 70.00 },
+    { "nome": "V10", "preco": 80.00 },
+    { "nome": "Gripe", "preco": 90.00 },
+    { "nome": "Giardia", "preco": 97.00 }
+  ],
+  "observacoes": [
+    "Aplicação domiciliar inclusa.",
+    "Há taxa de deslocamento calculada pelo CEP, informada após o cliente confirmar o serviço."
+  ],
+  "pix": {
+    "chave": "(31) 98793-6822",
+    "banco": "C6 Bank",
+    "titular": "Solução Farmacêutica Otimiza"
+  },
+  "cartao": {
+    "taxa_pct": 4.99
+  }
+}

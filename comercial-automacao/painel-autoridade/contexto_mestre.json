@@ -1,0 +1,604 @@
+{
+  "versao": "11.0",
+  "ultima_atualizacao": "2026-06-17T21:30:00Z",
+  "atualizado_por": "claude",
+  "secoes": [
+    {
+      "id": "sec_mkt",
+      "titulo": "🚀 Marketing Visual & Social",
+      "descricao": "Instagram (Claude), TikTok, YouTube, Pinterest, LinkedIn, Blog e Ads."
+    },
+    {
+      "id": "sec_prospeccao",
+      "titulo": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "descricao": "Pipeline de Aquisição: Busca -> Qualificação (17h) -> Automação."
+    },
+    {
+      "id": "sec_ltv",
+      "titulo": "🔄 LTV & Fidelização",
+      "descricao": "Reativação de Recompra, Aniversários e Chronics Case."
+    },
+    {
+      "id": "sec_shopify",
+      "titulo": "🛒 Shopify & E-commerce",
+      "descricao": "Vitrine Virtual, Promoções e Gestão de Vendas B2C/B2B."
+    },
+    {
+      "id": "sec_snc",
+      "titulo": "🧠 Sistema Nervoso Central (SNC)",
+      "descricao": "Gestão de Emoção, Tom de Voz, Sensores (Métricas) e Reflexos (Gatilhos)."
+    }
+  ],
+  "tarefas": [
+    {
+      "id": "snc_001",
+      "titulo": "Implementação dos Sensores de Adesão",
+      "descricao": "Criar script para medir taxa de resposta e abandono emocional.",
+      "coluna": "motor",
+      "tags": ["SNC", "Métricas", "IA"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "snc_002",
+      "titulo": "Reflexos de Antecipação e Transbordo",
+      "descricao": "Hooks em Shopify/WhatsApp para lembretes automáticos e acionamento humano em emergências.",
+      "coluna": "motor",
+      "tags": ["SNC", "Gatilhos"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "snc_003",
+      "titulo": "Auditoria Semanal SNC (Crítico de Arte)",
+      "descricao": "Consolidar logs e rodar prompt de avaliação de afeto/tom com Gemini.",
+      "coluna": "cofre",
+      "tags": ["SNC", "Auditoria"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "ig_001",
+      "titulo": "Instagram Engine (Claude)",
+      "descricao": "Carrossel, Status e Reels em produção pelo Claude Code.",
+      "coluna": "motor",
+      "tags": ["Social", "Claude"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "auto"
+    },
+    {
+      "id": "li_001",
+      "titulo": "LinkedIn Carmen CEO",
+      "descricao": "Postagens estratégicas 3x/semana (sem emojis).",
+      "coluna": "motor",
+      "tags": ["B2B", "LinkedIn"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "auto"
+    },
+    {
+      "id": "gm_001",
+      "titulo": "GMB Local Authority",
+      "descricao": "Migração para API Oficial v1 e posts automáticos.",
+      "coluna": "gargalo",
+      "tags": ["GMB", "API"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "semi"
+    },
+    {
+      "id": "tk_001",
+      "titulo": "TikTok UGC Automation",
+      "descricao": "Pipeline 100% automático de vídeos IA para Dropshipping.",
+      "coluna": "gargalo",
+      "tags": ["UGC", "TikTok"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "semi"
+    },
+    {
+      "id": "pr_001",
+      "titulo": "IA Qualificador 17h",
+      "descricao": "Triagem estratégica de leads Aika vs Kyenner.",
+      "coluna": "motor",
+      "tags": ["Vendas", "IA"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "autonomia": "auto"
+    },
+    {
+      "id": "pr_002",
+      "titulo": "Monitor de Concorrentes",
+      "descricao": "Extração de preços Petz/Cobasi via Puppeteer.",
+      "coluna": "motor",
+      "tags": ["Preços", "Web"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "autonomia": "auto"
+    },
+    {
+      "id": "ltv_001",
+      "titulo": "Aniversários Aika",
+      "descricao": "Gestão de presentes e parabéns automáticos.",
+      "coluna": "motor",
+      "tags": ["Fidelização", "WA"],
+      "projeto": "🔄 LTV & Fidelização",
+      "autonomia": "auto"
+    },
+    {
+      "id": "sh_001",
+      "titulo": "Vitrine Virtual Semana",
+      "descricao": "Geração de flyers promocionais para Status.",
+      "coluna": "gargalo",
+      "tags": ["Shopify", "Design"],
+      "projeto": "🛒 Shopify & E-commerce",
+      "autonomia": "semi"
+    },
+    {
+      "id": "rt_003",
+      "titulo": "Automação Disparo Currículo Kyenner",
+      "descricao": "Automação de busca de vagas e candidatura/disparo de currículo para recolocação profissional.",
+      "coluna": "gargalo",
+      "tags": ["RT", "Automação", "Emprego"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "cfmv_001",
+      "titulo": "gargalo.cfmv.crmvs-teste-em-producao",
+      "descricao": "Restringir whitelist de CRMVs de teste ao ambiente de teste e retornar resposta generica.",
+      "coluna": "motor",
+      "tags": ["CFMV", "Segurança"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prompt_001",
+      "titulo": "gargalo.ia.system-prompt-inchado",
+      "descricao": "Remover jargoes e regras do system instruction no codigo e criar regras_criticas.md.",
+      "coluna": "motor",
+      "tags": ["Prompt", "Gemini"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_001",
+      "titulo": "cofre.observabilidade.dashboard-logs",
+      "descricao": "Criar script de dashboard CLI revisar_logs_silencioso.js para analise das sugestoes da IA.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Logs"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "custo_001",
+      "titulo": "gargalo.custo.modelo-mais-barato",
+      "descricao": "Trocado chat e transcrição para gemini-2.5-flash-lite + limite maxOutputTokens 150/250.",
+      "coluna": "motor",
+      "tags": ["Custo", "API", "Gemini"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prompt_002",
+      "titulo": "gargalo.ia.voz-humana-ocupada",
+      "descricao": "Instruções segregadas Aika/Kyenner com tom 'vendedor ocupado' e limite estrito de frases.",
+      "coluna": "motor",
+      "tags": ["Persona", "Tom"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "custo_002",
+      "titulo": "gargalo.custo.short-circuit-triviais",
+      "descricao": "Short-circuit de mensagens curtas/triviais sem dúvida ou receita pendente.",
+      "coluna": "motor",
+      "tags": ["Custo", "Otimização"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prompt_003",
+      "titulo": "gargalo.custo.contexto-injetado-verboso",
+      "descricao": "Redução do contexto dinâmico injetado para tags compactas e eficientes.",
+      "coluna": "motor",
+      "tags": ["Prompt", "Otimização"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "custo_003",
+      "titulo": "gargalo.custo.context-caching-gemini",
+      "descricao": "Usar Gemini Context Caching para system + regras_criticas. Gemini suporta cache desse prefixo por hora via API CachedContent. Economia esperada: 60-75% de input cost.",
+      "coluna": "motor",
+      "tags": ["Custo", "Cache"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_002",
+      "titulo": "gargalo.observabilidade.alerta-custo",
+      "descricao": "Contador diário de custos com alerta Telegram acima de limite e kill-switch ativando MODO_SILENCIOSO.",
+      "coluna": "motor",
+      "tags": ["Custo", "Observabilidade"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prot_001",
+      "titulo": "gargalo.protecao.rate-limit-por-cliente",
+      "descricao": "Rate-limit por telefone em memória impedindo abusos e loops de IA no WhatsApp.",
+      "coluna": "motor",
+      "tags": ["Segurança", "WhatsApp"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_003",
+      "titulo": "gargalo.aprendizado.analise-semanal-ia",
+      "descricao": "Análise semanal automatizada de logs utilizando Gemini-2.5-Flash-Lite para avaliar compliance, tom e conformidade.",
+      "coluna": "motor",
+      "tags": ["Auditoria", "Gemini", "Logs"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "maint_001",
+      "titulo": "gargalo.manutencao.limpar-estado-inativo",
+      "descricao": "Rotina de limpeza de estados inativos obsoletos no banco de dados local com base no TTL configurado.",
+      "coluna": "motor",
+      "tags": ["Manutenção", "Performance"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_004",
+      "titulo": "gargalo.observabilidade.painel-saude-html",
+      "descricao": "Painel de saúde web-based e responsivo com métricas de custo, volume de chamadas (sparkline) e relatórios de IA.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Dashboard", "HTML"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "qual_001",
+      "titulo": "gargalo.qualidade.validador-semantico",
+      "descricao": "Auditor Gemini pós-resposta. Checa preço inventado, persona trocada, frases proibidas, vazamento de fornecedor. Substitui por fallback seguro quando reprova com confiança >= 0.7. Pulado em MODO_SILENCIOSO=true.",
+      "coluna": "motor",
+      "tags": ["Qualidade", "Compliance", "Gemini"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "padr_001",
+      "titulo": "gargalo.padronizacao.gemini-1.5-orfao",
+      "descricao": "5 scripts (responder_dm, responder_comentarios, qualificador_ia, scanner_validade, content_generator.py) migrados de gemini-1.5-flash (depreciado, 404) para gemini-2.5-flash-lite + generationConfig + custo_monitor hook + self-test (--self-test).",
+      "coluna": "motor",
+      "tags": ["Padronização", "Gemini", "Bug-fix"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "ux_001",
+      "titulo": "gargalo.ux.detector-repeticao-cliente",
+      "descricao": "Detector de repetição (Jaccard sobre tokens, threshold 0.75). Após 3 mensagens semelhantes consecutivas, escala pro humano em vez de reciclar resposta. Padrão identificado no relatório semanal de 2026-06-17.",
+      "coluna": "motor",
+      "tags": ["UX", "Compliance", "Transbordo"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "autom_001",
+      "titulo": "gargalo.automacao.cron-semanal",
+      "descricao": "GitHub Actions workflows (.github/workflows/analise-semanal.yml + limpeza-estado.yml) + fallback .bat em scripts/agendar_*.bat para Windows Task Scheduler. Análise toda segunda 06:00 BRT; limpeza dia 1 às 03:00 BRT.",
+      "coluna": "motor",
+      "tags": ["Automação", "CI/CD"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "obs_005",
+      "titulo": "gargalo.observabilidade.reprovacoes-no-painel",
+      "descricao": "Validações reprovadas pelo validador semântico persistidas em validacoes_reprovadas.jsonl. Card e lista das 10 mais recentes (24h) renderizadas no painel /saude com cliente, mensagem original, resposta abortada e violações.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Qualidade", "Dashboard"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "obs_006",
+      "titulo": "gargalo.observabilidade.alerta-semanal-telegram",
+      "descricao": "Resumo executivo automático no Telegram ao fim de cada análise semanal: totais, % violação/prolixidade, top 3 padrões e top 3 sugestões de regra. Carmen vê no celular sem abrir o painel.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Telegram"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "perf_001",
+      "titulo": "gargalo.performance.cache-gestaoclick",
+      "descricao": "Cache em memória (Map) de buscas CPF/CRMV/telefone no GestãoClick. TTL via GC_CACHE_TTL_SECONDS (default 1h). Invalidação automática em cadastrarCliente. Reduz ~95% de lookups redundantes no ERP em conversas longas.",
+      "coluna": "motor",
+      "tags": ["Performance", "GestãoClick"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "ci_001",
+      "titulo": "gargalo.ci.self-tests-em-pr",
+      "descricao": "Workflow .github/workflows/self-tests.yml roda --self-test dos 5 scripts auxiliares + smoke-check do server em cada PR/push tocando os arquivos correspondentes. Notifica Telegram em caso de falha.",
+      "coluna": "motor",
+      "tags": ["CI/CD", "Quality"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "maint_002",
+      "titulo": "gargalo.manutencao.rotacao-mensal-logs",
+      "descricao": "Script rotacionar_log_mensal.js + workflow rotacao-logs.yml + .bat fallback. Arquiva entradas do mês anterior de conversas_log.jsonl e validacoes_reprovadas.jsonl em log_archive/<base>_YYYY-MM.jsonl.gz. Roda dia 1 às 04:00 BRT.",
+      "coluna": "motor",
+      "tags": ["Manutenção", "Storage"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "canary_001",
+      "titulo": "gargalo.rollout.modo-canary",
+      "descricao": "Flag CANARY_PCT (0-100). Hash determinístico por phone decide se cliente recebe resposta real ou continua em silencioso. Permite subir gradual sem trocar MODO_SILENCIOSO. Validador semântico + log estruturado refletem o estado real por phone, não a env global.",
+      "coluna": "motor",
+      "tags": ["Rollout", "Safety"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "negocio_001",
+      "titulo": "gargalo.observabilidade.dashboard-negocio",
+      "descricao": "Painel /saude ganhou seção 'Painel de Negócio' com top 10 produtos mencionados, funil (clientes → mencionaram → confirmaram → escalaram), taxa menção→compra, distribuição horária e horário de pico. Extraído do conversas_log.jsonl dos últimos 7 dias.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Negócio"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "aprendiz_001",
+      "titulo": "gargalo.aprendizado.pares-humano-ia",
+      "descricao": "Script extrair_pares_treinamento.js cruza conversas_log.jsonl com Chatwoot. Quando humano responde diferente da sugestão da IA (similaridade Jaccard < PARES_SIMILARITY_THRESHOLD), grava par em pares_treinamento.jsonl. Dataset que vira insumo de few-shot e propostas de regra. Roda junto da análise semanal (segunda 06:00 BRT).",
+      "coluna": "motor",
+      "tags": ["Aprendizado", "Dataset"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "obs_007",
+      "titulo": "gargalo.observabilidade.cache-hit-rate",
+      "descricao": "Card 'Cache Hit (Gemini)' no painel /saude. Calcula cached_tokens / (input_tokens + cached_tokens) do dia. Permite ver se o Context Caching está realmente economizando — esperado >60% em regime.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Performance"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "config_001",
+      "titulo": "gargalo.configuracao.precos-externos",
+      "descricao": "Preços do Vet em Casa, Pix e taxa de cartão movidos pra diretrizes-e-branding/precos_vet_em_casa.json. Carregador em src/precos/carregar_precos.js com cache de 5min — RT muda valor no JSON, próxima janela já reflete sem reiniciar. System instruction e contextoInjetado leem do arquivo.",
+      "coluna": "motor",
+      "tags": ["Configuração", "Manutenção"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "ltv_001",
+      "titulo": "gargalo.ltv.motor-recompra",
+      "descricao": "Cron diário 09:00 BRT lê pedidos Shopify dos últimos 400d, cruza com duracao_produtos.json (Bravecto 90d, Simparic 30d, vacinas 365d, etc) e dispara WhatsApp X dias antes do prazo via gateway (respeita canary). Trava de não-duplicação por pedido e por phone (max 1 lembrete a cada 14d). Resolve KPI norte da Otimiza.",
+      "coluna": "motor",
+      "tags": ["LTV", "Recompra", "Shopify"],
+      "projeto": "🔄 LTV & Fidelização",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "safety_001",
+      "titulo": "gargalo.safety.detector-frustracao",
+      "descricao": "Lista de 20+ gatilhos críticos (procon, advogado, processo, absurdo, estelionato, anvisa, etc). Detectado: escala humano IMEDIATO, manda Telegram urgente pra equipe, nota privada de PRIORIDADE ALTA no Chatwoot, despedida da IA é curta e desculpa-se. Protege marca antes de virar ticket.",
+      "coluna": "motor",
+      "tags": ["Safety", "Marca"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "aprendiz_002",
+      "titulo": "gargalo.aprendizado.few-shot-dinamico",
+      "descricao": "Carmen revisa pares humano-IA divergentes no /saude. Botão 'Aprovar' grava em few_shot_aprovados.json. Carregador injeta exemplos no system instruction da próxima conversa (cache TTL 5min). Botão 'Descartar' marca pra não aparecer mais. Fecha o loop do dataset.",
+      "coluna": "motor",
+      "tags": ["Aprendizado", "UI"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "ux_002",
+      "titulo": "gargalo.ux.janela-atendimento",
+      "descricao": "Fora do horário comercial (HORARIO_COMERCIAL_INICIO/FIM, default 8h-20h, sem domingo), bot responde 1x avisando próximo horário e marca o estado (ultimaMsgForaHorario). Mensagens subsequentes do mesmo cliente no mesmo dia são silenciadas. Evita acumular log e gerar custo Gemini madrugada/domingo.",
+      "coluna": "motor",
+      "tags": ["UX", "Custo"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "obs_008",
+      "titulo": "gargalo.observabilidade.health-check",
+      "descricao": "Endpoint /health no painel-autoridade pinga Z-API + Chatwoot (timeout 3s cada) + verifica disco. Retorna 200 ok ou 503 degraded com detalhes por integração. Compatível com UptimeRobot/Pingdom — Carmen pode configurar monitor externo gratuito que avisa quando o bot tá fora do ar.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Uptime"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "safety_002",
+      "titulo": "gargalo.safety.lock-concorrencia",
+      "descricao": "Map em memória processandoPorPhone com TTL configurável (LOCK_PROCESSAMENTO_MS, default 15s). Webhook /zapi descarta turnos paralelos do mesmo phone — evita race condition no chatState e falso positivo no detector de repetição quando Gemini demora.",
+      "coluna": "motor",
+      "tags": ["Safety", "Bug-fix"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "lgpd_001",
+      "titulo": "gargalo.privacidade.mascarar-pii-lgpd",
+      "descricao": "Módulo src/privacidade/mascarar_pii.js. Antes de salvar log estruturado e validações reprovadas, mascara CPF, CNPJ, CRMV, email, CEP e telefones no CONTEÚDO das mensagens. Campo phone do registro fica cru (necessário pra cruzar com Chatwoot). Toggle MASCARAR_PII_ENABLED. Adequação LGPD pra farmácia.",
+      "coluna": "motor",
+      "tags": ["LGPD", "Privacidade"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "ltv_002",
+      "titulo": "gargalo.ltv.checkout-shopify-direto",
+      "descricao": "Quando bot detecta compra B2C confirmada, gera Draft Order via Shopify Admin API e injeta invoice_url no contextoInjetado. Bot manda link de checkout pré-preenchido — cliente paga sozinho com cartão/Pix sem depender do Kyenner. Requer SHOPIFY_CHECKOUT_ENABLED=true + variant_id em mapa_produto_variant.json. Fallback automático pro Pix tradicional se produto não mapeado.",
+      "coluna": "motor",
+      "tags": ["LTV", "Shopify", "Conversão"],
+      "projeto": "🔄 LTV & Fidelização",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "ux_003",
+      "titulo": "gargalo.ux.aprovacao-pares-lote",
+      "descricao": "Botões 'Aprovar TODOS' e 'Descartar TODOS' na seção de pares humano-IA do /saude. Endpoints POST /api/aprovar-pares-lote e /api/descartar-pares-lote. Carmen revisa 20 pares acumulados em 2 cliques em vez de 40.",
+      "coluna": "motor",
+      "tags": ["UX", "QoL"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "maint_003",
+      "titulo": "gargalo.manutencao.backup-diario-estado",
+      "descricao": "Script backup_estado_diario.js + workflow backup-estado.yml + .bat fallback. Diário 02:00 BRT copia conversas_state.json e few_shot_aprovados.json pra backups/<nome>_YYYY-MM-DD.json. Rotação automática mantém só últimos BACKUP_RETENTION_DIAS (default 30).",
+      "coluna": "motor",
+      "tags": ["Manutenção", "DR"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "ltv_003",
+      "titulo": "gargalo.ltv.aniversario-pet",
+      "descricao": "Cron diário 09:05 BRT lê aniversarios_pet_dados.json. Pra cada pet aniversariante, gera Discount Code único na Shopify (formato AIKA-{NOMEPET}-2026, 15% off, 7d) e envia WhatsApp via gateway. Trava por ano (não duplica). Carmen pode coletar datas via atendimento normal ou planilha.",
+      "coluna": "motor",
+      "tags": ["LTV", "Emocional", "Shopify"],
+      "projeto": "🔄 LTV & Fidelização",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "ltv_004",
+      "titulo": "gargalo.ltv.cross-sell",
+      "descricao": "Tabela cross_sell.json: Bravecto→vermífugo, V8→Antirrábica, Cytopoint→Librela, etc. Quando bot detecta compra B2C confirmada, injeta UMA frase de oferta complementar no system prompt (respeitando o máximo de 2 frases). Aumenta ticket médio sem violar voz.",
+      "coluna": "motor",
+      "tags": ["LTV", "Cross-sell"],
+      "projeto": "🔄 LTV & Fidelização",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "qual_002",
+      "titulo": "gargalo.qualidade.nps-pos-compra",
+      "descricao": "Cron diário 10:30 BRT pega pedidos pagos D-3 e envia WhatsApp pedindo nota 1-5. Bot detecta resposta numérica no fluxo principal, salva em nps_respostas.jsonl e responde com agradecimento. Nota ≤ 2: alerta Telegram urgente + escala humano pra recuperar. Trava por pedido.",
+      "coluna": "motor",
+      "tags": ["Qualidade", "NPS", "LTV"],
+      "projeto": "🔄 LTV & Fidelização",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "sla_001",
+      "titulo": "gargalo.observabilidade.sla-humano",
+      "descricao": "chatState ganha escaladoEm + respondidoEm. Webhook Chatwoot zera escaladoEm quando atendente envia mensagem. Painel /saude tem card 'SLA do Atendimento Humano' com lista de pendentes ordenada por idade, cores (verde<30min, amarelo<60min, vermelho>60min) e alerta quando passa de 60min.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "SLA"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    },
+    {
+      "id": "personaliz_001",
+      "titulo": "gargalo.personalizacao.historico-compras",
+      "descricao": "Módulo historico_compras.js. Antes de chamar Gemini, busca pedidos pagos do phone nos últimos 12m via Shopify Admin API e resume em string ('Cliente recorrente: 2x Bravecto, total R$X, última compra há Y dias'). Injetado no contextoInjetado. Cache TTL 1h. Toggle HISTORICO_COMPRAS_ENABLED.",
+      "coluna": "motor",
+      "tags": ["Personalização", "Shopify"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "claude"
+    }
+  ]
+}

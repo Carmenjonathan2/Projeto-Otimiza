@@ -1,0 +1,30 @@
+require('dotenv').config(); // Isso é crucial para ler o .env
+const axios = require('axios');
+
+async function testarTrello() {
+    console.log("--- DIAGNÓSTICO DO TRELLO ---");
+    console.log("🔑 API KEY:", process.env.TRELLO_API_KEY ? "Lida com sucesso (OK)" : "VAZIA (Erro de Leitura)");
+    console.log("🔒 TOKEN:", process.env.TRELLO_TOKEN ? "Lido com sucesso (OK)" : "VAZIO (Erro de Leitura)");
+    console.log("📋 LIST ID:", process.env.TRELLO_LIST_ID ? "Lido com sucesso (OK)" : "VAZIO (Erro de Leitura)");
+
+    if (!process.env.TRELLO_API_KEY || !process.env.TRELLO_TOKEN) {
+        console.log("❌ ERRO FATAL: O Node.js não está encontrando as chaves. Verifique o arquivo .env!");
+        return;
+    }
+
+    const url = `https://api.trello.com/1/cards?idList=${process.env.TRELLO_LIST_ID}&key=${process.env.TRELLO_API_KEY}&token=${process.env.TRELLO_TOKEN}`;
+
+    try {
+        console.log("Enviando requisição POST...");
+        const response = await axios.post(url, {
+            name: "🚀 Teste de Diagnóstico - 401",
+            desc: "Se você está lendo isso, a barreira do 401 foi quebrada!"
+        });
+        console.log("✅ SUCESSO! Card criado. Link:", response.data.url);
+    } catch (error) {
+        console.error("❌ ERRO DO TRELLO:", error.response ? error.response.status : error.message);
+        console.error("DETALHES DO ERRO:", error.response ? error.response.data : "Sem detalhes");
+    }
+}
+
+testarTrello();

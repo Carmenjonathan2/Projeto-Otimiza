@@ -1,0 +1,48 @@
+node_modules/
+browser_data/
+perfil_aika/
+.wwebjs_auth/
+.wwebjs_cache/
+*.log
+*.tmp
+*.png
+*.jpg
+*.pickle
+*.zip
+*.xlsx
+*.csv
+.env
+GestaoClick_Debug.html
+diagnostico_final.html
+historico_extraido_gestaoclick.json
+historico_limpo.json
+historico_limpo_xlsx.json
+respostas_avaliacoes.json
+b2b_contatados.json
+conexao_comercial.png
+conexao_comercial.jpg
+audios_comercial/
+Imagens Site/
+iconis otimiza/
+Brand - NOW/
+otimiza-content-planner/
+scraper-condominios-bh/node_modules/
+cold-email-automation/node_modules/
+painel-autoridade/contexto_mestre.json
+node_modules
+
+# Chrome Profiles / Session Data
+**/session-perfil_aika/
+**/perfil_kyenner/
+**/perfil_kyenner_linkedin/
+
+# Tokens & Secrets Google/OAuth/APIs
+**/token.json
+**/token_conta2.json
+**/token_otimiza.json
+**/client_secret*.json
+
+# Local logs
+0-Central-SNC/conversas_log.jsonl
+*.jsonl
+

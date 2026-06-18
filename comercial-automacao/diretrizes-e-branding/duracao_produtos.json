@@ -1,0 +1,18 @@
+{
+  "_doc": "Tabela de duração esperada de produtos. Motor de recompra usa para calcular gatilho (data_pedido + duracao_dias - antecedencia_dias). Editar AQUI sem mexer em código.",
+  "atualizado_em": "2026-06-17",
+  "atualizado_por": "claude",
+  "antecedencia_dias_padrao": 7,
+  "produtos": [
+    { "match": ["bravecto"],                            "categoria": "antipulga",   "duracao_dias": 90,  "antecedencia_dias": 7,  "mensagem_template": "Oi {nome}! 🐾 O Bravecto do {pet} tá chegando no fim. Quer que eu já separe a próxima dose?" },
+    { "match": ["simparic", "simparic 10mg"],           "categoria": "antipulga",   "duracao_dias": 30,  "antecedencia_dias": 5,  "mensagem_template": "Oi {nome}! 🐾 O Simparic do {pet} acaba em uns 5 dias. Quer que eu reserve a próxima dose?" },
+    { "match": ["nexgard"],                             "categoria": "antipulga",   "duracao_dias": 30,  "antecedencia_dias": 5,  "mensagem_template": "Oi {nome}! 🐾 NexGard do {pet} tá no fim. Reservo a próxima dose pra você?" },
+    { "match": ["antirrábica", "antirrabica"],          "categoria": "vacina",      "duracao_dias": 365, "antecedencia_dias": 21, "mensagem_template": "Oi {nome}! 🐾 A antirrábica do {pet} está perto de vencer. Quer agendar a aplicação em casa?" },
+    { "match": ["v8", "v9", "v10"],                     "categoria": "vacina",      "duracao_dias": 365, "antecedencia_dias": 21, "mensagem_template": "Oi {nome}! 🐾 A vacina V8/V10 do {pet} está perto de vencer. Quer agendar o reforço em casa?" },
+    { "match": ["gripe"],                               "categoria": "vacina",      "duracao_dias": 180, "antecedencia_dias": 14, "mensagem_template": "Oi {nome}! 🐾 Tá chegando a hora do reforço da vacina de gripe do {pet}. Quer agendar?" },
+    { "match": ["giardia"],                             "categoria": "vacina",      "duracao_dias": 365, "antecedencia_dias": 21, "mensagem_template": "Oi {nome}! 🐾 A vacina de giárdia do {pet} está perto de vencer. Agendamos o reforço?" },
+    { "match": ["vermífugo", "vermifugo"],              "categoria": "vermifugo",   "duracao_dias": 90,  "antecedencia_dias": 7,  "mensagem_template": "Oi {nome}! 🐾 O vermífugo do {pet} já tá no fim. Quer que eu separe?" },
+    { "match": ["librela"],                             "categoria": "cronico",     "duracao_dias": 30,  "antecedencia_dias": 5,  "mensagem_template": "Oi {nome}! 🐾 A Librela do {pet} acaba em uns dias. Mando hoje ou prefere amanhã?" },
+    { "match": ["cytopoint"],                           "categoria": "cronico",     "duracao_dias": 60,  "antecedencia_dias": 7,  "mensagem_template": "Oi {nome}! 🐾 O Cytopoint do {pet} tá no fim. Quer que eu reserve a próxima dose?" }
+  ]
+}
