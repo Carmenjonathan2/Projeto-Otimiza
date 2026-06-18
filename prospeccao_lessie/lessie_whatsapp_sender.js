@@ -3,7 +3,7 @@ const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 // Gateway Unificado do WhatsApp
-const whatsappGateway = require('../0-Central-SNC/src/integracoes/whatsapp_gateway');
+const whatsappGateway = require('../comercial-automacao/src/integracoes/whatsapp_gateway');
 
 const QUEUE_FILE = path.resolve(__dirname, 'lessie_whatsapp_queue.json');
 const MAX_ENVIOS_DIA = 10; // Trava de segurança diária rígida para evitar blocks

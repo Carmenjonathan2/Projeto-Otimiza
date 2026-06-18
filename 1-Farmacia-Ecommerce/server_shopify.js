@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const snc = require('../0-Central-SNC/src/snc/snc_core');
-const aika = require('../0-Central-SNC/src/personas/aika/aika_ltv');
+const snc = require('../comercial-automacao/src/snc/snc_core');
+const aika = require('../comercial-automacao/src/personas/aika/aika_ltv');
 
 const app = express();
 app.use(bodyParser.json());

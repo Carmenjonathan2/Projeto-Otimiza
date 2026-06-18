@@ -14,8 +14,8 @@ echo.
 echo ===================================================
 echo 📧 [PASSO 2] NOTIFICACAO DE PROSPECCAO MANUAL
 echo ===================================================
-node "0-Central-SNC\GIO-CENTRAL\executors\direct_sales\manual_notificador.js"
-node "0-Central-SNC\GIO-CENTRAL\executors\direct_sales\manual_notificador_rt.js"
+node "comercial-automacao\GIO-CENTRAL\executors\direct_sales\manual_notificador.js"
+node "comercial-automacao\GIO-CENTRAL\executors\direct_sales\manual_notificador_rt.js"
 
 echo.
 echo ===================================================
@@ -28,13 +28,13 @@ echo.
 echo ===================================================
 echo 🏢 [PASSO 3] PROSPECCAO B2B (CONDOMINIOS)
 echo ===================================================
-node "0-Central-SNC\GIO-CENTRAL\executors\direct_sales\b2b_whatsapp.js"
+node "comercial-automacao\GIO-CENTRAL\executors\direct_sales\b2b_whatsapp.js"
 
 echo.
 echo ===================================================
 echo ⏳ [PASSO 4] ALERTA DE ESTOQUE INTELIGENTE
 echo ===================================================
-node "0-Central-SNC\GIO-CENTRAL\executors\inventory\notificador_vencimento.js"
+node "comercial-automacao\GIO-CENTRAL\executors\inventory\notificador_vencimento.js"
 
 echo.
 echo ===================================================

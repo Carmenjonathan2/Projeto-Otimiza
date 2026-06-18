@@ -43,6 +43,6 @@ node_modules
 **/client_secret*.json
 
 # Local logs
-0-Central-SNC/conversas_log.jsonl
+comercial-automacao/conversas_log.jsonl
 *.jsonl
 

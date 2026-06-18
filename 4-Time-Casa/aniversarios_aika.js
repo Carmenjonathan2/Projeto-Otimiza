@@ -6,7 +6,7 @@ const axios = require('axios');
 require('dotenv').config();
 
 // Gateway Unificado do WhatsApp
-const whatsappGateway = require('../0-Central-SNC/src/integracoes/whatsapp_gateway');
+const whatsappGateway = require('../comercial-automacao/src/integracoes/whatsapp_gateway');
 
 const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID || '1j8wDixIqT6QEbCFecGTftuE8jCN0nlHAeKjao9m3xUs';
 const RANGE = 'relatorio_aniversariantes!A2:C'; 

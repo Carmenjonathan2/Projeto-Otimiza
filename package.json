@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "start": "node 0-Central-SNC/server_integracao.js",
-    "revisar-logs": "node 0-Central-SNC/scripts/revisar_logs_silencioso.js",
-    "analise-semanal": "node 0-Central-SNC/scripts/analise_semanal_logs.js",
-    "limpar-estado": "node 0-Central-SNC/scripts/limpar_estado_inativo.js"
+    "start": "node comercial-automacao/server_integracao.js",
+    "revisar-logs": "node comercial-automacao/scripts/revisar_logs_silencioso.js",
+    "analise-semanal": "node comercial-automacao/scripts/analise_semanal_logs.js",
+    "limpar-estado": "node comercial-automacao/scripts/limpar_estado_inativo.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",

@@ -9,11 +9,11 @@
         "alerta_enviado_hoje": false
     },
     "2026-06-18": {
-        "chamadas": 186,
-        "input_tokens": 476545,
-        "output_tokens": 6920,
-        "cached_tokens": 414982,
-        "custo_usd_estimado": 0.06079705000000001,
+        "chamadas": 229,
+        "input_tokens": 576799,
+        "output_tokens": 8499,
+        "cached_tokens": 497506,
+        "custo_usd_estimado": 0.07351715,
         "modelo_predominante": "gemini-2.5-flash-lite",
         "alerta_enviado_hoje": false
     }

@@ -92,6 +92,7 @@ async function validarRespostaIA(responseText, persona, contextoInjetado = "", p
 - Persona ${persona === 'Aika' ? 'Aika (B2C) deve usar 1 emoji (🐾 ou 💜)' : 'Kyenner (B2B) NÃO deve usar emoji'}.
 - NUNCA pode mencionar "distribuidor" ou "fornecedor".
 - ${persona === 'Kyenner' ? 'NUNCA usar "Dr.", "Dra.", "Doutor" ou "Doutora".' : 'NUNCA usar "Prezado", "Senhor", "Senhora".'}
+- Para mensagens de SPAM/Propaganda/Venda de serviços por terceiros: a resposta deve apenas recusar a oferta de forma curta e polida. Não deve pedir CPF, CRMV ou tentar vender produtos. A instrução de CRM sobre cliente não localizado é irrelevante e deve ser ignorada nesses casos.
 
 [ATENÇÃO]: Instruções de vendas e cross-sell no CONTEXTO abaixo são opcionais e NÃO devem ser auditadas como violação caso a resposta gerada não as inclua. Foque estritamente em compliance e segurança.
 
