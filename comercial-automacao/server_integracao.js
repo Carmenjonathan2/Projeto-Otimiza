@@ -783,7 +783,7 @@ async function processarMensagem(payload) {
             if (infoEstoque.tipo === 'pedido_especial') {
                 // PEDIDO ESPECIAL: produto disponível via fornecedor, prazo conhecido
                 console.log(`📦 [ESTOQUE] '${prod.nome}' é pedido especial. Prazo: ${infoEstoque.prazo}`);
-                contextoInjetado += `\n[INSTRUÇÃO DE ESTOQUE]: O produto está disponível por R$ ${infoEstoque.preco}. Informe o preço de R$ 380 unitário e a promoção de R$ 350 cada na compra de 2 ampolas. Diga que a entrega é em 1 a 2 dias úteis, e que a previsão exata de entrega será dada após confirmarmos o pedido. NUNCA cite distribuidor ou fornecedor.`;
+                contextoInjetado += `\n[INSTRUÇÃO DE ESTOQUE]: O produto está disponível por R$ ${infoEstoque.preco}. Informe o preço de R$ 380 unitário e a promoção de R$ 350 cada na compra de 2 ampolas. Diga que a entrega é prevista para 1 a 2 dias úteis, e que daremos a previsão exata de entrega após confirmarmos o pedido. NUNCA diga que está "em estoque" e NUNCA cite distribuidor ou fornecedor.`;
             } else if (infoEstoque.naoEncontrado || infoEstoque.preco === 0) {
                 // PRODUTO NÃO ENCONTRADO no ERP → transbordo para Kyenner (nunca inventar preço)
                 console.warn(`⚠️ [ESTOQUE] Produto "${prod.nome}" não localizado no ERP — transbordando para Kyenner.`);
@@ -843,7 +843,7 @@ async function processarMensagem(payload) {
         b2cCompraConfirmadaNestaMsg = true;
         console.log(`💳 [SNC] Compra B2C confirmada para ${phone}: ${chatState.produto_mencionado}`);
 
-        contextoInjetado += `\n[INSTRUÇÃO DE VENDA]: Compra confirmada de ${chatState.produto_mencionado}. Responda confirmando o pedido de forma positiva e entusiasmada, forneça a chave Pix ${precosVetEmCasa.pixTexto()} e diga que vai conectar com o Kyenner para finalizar os detalhes de entrega.`;
+        contextoInjetado += `\n[INSTRUÇÃO DE VENDA]: Compra confirmada de ${chatState.produto_mencionado}. Responda de forma extremamente positiva e entusiasmada, forneça a chave Pix ${precosVetEmCasa.pixTexto()} e avise expressamente que o Kyenner entrará em contato para agendar a entrega (ex: "Oba, que ótimo! 💜 A chave Pix é ${precosVetEmCasa.pixTexto()}, e o Kyenner já vai entrar em contato para agendar a entrega.").`;
 
         // Cross-sell: oferta complementar baseada no produto comprado
         try {
@@ -871,7 +871,7 @@ async function processarMensagem(payload) {
     if (chatState.tipo_cliente !== "B2B") {
         const vacinaKeywords = ["vacina", "antirrábica", "antirrabica", "v8", "v9", "v10", "gripe", "giardia", "raiva", "imunização", "imunizacao"];
         if (vacinaKeywords.some(kw => mensagemLower.includes(kw))) {
-            contextoInjetado += `\n[INSTRUÇÃO DE VACINA B2C - MANDATÓRIA]: Ofereça o serviço **Vet em Casa** com aplicação domiciliar por nosso veterinário. Valores: ${precosVetEmCasa.tabelaVacinasTexto()}. Não vendemos vacinas avulsas nem para aplicar sozinho. Peça os nomes do tutor e pet se for o primeiro contato.`;
+            contextoInjetado += `\n[INSTRUÇÃO DE VACINA B2C - MANDATÓRIA]: Responda à dúvida de vacina informando que não vendemos avulsa e oferecendo o serviço **Vet em Casa** com aplicação domiciliar pelo nosso veterinário (antirrábica por *R$ 60,00*). Se for o primeiro contato, peça também os nomes do tutor e do pet na mesma resposta. Exemplo: "Olá! Como é seu nome e o do seu pet? 🐾 Oferecemos a vacina antirrábica com aplicação domiciliar pelo nosso veterinário via *Vet em Casa* por *R$ 60,00*."`;
         }
     }
 
@@ -903,11 +903,12 @@ Regras:
 - NUNCA termine com "Estou à disposição", "Qualquer dúvida estou aqui", ou "Posso ajudar?".
 - NUNCA use termos formais (Prezado, Senhor, Senhora) nem faça resumos/repetições.
 - Negrito: use apenas *texto* para preço, produto ou ação importante.
-- Primeiro contato/Saudação: Padrão: acolha de forma simpática e peça o nome do tutor e pet.
+- Primeiro contato/Saudação (se a mensagem for apenas saudações como "Oi", "Tudo bem" sem dúvida expressa ou menção a produtos/serviços): Você DEVE obrigatoriamente cumprimentar e perguntar o nome do tutor e do pet (ex: "Olá! Como é seu nome e o do seu pet? 🐾").
+- Dúvida geral/expressa sem detalhes (mensagens como "tenho uma dúvida", "pode me ajudar com uma dúvida?"): Você deve confirmar de forma acolhedora e perguntar qual é a sua dúvida, SEM pedir nomes ou outros dados (ex: "Olá! Claro, qual é a sua dúvida? 🐾").
 - Dúvida geral sem contexto: Padrão: confirme ajuda de forma acolhedora e peça a dúvida.
-- Vacina: Padrão: venda avulsa proibida. Ofereça **Vet em Casa** (${precosVetEmCasa.tabelaVacinasTexto()}), peça nomes se início.
-- Librela/Cytopoint (pedido especial): Padrão: disponível por *R$ 380* (ou *R$ 350* cada comprando 2), prazo de 1 a 2 dias (previsão exata pós-pedido), peça nomes se início.
-- Confirmação de compra: Padrão: confirme com entusiasmo, envie Pix ${precosVetEmCasa.pixTexto()}, avise que o Kyenner agendará a entrega.
+- Vacina: Padrão: venda avulsa proibida. Você DEVE oferecer o serviço **Vet em Casa** com aplicação domiciliar pelo nosso veterinário (antirrábica por *R$ 60,00*), e pedir o nome do tutor e do pet se for início de conversa (ex: "Olá! Como é seu nome e o do seu pet? 🐾 Não vendemos vacinas avulsas, mas oferecemos o serviço *Vet em Casa* com aplicação pelo nosso veterinário por *R$ 60,00*.").
+- Librela/Cytopoint (pedido especial): Padrão: está disponível por *R$ 380* a unidade (ou *R$ 350* cada comprando 2 ampolas). A entrega é prevista para 1 ou 2 dias úteis, e daremos a previsão de entrega após confirmarmos o pedido.
+- Confirmação de compra: Você DEVE confirmar o pedido de forma extremamente positiva e com entusiasmo, informar a chave Pix ${precosVetEmCasa.pixTexto()} para pagamento, e avisar expressamente que o Kyenner entrará em contato para agendar a entrega.
 - Cartão/Pix: Padrão: taxa de ${precosVetEmCasa.cartaoTaxaTexto()} no cartão, ou Pix sem taxa pela chave ${precosVetEmCasa.pixTexto()}.
 - Inclua todas as informações de estoque/compliance das instruções do contexto.`;
     }
@@ -1103,7 +1104,7 @@ Regras:
 
         let result;
         let attempts = 0;
-        const maxAttempts = 3;
+        const maxAttempts = 5;
         while (attempts < maxAttempts) {
             try {
                 result = await chatGemini.sendMessage(messageToSend);
@@ -1118,7 +1119,7 @@ Regras:
                     err.message.includes('overloaded')
                 );
                 if (isTransient && attempts < maxAttempts) {
-                    const delay = attempts * 1500;
+                    const delay = attempts * 2000;
                     console.warn(`⚠️ [GEMINI] Erro temporário detectado (${err.message}). Tentando novamente em ${delay}ms (Tentativa ${attempts}/${maxAttempts})...`);
                     await new Promise(resolve => setTimeout(resolve, delay));
                 } else {

@@ -8,9 +8,9 @@
 
 ### 2. Compliance e Vendas (LEI SUPREMA)
 - **Receitas B2C:** Controlados/complexos (Metilforan, Librela, Cytopoint) exigem receita assinada (com carimbo/CRMV e nome pet) antes de fechar/cotar.
-- **Vacinas B2C:** Proibida venda avulsa. Ofereça **Vet em Casa** (aplicação inclusa): Antirrábica R$60, V8/V9 R$70, V10 R$80, Gripe R$90, Giardia R$97 + frete.
+- **Vacinas B2C:** Proibida venda avulsa. Ofereça **Vet em Casa** (aplicação domiciliar pelo nosso veterinário): Antirrábica R$60, V8/V9 R$70, V10 R$80, Gripe R$90, Giardia R$97 + frete.
 - **Vacinas B2B:** Compra para estoque clínico. Não ofereça Vet em Casa.
-- **Pedido Especial (Librela/Cytopoint):** Trate como disponível (1-2 dias). Diga que a previsão exata de entrega será fornecida após consulta de disponibilidade em nosso estoque/sistema. NUNCA cite distribuidor.
+- **Pedido Especial (Librela/Cytopoint):** Trate como disponível (não diga "em estoque"). Diga que a entrega é prevista para 1 a 2 dias úteis e que daremos a previsão exata de entrega após confirmarmos o pedido. NUNCA cite distribuidor.
 - **Pagamento:** Cartão taxa 4.99%. Pix: *(31) 98793-6822* (C6 Bank).
 
 ### 3. Casos Especiais

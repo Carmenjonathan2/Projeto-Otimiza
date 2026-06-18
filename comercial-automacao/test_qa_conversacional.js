@@ -41,7 +41,7 @@ if (!GEMINI_API_KEY) {
 }
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const MODELO_JUIZ     = 'gemini-2.5-flash';
-const DELAY_ENTRE_TESTES_MS = 4000; // Evitar rate-limit
+const DELAY_ENTRE_TESTES_MS = 6000; // Evitar rate-limit
 
 // =========================================================================
 // CENÁRIOS DE TESTE (12 casos de qualidade)
@@ -160,6 +160,10 @@ const CENARIOS = [
         grupo: '🩺 Kyenner B2B',
         descricao: 'Vet pede cotação de vacinas — preços de atacado, SEM mencionar domiciliar',
         tipoCliente: 'B2B',
+        contextoProdutos: [
+            { produto: 'Rabisin', quantidade: 100, preco: 17.90, tipo: 'estoque_normal' },
+            { produto: 'Nobivac V8', quantidade: 100, preco: 44.50, tipo: 'estoque_normal' }
+        ],
         mensagem: 'Me passa o preço da Rabisin e do Nobivac V8, por favor.',
         regrasJuiz: [
             'A resposta DEVE informar os preços de atacado das vacinas (Rabisin R$ 17,90, Nobivac V8 R$ 44,50)',
@@ -173,6 +177,9 @@ const CENARIOS = [
         grupo: '🩺 Kyenner B2B',
         descricao: 'Vet pede vacinas — bot deve proativamente sugerir combo seringa/agulha',
         tipoCliente: 'B2B',
+        contextoProdutos: [
+            { produto: 'Rabisin', quantidade: 100, preco: 17.90, tipo: 'estoque_normal' }
+        ],
         mensagem: 'Quero fechar 20 doses de Rabisin.',
         regrasJuiz: [
             'A resposta DEVE proativamente perguntar ou oferecer seringas e agulhas como complemento ao pedido de vacinas',
@@ -337,8 +344,24 @@ async function rodarCenario(cenario) {
         // Resetar o capturador de resposta do Z-API
         ultimaMensagemEnviada = "";
 
-        // Mockar gestaoclick.consultarEstoque com base no cenario.contextoProduto se fornecido
-        if (cenario.contextoProduto) {
+        // Mockar gestaoclick.consultarEstoque com base no cenario.contextoProduto ou cenario.contextoProdutos se fornecido
+        if (cenario.contextoProdutos) {
+            gestaoclick.consultarEstoque = async (nome, tipo) => {
+                const match = cenario.contextoProdutos.find(p => 
+                    nome.toLowerCase().includes(p.produto.toLowerCase()) || 
+                    p.produto.toLowerCase().includes(nome.toLowerCase())
+                );
+                if (match) {
+                    return {
+                        quantidade: match.quantidade,
+                        preco: match.preco,
+                        tipo: match.tipo,
+                        prazo: match.prazo
+                    };
+                }
+                return originalConsultarEstoque(nome, tipo);
+            };
+        } else if (cenario.contextoProduto) {
             gestaoclick.consultarEstoque = async (nome, tipo) => {
                 if (nome.toLowerCase().includes(cenario.contextoProduto.produto.toLowerCase()) || cenario.contextoProduto.produto.toLowerCase().includes(nome.toLowerCase())) {
                     return {
