@@ -18,6 +18,10 @@ try {
     console.log('\n⚡ [3/3] PASSO 3: Sincronizando preços com o Shopify (Modo LIVE)...');
     execSync('node "' + path.join(__dirname, 'atualizar_precos_shopify.js') + '" --live', { stdio: 'inherit' });
 
+    // Passo 4: Identificação dos 3 principais produtos que sustentam o faturamento (Via chamada de API direta)
+    console.log('\n📊 [4/4] PASSO 4: Identificando os top 3 produtos do faturamento...');
+    execSync('node "' + path.join(__dirname, 'identificar_top_produtos.js') + '"', { stdio: 'inherit' });
+
     console.log('\n========================================================================');
     console.log('🎉 ROTINA FINALIZADA COM SUCESSO!');
     console.log('Todos os preços compatíveis foram atualizados no Shopify com segurança.');
