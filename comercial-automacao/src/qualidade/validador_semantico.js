@@ -75,6 +75,33 @@ async function validarRespostaIA(responseText, persona, contextoInjetado = "", p
         return { aprovada: false, violacoes: ['resposta-vazia'], confianca: 1 };
     }
 
+    // Camada 4: Heurística de Segurança contra Vazamento / Prompt Injection
+    const responseTextLower = responseText.toLowerCase();
+    const padroesVazamento = [
+        "instruções de sistema",
+        "instrucoes de sistema",
+        "minhas diretrizes",
+        "sou um modelo de linguagem",
+        "como um modelo de ia",
+        "como inteligência artificial",
+        "como inteligencia artificial",
+        "developer mode",
+        "regras do sistema",
+        "ignore as instruções",
+        "ignore as instrucoes",
+        "white prompt"
+    ];
+    for (const padrao of padroesVazamento) {
+        if (responseTextLower.includes(padrao)) {
+            console.warn(`🚨 [VALIDADOR-SEGURANÇA] Vazamento suspeito detectado no output: "${padrao}"`);
+            return {
+                aprovada: false,
+                violacoes: [`seguranca: vazamento de prompt detectado via termo "${padrao}"`],
+                confianca: 1.0
+            };
+        }
+    }
+
     try {
         const model = genAI.getGenerativeModel({
             model: 'gemini-2.5-flash-lite',
