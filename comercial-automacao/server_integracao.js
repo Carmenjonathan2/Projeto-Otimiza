@@ -413,6 +413,15 @@ async function processarMensagem(payload) {
         saveStates(states, phone);
     }
 
+    // Detecção dinâmica de tom B2C / palavras-chave de tutor na mensagem
+    const tutorKeywords = ["tutor", "tutora", "dono", "dona", "proprietario", "proprietaria", "meu cachorro", "meu gato", "meu pet", "minha cadela", "minha gata"];
+    const isB2CMention = tutorKeywords.some(keyword => mensagemLower.includes(keyword));
+    if (isB2CMention && chatState.tipo_cliente !== "B2C" && chatState.tipo_cliente !== "B2B") {
+        console.log(`[SNC] Identificado tom B2C/Tutor na mensagem de entrada de ${phone}.`);
+        chatState.tipo_cliente = "B2C";
+        saveStates(states, phone);
+    }
+
     // 1. Tentar identificar o cliente pelo número de telefone caso ainda não esteja identificado no ERP
     if (!chatState.nome_cadastro && !chatState.tipo_cliente) {
         const cadastroTel = await gestaoclick.buscarCadastroPorTelefone(phone);
@@ -896,11 +905,17 @@ async function processarMensagem(payload) {
         contextoInjetado += `\n[INSTRUÇÃO DE VENDAS]: ${oportunidadeVenda}`;
     }
 
-    // Se o cliente B2C perguntar sobre vacinas ou aplicação, injetar instrução clara de Vet em Casa
-    if (chatState.tipo_cliente !== "B2B") {
+    // Se o cliente perguntar sobre vacinas ou aplicação
+    if (chatState.tipo_cliente === "B2C") {
         const vacinaKeywords = ["vacina", "antirrábica", "antirrabica", "v8", "v9", "v10", "gripe", "giardia", "raiva", "imunização", "imunizacao"];
         if (vacinaKeywords.some(kw => mensagemLower.includes(kw))) {
             contextoInjetado += `\n[INSTRUÇÃO DE VACINA B2C - MANDATÓRIA]: Responda à dúvida de vacina informando que não vendemos avulsa e oferecendo o serviço **Vet em Casa** com aplicação domiciliar pelo nosso veterinário (antirrábica por *R$ 60,00*). Se for o primeiro contato, peça também os nomes do tutor e do pet na mesma resposta. Exemplo: "Olá! Como é seu nome e o do seu pet? 🐾 Oferecemos a vacina antirrábica com aplicação domiciliar pelo nosso veterinário via *Vet em Casa* por *R$ 60,00*."`;
+        }
+    } else if (!chatState.tipo_cliente) {
+        // Cliente novo sem tipo definido perguntando sobre vacinas ou injetáveis: deve qualificar o lead
+        const vacinaKeywords = ["vacina", "antirrábica", "antirrabica", "v8", "v9", "v10", "gripe", "giardia", "raiva", "imunização", "imunizacao", "nobivac", "rabisin", "injetável", "injetavel"];
+        if (vacinaKeywords.some(kw => mensagemLower.includes(kw))) {
+            contextoInjetado += `\n[INSTRUÇÃO DE QUALIFICAÇÃO - MANDATÓRIA]: O cliente está perguntando sobre vacinas ou injetáveis, mas não sabemos se ele é tutor (B2C) ou veterinário (B2B). Você DEVE obrigatoriamente qualificá-lo de forma acolhedora perguntando se ele é médico veterinário (para cotações de atacado) ou se é tutor de pet (para aplicação domiciliar pelo Vet em Casa). Exemplo: "Olá! Para eu te passar a informação certinha, você é médico veterinário ou tutor de pet? Se for tutor, me conta também o seu nome e do seu pet! 🐾"`;
         }
     }
 
@@ -939,7 +954,7 @@ Regras:
 - Primeiro contato/Saudação (se a mensagem for apenas saudações como "Oi", "Tudo bem" sem dúvida expressa ou menção a produtos/serviços): Você DEVE obrigatoriamente cumprimentar e perguntar o nome do tutor e do pet (ex: "Olá! Como é seu nome e o do seu pet? 🐾").
 - Dúvida geral/expressa sem detalhes (mensagens como "tenho uma dúvida", "pode me ajudar com uma dúvida?", "Vocês conseguem me ajudar com uma dúvida?"): Você deve confirmar de forma acolhedora e perguntar qual é a sua dúvida, SEM pedir nomes ou outros dados (ex: "Olá! Claro, qual é a sua dúvida? 🐾").
 - Dúvida geral sem contexto (quando a mensagem for genérica e não citar nenhum produto, marca ou serviço): confirme ajuda de forma acolhedora e peça a dúvida.
-- Vacina (se o cliente perguntar sobre vacinas ou aplicação): venda avulsa proibida. Ofereça o serviço **Vet em Casa** com aplicação domiciliar pelo nosso veterinário (antirrábica por *R$ 60,00*), e peça nomes se for início de conversa.
+- Vacina (se o cliente perguntar sobre vacinas ou aplicação): se já qualificado como tutor (B2C), ofereça o serviço **Vet em Casa** com aplicação domiciliar pelo nosso veterinário (antirrábica por *R$ 60,00*). Se for contato novo sem perfil definido, você deve obrigatoriamente qualificá-lo de forma acolhedora perguntando se é médico veterinário ou tutor de pet (ex: "Olá! Para eu te passar a informação certinha, você é médico veterinário ou tutor de pet? 🐾").
 - Librela/Cytopoint (pedido especial) (se o cliente perguntar por esses medicamentos de pedido especial): disponível por *R$ 380* a unidade (ou *R$ 350* cada comprando 2 ampolas). A entrega é prevista para 1 a 2 dias úteis, sendo obrigatório explicitar que daremos a previsão exata de entrega após confirmarmos o pedido (exemplo: "A entrega é prevista para 1 a 2 dias úteis, e daremos a previsão exata de entrega após confirmarmos o pedido. 🐾").
 - Confirmação de compra (se o cliente confirmar a compra): confirme de forma extremamente positiva e com entusiasmo, informe a chave Pix ${precosVetEmCasa.pixTexto()} para pagamento, e avise expressamente que o Kyenner entrará em contato para agendar a entrega.
 - Cartão/Pix (se o cliente perguntar sobre formas de pagamento ou taxas): taxa de ${precosVetEmCasa.cartaoTaxaTexto()} no cartão, ou Pix sem taxa pela chave ${precosVetEmCasa.pixTexto()}.

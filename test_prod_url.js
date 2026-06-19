@@ -3,7 +3,7 @@ const axios = require('axios');
 async function test() {
     try {
         console.log("Fazendo requisição para a raiz da URL de produção...");
-        const res = await axios.get("https://projeto-otimiza-production.up.railway.app/");
+        const res = await axios.get("https://projeto-otimiza-production.up.railway.app/status");
         console.log("Resposta raiz:", res.status, res.data);
     } catch (e) {
         console.error("Erro raiz:", e.message, e.response?.data);
