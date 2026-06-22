@@ -400,6 +400,7 @@ async function processarMensagem(payload) {
     // Garantir campos para estados pré-existentes (migração suave)
     if (!Array.isArray(states[phone].mensagensRecentes)) states[phone].mensagensRecentes = [];
     if (typeof states[phone].contadorRepeticao !== 'number') states[phone].contadorRepeticao = 0;
+    if (typeof states[phone].contador_fallback !== 'number') states[phone].contador_fallback = 0;
 
     const chatState = states[phone];
 
@@ -1303,6 +1304,7 @@ ${clientMessage}
 
         // Salvar a resposta no histórico da IA
         chatState.history.push({ role: 'model', content: responseText });
+        chatState.contador_fallback = 0;
         saveStates(states, phone);
 
         // Enviar a resposta via Z-API
@@ -1347,15 +1349,44 @@ ${clientMessage}
 
     } catch (e) {
         console.error("❌ Erro ao chamar a API do Gemini:", e);
-        const fallbackMsg = "Oi! Tive uma oscilação rápida aqui na minha rede. Você poderia repetir o que precisa, por favor? 💜";
-        await enviarMensagemBot(phone, fallbackMsg);
+        
+        chatState.contador_fallback = (chatState.contador_fallback || 0) + 1;
+        let responseTextSent = "";
+        
+        if (chatState.contador_fallback >= 2) {
+            // Escalar para o humano em caso de falha persistente
+            chatState.owner = "human";
+            chatState.escaladoEm = new Date().toISOString();
+            responseTextSent = "Estou chamando a Carmen e o Dr. Kyenner agora mesmo para te dar atenção exclusiva e prioridade total, só um minutinho!";
+            await enviarMensagemBot(phone, responseTextSent);
+            
+            await chatwoot.enviarNotaPrivada(phone, `🚨 *TRANSBORDO POR INSTABILIDADE:* O bot falhou consecutivamente em conectar com a API do Gemini. Atendimento transferido para suporte manual.`);
+            await chatwoot.solicitarSuporteHumano(phone, clientName, "Instabilidade persistente de API (Oscilação de Rede)");
+            
+            try {
+                enviarAlertaTelegram(
+                    `🚨 <b>CONVERSA ESCALADA POR INSTABILIDADE</b>\n\n` +
+                    `👤 <b>Cliente:</b> ${clientName}\n` +
+                    `📱 <b>Telefone:</b> +${phone}\n` +
+                    `⚠️ <b>Motivo:</b> Falha consecutiva de conexão com o Gemini.`
+                );
+            } catch (_) {}
+            
+            chatState.contador_fallback = 0; // Resetar após escalar
+        } else {
+            // Primeira falha: envia o fallback padrão e aguarda nova tentativa do cliente
+            responseTextSent = "Oi! Tive uma oscilação rápida aqui na minha rede. Você poderia repetir o que precisa, por favor? 💜";
+            await enviarMensagemBot(phone, responseTextSent);
+        }
+        
+        saveStates(states, phone);
         
         // Registrar log estruturado de erro
         salvarLogConversa({
             phone,
             clientName,
             clientMessage,
-            responseText: fallbackMsg,
+            responseText: responseTextSent,
             isSilent: !whatsappGateway.deveEnviarReal(phone),
             persona: chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika',
             owner: chatState.owner,
