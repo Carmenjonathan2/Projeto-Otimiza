@@ -57,7 +57,7 @@ const CENARIOS = [
         mensagem: 'Oi, tudo bem?',
         regrasJuiz: [
             'A resposta deve ser acolhedora, calorosa e usar pelo menos 1 emoji',
-            'Deve perguntar o nome do tutor e/ou do pet para personalizar o atendimento',
+            'Deve responder de forma prestativa e direta perguntando como pode ajudar, sem pedir o nome do tutor ou do pet de imediato',
             'NÃO deve usar termos formais como Prezado, Senhor, Senhora, Estimado'
         ]
     },
