@@ -265,6 +265,7 @@ async function cadastrarCliente(dados) {
     try {
         const payload = {
             nome: dados.nome,
+            tipo_pessoa: dados.tipo_pessoa || ((dados.cpf && dados.cpf.replace(/\D/g, '').length === 14) ? "PJ" : "PF"),
             cnpj_cpf: dados.cpf ? dados.cpf.replace(/\D/g, '') : "",
             email: dados.email || "",
             telefone: dados.telefone ? dados.telefone.replace(/\D/g, '') : "",

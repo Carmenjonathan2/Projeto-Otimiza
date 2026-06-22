@@ -493,27 +493,63 @@ async function processarMensagem(payload) {
                 chatState.aguardando_crmv = false;
                 saveStates(states, phone);
 
-                // Notificar Telegram e Chatwoot
-                const alertaTelegram = `⚠️ <b>TENTATIVA DE ACESSO B2B NEGADA</b>\n\n` +
-                    `👤 <b>Nome:</b> ${clientName || 'Não identificado'}\n` +
-                    `🏥 <b>CRMV Informado:</b> ${crmvExtraido}\n` +
-                    `📱 <b>WhatsApp:</b> +${phone}\n` +
-                    `❌ <b>Motivo:</b> ${resultadoValidacao.motivo}\n\n` +
-                    `<i>IA pausada. Cliente transferido para o Kyenner para suporte e liberação manual.</i>`;
-                enviarAlertaTelegram(alertaTelegram);
+                // Se o formato do CRMV for válido (apenas dígitos, de 3 a 6 algarismos), fazemos o pré-cadastro no GestãoClick
+                const crmvLimpo = crmvExtraido.replace(/\D/g, '');
+                const formatoValido = /^\d{3,6}$/.test(crmvLimpo);
+                let msgFalha = "";
+                let notaPrivadaMsg = "";
+                let alertaTelegramMsg = "";
 
-                await chatwoot.enviarNotaPrivada(phone,
-                    `⚠️ TENTATIVA B2B FALHOU: CRMV ${crmvExtraido} informado por ${clientName} não pôde ser validado automaticamente no CFMV. Motivo: ${resultadoValidacao.motivo}. Transferindo para humano.`
-                );
+                if (formatoValido) {
+                    console.log(`[GESTAOCLICK] Pré-cadastrando novo veterinário pendente de validação...`);
+                    const dadosCadastroVet = {
+                        nome: clientName || `Veterinário CRMV ${crmvExtraido}`,
+                        telefone: phone,
+                        rg: `CRMV: ${crmvExtraido}`,
+                        tags: "veterinario,novo-cadastro-automatico,pendente-validacao",
+                        observacoes: `Pré-cadastro automático via WhatsApp em ${new Date().toLocaleString('pt-BR')}. CRMV: ${crmvExtraido}. Telefone: +${phone}. PENDENTE DE VALIDAÇÃO HUMANA.`
+                    };
+
+                    gestaoclick.cadastrarCliente(dadosCadastroVet)
+                        .then(r => console.log(`✅ [GESTAOCLICK] Novo vet pré-cadastrado via fluxo pendente! ID: ${r.id}`))
+                        .catch(err => console.error("❌ [GESTAOCLICK] Erro ao pré-cadastrar novo vet:", err.message));
+
+                    msgFalha = `Olá, *${clientName || 'tudo bem'}*! Não consegui validar o CRMV *${crmvExtraido}* automaticamente. Por conta disso, criei seu pré-cadastro em nosso sistema e vou transferir você agora mesmo para o Kyenner para darmos andamento ao seu atendimento de forma manual, tudo bem? Só um minutinho! 🐾`;
+
+                    notaPrivadaMsg = `🚨 PRÉ-CADASTRO AUTOMÁTICO CRIADO NO GESTÃOCLICK: CRMV ${crmvExtraido} | Nome: ${clientName || 'Não identificado'}. ` +
+                        `Pendente de validação humana no CFMV. IA pausada e transferida para humano.`;
+
+                    alertaTelegramMsg = `⚠️ <b>TENTATIVA DE ACESSO B2B - PRÉ-CADASTRO REALIZADO</b>\n\n` +
+                        `👤 <b>Nome:</b> ${clientName || 'Não identificado'}\n` +
+                        `🏥 <b>CRMV Informado:</b> ${crmvExtraido}\n` +
+                        `📱 <b>WhatsApp:</b> +${phone}\n` +
+                        `❌ <b>Motivo:</b> ${resultadoValidacao.motivo}\n\n` +
+                        `<i>IA pausada. Pré-cadastro efetuado no GestãoClick. Cliente transferido para o Kyenner para validação e liberação manual.</i>`;
+                } else {
+                    msgFalha = `Olá, *${clientName || 'tudo bem'}*! Não consegui validar o CRMV *${crmvExtraido}* automaticamente em nosso cadastro profissional. Vou transferir você agora mesmo para o Kyenner para darmos andamento ao seu atendimento de forma manual, tudo bem? Só um minutinho! 🐾`;
+
+                    notaPrivadaMsg = `⚠️ TENTATIVA B2B FALHOU: CRMV ${crmvExtraido} informado por ${clientName} não pôde ser validado automaticamente no CFMV. Motivo: ${resultadoValidacao.motivo}. Transferindo para humano.`;
+
+                    alertaTelegramMsg = `⚠️ <b>TENTATIVA DE ACESSO B2B NEGADA</b>\n\n` +
+                        `👤 <b>Nome:</b> ${clientName || 'Não identificado'}\n` +
+                        `🏥 <b>CRMV Informado:</b> ${crmvExtraido}\n` +
+                        `📱 <b>WhatsApp:</b> +${phone}\n` +
+                        `❌ <b>Motivo:</b> ${resultadoValidacao.motivo}\n\n` +
+                        `<i>IA pausada. Cliente transferido para o Kyenner para suporte e liberação manual.</i>`;
+                }
+
+                // Notificar Telegram e Chatwoot
+                enviarAlertaTelegram(alertaTelegramMsg);
+
+                await chatwoot.enviarNotaPrivada(phone, notaPrivadaMsg);
 
                 await chatwoot.solicitarSuporteHumano(phone, clientName || `Cliente CRMV ${crmvExtraido}`, `CRMV ${crmvExtraido} pendente de validação manual.`);
                 chatState.owner = "human";
                 saveStates(states, phone);
 
                 // Enviar resposta amigável informando a transferência e abortar
-                const msgFalha = `Olá, *${clientName || 'tudo bem'}*! Não consegui validar o CRMV *${crmvExtraido}* automaticamente em nosso cadastro profissional. Vou transferir você agora mesmo para o Kyenner para darmos andamento ao seu atendimento de forma manual, tudo bem? Só um minutinho! 🐾`;
                 await enviarMensagemBot(phone, msgFalha);
-                return { status: 200, message: 'OK: Transferred due to failed CRMV validation' };
+                return { status: 200, message: 'OK: Transferred due to pending or failed CRMV validation' };
             }
         }
         chatState.aguardando_crmv = false; // Resetar
@@ -956,7 +992,7 @@ Regras:
 - Dúvida geral/expressa sem detalhes (mensagens como "tenho uma dúvida", "pode me ajudar com uma dúvida?", "Vocês conseguem me ajudar com uma dúvida?"): Você deve confirmar de forma acolhedora e perguntar qual é a sua dúvida, SEM pedir nomes ou outros dados (ex: "Olá! Claro, qual é a sua dúvida? 🐾").
 - Dúvida geral sem contexto (quando a mensagem for genérica e não citar nenhum produto, marca ou serviço): confirme ajuda de forma acolhedora e peça a dúvida.
 - Vacina (se o cliente perguntar sobre vacinas ou aplicação): se já qualificado como tutor (B2C), ofereça o serviço **Vet em Casa** com aplicação domiciliar pelo nosso veterinário (antirrábica por *R$ 60,00*). Se for contato novo sem perfil definido, você deve obrigatoriamente qualificá-lo de forma acolhedora perguntando se é médico veterinário ou tutor de pet (ex: "Olá! Para eu te passar a informação certinha, você é médico veterinário ou tutor de pet? 🐾").
-- Librela/Cytopoint (pedido especial) (se o cliente perguntar por esses medicamentos de pedido especial): disponível por *R$ 380* a unidade (ou *R$ 350* cada comprando 2 ampolas). A entrega é prevista para 1 a 2 dias úteis, sendo obrigatório explicitar que daremos a previsão exata de entrega após confirmarmos o pedido (exemplo: "A entrega é prevista para 1 a 2 dias úteis, e daremos a previsão exata de entrega após confirmarmos o pedido. 🐾").
+- Librela/Cytopoint (pedido especial) (se o cliente perguntar por esses medicamentos de pedido especial): disponível por *R$ 380* a unidade (ou *R$ 350* cada comprando 2 ampolas). A entrega é prevista para 1 a 2 dias úteis, sendo obrigatório informar os preços, a promoção e explicitar que daremos a previsão exata de entrega após confirmarmos o pedido (exemplo: "Temos sim! Fica *R$ 380* a unidade, ou *R$ 350* cada levando 2 ampolas. A entrega leva de 1 a 2 dias úteis, e te damos a previsão exata após confirmar o pedido. 🐾").
 - Confirmação de compra (se o cliente confirmar a compra): confirme de forma extremamente positiva e com entusiasmo, informe a chave Pix ${precosVetEmCasa.pixTexto()} para pagamento, e avise expressamente que o Kyenner entrará em contato para agendar a entrega.
 - Cartão/Pix (se o cliente perguntar sobre formas de pagamento ou taxas): taxa de ${precosVetEmCasa.cartaoTaxaTexto()} no cartão, ou Pix sem taxa pela chave ${precosVetEmCasa.pixTexto()}.
 - Ganchos de LTV e Caixa Antecipado:

@@ -1,6 +1,6 @@
 # 🧪 Relatório Detalhado de Conversas do QA - Otimiza FarmaVet
 
-* **Executado em:** 18/06/2026, 15:33:03
+* **Executado em:** 22/06/2026, 15:29:25
 * **Taxa de Conformidade:** 100%
 * **Cenários Aprovados:** 15/15
 
@@ -13,10 +13,10 @@
 **👤 Cliente:** Oi, tudo bem?
 
 **🤖 Bot:**
-> Olá! Como é seu nome e o do seu pet? 🐾
+> Olá! Tudo bem? Como posso te ajudar hoje? 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta é acolhedora, usa emoji e solicita os nomes do tutor e pet sem formalidades, seguindo todas as regras.
+* 💬 **Nota:** A resposta é acolhedora, prestativa e direta, seguindo todas as regras estabelecidas.
 
 ---
 
@@ -30,7 +30,7 @@
 > Olá! Como é seu nome e o do seu pet? 🐾 Oferecemos a vacina antirrábica com aplicação domiciliar pelo nosso veterinário via *Vet em Casa* por *R$ 60,00*.
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta cumpre todas as regras, oferecendo o serviço Vet em Casa, informando o valor correto da aplicação domiciliar e evitando informações proibidas.
+* 💬 **Nota:** A resposta segue todas as regras de compliance, oferecendo o serviço Vet em Casa com o preço da aplicação e a terminologia permitida para o veterinário.
 
 ---
 
@@ -41,10 +41,10 @@
 **👤 Cliente:** Minha cachorra tem artrite. O veterinário receitou Librela. Vocês têm em estoque?
 
 **🤖 Bot:**
-> Olá! Como é seu nome e o do seu pet? 🐾 A Librela está disponível por *R$ 380* a unidade, ou *R$ 350* cada comprando 2 ampolas. A entrega é prevista para 1 a 2 dias úteis, e daremos a previsão exata de entrega após confirmarmos o pedido.
+> Olá! Temos sim o Librela disponível. Fica *R$ 380* a unidade, ou *R$ 350* cada levando 2 ampolas. A entrega leva de 1 a 2 dias úteis, e te damos a previsão exata após confirmar o pedido. 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA está em total conformidade com todas as regras e adota a persona esperada.
+* 💬 **Nota:** A resposta cumpre todas as regras de compliance e apresenta a persona esperada.
 
 ---
 
@@ -58,7 +58,7 @@
 > Olá! Verifiquei no sistema e temos o *Simparic 10mg* disponível. Vou transferir o seu atendimento agora mesmo para o Kyenner (nosso veterinário), que vai te passar as informações de valores e finalizar tudo com você. Só um instantinho! 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA atende a todas as regras de compliance, confirmando a disponibilidade de forma acolhedora, sem informar o preço e direcionando a transferência para o Kyenner para os valores, sem propor ofertas.
+* 💬 **Nota:** A resposta da IA atende a todas as regras, sendo acolhedora, confirmando a disponibilidade, e realizando a transferência para o Kyenner para informações de valores sem informar o preço ou propor ofertas.
 
 ---
 
@@ -72,7 +72,7 @@
 > Oba, que ótimo! 💜 A chave Pix é *(31) 98793-6822* (C6 Bank), e o Kyenner já vai entrar em contato para agendar a entrega.
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta cumpre todas as regras: confirma o pedido com entusiasmo, menciona o Kyenner para finalizar e informa corretamente a chave Pix.
+* 💬 **Nota:** A resposta confirmou o pedido com entusiasmo, mencionou o Kyenner e informou corretamente a chave Pix.
 
 ---
 
@@ -86,7 +86,7 @@
 > Olá! Agradecemos o contato. Nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o pet! Se precisar de outros de fábrica, estamos aqui. 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta utiliza a recusa empática padronizada, não sugere manipulação e mantém um tom carinhoso e positivo, desejando melhoras ao pet.
+* 💬 **Nota:** A resposta segue todas as regras: usa a recusa padronizada, não sugere manipulação e mantém um tom carinhoso e positivo, desejando melhoras ao pet.
 
 ---
 
@@ -100,7 +100,7 @@
 > Beatriz, CRMV *15234* anotado. Como posso ajudar com seu pedido hoje?
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta cumpre todas as regras, reconhece o CRMV, trata pelo nome e mantém um tom técnico e direto.
+* 💬 **Nota:** A resposta atende a todas as regras: trata a veterinária pelo nome, reconhece o CRMV, não pede documentos adicionais e mantém um tom técnico e direto de parceria profissional.
 
 ---
 
@@ -111,10 +111,10 @@
 **👤 Cliente:** Me passa o preço da Rabisin e do Nobivac V8, por favor.
 
 **🤖 Bot:**
-> Rabisin fica *R$ 17,90* a dose e Nobivac V8 *R$ 44,50*. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação? Quantas doses você aplica por mês?
+> Rabisin custa *R$ 17,90* a dose e Nobivac V8 *R$ 44,50*. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício? Quantas doses você aplica por mês?
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta informa corretamente os preços de atacado, não menciona valores B2C e mantém um tom técnico e direto apropriado para a persona B2B.
+* 💬 **Nota:** A resposta informou os preços corretamente, não mencionou valores de aplicação domiciliar, e manteve um tom técnico e direto apropriado para a persona Kyenner B2B.
 
 ---
 
@@ -125,10 +125,10 @@
 **👤 Cliente:** Quero fechar 20 doses de Rabisin.
 
 **🤖 Bot:**
-> Olá, Marcos! Rabisin fica *R$ 17,90* a dose. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação? Quantas doses você aplica por mês?
+> Olá, Marcos! Rabisin fica *R$ 17,90* a dose. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício? Quantas doses você aplica por mês?
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA aborda todas as regras de compliance, oferecendo proativamente seringas/agulhas, mencionando a caixa fechada e perguntando a quantidade para sugestão de lote.
+* 💬 **Nota:** A resposta da IA cumpre todas as regras: proativamente oferece seringas e agulhas, menciona a caixa fechada como custo-benefício e pergunta a quantidade para sugerir o lote ideal.
 
 ---
 
@@ -139,10 +139,10 @@
 **👤 Cliente:** Olá, sou o veterinário Carlos, meu CRMV é 99999. Me passa os preços de atacado.
 
 **🤖 Bot:**
-> Olá, *Vander Luiz*! Não consegui validar o CRMV *99999* automaticamente em nosso cadastro profissional. Vou transferir você agora mesmo para o Kyenner para darmos andamento ao seu atendimento de forma manual, tudo bem? Só um minutinho! 🐾
+> Olá, *Vander Luiz*! Não consegui validar o CRMV *99999* automaticamente. Por conta disso, criei seu pré-cadastro em nosso sistema e vou transferir você agora mesmo para o Kyenner para darmos andamento ao seu atendimento de forma manual, tudo bem? Só um minutinho! 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA está em total conformidade com as regras. Informa sobre a não validação automática do CRMV e realiza a transferência para o Kyenner, sem mencionar preços de atacado.
+* 💬 **Nota:** A resposta da IA cumpriu todas as regras, informando a falha na validação do CRMV, a transferência para o Kyenner para suporte manual e não mencionando preços ou tabelas de atacado.
 
 ---
 
@@ -156,7 +156,7 @@
 > Olá! Verifiquei aqui no sistema, mas infelizmente no momento não temos o *Bravecto* disponível em nosso estoque. 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta informa com polidez que o produto não está disponível e não viola nenhuma regra de compliance.
+* 💬 **Nota:** A resposta informa a indisponibilidade do produto de forma polida e não viola nenhuma das regras estabelecidas.
 
 ---
 
@@ -170,7 +170,7 @@
 > Vander Luiz, compreendo perfeitamente a sua solicitação e quero garantir que você tenha o melhor suporte possível. Estou transferindo a nossa conversa agora mesmo para o Kyenner (nosso veterinário), que vai te ajudar pessoalmente com isso. Só um minutinho, por favor! 🩺
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA está em total conformidade, indicando transferência imediata para o veterinário (Kyenner) de forma empática e concisa, sem tentar diagnosticar ou vender.
+* 💬 **Nota:** A resposta é empática, curta e realiza a transferência imediata para o veterinário Kyenner, cumprindo todas as regras para o cenário de urgência.
 
 ---
 
@@ -181,10 +181,10 @@
 **👤 Cliente:** Posso pagar no cartão de crédito?
 
 **🤖 Bot:**
-> Olá! Claro, o pagamento no cartão de crédito tem uma taxa de 4,99%. Você também pode optar pelo Pix, que não tem taxa, usando a chave *(31) 98793-6822* (C6 Bank). 🐾
+> Olá! Sim, aceitamos cartão de crédito com uma taxa de 4,99%. Você também pode optar pelo Pix sem taxa, usando a chave *(31) 98793-6822* (C6 Bank). 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** Todas as regras de compliance foram atendidas: a taxa de 4,99% foi avisada, o Pix sem taxa foi oferecido e a chave Pix correta foi informada.
+* 💬 **Nota:** A resposta cumpre todas as regras: informa a taxa do cartão, oferece Pix como alternativa sem taxa e fornece a chave Pix correta.
 
 ---
 
@@ -198,7 +198,7 @@
 > Olá! Agradecemos o contato. No momento não temos interesse em novas contratações desse tipo. Obrigado. 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta recusa a oferta de forma polida e breve, sem tentar vender ou solicitar informações, cumprindo todas as regras.
+* 💬 **Nota:** A resposta recusa a oferta de forma polida e breve, sem tentar vender ou solicitar dados, conforme as regras.
 
 ---
 
@@ -212,7 +212,7 @@
 > Olá! Claro, qual é a sua dúvida? 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta é prestativa, educada e pergunta a dúvida de forma acolhedora com o uso do emoji. Não viola as regras de não perguntar sobre ser tutor/veterinário ou solicitar dados sensíveis.
+* 💬 **Nota:** A resposta é educada, prestativa e pergunta a dúvida de forma acolhedora, sem solicitar informações sensíveis ou categorizar o cliente.
 
 ---
 
