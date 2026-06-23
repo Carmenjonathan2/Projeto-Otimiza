@@ -167,13 +167,50 @@ async function runTests() {
                     ]
                 }
             };
-            const order = await callLalamove('POST', '/v3/orders', orderPayload);
-            console.log("\n🎉 Pedido criado com sucesso no Sandbox!");
-            console.log("Dados do Pedido:");
-            console.log(`- ID do Pedido (Lalamove Order ID): ${order.data.orderId}`);
-            console.log(`- ID da Cotação Utilizada: ${order.data.quotationId}`);
-            console.log("\nResposta Completa do Pedido:");
-            console.log(JSON.stringify(order, null, 2));
+            try {
+                // Descomente a linha abaixo para simular erro de saldo insuficiente e testar a trava de segurança:
+                // throw { response: { status: 422, data: { errors: [{ id: 'ERR_OUT_OF_CREDIT', message: 'Insufficient credit' }] } } };
+
+                const order = await callLalamove('POST', '/v3/orders', orderPayload);
+                console.log("\n🎉 Pedido criado com sucesso no Sandbox!");
+                console.log("Dados do Pedido:");
+                console.log(`- ID do Pedido (Lalamove Order ID): ${order.data.orderId}`);
+                console.log(`- ID da Cotação Utilizada: ${order.data.quotationId}`);
+                console.log("\nResposta Completa do Pedido:");
+                console.log(JSON.stringify(order, null, 2));
+            } catch (error) {
+                // Interceptar erro 422 de saldo insuficiente (ERR_OUT_OF_CREDIT ou ERR_INSUFFICIENT_CREDIT)
+                const isInsufficientCredit = 
+                    (error.response && error.response.status === 422 && 
+                     error.response.data && error.response.data.errors && 
+                     error.response.data.errors.some(err => 
+                         err.id === 'ERR_OUT_OF_CREDIT' || 
+                         err.id === 'ERR_INSUFFICIENT_CREDIT' || 
+                         (err.message && (err.message.toLowerCase().includes('credit') || err.message.toLowerCase().includes('balance') || err.message.toLowerCase().includes('insufficient')))
+                     ));
+
+                if (isInsufficientCredit) {
+                    console.log("\n🚨 [TRAVA DE SEGURANÇA] Saldo Insuficiente detectado no Lalamove!");
+                    console.log("1. Silenciando erro para o cliente final.");
+                    console.log("2. Enviando alerta privado no WhatsApp para a Carmen...");
+
+                    const carmenPhone = process.env.TELEFONE_PRIVADO_CARMEN || "5531987936822";
+                    const alertaWpp = `🚨 *CARMEN:* A carteira da Lalamove zerou! O pedido do Librela do cliente *Camila Rodrigues* está travado. Faça um Pix na Wallet agora!`;
+
+                    try {
+                        const zapi = require('../src/integracoes/integracao_zapi');
+                        await zapi.enviarMensagemTexto(carmenPhone, alertaWpp);
+                        console.log(`✅ Alerta enviado para o WhatsApp de Carmen (${carmenPhone}) com sucesso!`);
+                    } catch (wppError) {
+                        console.error(`❌ Erro ao enviar alerta de WhatsApp: ${wppError.message}`);
+                    }
+
+                    console.log(`\nMensagem amigável que seria enviada ao cliente:`);
+                    console.log(`> "Olá, Camila Rodrigues! Tivemos uma pequena instabilidade operacional com o envio. Vou te passar agora mesmo para o atendimento humano para finalizarmos, tudo bem? Só um minutinho! 🐾"`);
+                } else {
+                    throw error;
+                }
+            }
         }
 
     } catch (e) {
