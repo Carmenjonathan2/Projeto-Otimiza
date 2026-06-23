@@ -136,6 +136,46 @@ async function runTests() {
         console.log("\nResposta Completa da Cotação:");
         console.log(JSON.stringify(quotation, null, 2));
 
+        // Teste 3: Criar um pedido (Orders) com Trava de Segurança (Preço Limite)
+        console.log("\n--- TESTE 3: Solicitar Criação de Pedido (Place Order) com Trava de Segurança ---");
+        const MAX_PRICE_ALLOWED = parseFloat(process.env.LALAMOVE_MAX_PRICE_LIMIT || '30.00');
+        const valorCotado = parseFloat(quotation.data.priceBreakdown.total);
+
+        console.log(`- Limite máximo permitido configurado: BRL ${MAX_PRICE_ALLOWED.toFixed(2)}`);
+        console.log(`- Valor cotado da entrega: BRL ${valorCotado.toFixed(2)}`);
+
+        if (valorCotado > MAX_PRICE_ALLOWED) {
+            console.log(`\n🚨 [TRAVA DE SEGURANÇA] Bloqueio automático ativado!`);
+            console.log(`O valor da entrega (BRL ${valorCotado.toFixed(2)}) ultrapassa o limite de segurança de BRL ${MAX_PRICE_ALLOWED.toFixed(2)}.`);
+            console.log(`A solicitação de envio à Lalamove foi abortada para evitar custos excessivos.`);
+        } else {
+            console.log(`\n✅ Valor dentro do limite de segurança. Prosseguindo com o envio do pedido no Sandbox...`);
+            const orderPayload = {
+                data: {
+                    quotationId: quotation.data.quotationId,
+                    sender: {
+                        stopId: quotation.data.stops[0].stopId,
+                        name: "Otimiza FarmaVet",
+                        phone: "+5531987936822"
+                    },
+                    recipients: [
+                        {
+                            stopId: quotation.data.stops[1].stopId,
+                            name: "Camila Rodrigues",
+                            phone: "+5531983050050"
+                        }
+                    ]
+                }
+            };
+            const order = await callLalamove('POST', '/v3/orders', orderPayload);
+            console.log("\n🎉 Pedido criado com sucesso no Sandbox!");
+            console.log("Dados do Pedido:");
+            console.log(`- ID do Pedido (Lalamove Order ID): ${order.data.orderId}`);
+            console.log(`- ID da Cotação Utilizada: ${order.data.quotationId}`);
+            console.log("\nResposta Completa do Pedido:");
+            console.log(JSON.stringify(order, null, 2));
+        }
+
     } catch (e) {
         console.error("\n❌ Falha ao executar os testes no Sandbox da Lalamove.");
         console.error(e.message);
