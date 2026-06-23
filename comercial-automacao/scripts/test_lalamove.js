@@ -80,13 +80,19 @@ async function runTests() {
         console.log("✅ Conexão bem-sucedida com o Sandbox da Lalamove!");
         console.log(`Encontradas ${cities.data.length} cidades.`);
 
-        // Identificar se há um tipo de serviço cadastrado para o Brasil na resposta
-        let serviceType = 'MOTORCYCLE';
+        // Buscar Belo Horizonte (BR BHZ) e priorizar LALAGO para coincidir com o print do usuário
+        let serviceType = 'LALAGO';
         if (cities && cities.data && cities.data.length > 0) {
-            const brCities = cities.data.filter(c => c.locode && c.locode.startsWith('BR'));
-            if (brCities.length > 0 && brCities[0].services && brCities[0].services.length > 0) {
-                serviceType = brCities[0].services[0].key;
-                console.log(`💡 Tipo de serviço sugerido pelo Sandbox: ${serviceType}`);
+            const bhCity = cities.data.find(c => c.locode === 'BR BHZ');
+            if (bhCity && bhCity.services && bhCity.services.some(s => s.key === 'LALAGO')) {
+                serviceType = 'LALAGO';
+                console.log(`💡 Cidade identificada: Belo Horizonte (BR BHZ). Utilizando tipo de serviço: ${serviceType}`);
+            } else {
+                const brCities = cities.data.filter(c => c.locode && c.locode.startsWith('BR'));
+                if (brCities.length > 0 && brCities[0].services && brCities[0].services.length > 0) {
+                    serviceType = brCities[0].services[0].key;
+                    console.log(`💡 Tipo de serviço sugerido pelo Sandbox: ${serviceType}`);
+                }
             }
         }
 
@@ -122,6 +128,11 @@ async function runTests() {
 
         const quotation = await callLalamove('POST', '/v3/quotations', quotationPayload);
         console.log("✅ Cotação obtida com sucesso!");
+        console.log("\nDados da Cotação:");
+        console.log(`- ID da Cotação: ${quotation.data.quotationId}`);
+        console.log(`- Valor Total: ${quotation.data.priceBreakdown.currency} ${quotation.data.priceBreakdown.total}`);
+        console.log(`- Distância: ${quotation.data.distance.value} ${quotation.data.distance.unit}`);
+        console.log(`- Expira em: ${quotation.data.expiresAt}`);
         console.log("\nResposta Completa da Cotação:");
         console.log(JSON.stringify(quotation, null, 2));
 
