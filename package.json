@@ -3,7 +3,8 @@
     "start": "node comercial-automacao/server_integracao.js",
     "revisar-logs": "node comercial-automacao/scripts/revisar_logs_silencioso.js",
     "analise-semanal": "node comercial-automacao/scripts/analise_semanal_logs.js",
-    "limpar-estado": "node comercial-automacao/scripts/limpar_estado_inativo.js"
+    "limpar-estado": "node comercial-automacao/scripts/limpar_estado_inativo.js",
+    "recompra-gestaoclick": "node comercial-automacao/scripts/motor_recompra_gestaoclick.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",

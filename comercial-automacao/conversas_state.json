@@ -1,6 +1,6 @@
 {
     "553192681115": {
-        "owner": "AI",
+        "owner": "human",
         "history": [
             {
                 "role": "user",
@@ -40,7 +40,7 @@
         "tipo_cliente": null
     },
     "553190000001": {
-        "owner": "AI",
+        "owner": "human",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -55,7 +55,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000002": {
-        "owner": "AI",
+        "owner": "human",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -70,7 +70,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000003": {
-        "owner": "AI",
+        "owner": "human",
         "history": [
             {
                 "role": "user",
@@ -105,7 +105,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000005": {
-        "owner": "AI",
+        "owner": "human",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -120,7 +120,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000006": {
-        "owner": "AI",
+        "owner": "human",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -135,7 +135,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000007": {
-        "owner": "AI",
+        "owner": "human",
         "history": [
             {
                 "role": "user",
@@ -155,7 +155,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000008": {
-        "owner": "AI",
+        "owner": "human",
         "history": [],
         "cpf": "9999",
         "crmv": "12345",
@@ -170,7 +170,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000009": {
-        "owner": "AI",
+        "owner": "human",
         "history": [],
         "cpf": "9999",
         "crmv": "12345",
@@ -200,7 +200,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000010": {
-        "owner": "AI",
+        "owner": "human",
         "history": [
             {
                 "role": "user",
@@ -239,7 +239,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000012": {
-        "owner": "AI",
+        "owner": "human",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -254,7 +254,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000013": {
-        "owner": "AI",
+        "owner": "human",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -267,5 +267,24 @@
         "produto_sem_estoque": null,
         "produto_mencionado": null,
         "aguardando_confirmar_lista_espera": false
+    },
+    "5531999999999": {
+        "owner": "human",
+        "history": [],
+        "cpf": null,
+        "crmv": null,
+        "tipo_cliente": null,
+        "nome_cadastro": null,
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": false,
+        "medicamento_restrito": null,
+        "produto_sem_estoque": null,
+        "produto_mencionado": null,
+        "aguardando_confirmar_lista_espera": false,
+        "mensagensRecentes": [],
+        "contadorRepeticao": 0,
+        "escaladoEm": "2026-06-18T20:02:04.180Z",
+        "ultima_atividade": "2026-06-18T20:02:04.189Z"
     }
 }

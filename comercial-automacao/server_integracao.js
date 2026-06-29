@@ -582,10 +582,17 @@ async function processarMensagem(payload) {
             chatState.ultimaMsgForaHorario = hoje;
             saveStates(states, phone);
 
-            const horaVolta = diaSemana === 6 ? 'segunda às 8h' : `amanhã às ${inicioH}h`;
-            const msgForaHorario = chatState.tipo_cliente === 'B2B'
-                ? `Mensagem recebida. Nosso atendimento volta ${horaVolta}. Em caso de urgência clínica, procure um veterinário de plantão.`
-                : `Recebemos sua mensagem! 🐾 O atendimento volta ${horaVolta}. Em caso de emergência com o pet, procure um veterinário de plantão.`;
+            let msgForaHorario;
+            if (hoje === '2026-06-29') {
+                msgForaHorario = chatState.tipo_cliente === 'B2B'
+                    ? `Olá! Devido ao jogo do Brasil, encerramos nossas operações mais cedo hoje. Nosso atendimento retorna amanhã às 08:00.`
+                    : `Olá! 🐾 Devido ao jogo do Brasil, encerramos nossas operações mais cedo hoje. Nosso atendimento retorna amanhã às 08:00. Em caso de emergência com seu pet, procure um veterinário de plantão.`;
+            } else {
+                const horaVolta = diaSemana === 6 ? 'segunda às 8h' : `amanhã às ${inicioH}h`;
+                msgForaHorario = chatState.tipo_cliente === 'B2B'
+                    ? `Mensagem recebida. Nosso atendimento volta ${horaVolta}. Em caso de urgência clínica, procure um veterinário de plantão.`
+                    : `Recebemos sua mensagem! 🐾 O atendimento volta ${horaVolta}. Em caso de emergência com o pet, procure um veterinário de plantão.`;
+            }
             await enviarMensagemBot(phone, msgForaHorario);
             salvarLogConversa({
                 phone, clientName, clientMessage, responseText: msgForaHorario,
@@ -773,8 +780,41 @@ async function processarMensagem(payload) {
     }
 
     // --- CONSULTA INTEGRAÇÃO / SUPORTE OPERACIONAL À IA ---
-    // A IA pode precisar consultar estoque ou dados no GestãoClick. O script fornece isso injetando contexto temporário.
     let contextoInjetado = "";
+    
+    // Verificar se há lembrete de recompra recente para este telefone (últimas 48 horas)
+    let lembreteRecente = null;
+    const notifPath = path.resolve(__dirname, './notificacoes_recompra.json');
+    if (fs.existsSync(notifPath)) {
+        try {
+            const notificados = JSON.parse(fs.readFileSync(notifPath, 'utf8'));
+            const agora = Date.now();
+            const limiteRecente = 48 * 60 * 60 * 1000; // 48 horas
+            
+            let maisRecente = null;
+            let dataMaisRecente = 0;
+            
+            for (const [key, val] of Object.entries(notificados)) {
+                if (key.startsWith(`${phone}_`)) {
+                    const dataNotif = new Date(val.em).getTime();
+                    if (agora - dataNotif < limiteRecente && dataNotif > dataMaisRecente) {
+                        dataMaisRecente = dataNotif;
+                        maisRecente = val;
+                    }
+                }
+            }
+            if (maisRecente) {
+                lembreteRecente = maisRecente;
+            }
+        } catch (err) {
+            console.error("⚠️ Erro ao ler notificacoes_recompra.json no server:", err.message);
+        }
+    }
+
+    if (lembreteRecente) {
+        contextoInjetado += `\n[CONTEXTO DE RECOMPRA]: Este cliente recebeu um lembrete automático de recompra para o produto "${lembreteRecente.produto}" (Segmento: ${lembreteRecente.segmento}) nas últimas 48 horas. Se o cliente demonstrar interesse em prosseguir, confirme os detalhes de dosagem/quantidade, cotação de estoque e frete de forma direta e objetiva.`;
+    }
+
     const dias = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'];
     contextoInjetado += `\n[INFORMAÇÃO DE DATA/HORA]: Hoje é ${dias[diaSemana]}, ${agoraDate.toLocaleDateString('pt-BR')}. Hora atual: ${agoraDate.getHours().toString().padStart(2, '0')}:${agoraDate.getMinutes().toString().padStart(2, '0')}.`;
     if (crmvAnotadoParaInjetar) {
