@@ -576,7 +576,7 @@ async function processarMensagem(payload) {
     const diaSemana = agoraDate.getDay(); // 0=Dom, 6=Sáb
     const foraDoHorario = (horaAgora < inicioH || horaAgora >= fimH) || (diaSemana === 0 && !atendeDomingo);
 
-    if (foraDoHorario && chatState.owner !== 'human') {
+    if (foraDoHorario) {
         const hoje = agoraDate.toISOString().split('T')[0];
         if (chatState.ultimaMsgForaHorario !== hoje) {
             chatState.ultimaMsgForaHorario = hoje;
