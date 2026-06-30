@@ -292,7 +292,7 @@ async function processarMensagem(payload) {
 
     // ─── GUARD: ignorar mensagens sem conteúdo ou de mídias indesejadas (Fase 0.1) ──────────
     const tipoMensagem = (payload.type || payload.messageType || '').toLowerCase();
-    const textoRecebido = (payload.text?.message || payload.body || payload.message || payload.value || '').trim();
+    const textoRecebido = (payload.text?.message || payload.body || payload.message || payload.value || payload.caption || payload.image?.caption || payload.document?.caption || '').trim();
 
     // 1. Ignorar stickers e reações completamente
     if (tipoMensagem === 'sticker' || tipoMensagem === 'reaction') {
@@ -407,7 +407,9 @@ async function processarMensagem(payload) {
                 await chatwoot.enviarNotaPrivada(phone, `❌ RECEITA REPROVADA PELA IA — Motivo: ${resultado.motivo_invalidade}. Itens faltantes: ${(resultado.itens_faltantes || []).join(', ')}.`);
             }
         } else if (imageUrl) {
-            clientMessage = `[Cliente enviou uma imagem ou documento — possivelmente foto de produto, pet ou referência visual]`;
+            clientMessage = textoRecebido
+                ? `[Cliente enviou uma imagem/documento com a seguinte legenda]: "${textoRecebido}"`
+                : `[Cliente enviou uma imagem ou documento — possivelmente foto de produto, pet ou referência visual]`;
         } else {
             clientMessage = "[Cliente enviou uma imagem sem URL válida]";
         }

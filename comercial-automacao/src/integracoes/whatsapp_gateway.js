@@ -29,6 +29,17 @@ function canaryAtivoParaPhone(phone) {
 }
 
 function deveEnviarReal(phone) {
+    // 1. Verificar se o número de telefone está na allowlist (Fase 3.1)
+    const allowlistStr = process.env.ALLOWLIST_NUMEROS || '';
+    if (allowlistStr) {
+        const numerosAprovados = allowlistStr.split(',').map(n => n.replace(/\D/g, '').trim()).filter(Boolean);
+        const phoneLimpo = String(phone).replace(/\D/g, '').trim();
+        if (numerosAprovados.includes(phoneLimpo)) {
+            console.log(`[ALLOWLIST] +${phoneLimpo} está na allowlist de teste. Forçando envio real.`);
+            return true;
+        }
+    }
+
     const isSilentGlobal = process.env.MODO_SILENCIOSO !== 'false';
     if (!isSilentGlobal) return true; // modo ativo full
     // Em silencioso, ainda pode estar no canary
