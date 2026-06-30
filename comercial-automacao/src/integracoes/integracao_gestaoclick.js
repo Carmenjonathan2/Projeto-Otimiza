@@ -215,31 +215,49 @@ async function buscarCadastroPorTelefone(telefone) {
     }
 
     try {
-        for (let page = 1; page <= 5; page++) {
-            const response = await axios.get(`${BASE_URL}/clientes?page=${page}`, { headers });
-            const clientes = response.data.data || [];
-            if (clientes.length === 0) break;
-
-            for (let c of clientes) {
-                const cCelular = c.celular ? c.celular.replace(/\D/g, '') : "";
-                const cTelefone = c.telefone ? c.telefone.replace(/\D/g, '') : "";
-                
-                if ((cCelular && (cCelular.includes(telLimpo) || telLimpo.includes(cCelular))) ||
-                    (cTelefone && (cTelefone.includes(telLimpo) || telLimpo.includes(cTelefone)))) {
-                    const crmv = extrairCrmv(c);
-                    const ehB2B = (c.tags && c.tags.toLowerCase().includes("veterinario")) || !!crmv;
-                    console.log(`✅ [GESTAOCLICK] Cadastro localizado via telefone! Nome: ${c.nome}`);
-                    const resultado = {
-                        id: c.id,
-                        nome: c.nome,
-                        tipo_cliente: ehB2B ? "B2B" : "B2C",
-                        crmv: crmv
-                    };
-                    setCached('tel', telLimpo, resultado);
-                    return resultado;
-                }
+        console.log(`[GESTAOCLICK] Chamando API com filtro de telefone: ${telLimpo}`);
+        const response = await axios.get(`${BASE_URL}/clientes?telefone=${telLimpo}`, { headers });
+        const clientes = response.data.data || [];
+        
+        if (clientes.length > 0) {
+            const c = clientes[0];
+            const crmv = extrairCrmv(c);
+            const ehB2B = (c.tags && c.tags.toLowerCase().includes("veterinario")) || !!crmv;
+            console.log(`✅ [GESTAOCLICK] Cadastro localizado via API de Telefone! Nome: ${c.nome}`);
+            const resultado = {
+                id: c.id,
+                nome: c.nome,
+                tipo_cliente: ehB2B ? "B2B" : "B2C",
+                crmv: crmv
+            };
+            setCached('tel', telLimpo, resultado);
+            return resultado;
+        }
+        
+        // Se falhar a busca direta, tenta buscar sem o DDI (55) caso ele exista no início
+        if (telLimpo.startsWith('55') && telLimpo.length > 10) {
+            const telSemDdi = telLimpo.substring(2);
+            console.log(`[GESTAOCLICK] Tentando busca alternativa sem DDI (55): ${telSemDdi}`);
+            const responseSemDdi = await axios.get(`${BASE_URL}/clientes?telefone=${telSemDdi}`, { headers });
+            const clientesSemDdi = responseSemDdi.data.data || [];
+            
+            if (clientesSemDdi.length > 0) {
+                const c = clientesSemDdi[0];
+                const crmv = extrairCrmv(c);
+                const ehB2B = (c.tags && c.tags.toLowerCase().includes("veterinario")) || !!crmv;
+                console.log(`✅ [GESTAOCLICK] Cadastro localizado via API de Telefone (sem DDI)! Nome: ${c.nome}`);
+                const resultado = {
+                    id: c.id,
+                    nome: c.nome,
+                    tipo_cliente: ehB2B ? "B2B" : "B2C",
+                    crmv: crmv
+                };
+                setCached('tel', telLimpo, resultado);
+                return resultado;
             }
         }
+        
+        console.log(`ℹ️ [GESTAOCLICK] Telefone ${telLimpo} não foi localizado no ERP.`);
         const vazio = { id: null, nome: null, tipo_cliente: "B2C", crmv: null };
         setCached('tel', telLimpo, vazio);
         return vazio;

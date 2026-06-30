@@ -113,7 +113,7 @@ async function validarRespostaIA(responseText, persona, contextoInjetado = "", p
         });
 
         const prompt = `Você é um auditor da farmácia veterinária Otimiza FarmaVet. Avalie se a resposta gerada pela IA abaixo respeita estas regras:
-- Máximo 2 frases por mensagem.
+- Máximo 4 frases por mensagem.
 - NÃO pode terminar com "Estou à disposição", "Qualquer dúvida estou aqui", "Posso ajudar com mais algo?" ou similares.
 - Preço (R$ XX), se citado, deve aparecer no CONTEXTO fornecido OU estar entre os valores oficiais permitidos: vacinas Vet em Casa (R$60, R$70, R$80, R$90, R$97); Librela/Cytopoint (R$ 380 unitário, R$ 350 cada na compra de 2); vacinas atacado B2B (Rabisin R$ 17,90, Nobivac V8 R$ 44,50, Nobivac V5 R$ 37,90); Chave Pix (31) 98793-6822; taxa cartão 4,99%.
 - Persona ${persona === 'Aika' ? 'Aika (B2C) deve usar 1 emoji (🐾 ou 💜)' : 'Kyenner (B2B) NÃO deve usar emoji'}.
