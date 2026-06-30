@@ -1,6 +1,6 @@
 {
     "553192681115": {
-        "owner": "human",
+        "owner": "AI",
         "history": [
             {
                 "role": "user",
@@ -40,7 +40,7 @@
         "tipo_cliente": null
     },
     "553190000001": {
-        "owner": "human",
+        "owner": "AI",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -55,7 +55,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000002": {
-        "owner": "human",
+        "owner": "AI",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -70,7 +70,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000003": {
-        "owner": "human",
+        "owner": "AI",
         "history": [
             {
                 "role": "user",
@@ -90,7 +90,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000004": {
-        "owner": "human",
+        "owner": "AI",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -105,7 +105,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000005": {
-        "owner": "human",
+        "owner": "AI",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -120,7 +120,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000006": {
-        "owner": "human",
+        "owner": "AI",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -135,7 +135,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000007": {
-        "owner": "human",
+        "owner": "AI",
         "history": [
             {
                 "role": "user",
@@ -155,7 +155,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000008": {
-        "owner": "human",
+        "owner": "AI",
         "history": [],
         "cpf": "9999",
         "crmv": "12345",
@@ -170,7 +170,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000009": {
-        "owner": "human",
+        "owner": "AI",
         "history": [],
         "cpf": "9999",
         "crmv": "12345",
@@ -185,7 +185,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000015": {
-        "owner": "human",
+        "owner": "AI",
         "history": [],
         "cpf": null,
         "crmv": "99999",
@@ -200,7 +200,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000010": {
-        "owner": "human",
+        "owner": "AI",
         "history": [
             {
                 "role": "user",
@@ -224,7 +224,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000011": {
-        "owner": "human",
+        "owner": "AI",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -239,7 +239,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000012": {
-        "owner": "human",
+        "owner": "AI",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -254,7 +254,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "553190000013": {
-        "owner": "human",
+        "owner": "AI",
         "history": [],
         "cpf": null,
         "crmv": null,
@@ -269,7 +269,7 @@
         "aguardando_confirmar_lista_espera": false
     },
     "5531999999999": {
-        "owner": "human",
+        "owner": "AI",
         "history": [],
         "cpf": null,
         "crmv": null,
