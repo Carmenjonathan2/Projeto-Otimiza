@@ -23,9 +23,9 @@ const detectorInjecao = require('./src/privacidade/detector_injecao');
 const app = express();
 app.use(bodyParser.json());
 
-// Função auxiliar para enviar mensagens ao cliente ou interceptá-las em Modo Silencioso
-async function enviarMensagemBot(phone, text) {
-    await whatsappGateway.enviarMensagemTexto(phone, text, true);
+// Função auxiliar para enviar mensagens ao cliente ou interceptá-las em Modo Silencioso (com opção de forceSend para notificações do sistema)
+async function enviarMensagemBot(phone, text, forceSend = false) {
+    await whatsappGateway.enviarMensagemTexto(phone, text, true, forceSend);
 }
 
 // ─── Detector de Repetição ───────────────────────────────────────────────
@@ -653,7 +653,7 @@ async function processarMensagem(payload) {
                     : `Olá! 🐾 Nosso expediente encerrou por hoje. Retornaremos o atendimento ${horaVolta}. Em caso de emergência, procure um veterinário de plantão.`;
             }
 
-            await enviarMensagemBot(phone, msgForaHorario);
+            await enviarMensagemBot(phone, msgForaHorario, true);
             salvarLogConversa({
                 phone, clientName, clientMessage, responseText: msgForaHorario,
                 isSilent: !whatsappGateway.deveEnviarReal(phone),

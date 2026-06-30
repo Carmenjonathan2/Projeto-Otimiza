@@ -43,8 +43,8 @@ function logModo(phone, tipo) {
     return `[ATIVO - ${tipo}]`;
 }
 
-async function enviarMensagemTexto(phone, text, syncToChatwoot = true) {
-    if (!deveEnviarReal(phone)) {
+async function enviarMensagemTexto(phone, text, syncToChatwoot = true, forceSend = false) {
+    if (!forceSend && !deveEnviarReal(phone)) {
         console.log(`${logModo(phone, 'GATEWAY')} IA Sugestão para ${phone}: "${text}"`);
         if (syncToChatwoot) {
             await chatwoot.enviarNotaPrivada(phone, `🤖 *[Sugestão da IA - Copiloto]*:\n${text}`);
@@ -52,7 +52,7 @@ async function enviarMensagemTexto(phone, text, syncToChatwoot = true) {
         return { status: 200, message: "Ignored (Silent/Canary out)", data: { messageId: "silent_mock_id" } };
     }
 
-    console.log(`${logModo(phone, 'GATEWAY')} Enviando texto para ${phone}...`);
+    console.log(`${logModo(phone, 'GATEWAY')} Enviando texto para ${phone}... (forceSend: ${forceSend})`);
     const result = await zapi.enviarMensagemTexto(phone, text);
     if (syncToChatwoot) {
         await chatwoot.sincronizarMensagemBot(phone, text);
