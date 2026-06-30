@@ -159,9 +159,52 @@ async function enviarNotaPrivada(phone, text) {
     }
 }
 
+/**
+ * Puxa o histórico de mensagens públicas de uma conversa do Chatwoot
+ * e o formata no padrão { role, content } para consumo do Gemini.
+ */
+async function obterHistoricoConversa(phone) {
+    if (CHATWOOT_KEY === "MOCK_KEY") {
+        return [];
+    }
+    try {
+        const contactId = await obterOuCriarContato(phone);
+        const conversationId = await obterOuCriarConversa(contactId);
+        
+        const msgsRes = await axios.get(`${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}/conversations/${conversationId}/messages`, { headers });
+        const msgs = msgsRes.data?.payload || [];
+        
+        // Filtrar apenas mensagens públicas (ignorar notas privadas) que possuem texto
+        const publicMsgs = msgs.filter(m => !m.private && m.content && (m.message_type === 0 || m.message_type === 1));
+        
+        // Mapear para o formato { role, content }
+        const history = publicMsgs.map(m => ({
+            role: m.message_type === 0 ? 'user' : 'model',
+            content: m.content
+        }));
+        
+        // Mesclar mensagens consecutivas do mesmo papel (Gemini exige alternação estrita de user/model)
+        const mergedHistory = [];
+        for (const msg of history) {
+            if (mergedHistory.length > 0 && mergedHistory[mergedHistory.length - 1].role === msg.role) {
+                mergedHistory[mergedHistory.length - 1].content += "\n" + msg.content;
+            } else {
+                mergedHistory.push({ ...msg });
+            }
+        }
+        
+        // Retornar as últimas 10 mensagens
+        return mergedHistory.slice(-10);
+    } catch (e) {
+        console.error(`❌ [CHATWOOT] Erro ao obter histórico:`, e.message);
+        return [];
+    }
+}
+
 module.exports = {
     solicitarSuporteHumano,
     sincronizarMensagemBot,
     sincronizarMensagemCliente,
-    enviarNotaPrivada
+    enviarNotaPrivada,
+    obterHistoricoConversa
 };

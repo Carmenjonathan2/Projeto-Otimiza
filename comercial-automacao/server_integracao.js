@@ -404,6 +404,20 @@ async function processarMensagem(payload) {
 
     const chatState = states[phone];
 
+    // Sincronizar histórico com Chatwoot para evitar perda de contexto (deploys/reinicializações)
+    try {
+        console.log(`📡 [CHATWOOT-SYNC] Sincronizando histórico para +${phone}...`);
+        const cwHistory = await chatwoot.obterHistoricoConversa(phone);
+        if (cwHistory && cwHistory.length > 0) {
+            chatState.history = cwHistory;
+            console.log(`✅ [CHATWOOT-SYNC] Histórico sincronizado com ${cwHistory.length} mensagens.`);
+        } else {
+            console.log(`ℹ️ [CHATWOOT-SYNC] Nenhum histórico público no Chatwoot para +${phone}.`);
+        }
+    } catch (cwErr) {
+        console.error(`❌ [CHATWOOT-SYNC] Falha ao sincronizar histórico:`, cwErr.message);
+    }
+
     // Detecção dinâmica de tom B2B / palavras-chave de veterinário na mensagem
     const mensagemLower = clientMessage.toLowerCase();
     const b2bKeywords = ["veterinario", "veterinaria", "médico veterinário", "médica veterinária", "medvet", "crmv", "clinica vet", "consultorio vet", "doutor", "doutora"];
