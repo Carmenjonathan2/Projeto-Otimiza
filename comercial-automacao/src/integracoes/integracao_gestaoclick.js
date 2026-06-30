@@ -445,11 +445,26 @@ async function consultarEstoque(nomeProduto, tipoCliente = 'B2C') {
     return { quantidade: 0, preco: 0.00, naoEncontrado: true };
 }
 
+async function obterUltimasVendas(clientId) {
+    if (ACCESS_TOKEN === "MOCK_GC_ACCESS_TOKEN" || SECRET_TOKEN === "MOCK_GC_SECRET_TOKEN") {
+        return [];
+    }
+    try {
+        console.log(`[GESTAOCLICK] Buscando vendas recentes para o cliente ID: ${clientId}...`);
+        const response = await axios.get(`${BASE_URL}/vendas?cliente_id=${clientId}&limit=10`, { headers });
+        return response.data.data || [];
+    } catch (e) {
+        console.error(`❌ [GESTAOCLICK] Erro ao obter vendas do cliente ${clientId}:`, e.message);
+        return [];
+    }
+}
+
 module.exports = {
     buscarCadastroPorCPF,
     buscarCadastroPorCRMV,
     buscarCadastroPorTelefone,
     cadastrarCliente,
     consultarEstoque,
-    invalidarCacheCadastro
+    invalidarCacheCadastro,
+    obterUltimasVendas
 };

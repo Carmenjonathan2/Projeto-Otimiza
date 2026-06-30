@@ -444,8 +444,18 @@ async function processarMensagem(payload) {
             chatState.nome_cadastro = limparNomeCliente(cadastroTel.nome);
             chatState.tipo_cliente = cadastroTel.tipo_cliente;
             chatState.crmv = cadastroTel.crmv || chatState.crmv;
+            chatState.id_cliente_erp = cadastroTel.id; // Salvar ID do cliente
             saveStates(states, phone);
-            console.log(`[GESTAOCLICK] Cliente identificado pelo telefone! Nome: ${chatState.nome_cadastro} | Tipo: ${chatState.tipo_cliente}`);
+            console.log(`[GESTAOCLICK] Cliente identificado pelo telefone! Nome: ${chatState.nome_cadastro} | Tipo: ${chatState.tipo_cliente} | ID: ${chatState.id_cliente_erp}`);
+        }
+    }
+
+    // Garantir ID do cliente caso esteja identificado por nome mas sem ID no estado (migração suave)
+    if (chatState.nome_cadastro && !chatState.id_cliente_erp) {
+        const cadastroTel = await gestaoclick.buscarCadastroPorTelefone(phone);
+        if (cadastroTel && cadastroTel.id) {
+            chatState.id_cliente_erp = cadastroTel.id;
+            saveStates(states, phone);
         }
     }
 
@@ -461,7 +471,8 @@ async function processarMensagem(payload) {
             chatState.nome_cadastro = limparNomeCliente(cadastroCpf.nome);
             chatState.tipo_cliente = cadastroCpf.tipo_cliente;
             chatState.crmv = cadastroCpf.crmv || chatState.crmv;
-            console.log(`[GESTAOCLICK] Cadastro localizado via CPF! Nome: ${chatState.nome_cadastro} | Tipo: ${chatState.tipo_cliente}`);
+            chatState.id_cliente_erp = cadastroCpf.id; // Salvar ID do cliente
+            console.log(`[GESTAOCLICK] Cadastro localizado via CPF! Nome: ${chatState.nome_cadastro} | Tipo: ${chatState.tipo_cliente} | ID: ${chatState.id_cliente_erp}`);
         } else {
             console.log(`[GESTAOCLICK] CPF ${docExtraido} não localizado no GestãoClick.`);
         }
@@ -491,7 +502,8 @@ async function processarMensagem(payload) {
         if (cadastroCrmv && cadastroCrmv.id) {
             chatState.nome_cadastro = limparNomeCliente(cadastroCrmv.nome);
             chatState.tipo_cliente = "B2B";
-            console.log(`[GESTAOCLICK] Cadastro localizado via CRMV! Nome: ${chatState.nome_cadastro}`);
+            chatState.id_cliente_erp = cadastroCrmv.id; // Salvar ID do cliente
+            console.log(`[GESTAOCLICK] Cadastro localizado via CRMV! Nome: ${chatState.nome_cadastro} | ID: ${chatState.id_cliente_erp}`);
             crmvAnotadoParaInjetar = { crmv: crmvExtraido, nome: chatState.nome_cadastro.split(' ')[0] };
         } else {
             console.log(`[GESTAOCLICK] CRMV ${crmvExtraido} não localizado no GestãoClick. Validando registro profissional via CFMV...`);
@@ -986,6 +998,44 @@ async function processarMensagem(payload) {
     // Injetar contexto de CRM do cliente localizado no GestãoClick
     if (chatState.nome_cadastro) {
         contextoInjetado += `\n[INSTRUÇÃO DE CRM]: Nome do cliente cadastrado é '${chatState.nome_cadastro}' (${chatState.tipo_cliente}). NÃO peça CRMV ou CPF. Fale com ele chamando pelo nome próprio. Se B2B, fale como Kyenner, sem Dr/Dra.`;
+        
+        // Injetar histórico de vendas do ERP no contexto da IA para evitar alucinações sobre entregas e pedidos
+        if (chatState.id_cliente_erp) {
+            try {
+                console.log(`[GESTAOCLICK-CONTEXTO] Buscando vendas do cliente ID: ${chatState.id_cliente_erp}`);
+                const vendasUsuario = await gestaoclick.obterUltimasVendas(chatState.id_cliente_erp);
+                if (vendasUsuario && vendasUsuario.length > 0) {
+                    let vendasTexto = "\n[HISTÓRICO DE VENDAS RECENTES NO ERP]:\n";
+                    vendasUsuario.slice(0, 3).forEach(v => {
+                        const dataFormatada = v.data ? v.data.split('-').reverse().join('/') : 'Sem data';
+                        const produtosStr = (v.produtos || []).map(p => `${p.produto.nome_produto} (x${parseInt(p.produto.quantidade)})`).join(', ');
+                        vendasTexto += `- Pedido #${v.codigo} (${dataFormatada}): ${produtosStr || 'Sem produtos'}. Situação: "${v.nome_situacao}". Valor: R$ ${v.valor_total}. Frete: R$ ${v.valor_frete || '0.00'}. Pagamento: ${v.pagamentos && v.pagamentos[0]?.pagamento?.nome_forma_pagamento || 'Não especificado'}.\n`;
+                    });
+                    
+                    const hojeData = new Date().toISOString().split('T')[0];
+                    const vendasHoje = vendasUsuario.filter(v => v.data === hojeData);
+                    
+                    vendasTexto += `\n[INSTRUÇÃO DE ENTREGA E STATUS DO PEDIDO]:`;
+                    if (vendasHoje.length > 0) {
+                        const vHoje = vendasHoje[0];
+                        const produtosHoje = (vHoje.produtos || []).map(p => `${p.produto.nome_produto} (x${parseInt(p.produto.quantidade)})`).join(', ');
+                        vendasTexto += `\n- O cliente possui um pedido HOJE (${hojeData.split('-').reverse().join('/')}) nº #${vHoje.codigo} contendo: ${produtosHoje}. Situação atual no ERP: "${vHoje.nome_situacao}".`;
+                        if (vHoje.nome_situacao.toLowerCase() === 'concretizada') {
+                            vendasTexto += `\n- Como a situação é "Concretizada", informe que o pedido já está faturado/concretizado no sistema e que a equipe está preparando a entrega. NUNCA diga que o pedido já está "a caminho", "na rua" ou invente links/nomes de motoristas (Alan, Marcelo, etc.). Explique de forma calma que, caso ele precise do rastreamento em tempo real do motoboy, a equipe humana enviará o link assim que o motoboy for acionado.`;
+                        } else {
+                            vendasTexto += `\n- A situação é "${vHoje.nome_situacao}". Explique que o pedido está registrado no sistema com esse status e que a equipe está finalizando/agendando.`;
+                        }
+                    } else {
+                        vendasTexto += `\n- Não há nenhuma venda registrada hoje (${hojeData.split('-').reverse().join('/')}) para este cliente no ERP. Se ele perguntar se o pedido está a caminho ou se vai entregar hoje, diga educadamente que não localizou nenhuma venda de hoje no sistema e pergunte se ele já efetuou o pagamento do Pix ou se gostaria de fechar o pedido agora.`;
+                    }
+                    contextoInjetado += vendasTexto;
+                } else {
+                    contextoInjetado += `\n[HISTÓRICO DE VENDAS RECENTES NO ERP]: Nenhuma venda recente localizada. Se ele perguntar por entregas ou pedidos de hoje, informe que não encontrou compras recentes no sistema e pergunte se ele deseja fazer o pedido.`;
+                }
+            } catch (vSalesErr) {
+                console.error(`❌ [GESTAOCLICK-SALES] Erro ao obter vendas do cliente no fluxo:`, vSalesErr.message);
+            }
+        }
     } else {
         contextoInjetado += `\n[INSTRUÇÃO DE CRM]: Cliente não localizado no GestãoClick. CPF/CRMV pendente.`;
     }
@@ -1037,10 +1087,11 @@ Responda de forma acolhedora, simpática, direta e curta (máximo 2 frases).
 
 Regras:
 - MÁXIMO 2 frases por mensagem.
-- Use sempre exatamente 1 emoji amigável (como 🐾 ou 💜). NUNCA termine sem emoji.
+- Use no máximo 1 emoji amigável (como 🐾 ou 💜) por mensagem inteira. PROIBIDO usar múltiplos emojis. NUNCA use mais de 1 emoji.
 - NUNCA termine com "Estou à disposição", "Qualquer dúvida estou aqui", ou "Posso ajudar?".
 - NUNCA use termos formais (Prezado, Senhor, Senhora) nem faça resumos/repetições.
 - Sempre use o nome do pet nas interações quando souber.
+- Se o cliente estiver agradecendo ou se despedindo (como "obrigado", "valeu", "vou decidir aqui e qualquer coisa te procuro", "obrigada pelas informações"), apenas responda de forma curta e acolhedora sem fazer nenhuma pergunta ou pedir CRMV/qualificação (exemplo: "De nada! Qualquer coisa estou por aqui. 🐾").
 - Negrito: use apenas *texto* para preço, produto ou ação importante.
 - Primeiro contato/Saudação (se a mensagem for apenas saudações como "Oi", "Tudo bem" sem dúvida expressa ou menção a produtos/serviços): Você DEVE obrigatoriamente responder de forma acolhedora, direta e abrangente (ex: "Olá! Tudo bem? Como posso te ajudar hoje? 🐾"). NÃO pergunte o nome do pet ou do tutor nesta saudação inicial.
 - Dúvida geral/expressa sem detalhes (mensagens como "tenho uma dúvida", "pode me ajudar com uma dúvida?", "Vocês conseguem me ajudar com uma dúvida?"): Você deve confirmar de forma acolhedora e perguntar qual é a sua dúvida, SEM pedir nomes ou outros dados (ex: "Olá! Claro, qual é a sua dúvida? 🐾").
