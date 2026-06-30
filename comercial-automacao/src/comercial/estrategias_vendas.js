@@ -54,13 +54,13 @@ const REGRAS_B2C = {
 // REGRAS B2B: Para Veterinários — Persona Dr. Kyenner 🩺
 // =========================================================================
 const REGRAS_B2B = {
-    UPSELL_VACINA_CAIXA_B2B: {
+    UPSELL_VACINA_COMBO_B2B: {
         detectores: ["vacina", "rabisin", "nobivac", "v8", "v10", "raiva", "gripe", "giardia", "antirrábica", "antirrabica", "injetavel", "injetável", "biológico", "biologico"],
-        mensagemInjetada: "[COMERCIAL:UPSELL_VACINA] Ofereça caixa fechada com desconto. Pergunte quantas doses aplica por mês."
+        mensagemInjetada: "[COMERCIAL:VACINA_COMBO] Ofereça caixa fechada com desconto. Pergunte quantas doses/mês aplica. Inclua proativamente 100 seringas e agulhas para aplicação como excelente custo-benefício."
     },
-    UPSELL_SERINGA_B2B: {
+    UPSELL_SERINGA_COMBO_B2B: {
         detectores: ["seringa", "agulha", "insumo", "insumos", "cateter", "scalp", "descartável"],
-        mensagemInjetada: "[COMERCIAL:UPSELL_SERINGA] Ofereça caixa de 100 seringas/agulhas."
+        mensagemInjetada: "[COMERCIAL:SERINGA_COMBO] Ofereça caixa de 100 seringas/agulhas e sugira o modelo ideal conforme a via de aplicação."
     },
     UPSELL_LIBRELA_B2B: {
         detectores: ["librela", "osteoartrite", "articular", "artrite", "osteoartrose"],
@@ -85,14 +85,6 @@ const REGRAS_B2B = {
     RECUSA_MANIPULADOS_B2B: {
         detectores: ["manipulado", "manipulação", "formula", "fórmula", "aviamento", "compounding"],
         mensagemInjetada: "[COMERCIAL:RECUSA_MANIPULADOS] Diga que não fazemos manipulação. Ofereça industrializados."
-    },
-    COMBO_VACINA_INSUMOS_B2B: {
-        detectores: ["vacina", "rabisin", "nobivac", "v8", "v10", "raiva", "gripe", "giardia", "injetavel", "injetável", "biológico"],
-        mensagemInjetada: "[COMERCIAL:COMBO_INSUMOS] Ofereça caixa com 100 seringas de 1ml e agulhas 25x7/25x8 para a aplicação."
-    },
-    COMBO_INJETAVEL_SERINGA_B2B: {
-        detectores: ["seringa", "agulha", "insumo", "insumos", "cateter", "scalp"],
-        mensagemInjetada: "[COMERCIAL:COMBO_INJETAVEL] Ofereça seringas/agulhas conforme via de aplicação."
     }
 };
 

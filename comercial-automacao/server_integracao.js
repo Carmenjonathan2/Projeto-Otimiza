@@ -19,6 +19,7 @@ const pagamento = require('./src/integracoes/integracao_pagamento');
 const logistica = require('./src/integracoes/integracao_logistica');
 const vendas = require('./src/comercial/estrategias_vendas');
 const detectorInjecao = require('./src/privacidade/detector_injecao');
+const supervisor = require('./src/observabilidade/sugestoes_supervisor');
 
 const app = express();
 app.use(bodyParser.json());
@@ -62,7 +63,9 @@ function timeToMinutes(timeStr, defaultVal) {
 }
 
 // Banco de dados de estado em arquivo JSON local (Simulando persistência de estado das conversas)
-const STATE_FILE = path.resolve(__dirname, 'conversas_state.json');
+const STATE_FILE = process.env.MODO_TESTE === 'true'
+    ? path.resolve(__dirname, 'conversas_state_qa.json')
+    : path.resolve(__dirname, 'conversas_state.json');
 function loadStates() {
     if (fs.existsSync(STATE_FILE)) {
         try {
@@ -286,6 +289,44 @@ async function processarMensagem(payload) {
     console.log("[Z-API] Raw Payload:", JSON.stringify(payload, null, 2));
 
     const phone = payload.phone;
+
+    // ─── GUARD: ignorar mensagens sem conteúdo ou de mídias indesejadas (Fase 0.1) ──────────
+    const tipoMensagem = (payload.type || payload.messageType || '').toLowerCase();
+    const textoRecebido = (payload.text?.message || payload.body || payload.message || payload.value || '').trim();
+
+    // 1. Ignorar stickers e reações completamente
+    if (tipoMensagem === 'sticker' || tipoMensagem === 'reaction') {
+        console.log(`[GUARD] Mensagem do tipo ${tipoMensagem} de +${phone} ignorada.`);
+        return { status: 200, message: `OK: Ignored ${tipoMensagem}` };
+    }
+
+    // 2. Se for áudio, de acordo com o plano atual de segurança, silenciamos/ignoramos
+    const msgEhAudio = tipoMensagem === 'audio' || tipoMensagem === 'ptt' || !!payload.audio;
+    if (msgEhAudio) {
+        console.log(`[GUARD] Mensagem de áudio de +${phone} ignorada para segurança.`);
+        return { status: 200, message: 'OK: Audio ignored' };
+    }
+
+    // 3. Se for vídeo ou documento/imagem genérica (sem legenda e sem receita pendente)
+    const msgEhImagem = tipoMensagem === 'image' || tipoMensagem === 'document';
+    const isVideo = tipoMensagem === 'video';
+    
+    // Carregar estado para ver se aguarda receita
+    const statesPeek = loadStates();
+    const chatStatePeek = statesPeek[phone] || {};
+
+    if (isVideo || (msgEhImagem && !chatStatePeek.aguardando_receita && !textoRecebido)) {
+        console.log(`[GUARD] Mídia sem texto (${tipoMensagem}) de +${phone} ignorada (sem receita pendente).`);
+        return { status: 200, message: `OK: Ignored ${tipoMensagem} without text` };
+    }
+
+    // 4. Ignorar mensagens puramente vazias ou reações disfarçadas
+    const reacoesComuns = ["👍", "👎", "❤️", "😂", "😮", "😢", "🙏", "ok", "ok.", "valeu", "joinha"];
+    const textoLower = textoRecebido.toLowerCase();
+    if (!textoRecebido || (textoRecebido.length <= 3 && reacoesComuns.includes(textoLower))) {
+        console.log(`[GUARD] Mensagem vazia ou reação simples ("${textoRecebido}") de +${phone} ignorada.`);
+        return { status: 200, message: 'OK: Ignored empty or reaction message' };
+    }
 
     // Rate-limit por cliente (proteção contra flooding/abuso)
     const janela = parseInt(process.env.RATE_LIMIT_JANELA_SEGUNDOS || '60') * 1000;
@@ -1480,6 +1521,23 @@ ${clientMessage}
         chatState.history.push({ role: 'model', content: responseText });
         chatState.contador_fallback = 0;
         saveStates(states, phone);
+
+        // Se o bot estiver em modo silencioso, registrar a sugestão no pipeline de supervisão (Fase 1.2 & 1.3)
+        const isSilentMode = !whatsappGateway.deveEnviarReal(phone);
+        if (isSilentMode) {
+            try {
+                supervisor.registrarSugestao({
+                    numero: phone,
+                    mensagemCliente: clientMessage,
+                    respostaSugerida: responseText,
+                    persona: chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika',
+                    estrategiaAtivada: null, // Pode ser preenchido caso queira rastrear
+                    contextoInjetado: contextoInjetado
+                });
+            } catch (supErr) {
+                console.error("❌ [SUPERVISOR] Erro ao registrar sugestão:", supErr.message);
+            }
+        }
 
         // Enviar a resposta via Z-API
         await enviarMensagemBot(phone, responseText);

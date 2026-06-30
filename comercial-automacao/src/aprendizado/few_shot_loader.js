@@ -24,6 +24,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ARQUIVO = path.resolve(__dirname, '../../few_shot_aprovados.json');
+const FEW_SHOT_JSONL_FILE = path.resolve(__dirname, './exemplos_aprovados.jsonl');
 const TTL_MS = 5 * 60 * 1000;
 const MAX_EXEMPLOS_POR_PERSONA = 5;
 
@@ -33,16 +34,44 @@ let carregadoEm = 0;
 function carregar() {
     if (cache && (Date.now() - carregadoEm) < TTL_MS) return cache;
     try {
-        if (!fs.existsSync(ARQUIVO)) {
-            cache = { aprovados: [] };
-        } else {
-            cache = JSON.parse(fs.readFileSync(ARQUIVO, 'utf8'));
-            if (!Array.isArray(cache.aprovados)) cache.aprovados = [];
+        let aprovadosList = [];
+
+        // 1. Carregar do JSON antigo
+        if (fs.existsSync(ARQUIVO)) {
+            const jsonContent = JSON.parse(fs.readFileSync(ARQUIVO, 'utf8'));
+            if (Array.isArray(jsonContent.aprovados)) {
+                aprovadosList = jsonContent.aprovados.map(a => ({
+                    id: a.id,
+                    persona: a.persona,
+                    clientMessage: a.clientMessage,
+                    respostaCerta: a.respostaCerta || a.respostaSugerida
+                }));
+            }
         }
+
+        // 2. Carregar do JSONL novo (exemplos_aprovados.jsonl)
+        if (fs.existsSync(FEW_SHOT_JSONL_FILE)) {
+            const lines = fs.readFileSync(FEW_SHOT_JSONL_FILE, 'utf8').split('\n').filter(Boolean);
+            lines.forEach(l => {
+                try {
+                    const item = JSON.parse(l);
+                    aprovadosList.push({
+                        id: item.id,
+                        persona: item.persona,
+                        clientMessage: item.input,
+                        respostaCerta: item.output
+                    });
+                } catch (jsonlErr) {
+                    console.warn(`⚠️ [FEW-SHOT] Falha ao ler linha do JSONL:`, jsonlErr.message);
+                }
+            });
+        }
+
+        cache = { aprovados: aprovadosList };
         carregadoEm = Date.now();
         return cache;
     } catch (e) {
-        console.error(`❌ [FEW-SHOT] Falha ao ler ${ARQUIVO}: ${e.message}`);
+        console.error(`❌ [FEW-SHOT] Falha ao ler exemplos: ${e.message}`);
         return { aprovados: [] };
     }
 }
