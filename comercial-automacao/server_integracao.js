@@ -53,6 +53,14 @@ function detectarRepeticao(msgAtual, mensagensRecentes) {
     return similares >= 2;
 }
 
+function timeToMinutes(timeStr, defaultVal) {
+    const val = timeStr || defaultVal;
+    const parts = val.split(':');
+    const h = parseInt(parts[0], 10);
+    const m = parts[1] ? parseInt(parts[1], 10) : 0;
+    return h * 60 + m;
+}
+
 // Banco de dados de estado em arquivo JSON local (Simulando persistência de estado das conversas)
 const STATE_FILE = path.resolve(__dirname, 'conversas_state.json');
 function loadStates() {
@@ -591,46 +599,71 @@ async function processarMensagem(payload) {
     }
 
     // ─── Janela de Atendimento ──────────────────────────────────────────────
-    // Fora do horário comercial, bot responde 1x avisando que o humano volta
-    // amanhã e marca o estado pra não responder de novo até o horário voltar.
-    // Use HORARIO_COMERCIAL_INICIO/FIM no .env. Default 8h-20h, segunda a sábado.
-    const inicioH = parseInt(process.env.HORARIO_COMERCIAL_INICIO || '8', 10);
-    const fimH = parseInt(process.env.HORARIO_COMERCIAL_FIM || '20', 10);
+    // Fora do horário comercial ou no horário de almoço, bot responde 1x avisando
+    // e marca o estado pra não responder de novo até o horário voltar.
+    // Configurações do .env no formato "HH:MM".
+    const inicioComercial = timeToMinutes(process.env.HORARIO_COMERCIAL_INICIO, "08:00");
+    const fimComercial = timeToMinutes(process.env.HORARIO_COMERCIAL_FIM, "18:00");
+    const inicioAlmoco = timeToMinutes(process.env.HORARIO_ALMOCO_INICIO, "12:30");
+    const fimAlmoco = timeToMinutes(process.env.HORARIO_ALMOCO_FIM, "13:30");
     const atendeDomingo = (process.env.ATENDE_DOMINGO || 'false') === 'true';
+
     const agoraDate = new Date();
-    const horaAgora = agoraDate.getHours();
-    const diaSemana = agoraDate.getDay(); // 0=Dom, 6=Sáb
-    const foraDoHorario = (horaAgora < inicioH || horaAgora >= fimH) || (diaSemana === 0 && !atendeDomingo);
+    // Ajustar para o fuso horário de Brasília (UTC-3) para Railway
+    const agoraBr = new Date(agoraDate.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
+    const horaAgora = agoraBr.getHours();
+    const minutoAgora = agoraBr.getMinutes();
+    const diaSemana = agoraBr.getDay(); // 0=Dom, 6=Sáb
+    const horaMinutoEmMinutos = horaAgora * 60 + minutoAgora;
+
+    // Verificar se está fora do expediente comercial ou se é domingo (e não atende domingo)
+    const foraExpediente = (horaMinutoEmMinutos < inicioComercial || horaMinutoEmMinutos >= fimComercial) || (diaSemana === 0 && !atendeDomingo);
+    // Verificar se está no horário de almoço (apenas dias úteis/sábado)
+    const emAlmoco = (horaMinutoEmMinutos >= inicioAlmoco && horaMinutoEmMinutos < fimAlmoco) && (diaSemana !== 0);
+
+    const foraDoHorario = foraExpediente || emAlmoco;
 
     if (foraDoHorario) {
-        const hoje = agoraDate.toISOString().split('T')[0];
-        if (chatState.ultimaMsgForaHorario !== hoje) {
-            chatState.ultimaMsgForaHorario = hoje;
+        const hoje = agoraBr.toISOString().split('T')[0];
+        const tipoFora = emAlmoco ? 'almoco' : 'expediente';
+        const cacheKeyFora = `${hoje}_${tipoFora}`;
+
+        if (chatState.ultimaMsgForaHorario !== cacheKeyFora) {
+            chatState.ultimaMsgForaHorario = cacheKeyFora;
             saveStates(states, phone);
 
             let msgForaHorario;
-            if (hoje === '2026-06-29') {
+            if (emAlmoco) {
+                const voltaAlmocoStr = process.env.HORARIO_ALMOCO_FIM || '13:30';
                 msgForaHorario = chatState.tipo_cliente === 'B2B'
-                    ? `Olá! Devido ao jogo do Brasil, encerramos nossas operações mais cedo hoje. Nosso atendimento retorna amanhã às 08:00.`
-                    : `Olá! 🐾 Devido ao jogo do Brasil, encerramos nossas operações mais cedo hoje. Nosso atendimento retorna amanhã às 08:00. Em caso de emergência com seu pet, procure um veterinário de plantão.`;
+                    ? `Olá! No momento nossa equipe está em horário de almoço (das ${process.env.HORARIO_ALMOCO_INICIO || '12:30'} às ${voltaAlmocoStr}). Retornaremos o atendimento em breve.`
+                    : `Olá! 🐾 No momento nossa equipe está em horário de almoço (das ${process.env.HORARIO_ALMOCO_INICIO || '12:30'} às ${voltaAlmocoStr}). Retornamos em breve para te atender com todo carinho!`;
             } else {
-                const horaVolta = diaSemana === 6 ? 'segunda às 8h' : `amanhã às ${inicioH}h`;
+                let horaVolta;
+                if (diaSemana === 6) { // Sábado à noite
+                    horaVolta = "na segunda-feira a partir das 08h00";
+                } else if (diaSemana === 0) { // Domingo
+                    horaVolta = "amanhã (segunda-feira) a partir das 08h00";
+                } else {
+                    horaVolta = `amanhã a partir das ${process.env.HORARIO_COMERCIAL_INICIO || '08:00'}`;
+                }
+
                 msgForaHorario = chatState.tipo_cliente === 'B2B'
-                    ? `Mensagem recebida. Nosso atendimento volta ${horaVolta}. Em caso de urgência clínica, procure um veterinário de plantão.`
-                    : `Recebemos sua mensagem! 🐾 O atendimento volta ${horaVolta}. Em caso de emergência com o pet, procure um veterinário de plantão.`;
+                    ? `Olá! Nosso expediente encerrou. Retornaremos o atendimento ${horaVolta}.`
+                    : `Olá! 🐾 Nosso expediente encerrou por hoje. Retornaremos o atendimento ${horaVolta}. Em caso de emergência, procure um veterinário de plantão.`;
             }
+
             await enviarMensagemBot(phone, msgForaHorario);
             salvarLogConversa({
                 phone, clientName, clientMessage, responseText: msgForaHorario,
                 isSilent: !whatsappGateway.deveEnviarReal(phone),
                 persona: chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika',
-                owner: chatState.owner, foraDoHorario: true
+                owner: chatState.owner, foraDoHorario: true, tipoFora
             });
-            return { status: 200, message: 'OK: outside business hours, single reply' };
+            return { status: 200, message: `OK: outside business hours (${tipoFora}), single reply` };
         }
-        // Já respondeu hoje fora do horário, ignora silenciosamente
-        console.log(`[FORA-HORARIO] +${phone} já avisado hoje. Ignorando mensagem.`);
-        return { status: 200, message: 'OK: outside business hours, already notified today' };
+        console.log(`[FORA-HORARIO] +${phone} já avisado hoje para o bloco ${tipoFora}. Ignorando mensagem.`);
+        return { status: 200, message: `OK: outside business hours (${tipoFora}), already notified today` };
     }
 
     // Se for um novo veterinário não cadastrado: CADASTRAR AUTOMATICAMENTE + ALERTAR EQUIPE de forma assíncrona
