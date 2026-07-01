@@ -1098,11 +1098,13 @@ async function processarMensagem(payload) {
                         vendasTexto += `\n- O cliente possui um pedido HOJE (${hojeData.split('-').reverse().join('/')}) nº #${vHoje.codigo} contendo: ${produtosHoje}. Situação atual no ERP: "${vHoje.nome_situacao}".`;
                         if (vHoje.nome_situacao.toLowerCase() === 'concretizada') {
                             vendasTexto += `\n- Como a situação é "Concretizada", informe que o pedido já está faturado/concretizado no sistema e que a equipe está preparando a entrega. NUNCA diga que o pedido já está "a caminho", "na rua" ou invente links/nomes de motoristas (Alan, Marcelo, etc.). Explique de forma calma que, caso ele precise do rastreamento em tempo real do motoboy, a equipe humana enviará o link assim que o motoboy for acionado.`;
+                        } else if (vHoje.nome_situacao.toLowerCase() === 'a faturar' || vHoje.nome_situacao.toLowerCase() === 'orçamento') {
+                            vendasTexto += `\n- Situação é "${vHoje.nome_situacao}". Explique que o pedido está sendo processado financeiramente e aguarda liberação.`;
                         } else {
-                            vendasTexto += `\n- A situação é "${vHoje.nome_situacao}". Explique que o pedido está registrado no sistema com esse status e que a equipe está finalizando/agendando.`;
+                            vendasTexto += `\n- Situação é "${vHoje.nome_situacao}". Agradeça e informe que o time está cuidando do pedido.`;
                         }
                     } else {
-                        vendasTexto += `\n- Não há nenhuma venda registrada hoje (${hojeData.split('-').reverse().join('/')}) para este cliente no ERP. Se ele perguntar se o pedido está a caminho ou se vai entregar hoje, diga educadamente que não localizou nenhuma venda de hoje no sistema e pergunte se ele já efetuou o pagamento do Pix ou se gostaria de fechar o pedido agora.`;
+                        vendasTexto += `\n- Não há pedidos com data de hoje. Se o cliente perguntar por um pedido pendente ou entrega de hoje, informe que não localizou nenhuma compra com data de hoje no sistema e peça para ele aguardar um instante enquanto você confirma os detalhes com o time de suporte.`;
                     }
                     contextoInjetado += vendasTexto;
                 } else {
@@ -1149,7 +1151,7 @@ Regras de Ouro:
 - NUNCA termine com "Estou à disposição", "Qualquer dúvida estou aqui", ou "Posso ajudar com mais algo?".
 - NUNCA faça resumos ou repetições.
 - Negrito: use apenas *texto* (um asterisco) para preço, nome de produto ou ação importante.
-- Cotação/Pedido de vacinas: Você DEVE usar até 3 frases para: 1) Informar o preço de atacado (ex: Rabisin *R$ 17,90*, Nobivac V8 *R$ 44,50*, Nobivac V5 *R$ 37,90*); 2) Oferecer proativamente seringas e agulhas sugerindo a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício; 3) Perguntar a quantidade de doses que ele costuma aplicar por mês para sugerir o lote ideal. Exemplo: "Rabisin fica *R$ 17,90* a dose. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício? Quantas doses você aplica por mês?"
+- Cotação/Pedido de vacinas (mesmo se o cliente não especificar a marca da vacina de imediato): Você DEVE usar até 3 frases para oferecer proativamente a opção de caixa fechada com desconto (mencionando opções como Rabisin *R$ 17,90* ou Nobivac V8 *R$ 44,50*), oferecer proativamente a caixa fechada de insumos (seringas e agulhas) para aplicação como melhor custo-benefício, e perguntar a quantidade de doses que ele aplica por mês para sugerir o lote ideal. Exemplo: "Temos caixa fechada de Rabisin com desconto por *R$ 17,90* a dose. Quer aproveitar e levar também a caixa fechada de insumos (seringas e agulhas) para aplicação como melhor custo-benefício? Quantas doses você aplica por mês?"
 - Se sem estoque no ERP para vacinas/injetáveis, informe: "Venda sob demanda com previsão de [X] dias".
 - Gancho de Alta Densidade: Ofereça o "Clube Nobivac Premium" (Programa de Assinatura): preço promocional de lote fechado com entregas fracionadas automáticas de acordo com a agenda dele (sem precisar imobilizar capital ou estocar sem geladeira científica).
 - Filtro 01 (Manipulação): Nós NÃO fazemos manipulação. Se solicitarem fórmula magistral ou manipular princípios ativos, agradeça, explique de forma direta que trabalhamos exclusivamente com produtos prontos de fábrica originais de marcas premium (MSD, Virbac, Zoetis) e deseje melhoras para o pet, sem fazer cotações.
@@ -1172,6 +1174,7 @@ Regras:
 - Primeiro contato/Saudação (se a mensagem for apenas saudações como "Oi", "Tudo bem" sem dúvida expressa ou menção a produtos/serviços): Você DEVE obrigatoriamente responder de forma acolhedora, direta e abrangente (ex: "Olá! Tudo bem? Como posso te ajudar hoje? 🐾"). NÃO pergunte o nome do pet ou do tutor nesta saudação inicial.
 - Dúvida geral/expressa sem detalhes (mensagens como "tenho uma dúvida", "pode me ajudar com uma dúvida?", "Vocês conseguem me ajudar com uma dúvida?"): Você deve confirmar de forma acolhedora e perguntar qual é a sua dúvida, SEM pedir nomes ou outros dados (ex: "Olá! Claro, qual é a sua dúvida? 🐾").
 - Dúvida geral sem contexto (quando a mensagem for genérica e não citar nenhum produto, marca ou serviço): confirme ajuda de forma acolhedora e peça a dúvida.
+- Recebimento de Imagem/Documento: se o cliente enviar uma imagem ou documento com legenda, ou se você for notificado de que o cliente enviou uma imagem/documento, você DEVE obrigatoriamente perguntar o nome do medicamento na imagem ou pedir para ele descrevê-lo, para que possamos ajudar de forma direta. NUNCA faça perguntas de qualificação de perfil (se é veterinário ou tutor) neste momento, apenas atenda a dúvida do item enviado.🐾
 - Vacina (se o cliente perguntar sobre vacinas ou aplicação): se já qualificado como tutor (B2C), ofereça o serviço **Vet em Casa** com aplicação domiciliar pelo nosso veterinário (antirrábica por *R$ 60,00*). Se for contato novo sem perfil definido, você deve obrigatoriamente qualificá-lo de forma acolhedora perguntando se é médico veterinário ou tutor de pet (ex: "Olá! Para eu te passar a informação certinha, você é médico veterinário ou tutor de pet? 🐾").
 - Librela/Cytopoint (pedido especial) (se o cliente perguntar por esses medicamentos de pedido especial): disponível por *R$ 380* a unidade (ou *R$ 350* cada comprando 2 ampolas). A entrega é prevista para 1 a 2 dias úteis, sendo obrigatório informar os preços, a promoção e explicitar que daremos a previsão exata de entrega após confirmarmos o pedido (exemplo: "Temos sim! Fica *R$ 380* a unidade, ou *R$ 350* cada levando 2 ampolas. A entrega leva de 1 a 2 dias úteis, e te damos a previsão exata após confirmar o pedido. 🐾").
 - Confirmação de compra (se o cliente confirmar a compra): confirme de forma extremamente positiva e com entusiasmo, informe a chave Pix ${precosVetEmCasa.pixTexto()} para pagamento, e avise expressamente que o Kyenner entrará em contato para agendar a entrega.
@@ -1354,11 +1357,15 @@ ${clientMessage}
 
             // Formatar histórico para o Gemini excluindo a última mensagem adicionada acima em chatState.history
             const historyWithoutCurrent = chatState.history.slice(0, -1);
+            let formattedHistory = historyWithoutCurrent.map(h => ({
+                role: h.role === 'user' ? 'user' : 'model',
+                parts: [{ text: h.content }]
+            }));
+            while (formattedHistory.length > 0 && formattedHistory[0].role !== 'user') {
+                formattedHistory.shift();
+            }
             chatGemini = model.startChat({
-                history: historyWithoutCurrent.map(h => ({
-                    role: h.role === 'user' ? 'user' : 'model',
-                    parts: [{ text: h.content }]
-                }))
+                history: formattedHistory
             });
         } else {
             // Fallback sem cache
@@ -1373,17 +1380,21 @@ ${clientMessage}
                 }
             });
 
+            let formattedHistory = chatState.history.map(h => ({
+                role: h.role === 'user' ? 'user' : 'model',
+                parts: [{ text: h.content }]
+            }));
+            while (formattedHistory.length > 0 && formattedHistory[0].role !== 'user') {
+                formattedHistory.shift();
+            }
             chatGemini = model.startChat({
-                history: chatState.history.map(h => ({
-                    role: h.role === 'user' ? 'user' : 'model',
-                    parts: [{ text: h.content }]
-                }))
+                history: formattedHistory
             });
         }
 
         let result;
         let attempts = 0;
-        const maxAttempts = 5;
+        const maxAttempts = 7;
         while (attempts < maxAttempts) {
             try {
                 result = await chatGemini.sendMessage(messageToSend);
@@ -1395,10 +1406,11 @@ ${clientMessage}
                     err.message.includes('429') || 
                     err.message.includes('Service Unavailable') || 
                     err.message.includes('Resource Exhausted') ||
-                    err.message.includes('overloaded')
+                    err.message.includes('overloaded') ||
+                    err.message.includes('Resource has been exhausted')
                 );
                 if (isTransient && attempts < maxAttempts) {
-                    const delay = attempts * 2000;
+                    const delay = attempts * 4000;
                     console.warn(`⚠️ [GEMINI] Erro temporário detectado (${err.message}). Tentando novamente em ${delay}ms (Tentativa ${attempts}/${maxAttempts})...`);
                     await new Promise(resolve => setTimeout(resolve, delay));
                 } else {

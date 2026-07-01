@@ -23,11 +23,24 @@ const { processarMensagem } = require('./server_integracao');
 const zapi = require('./src/integracoes/integracao_zapi');
 const gestaoclick = require('./src/integracoes/integracao_gestaoclick');
 
+const chatwoot = require('./src/integracoes/integracao_chatwoot');
+
 // Capturar resposta enviada pelo robô
 let ultimaMensagemEnviada = "";
 zapi.enviarMensagemTexto = async (phone, text) => {
     ultimaMensagemEnviada = text;
     return { status: 200, data: { messageId: "mock_id_123" } };
+};
+
+// Mockar Chatwoot para isolamento total das rodadas de QA
+chatwoot.obterHistoricoConversa = async (phone) => {
+    return [];
+};
+chatwoot.enviarNotaPrivada = async (phone, text) => {
+    return { success: true };
+};
+chatwoot.solicitarSuporteHumano = async (phone, name, reason) => {
+    return { success: true };
 };
 
 // --- Config ---
@@ -269,6 +282,114 @@ const CENARIOS = [
             'A resposta deve informar que está transferindo a conversa para o Kyenner para suporte manual',
             'A resposta NÃO deve informar preços de atacado ou liberar a tabela de atacado/veterinário'
         ]
+    },
+    {
+        id: 16,
+        grupo: '🛡️ Guards & Silenciamento',
+        descricao: 'Cliente manda áudio — bot deve ignorar',
+        tipoCliente: 'B2C',
+        tipoMensagem: 'audio',
+        deveSilenciar: true,
+        regrasJuiz: []
+    },
+    {
+        id: 17,
+        grupo: '🛡️ Guards & Silenciamento',
+        descricao: 'Cliente manda sticker — bot deve ignorar',
+        tipoCliente: 'B2C',
+        tipoMensagem: 'sticker',
+        deveSilenciar: true,
+        regrasJuiz: []
+    },
+    {
+        id: 18,
+        grupo: '🛡️ Guards & Silenciamento',
+        descricao: 'Cliente manda reação (👍) — bot deve ignorar',
+        tipoCliente: 'B2C',
+        tipoMensagem: 'text',
+        mensagem: '👍',
+        deveSilenciar: true,
+        regrasJuiz: []
+    },
+    {
+        id: 19,
+        grupo: '🛡️ Guards & Silenciamento',
+        descricao: 'Cliente manda imagem sem legenda — bot deve ignorar',
+        tipoCliente: 'B2C',
+        tipoMensagem: 'image',
+        deveSilenciar: true,
+        regrasJuiz: []
+    },
+    {
+        id: 20,
+        grupo: '🛡️ Guards & Silenciamento',
+        descricao: 'Transbordo humano ativo — bot deve ignorar',
+        tipoCliente: 'B2C',
+        mensagem: 'Olá, gostaria de saber se meu pedido foi enviado.',
+        owner_atual: 'human',
+        deveSilenciar: true,
+        regrasJuiz: []
+    },
+    {
+        id: 21,
+        grupo: '⏰ Horários & Bypasses',
+        descricao: 'Fim de turno (19h00 de Segunda) — bot deve responder (bypass de silêncio ativo)',
+        tipoCliente: 'B2C',
+        mensagem: 'Oi, ainda estão atendendo?',
+        hora_simulada: 19,
+        minuto_simulado: 0,
+        dia_semana_simulado: 1, // Segunda
+        deveSilenciar: false,
+        regrasJuiz: [
+            'A resposta deve informar educadamente que o expediente se encerrou e que retornaremos o atendimento amanhã a partir das 8h'
+        ]
+    },
+    {
+        id: 22,
+        grupo: '⏰ Horários & Bypasses',
+        descricao: 'Horário de Almoço (13h00 de Terça) — bot deve responder (bypass de silêncio ativo)',
+        tipoCliente: 'B2C',
+        mensagem: 'Oi, preciso de ajuda',
+        hora_simulada: 13,
+        minuto_simulado: 0,
+        dia_semana_simulado: 2, // Terça
+        deveSilenciar: false,
+        regrasJuiz: [
+            'A resposta deve informar educadamente que estamos em horário de almoço das 12h30 às 13h30 e que retornaremos em breve'
+        ]
+    },
+    {
+        id: 23,
+        grupo: '🛡️ Guards & Silenciamento',
+        descricao: 'Modo Incógnito Geral (Modo Silencioso Ativo) — bot não deve enviar real mas sim registrar sugestão',
+        tipoCliente: 'B2C',
+        mensagem: 'Qual o valor da consulta?',
+        modoSilencioso: 'true',
+        deveSilenciar: true,
+        regrasJuiz: []
+    },
+    {
+        id: 24,
+        grupo: '📸 Legendas',
+        descricao: 'Imagem com legenda — bot deve ler a legenda e responder',
+        tipoCliente: 'B2C',
+        tipoMensagem: 'image',
+        mensagem: 'Vocês têm esse medicamento?',
+        deveSilenciar: false,
+        regrasJuiz: [
+            'A resposta deve ser acolhedora e perguntar qual medicamento está na imagem ou informar como podemos ajudar'
+        ]
+    },
+    {
+        id: 25,
+        grupo: '🩺 Kyenner B2B',
+        descricao: 'Deduplicação de regras B2B (vacina e seringa juntos)',
+        tipoCliente: 'B2B',
+        mensagem: 'Quero comprar vacina e seringa',
+        deveSilenciar: false,
+        regrasJuiz: [
+            'A resposta deve oferecer caixa fechada de vacina com desconto e proativamente oferecer seringas/agulhas na mesma cotação'
+        ]
     }
 ];
 
@@ -317,15 +438,37 @@ async function rodarCenario(cenario) {
     process.stdout.write(`${prefixo}... `);
 
     const originalConsultarEstoque = gestaoclick.consultarEstoque;
+    const originalModoSilencioso = process.env.MODO_SILENCIOSO;
+
+    let originalGetHours = Date.prototype.getHours;
+    let originalGetDay = Date.prototype.getDay;
+    let originalGetMinutes = Date.prototype.getMinutes;
+
     try {
         const phone = `553190000${cenario.id.toString().padStart(3, '0')}`;
         const stateFilePath = path.resolve(__dirname, 'conversas_state.json');
+
+        // Configurar MODO_SILENCIOSO temporariamente se especificado no cenário
+        if (cenario.modoSilencioso !== undefined) {
+            process.env.MODO_SILENCIOSO = cenario.modoSilencioso;
+        } else {
+            process.env.MODO_SILENCIOSO = 'false'; // Garantir ativo por padrão para testes de QA
+        }
+
+        // Mockar hora/dia se especificado no cenário
+        if (cenario.hora_simulada !== undefined) {
+            Date.prototype.getHours = () => cenario.hora_simulada;
+            Date.prototype.getMinutes = () => cenario.minuto_simulado !== undefined ? cenario.minuto_simulado : 0;
+        }
+        if (cenario.dia_semana_simulado !== undefined) {
+            Date.prototype.getDay = () => cenario.dia_semana_simulado;
+        }
 
         // Configurar o estado inicial no arquivo JSON antes de rodar
         const states = fs.existsSync(stateFilePath) ? JSON.parse(fs.readFileSync(stateFilePath, 'utf8')) : {};
         
         states[phone] = {
-            owner: "AI",
+            owner: cenario.owner_atual || "AI",
             history: [],
             cpf: cenario.tipoCliente === 'B2B' ? '9999' : null,
             crmv: cenario.tipoCliente === 'B2B' ? '12345' : null,
@@ -375,17 +518,49 @@ async function rodarCenario(cenario) {
             };
         }
 
-        // Chamar a função real de produção do servidor
+        // Chamar a função real de produção do servidor com o payload correspondente
         const payload = {
             phone,
             senderName: cenario.tipoCliente === 'B2B' ? "Dra. Beatriz Santos" : "Vander Luiz",
             messageId: `msg_${Date.now()}_${cenario.id}`,
-            text: { message: cenario.mensagem }
+            type: cenario.tipoMensagem || 'text',
+            value: cenario.value || '',
+            body: cenario.body || ''
         };
+
+        if (cenario.tipoMensagem === 'image') {
+            payload.image = { url: cenario.imageUrl || 'https://example.com/receipt.jpg', mimeType: 'image/jpeg', caption: cenario.mensagem || '' };
+            payload.caption = cenario.mensagem || '';
+        } else if (cenario.tipoMensagem === 'document') {
+            payload.document = { url: cenario.documentUrl || 'https://example.com/doc.pdf', mimeType: 'application/pdf', caption: cenario.mensagem || '' };
+            payload.caption = cenario.mensagem || '';
+        } else if (cenario.tipoMensagem === 'audio' || cenario.tipoMensagem === 'ptt') {
+            payload.audio = { url: 'https://example.com/audio.mp3', mimeType: 'audio/mp3' };
+        } else {
+            payload.text = { message: cenario.mensagem || '' };
+        }
         
         await processarMensagem(payload);
 
         const resposta = ultimaMensagemEnviada;
+
+        // Se o cenário espera silenciamento total
+        if (cenario.deveSilenciar) {
+            const aprovado = (resposta === "");
+            const violacoes = aprovado ? [] : ["O bot deveria ter silenciado/ignorado, mas enviou resposta."];
+            const nota = aprovado ? "Silenciou ou ignorou corretamente." : "Enviou mensagem indevida no canal de saída.";
+            const avaliacao = { aprovado, violacoes, nota };
+            
+            if (avaliacao.aprovado) {
+                console.log('✅ APROVADO (Ignorado/Silenciado)');
+            } else {
+                console.log('❌ REPROVADO (Não silenciou)');
+                violacoes.forEach(v => console.log(`       ⚠️  ${v}`));
+                const trechoResposta = resposta.replace(/\n/g, ' ').substring(0, 180);
+                console.log(`       🤖 "${trechoResposta}${resposta.length > 180 ? '...' : ''}"`);
+            }
+            return { id: cenario.id, grupo: cenario.grupo, descricao: cenario.descricao, aprovado: avaliacao.aprovado, avaliacao, resposta };
+        }
 
         if (!resposta) {
             console.log('❌ REPROVADO (Nenhuma resposta enviada pelo Z-API)');
@@ -417,6 +592,10 @@ async function rodarCenario(cenario) {
         return { id: cenario.id, grupo: cenario.grupo, descricao: cenario.descricao, aprovado: false, erro: e.message };
     } finally {
         gestaoclick.consultarEstoque = originalConsultarEstoque;
+        process.env.MODO_SILENCIOSO = originalModoSilencioso;
+        Date.prototype.getHours = originalGetHours;
+        Date.prototype.getMinutes = originalGetMinutes;
+        Date.prototype.getDay = originalGetDay;
     }
 }
 
