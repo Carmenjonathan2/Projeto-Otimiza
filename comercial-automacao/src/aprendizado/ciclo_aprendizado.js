@@ -1,42 +1,46 @@
-const fs = require('fs');
+'use strict';
+const fs   = require('fs');
 const path = require('path');
 
-const SUGESTOES_FILE = path.resolve(__dirname, '../../sugestoes_bot.jsonl');
-const FEW_SHOT_FILE = path.resolve(__dirname, './exemplos_aprovados.jsonl');
+const ARQUIVO_JSONL   = path.resolve(__dirname, '../../sugestoes_bot.jsonl');
+const ARQUIVO_FEWSHOT = path.resolve(__dirname, '../aprendizado/exemplos_aprovados.jsonl');
 
-/**
- * Lê sugestões aprovadas e as exporta como exemplos few-shot.
- * Rodar diariamente ou sob demanda.
- */
-function sincronizarAprovados() {
-    if (!fs.existsSync(SUGESTOES_FILE)) {
-        console.log('[APRENDIZADO] Nenhum arquivo de sugestões encontrado.');
+function promoverAprovados() {
+    if (!fs.existsSync(ARQUIVO_JSONL)) {
+        console.log('[CICLO] sugestoes_bot.jsonl não encontrado. Nada a promover.');
         return 0;
     }
 
-    const linhas = fs.readFileSync(SUGESTOES_FILE, 'utf8').split('\n').filter(Boolean);
-    const aprovados = linhas.map(l => JSON.parse(l)).filter(r => r.aprovado_humano === true);
+    const linhas = fs.readFileSync(ARQUIVO_JSONL, 'utf8').split('\n').filter(Boolean);
+    const aprovados = linhas
+        .map(l => { try { return JSON.parse(l); } catch { return null; } })
+        .filter(r => r && r.aprovado_humano === true);
 
-    let novos = 0;
-    const existentes = fs.existsSync(FEW_SHOT_FILE)
-        ? new Set(fs.readFileSync(FEW_SHOT_FILE, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l).id))
-        : new Set();
-
-    for (const registro of aprovados) {
-        if (existentes.has(registro.id)) continue;
-        const exemplo = {
-            id: registro.id,
-            persona: registro.persona,
-            input: registro.mensagemCliente,
-            output: registro.respostaSugerida,
-            aprovado_em: new Date().toISOString()
-        };
-        fs.appendFileSync(FEW_SHOT_FILE, JSON.stringify(exemplo) + '\n', 'utf8');
-        novos++;
+    if (aprovados.length === 0) {
+        console.log('[CICLO] Nenhum registro aprovado encontrado ainda.');
+        return 0;
     }
 
-    console.log(`[APRENDIZADO] ${novos} novos exemplos adicionados ao few-shot.`);
-    return novos;
+    const fewShots = aprovados.map(r => ({
+        input:  r.mensagemCliente,
+        output: r.respostaSugerida,
+        persona: r.persona,
+        promovido_em: new Date().toISOString()
+    }));
+
+    fs.appendFileSync(
+        ARQUIVO_FEWSHOT,
+        fewShots.map(f => JSON.stringify(f)).join('\n') + '\n',
+        'utf8'
+    );
+
+    console.log(`[CICLO] ${aprovados.length} exemplos promovidos para few-shots.`);
+    return aprovados.length;
 }
 
-module.exports = { sincronizarAprovados };
+module.exports = { promoverAprovados };
+
+// Execução direta: node ciclo_aprendizado.js
+if (require.main === module) {
+    promoverAprovados();
+}

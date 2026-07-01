@@ -1,6 +1,6 @@
 {
-  "versao": "5.2",
-  "ultima_atualizacao": "2026-06-17T17:05:00Z",
+  "versao": "6.0",
+  "ultima_atualizacao": "2026-07-01T17:05:00Z",
   "atualizado_por": "antigravity",
   "secoes": [
     {
@@ -78,7 +78,7 @@
     {
       "id": "gm_001",
       "titulo": "GMB Local Authority",
-      "descricao": "Migração para API Oficial v1 e posts automáticos.",
+      "descricao": "BLOQUEADO: Aguardando novo credentials.json OAuth do RT no servidor Railway.",
       "coluna": "gargalo",
       "tags": ["GMB", "API"],
       "projeto": "🚀 Marketing Visual & Social",
@@ -124,19 +124,23 @@
       "id": "sh_001",
       "titulo": "Vitrine Virtual Semana",
       "descricao": "Geração de flyers promocionais para Status.",
-      "coluna": "gargalo",
+      "coluna": "motor",
       "tags": ["Shopify", "Design"],
       "projeto": "🛒 Shopify & E-commerce",
-      "autonomia": "semi"
+      "autonomia": "semi",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
     },
     {
       "id": "rt_003",
       "titulo": "Automação Disparo Currículo Kyenner",
       "descricao": "Automação de busca de vagas e candidatura/disparo de currículo para recolocação profissional.",
-      "coluna": "gargalo",
+      "coluna": "motor",
       "tags": ["RT", "Automação", "Emprego"],
       "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
-      "autonomia": "semi"
+      "autonomia": "semi",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
     },
     {
       "id": "cfmv_001",
@@ -397,6 +401,28 @@
       "descricao": "Adicionar credentials.json, tokens e arquivos de runtime do bot de comercial ao .gitignore.",
       "coluna": "motor",
       "tags": ["Segurança", "Git"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "go_live_001",
+      "titulo": "Ativar MODO_SILENCIOSO=false",
+      "descricao": "Religar o bot para responder aos clientes em produção.",
+      "coluna": "motor",
+      "tags": ["Go-Live", "Produção"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "val_001",
+      "titulo": "Ativar Validador Semântico",
+      "descricao": "Habilitar auditoria pós-Gemini, pré-envio em produção.",
+      "coluna": "motor",
+      "tags": ["Qualidade", "Produção"],
       "projeto": "🧠 Sistema Nervoso Central (SNC)",
       "autonomia": "auto",
       "atualizado_em": "2026-07-01",
