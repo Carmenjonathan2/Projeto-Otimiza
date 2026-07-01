@@ -302,6 +302,94 @@
       "autonomia": "semi",
       "atualizado_em": "2026-06-17",
       "atualizado_por": "antigravity"
+    },
+    {
+      "id": "fase0_001",
+      "titulo": "Guard de mensagem vazia",
+      "descricao": "Bloquear ptt/audio/sticker/reaction antes de chamar Gemini no webhook handler.",
+      "coluna": "motor",
+      "tags": ["Segurança", "WhatsApp", "Guard"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "fase0_002",
+      "titulo": "Limpar conversas_state.json",
+      "descricao": "Remover entradas de QA e blindar carregarState com fallback seguro.",
+      "coluna": "motor",
+      "tags": ["State", "WhatsApp"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "fase0_003",
+      "titulo": "Separar state QA do state de produção",
+      "descricao": "STATE_FILE separado por ambiente via process.env.MODO_TESTE.",
+      "coluna": "motor",
+      "tags": ["State", "QA"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "fase0_004",
+      "titulo": "Deduplicar detectores em estrategias_vendas.js",
+      "descricao": "Fundir detectores duplicados de UPSELL_VACINA e seringas em regras unificadas B2B.",
+      "coluna": "motor",
+      "tags": ["Estratégia", "B2B"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "fase1_001",
+      "titulo": "Filtro de horário comercial",
+      "descricao": "Guard de horário comercial ativo no webhook handler de integração.",
+      "coluna": "motor",
+      "tags": ["Horário", "Guard"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "fase1_002",
+      "titulo": "Pipeline de sugestões supervisionadas",
+      "descricao": "Gravar sugestões de resposta sob modo silencioso e disparar alertas no Telegram.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Telegram"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "fase1_003",
+      "titulo": "Expandir QA para 25+ cenários",
+      "descricao": "Adicionar cenários cobrindo guards de mídias, transbordo, horários, bypasses e legendas.",
+      "coluna": "motor",
+      "tags": ["QA", "Testes"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "fase1_004",
+      "titulo": "Fechar ciclo do few_shot_loader",
+      "descricao": "Integrar ciclo_aprendizado.js para ler e mesclar sugestões aprovadas no few-shot.",
+      "coluna": "motor",
+      "tags": ["Aprendizado", "Few-Shot"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
     }
   ]
 }
