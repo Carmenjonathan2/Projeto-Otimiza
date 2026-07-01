@@ -1,0 +1,1608 @@
+{
+  "data_sincronizacao": "2026-05-18T18:28:54.480Z",
+  "total_analisados": 176,
+  "total_atualizados_sucesso": 159,
+  "itens_atualizados": [
+    {
+      "variantId": 50118631391520,
+      "titulo": "AGEMOXI INJ 100 ML (Único)",
+      "sku": "7896006223566",
+      "preco_anterior": 71.9,
+      "preco_novo": 72.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118631555360,
+      "titulo": "AGULHA 25 X 0.70 CX C/100 - 22G 1 - DESCARPACK (Único)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 0.5,
+      "preco_novo": 0.6,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51132149006624,
+      "titulo": "Agulha Hipodérmica Descartável 25 x 0.70 - 22G - Caixa com 100 unidades (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 38,
+      "preco_novo": 0.6,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [QUEDA GROTESCA (<5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50118631620896,
+      "titulo": "ALANTOL BISNAGA 25G (Único)",
+      "sku": "7898053586298",
+      "preco_anterior": 79.9,
+      "preco_novo": 62.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118631653664,
+      "titulo": "Alcool 70 % (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 9.36,
+      "preco_novo": 14.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118631719200,
+      "titulo": "Alergovet C 1,4 mg (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 44.9,
+      "preco_novo": 85.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118631817504,
+      "titulo": "ALOPURINOL 100 MG CX. C 30 CPRS. GEN. (Único)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 13.15,
+      "preco_novo": 13.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118631948576,
+      "titulo": "Ampicilina Vet Oral Antibiótico Bactericida 50 g (Único)",
+      "sku": "7898053583242",
+      "preco_anterior": 49.9,
+      "preco_novo": 79.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50187101733152,
+      "titulo": "Anti-inflamatório Prediderm Comprimidos (5mg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 29.9,
+      "preco_novo": 24.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50187097833760,
+      "titulo": "Anti-inflamatório Prediderm Comprimidos (20mg)",
+      "sku": "7898019867010",
+      "preco_anterior": 64.9,
+      "preco_novo": 54.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50226531598624,
+      "titulo": "Antimicrobiano Agemoxi para Cães e Gatos (50MG)",
+      "sku": "Sem SKU",
+      "preco_anterior": 64.85,
+      "preco_novo": 55.35,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51447279157536,
+      "titulo": "Antipulgas e Carrapatos MSD Bravecto para Cães (2 kg-4.5 kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 181.98,
+      "preco_novo": 161.42,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51447279190304,
+      "titulo": "Antipulgas e Carrapatos MSD Bravecto para Cães (4.5 kg-10 kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 216.11,
+      "preco_novo": 161.42,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51447279223072,
+      "titulo": "Antipulgas e Carrapatos MSD Bravecto para Cães (10 A 20kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 254.78,
+      "preco_novo": 274.77,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51447279255840,
+      "titulo": "Antipulgas e Carrapatos MSD Bravecto para Cães (20 kg-40 kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 293.45,
+      "preco_novo": 274.77,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51447279288608,
+      "titulo": "Antipulgas e Carrapatos MSD Bravecto para Cães (40 kg-56 kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 343.61,
+      "preco_novo": 273.62,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118632440096,
+      "titulo": "ATAD. CREPON 15 X 1,8 - 13 F.EDUARDA (Único)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 1.58,
+      "preco_novo": 1.44,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118632636704,
+      "titulo": "Auritop Gel Otológico Ourofino 15 g (Único)",
+      "sku": "7898019860080",
+      "preco_anterior": 59.9,
+      "preco_novo": 69.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118632997152,
+      "titulo": "Boehringer V4 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 55,
+      "preco_novo": 62,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118633259296,
+      "titulo": "Bronchiguard (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 52,
+      "preco_novo": 62.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118633652512,
+      "titulo": "CANIGEN RAIVA (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 20,
+      "preco_novo": 23.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118634078496,
+      "titulo": "CATETER PERIFÉRICO 20G (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 2.8,
+      "preco_novo": 2.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118634111264,
+      "titulo": "CATETER PERIFÉRICO 22G (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 2.8,
+      "preco_novo": 3.1,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118634144032,
+      "titulo": "CATETER PERIFÉRICO 24G (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 2.8,
+      "preco_novo": 2.7,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118630768928,
+      "titulo": "CETAMIN 10 ML (C) (Único)",
+      "sku": "7898393750168",
+      "preco_anterior": 47.1,
+      "preco_novo": 140,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118630965536,
+      "titulo": "CETAMIN 50 ML (Único)",
+      "sku": "7898393750694",
+      "preco_anterior": 250,
+      "preco_novo": 290,
+      "tipo_cruzamento": "EAN no SKU",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118634602784,
+      "titulo": "CLORESTEN SHAMP 500ML (Único)",
+      "sku": "7896006225782",
+      "preco_anterior": 184.9,
+      "preco_novo": 208.26,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118634635552,
+      "titulo": "CLORETO DE POTASSIO 10 10 ML (Único)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 4.1,
+      "preco_novo": 5.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51148301140256,
+      "titulo": "Coleira Floral c/ Guia M (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 67.8,
+      "preco_novo": 149.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51132306030880,
+      "titulo": "Compressas de Gaze Hidrófila Estéril c/50un (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 79.9,
+      "preco_novo": 41.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51132306063648,
+      "titulo": "Compressas de Gaze Hidrófila Estéril c/50un (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 79.9,
+      "preco_novo": 41.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118635127072,
+      "titulo": "CONDROPLEX LB 120G X 60 COMP (Único)",
+      "sku": "7898549750745",
+      "preco_anterior": 172.9,
+      "preco_novo": 107.4,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118635323680,
+      "titulo": "CREMA 6A 15 GRS (Único)",
+      "sku": "7798176420090",
+      "preco_anterior": 71.8,
+      "preco_novo": 98.7,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118635684128,
+      "titulo": "CRONIDOR 40 MG COM 10 COMPRIMIDO (Único)",
+      "sku": "7896006218258",
+      "preco_anterior": 116.9,
+      "preco_novo": 129.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118635815200,
+      "titulo": "CYTOPOINT 10MG FR 1ML (Único)",
+      "sku": "7898597990377",
+      "preco_anterior": 265.9,
+      "preco_novo": 230.52,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118636110112,
+      "titulo": "CYTOPOINT 20MG FR 1 ML (Único)",
+      "sku": "7898597990384",
+      "preco_anterior": 361.24,
+      "preco_novo": 313.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118636142880,
+      "titulo": "CYTOPOINT 30MG FR 1 ML (Único)",
+      "sku": "7898597990391",
+      "preco_anterior": 462,
+      "preco_novo": 400.84,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118636175648,
+      "titulo": "CYTOPOINT 40MG FR 1 ML (Único)",
+      "sku": "7898597990407",
+      "preco_anterior": 509,
+      "preco_novo": 441.79,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118636208416,
+      "titulo": "Demevert Cápsulas Suplemento para Cães e Gatos 30 cápsulas (Único)",
+      "sku": "7896112405634",
+      "preco_anterior": 29.9,
+      "preco_novo": 50.84,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118636831008,
+      "titulo": "DRENO PENROSE N 3 ESTERIL - MADEITEX (Único)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 5.96,
+      "preco_novo": 4.44,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118637027616,
+      "titulo": "EMEDRON 10 MG SOL INJ 10 ML (Único)",
+      "sku": "7896006220916",
+      "preco_anterior": 44.9,
+      "preco_novo": 60,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118637093152,
+      "titulo": "EMEDRON 10MG X 10 COM (Único)",
+      "sku": "7896006219965",
+      "preco_anterior": 77.9,
+      "preco_novo": 60,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51411533758752,
+      "titulo": "Endogard Vermífugo (2,5 kg (2 comp.))",
+      "sku": "Sem SKU",
+      "preco_anterior": 29.8,
+      "preco_novo": 29.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51411533791520,
+      "titulo": "Endogard Vermífugo (10 kg (2 comp.))",
+      "sku": "Sem SKU",
+      "preco_anterior": 62.45,
+      "preco_novo": 52.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51411533824288,
+      "titulo": "Endogard Vermífugo (30 kg (2 comp.))",
+      "sku": "Sem SKU",
+      "preco_anterior": 159.98,
+      "preco_novo": 123.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51132157722912,
+      "titulo": "Extensor para Equipo 120cm Luer Lock - Embramed (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 3.23,
+      "preco_novo": 2.21,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118638436640,
+      "titulo": "FELINE ENDOSPOT DE 2KG A 5KG (Único)",
+      "sku": "7798176423558",
+      "preco_anterior": 69.9,
+      "preco_novo": 79.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118645186848,
+      "titulo": "Gel Higiênico Bucal Vetnil Periovet - 25 g (Único)",
+      "sku": "7898053586151",
+      "preco_anterior": 39.9,
+      "preco_novo": 74.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118639517984,
+      "titulo": "GIARDIA AG ECO VET 1 un (Único)",
+      "sku": "7898666522324",
+      "preco_anterior": 32.9,
+      "preco_novo": 52.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118639747360,
+      "titulo": "GIARDIAVAX 1DS (X25) (Único)",
+      "sku": "7898049712984",
+      "preco_anterior": 62,
+      "preco_novo": 64.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50226348523808,
+      "titulo": "Giardicid para Cães e Gatos 10 comprimidos (50MG)",
+      "sku": "Sem SKU",
+      "preco_anterior": 99.9,
+      "preco_novo": 78.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50226348556576,
+      "titulo": "Giardicid para Cães e Gatos 10 comprimidos (500MG)",
+      "sku": "Sem SKU",
+      "preco_anterior": 189.8,
+      "preco_novo": 159.8,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118640566560,
+      "titulo": "IMIZOL 15ML (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 69.9,
+      "preco_novo": 96.01,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118640959776,
+      "titulo": "IZOOT B12 INJ X 15ML (Único)",
+      "sku": "7896006200239",
+      "preco_anterior": 47.9,
+      "preco_novo": 62.24,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118641254688,
+      "titulo": "LACTOBAC DOG - SERINGA 16 G (Único)",
+      "sku": "7898195861932",
+      "preco_anterior": 44.9,
+      "preco_novo": 65.85,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118641451296,
+      "titulo": "LIBRELA 05 MG 1ML (Único)",
+      "sku": "7898597993521",
+      "preco_anterior": 249.9,
+      "preco_novo": 219.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118641484064,
+      "titulo": "LIBRELA 10 MG 1ML (Único)",
+      "sku": "7898597993538",
+      "preco_anterior": 286,
+      "preco_novo": 247.99,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118641549600,
+      "titulo": "LIBRELA 15 MG 1ML (Único)",
+      "sku": "7898597993545",
+      "preco_anterior": 346.89,
+      "preco_novo": 301.3,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118641582368,
+      "titulo": "LIBRELA 20 MG 1 ML (Único)",
+      "sku": "7898597993552",
+      "preco_anterior": 386,
+      "preco_novo": 334.54,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118641647904,
+      "titulo": "LIBRELA 30 MG 1 ML (Único)",
+      "sku": "7898597993569",
+      "preco_anterior": 399,
+      "preco_novo": 346.03,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51122512625952,
+      "titulo": "Luvas Descartáveis Cirúrgicas Estéreis - Descarpack (7.0)",
+      "sku": "Sem SKU",
+      "preco_anterior": 3.41,
+      "preco_novo": 3.5,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51122512691488,
+      "titulo": "Luvas Descartáveis Cirúrgicas Estéreis - Descarpack (8.0)",
+      "sku": "Sem SKU",
+      "preco_anterior": 3.41,
+      "preco_novo": 3.5,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118642008352,
+      "titulo": "LUVAS EST. 7.5 - DESCARPACK (Único)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 3.75,
+      "preco_novo": 3.41,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118642073888,
+      "titulo": "LUVAS EST. 8.5 - DESCARPACK (Único)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 3.56,
+      "preco_novo": 3.41,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118642303264,
+      "titulo": "Marbocyl P 20Mg Vetoquinol (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 69.9,
+      "preco_novo": 89.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118642663712,
+      "titulo": "MAXICAM 2,0 MG 10 COMP (Único)",
+      "sku": "7898019866235",
+      "preco_anterior": 66.96,
+      "preco_novo": 125.41,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118642696480,
+      "titulo": "MAXICAM INJ 0,2% 20ML (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 64.9,
+      "preco_novo": 125.41,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50187141972256,
+      "titulo": "MAXICAM PLUS COMPRIMIDOS (0.5 MG)",
+      "sku": "7898019866228",
+      "preco_anterior": 29.4,
+      "preco_novo": 49.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50187142005024,
+      "titulo": "MAXICAM PLUS COMPRIMIDOS (2 MG)",
+      "sku": "7898019866229",
+      "preco_anterior": 79.9,
+      "preco_novo": 125.41,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118642925856,
+      "titulo": "MERCEPTON ORAL 20ML (Único)",
+      "sku": "7897614100263",
+      "preco_anterior": 28.86,
+      "preco_novo": 49.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118643056928,
+      "titulo": "MILTEFORAN 30 ML (C) (Único)",
+      "sku": "7897515650966",
+      "preco_anterior": 1300,
+      "preco_novo": 900,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118643089696,
+      "titulo": "MILTEFORAN 60 ML (C) (Único)",
+      "sku": "7897515650973",
+      "preco_anterior": 1600,
+      "preco_novo": 1450,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118643122464,
+      "titulo": "MILTEFORAN 90 ML (Único)",
+      "sku": "7897515650980",
+      "preco_anterior": 2200,
+      "preco_novo": 1850,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118643515680,
+      "titulo": "Neptra Solução Otológica (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 289.9,
+      "preco_novo": 179.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118643548448,
+      "titulo": "Nobivac KC - Nasal (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 54.9,
+      "preco_novo": 57.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118643646752,
+      "titulo": "Nobivac V4 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 55,
+      "preco_novo": 57.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118643679520,
+      "titulo": "Nobivac V5 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 82,
+      "preco_novo": 79.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118643745056,
+      "titulo": "Nobivac V8 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 44,
+      "preco_novo": 44.5,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118643777824,
+      "titulo": "Norflagen Agener União 200mg 10 Comprimidos (Único)",
+      "sku": "7896006219194",
+      "preco_anterior": 39.9,
+      "preco_novo": 43.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118644531488,
+      "titulo": "OMEGA TOP 500 C/40 CAPSULAS (Único)",
+      "sku": "7896006219620",
+      "preco_anterior": 79.9,
+      "preco_novo": 119.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118644597024,
+      "titulo": "Oralguard 150mg antibiótico para saúde bucal de cães 14 comprimidos (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 64.79,
+      "preco_novo": 103.5,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51148302221600,
+      "titulo": "Pet Brush Spray massage (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 39.9,
+      "preco_novo": 69.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 51148302287136,
+      "titulo": "Pet Pasta (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 42.9,
+      "preco_novo": 27.3,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50226177605920,
+      "titulo": "PREVICOX DOG 57MG X 10 COMRIMIDO MASTIGAVEL - CX (227MG)",
+      "sku": "SEM GTIN-2",
+      "preco_anterior": 249.9,
+      "preco_novo": 148.51,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320706830624,
+      "titulo": "Quatree para Cães Adultos Sabor Carne (15kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 112.5,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320706863392,
+      "titulo": "Quatree para Cães Adultos Sabor Carne (20kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 147.4,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296931909920,
+      "titulo": "Ração Premier Ambientes Internos para Cães Adultos Porte Pequeno (1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 39.7,
+      "preco_novo": 44.8,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312190165280,
+      "titulo": "Ração Premier Ambientes Internos para Gatos Adultos Sabor Frango (7.5kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 199.7,
+      "preco_novo": 21990,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50312643019040,
+      "titulo": "Ração Premier Nattu para Cães Filhotes de Raças Pequenas Sabor Mandioca (1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 42.9,
+      "preco_novo": 44.8,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296898683168,
+      "titulo": "Ração Premier para Gatos Castrados Sabor Frango (7.5kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 153.31,
+      "preco_novo": 21990,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50312083243296,
+      "titulo": "Ração Premier para Shih Tzu Adulto Sabor Frango (7.5kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 219.7,
+      "preco_novo": 21990,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50296652923168,
+      "titulo": "Ração Premier para Spitz Alemão Adulto (7.5kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 219.7,
+      "preco_novo": 21990,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50296532631840,
+      "titulo": "Ração Premier para Yorkshire Adulto (7.5kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 219.7,
+      "preco_novo": 21990,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50312170209568,
+      "titulo": "Ração Premier Raças Específicas para Cães Bulldog Francês Filhotes (1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 43.9,
+      "preco_novo": 44.8,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296725438752,
+      "titulo": "Ração Premier Raças Específicas para Cães Lhasa Apso Filhotes (1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 43.9,
+      "preco_novo": 44.8,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312238530848,
+      "titulo": "Ração Premier Raças Específicas Pug para Cães Filhotes Sabor Frango (1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 46.8,
+      "preco_novo": 44.8,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320698704160,
+      "titulo": "Ração Quatree Gourmet para Cães Adultos De Raças Pequenas (1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 18.9,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50320698736928,
+      "titulo": "Ração Quatree Gourmet para Cães Adultos De Raças Pequenas (3kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 45.6,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320698769696,
+      "titulo": "Ração Quatree Gourmet para Cães Adultos De Raças Pequenas (10.1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 92.9,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320698802464,
+      "titulo": "Ração Quatree Gourmet para Cães Adultos De Raças Pequenas (20kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 174.8,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320926638368,
+      "titulo": "Ração Quatree Gourmet para Gatos Adultos Castrados Sabor Mix de Carnes (1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 23.7,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50320926671136,
+      "titulo": "Ração Quatree Gourmet para Gatos Adultos Castrados Sabor Mix de Carnes (3kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 65.5,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320926703904,
+      "titulo": "Ração Quatree Gourmet para Gatos Adultos Castrados Sabor Mix de Carnes (10.1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 146.3,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320926736672,
+      "titulo": "Ração Quatree Gourmet para Gatos Adultos Castrados Sabor Mix de Carnes (20kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 275.5,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320708075808,
+      "titulo": "Ração Quatree Gourmet para Gatos Adultos Sabor Carne (10.1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 115.9,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320915038496,
+      "titulo": "Ração Quatree Gourmet para Gatos Adultos Sabor Mix De Carne (1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 19.9,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50320915071264,
+      "titulo": "Ração Quatree Gourmet para Gatos Adultos Sabor Mix De Carne (3kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 53.7,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320915104032,
+      "titulo": "Ração Quatree Gourmet para Gatos Adultos Sabor Mix De Carne (10kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 115.9,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320915136800,
+      "titulo": "Ração Quatree Gourmet para Gatos Adultos Sabor Mix De Carne (20kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 219.4,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50324203012384,
+      "titulo": "Ração Quatree Life para Cães Filhotes de Raças Pequenas (1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 25.9,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50324203045152,
+      "titulo": "Ração Quatree Life para Cães Filhotes de Raças Pequenas (3kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 65.2,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50324203077920,
+      "titulo": "Ração Quatree Life para Cães Filhotes de Raças Pequenas (10.1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 123.8,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50324203110688,
+      "titulo": "Ração Quatree Life para Cães Filhotes de Raças Pequenas (20kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 232.3,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320912908576,
+      "titulo": "Ração Quatree Life para Gatos Adultos Sabor Salmão e Arroz (20kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 306.2,
+      "preco_novo": 316.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320718299424,
+      "titulo": "Ração Quatree Life para Gatos Castrados Sabor Frango e Arroz (20kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 326.4,
+      "preco_novo": 316.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320920543520,
+      "titulo": "Ração Quatree Life para Gatos Castrados Sabor Salmão e Arroz (20kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 326.4,
+      "preco_novo": 316.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320903438624,
+      "titulo": "Ração Quatree Select para Cães Adultos de Raças Pequenas (1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 24.7,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50320903471392,
+      "titulo": "Ração Quatree Select para Cães Adultos de Raças Pequenas (3kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 58.9,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320903504160,
+      "titulo": "Ração Quatree Select para Cães Adultos de Raças Pequenas (10.1kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 106.4,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320903536928,
+      "titulo": "Ração Quatree Select para Cães Adultos de Raças Pequenas (15kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 152.9,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320903569696,
+      "titulo": "Ração Quatree Select para Cães Adultos de Raças Pequenas (20kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 185.05,
+      "preco_novo": 207.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320814145824,
+      "titulo": "Ração Quatree Select para Gatos Castrados Sabor Frango (20kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 280.2,
+      "preco_novo": 316.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320931750176,
+      "titulo": "Ração Quatree Supreme Adulto Porte Pequeno - Frango e Batata Doce (10kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 167.9,
+      "preco_novo": 165.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320705257760,
+      "titulo": "Ração Quatree Supreme Dermato para Cães Adultos Sabor Cordeiro e Salmão (3kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 103.6,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320705290528,
+      "titulo": "Ração Quatree Supreme Dermato para Cães Adultos Sabor Cordeiro e Salmão (15kg)",
+      "sku": "Sem SKU",
+      "preco_anterior": 268.8,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320630841632,
+      "titulo": "Ração Úmida Quatree Supreme Frango para Gatos Castrados (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 3.4,
+      "preco_novo": 316.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50320627400992,
+      "titulo": "Ração Úmida Quatree Supreme Peixe para Gatos Adultos (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 3.4,
+      "preco_novo": 241.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50287400943904,
+      "titulo": "Ração Úmida Sachê Golden Gourmet para Cães Adultos de Porte Médio e Grande (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 3.4,
+      "preco_novo": 5,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287402123552,
+      "titulo": "Ração Úmida Sachê Golden Gourmet para Cães Adultos de Porte Pequeno (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 3.4,
+      "preco_novo": 5,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287401009440,
+      "titulo": "Ração Úmida Sachê Golden Gourmet para Cães Adultos de Porte Pequeno Sabor Carne (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 3.4,
+      "preco_novo": 5,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287402058016,
+      "titulo": "Ração Úmida Sachê Golden Gourmet para Cães Filhotes Sabor Frango (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 3.4,
+      "preco_novo": 5,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287401304352,
+      "titulo": "Ração Úmida Sachê Golden Gourmet para Gatos Adultos Sabor Atum 70g (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 3.4,
+      "preco_novo": 5,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320630120736,
+      "titulo": "Ração Úmida Sache Quatree Supreme Carne para Cães Adultos (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 3.4,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50143604998432,
+      "titulo": "RIOHEX 2% DEGERMANTE (100ml)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 9.99,
+      "preco_novo": 9.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647284000,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°10 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 44.07,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647316768,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°11 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 46.28,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647349536,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°12 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 48.62,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647382304,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°13 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 51.58,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647415072,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°14 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 56.55,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647447840,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°15 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 0,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50118647513376,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°3 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 26.13,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647546144,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°4 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 27.56,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647578912,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°5 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 29.25,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647611680,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°6 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 31.59,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647644448,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°7 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 33.28,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647677216,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°8 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 35.23,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647709984,
+      "titulo": "ROUPA PÓS CIRURGICA UNISSEX N°9 (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 38.87,
+      "preco_novo": 24.18,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647873824,
+      "titulo": "SCALP 21 G CX/100 LABOR (Único)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 1.5,
+      "preco_novo": 1.2,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118647939360,
+      "titulo": "SCALP 25 G CX/100 LABOR (Único)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 1.5,
+      "preco_novo": 1.3,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118648004896,
+      "titulo": "SEBOTRAT S SHAMPOO 200ML (Único)",
+      "sku": "7896006223429",
+      "preco_anterior": 124.9,
+      "preco_novo": 129.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118648234272,
+      "titulo": "SERESTO COLEIRA P (Único)",
+      "sku": "7891106910255",
+      "preco_anterior": 170,
+      "preco_novo": 189.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118648758560,
+      "titulo": "SIMPARIC 20MG COM 3 COMPRIMIDOS (Único)",
+      "sku": "7898049719419",
+      "preco_anterior": 219.9,
+      "preco_novo": 104.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118648791328,
+      "titulo": "SIMPARIC 40MG COM 3 COMPRIMIDOS (Único)",
+      "sku": "7898049719426",
+      "preco_anterior": 259,
+      "preco_novo": 139,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320626647328,
+      "titulo": "Snack Quatree Bifinho Para Cães Sabor Carne 60g (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 4.9,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50320626450720,
+      "titulo": "Snack Quatree para Gatos Adultos Sabor Carne Bola de Pelo (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 15.9,
+      "preco_novo": 159.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "IGNORADO",
+      "erro": "⚠️ [AUMENTO GROTESCO (>5x) - VERIFICAR DIGITAÇÃO]"
+    },
+    {
+      "variantId": 50118641811744,
+      "titulo": "Solução Ourofino para Limpeza de Ouvidos Limp e Hidrat em Cães e Gatos - 100 mL (Único)",
+      "sku": "7898019867003",
+      "preco_anterior": 49.9,
+      "preco_novo": 79.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118649479456,
+      "titulo": "SORO FISIOLOGICO 500ML. (Único)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 14.9,
+      "preco_novo": 15.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118649544992,
+      "titulo": "SORO RINGER LACTATO 500ML. (Único)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 21.9,
+      "preco_novo": 27.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118642237728,
+      "titulo": "Suplemento Alimentar Avert Macrogard Pet Small Size para Cães e Gatos (Único)",
+      "sku": "7896112402695",
+      "preco_anterior": 79.9,
+      "preco_novo": 125.96,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50211950461216,
+      "titulo": "Suplemento Alimentar Avert Ograx Derme (OGRAX DERME 20 X 30 CAP Cães)",
+      "sku": "7896112402252",
+      "preco_anterior": 189.9,
+      "preco_novo": 119.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118651281696,
+      "titulo": "Suplemento Vitamínico para Cães e Gatos Vitecol 30 comprimidos (Único)",
+      "sku": "7896112402145",
+      "preco_anterior": 59.9,
+      "preco_novo": 98.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118650462496,
+      "titulo": "UC 40 mg (Único)",
+      "sku": "Sem SKU",
+      "preco_anterior": 189.9,
+      "preco_novo": 129.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118650560800,
+      "titulo": "VAC NOBIVAC RAIVA (Único)",
+      "sku": "8713184032249",
+      "preco_anterior": 22,
+      "preco_novo": 20.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118650626336,
+      "titulo": "VACINA RAIVA RABISIN (Único)",
+      "sku": "7898053775524",
+      "preco_anterior": 24.9,
+      "preco_novo": 22.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118650724640,
+      "titulo": "VACINA RECOMBITEK V10 (Único)",
+      "sku": "7898659784319",
+      "preco_anterior": 49,
+      "preco_novo": 57.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118650757408,
+      "titulo": "VACINA RECOMBITEK V8 (Único)",
+      "sku": "7898053775166",
+      "preco_anterior": 44,
+      "preco_novo": 47.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118650855712,
+      "titulo": "VANGUARD PLUS (Único)",
+      "sku": "7898049717163",
+      "preco_anterior": 53,
+      "preco_novo": 67.6,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50187891933472,
+      "titulo": "Vermífugo Top Dog (2.5kg)",
+      "sku": "7898019866631",
+      "preco_anterior": 39.9,
+      "preco_novo": 29.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50187891966240,
+      "titulo": "Vermífugo Top Dog (30kg)",
+      "sku": "7898019866632",
+      "preco_anterior": 119.9,
+      "preco_novo": 98.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118651019552,
+      "titulo": "VINCRISTINA 1 MG ML C 1 FA. x 1 ML (Único)",
+      "sku": "SEM GTIN",
+      "preco_anterior": 76.5,
+      "preco_novo": 119.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118651314464,
+      "titulo": "VONAU VET 5 MG/ML SOL OR X 30 ML (Único)",
+      "sku": "7896112401797",
+      "preco_anterior": 66.81,
+      "preco_novo": 79.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118631031072,
+      "titulo": "XILAZIN 2% 10 ML (C) (Único)",
+      "sku": "7898393750724",
+      "preco_anterior": 39.9,
+      "preco_novo": 140,
+      "tipo_cruzamento": "EAN no SKU",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118630703392,
+      "titulo": "XILAZIN 2% 50 ML (Único)",
+      "sku": "7898393750151",
+      "preco_anterior": 119.9,
+      "preco_novo": 190,
+      "tipo_cruzamento": "EAN no SKU",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50226088411424,
+      "titulo": "Zelotril Agener União (50MG)",
+      "sku": "Sem SKU",
+      "preco_anterior": 59.9,
+      "preco_novo": 49.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50226053677344,
+      "titulo": "Zitrex (100mg - 6 Cp)",
+      "sku": "7898146300191",
+      "preco_anterior": 44.9,
+      "preco_novo": 54.7,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50226053644576,
+      "titulo": "Zitrex (500mg - 3 Cp  (Venc. Jan/26))",
+      "sku": "7898146300190",
+      "preco_anterior": 67.9,
+      "preco_novo": 87.9,
+      "tipo_cruzamento": "NOME APROXIMADO",
+      "status": "SUCESSO"
+    }
+  ]
+}

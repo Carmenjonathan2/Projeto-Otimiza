@@ -29,3 +29,20 @@ otimiza-content-planner/
 scraper-condominios-bh/node_modules/
 cold-email-automation/node_modules/
 painel-autoridade/contexto_mestre.json
+node_modules
+
+# Chrome Profiles / Session Data
+**/session-perfil_aika/
+**/perfil_kyenner/
+**/perfil_kyenner_linkedin/
+
+# Tokens & Secrets Google/OAuth/APIs
+**/token.json
+**/token_conta2.json
+**/token_otimiza.json
+**/client_secret*.json
+
+# Local logs
+comercial-automacao/conversas_log.jsonl
+*.jsonl
+

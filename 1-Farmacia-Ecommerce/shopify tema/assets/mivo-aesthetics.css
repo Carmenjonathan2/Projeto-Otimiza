@@ -1,0 +1,237 @@
+/* ==========================================================================
+   MIVO AESTHETICS - PREMIUM STYLE LIBRARY FOR SHOPIFY
+   Inspirado no Tema MIVO (BoostifyThemes) - Criado para Otimiza FarmaVet
+   ========================================================================== */
+
+:root {
+  /* Brand Tokens Integration */
+  --mivo-primary: #470C51;        /* Roxo Intenso */
+  --mivo-secondary: #701C7F;      /* Roxo Médio */
+  --mivo-accent: #FFB800;         /* Amarelo Dourado */
+  --mivo-accent-glow: #FFE600;    /* Amarelo Neon */
+  --mivo-lilac-suave: #EACFF0;    /* Lilás Suave */
+  --mivo-lilac-off: #F8EEFA;      /* Lilás Off-white */
+  --mivo-radius-large: 24px;      /* Bordas super arredondadas do Mivo */
+  --mivo-radius-pill: 50px;       /* Botões estilo pílula */
+  
+  /* Motion & Spring Curve Transforms */
+  --mivo-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --mivo-transition: all 0.4s var(--mivo-bounce);
+  --mivo-shadow: 0 12px 30px -10px rgba(71, 12, 81, 0.15);
+  --mivo-shadow-hover: 0 25px 50px -15px rgba(71, 12, 81, 0.28);
+}
+
+/* ==========================================================================
+   1. PREMIUM BOUNCY & PULSING BUTTONS (MIVO BUTTONS)
+   ========================================================================== */
+.mivo-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--mivo-accent) 0%, #FFA800 100%) !important;
+  color: var(--mivo-primary) !important;
+  font-weight: 800 !important;
+  font-family: 'Outfit', sans-serif !important;
+  text-decoration: none !important;
+  padding: 14px 28px !important;
+  border-radius: var(--mivo-radius-pill) !important;
+  border: 2px solid transparent !important;
+  cursor: pointer !important;
+  transition: var(--mivo-transition) !important;
+  box-shadow: 0 5px 15px rgba(255, 184, 0, 0.3) !important;
+  gap: 8px !important;
+}
+
+.mivo-btn-primary:hover {
+  transform: scale(1.05) translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(255, 184, 0, 0.45) !important;
+  background: linear-gradient(135deg, var(--mivo-accent-glow) 0%, var(--mivo-accent) 100%) !important;
+}
+
+.mivo-btn-primary:active {
+  transform: scale(0.97) translateY(0) !important;
+}
+
+.mivo-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--mivo-primary) 0%, var(--mivo-secondary) 100%) !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  padding: 14px 28px !important;
+  border-radius: var(--mivo-radius-pill) !important;
+  border: 2px solid rgba(255, 255, 255, 0.1) !important;
+  cursor: pointer !important;
+  transition: var(--mivo-transition) !important;
+  box-shadow: 0 5px 15px rgba(71, 12, 81, 0.2) !important;
+  gap: 8px !important;
+}
+
+.mivo-btn-secondary:hover {
+  transform: scale(1.05) translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(71, 12, 81, 0.35) !important;
+  background: linear-gradient(135deg, var(--mivo-secondary) 0%, #902EA3 100%) !important;
+  color: var(--mivo-accent) !important;
+}
+
+/* ==========================================================================
+   2. FLOATING STICKERS & BADGES (STICKER MAGIC)
+   ========================================================================== */
+.mivo-sticker-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.mivo-sticker {
+  position: absolute;
+  opacity: 0.85;
+  transition: var(--mivo-transition);
+  pointer-events: none;
+}
+
+/* Floating Animations */
+.mivo-sticker.float-slow {
+  animation: mivo-float-1 8s ease-in-out infinite;
+}
+
+.mivo-sticker.float-fast {
+  animation: mivo-float-2 5s ease-in-out infinite;
+}
+
+.mivo-sticker.spin-slow {
+  animation: mivo-spin 25s linear infinite;
+}
+
+@keyframes mivo-float-1 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(6deg); }
+}
+
+@keyframes mivo-float-2 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-8deg); }
+}
+
+@keyframes mivo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Mivo Best Choice Floating Badge */
+.mivo-choice-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, var(--mivo-accent) 0%, #FFA200 100%);
+  color: var(--mivo-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: var(--mivo-radius-pill);
+  box-shadow: 0 4px 10px rgba(255, 184, 0, 0.3);
+  z-index: 5;
+  transform: rotate(-3deg);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  animation: mivo-badge-pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes mivo-badge-pulse {
+  0%, 100% { transform: rotate(-3deg) scale(1); }
+  50% { transform: rotate(-3deg) scale(1.04); }
+}
+
+/* ==========================================================================
+   3. CURVED SEPARATORS & FLOWING HILLS
+   ========================================================================== */
+.mivo-divider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: visible;
+  z-index: 10;
+}
+
+.mivo-divider-svg {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  pointer-events: none;
+}
+
+.mivo-divider-svg.top-curve {
+  top: -119px;
+  transform: rotate(180deg);
+}
+
+.mivo-divider-svg.bottom-curve {
+  bottom: -1px;
+}
+
+/* Add custom padding on Shopify sections that use curves */
+.shopify-section.has-mivo-curves {
+  padding-top: 120px !important;
+  padding-bottom: 120px !important;
+  position: relative;
+}
+
+/* ==========================================================================
+   4. PREMIUM PRODUCT CARDS (MIVO ELEVATION)
+   ========================================================================== */
+.mivo-product-card {
+  background: #FFFFFF !important;
+  border: 2px solid var(--mivo-lilac-suave) !important;
+  border-radius: var(--mivo-radius-large) !important;
+  padding: 20px !important;
+  box-shadow: var(--mivo-shadow) !important;
+  transition: var(--mivo-transition) !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.mivo-product-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: var(--mivo-secondary) !important;
+  box-shadow: var(--mivo-shadow-hover) !important;
+}
+
+.mivo-product-card .card-img-wrapper {
+  background-color: var(--mivo-lilac-off) !important;
+  border-radius: 16px !important;
+  padding: 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.mivo-product-card:hover .card-img-wrapper {
+  background-color: var(--mivo-lilac-suave) !important;
+}
+
+/* ==========================================================================
+   5. GLASSMORPHISM SECTION BLEND
+   ========================================================================== */
+.mivo-glass-card {
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 2px solid rgba(255, 255, 255, 0.7) !important;
+  border-radius: var(--mivo-radius-large) !important;
+  box-shadow: var(--mivo-shadow) !important;
+  transition: var(--mivo-transition) !important;
+}
+
+.mivo-glass-card:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: var(--mivo-secondary) !important;
+  box-shadow: var(--mivo-shadow-hover) !important;
+}

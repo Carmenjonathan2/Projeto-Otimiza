@@ -1,14 +1,23 @@
 {
+  "scripts": {
+    "start": "node comercial-automacao/server_integracao.js",
+    "revisar-logs": "node comercial-automacao/scripts/revisar_logs_silencioso.js",
+    "analise-semanal": "node comercial-automacao/scripts/analise_semanal_logs.js",
+    "limpar-estado": "node comercial-automacao/scripts/limpar_estado_inativo.js",
+    "recompra-gestaoclick": "node comercial-automacao/scripts/motor_recompra_gestaoclick.js"
+  },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "axios": "^1.13.6",
+    "csv-parser": "^3.2.0",
+    "csv-writer": "^1.6.0",
     "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "form-data": "^4.0.5",
     "googleapis": "^171.4.0",
     "luxon": "^3.7.2",
-    "puppeteer": "^24.40.0",
     "qrcode": "^1.5.4",
-    "qrcode-terminal": "^0.12.0",
     "sharp": "^0.34.5",
-    "whatsapp-web.js": "^1.34.6",
     "xlsx": "^0.18.5",
     "xml2js": "^0.6.2"
   }

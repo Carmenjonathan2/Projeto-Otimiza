@@ -1,0 +1,27 @@
+{
+  "pipeline_unico": {
+    "etapas": ["Busca (Puppeteer)", "Qualificacao (IA 17h)", "Automacao (Disparo)", "Monitoramento (KPIs)"],
+    "status": "Em configuracao"
+  },
+  "historico_nichos": [
+    {
+      "nicho": "Condomínios BH",
+      "data_inicio": "2026-04-20",
+      "status": "Concluido",
+      "ferramenta": "b2b_whatsapp.js",
+      "observacoes": "Foco em vacinação social"
+    },
+    {
+      "nicho": "Petshops BH",
+      "data_inicio": "2026-05-06",
+      "status": "Em andamento",
+      "ferramenta": "manual_notificador.js",
+      "observacoes": "Enriquecendo e enviando via e-mail para admin"
+    }
+  ],
+  "proximos_alvos": [
+    "Clínicas Veterinárias MG",
+    "Açougues e Fiscais (RT Kyenner)",
+    "Hospitais Veterinários 24h"
+  ]
+}

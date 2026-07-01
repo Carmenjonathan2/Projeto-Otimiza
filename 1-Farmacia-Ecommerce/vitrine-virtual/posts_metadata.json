@@ -1,0 +1,892 @@
+[
+    {
+        "id": 9904972464416,
+        "nome": "Ampicilina Vet Oral Antibiótico Bactericida 50 g",
+        "preco": 79.9,
+        "preco_antigo": 89.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/AmpicilinaVetOralAntibioticoBactericida50g.webp?v=1748278724",
+        "desconto": 11,
+        "tipo": "Antibióticos",
+        "tags": "BF, cachorro, gato"
+    },
+    {
+        "id": 9904973316384,
+        "nome": "Auritop Gel Otológico Ourofino 15 g",
+        "preco": 69.9,
+        "preco_antigo": 79.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/AURITOP15G.webp?v=1747419159",
+        "desconto": 12,
+        "tipo": "Soluções Ontológica",
+        "tags": "cachorro"
+    },
+    {
+        "id": 10169931956512,
+        "nome": "Bebedouro Retratil P",
+        "preco": 19.9,
+        "preco_antigo": 39.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/7_4.jpg?v=1769540042",
+        "desconto": 50,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169932120352,
+        "nome": "Bico Bebedouro Automático",
+        "preco": 39.9,
+        "preco_antigo": 59.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_bvipexbvipexbvip.png?v=1769539261",
+        "desconto": 33,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169932742944,
+        "nome": "Bird toy  Tamanho P",
+        "preco": 14.9,
+        "preco_antigo": 34.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_53.jpg?v=1769519759",
+        "desconto": 57,
+        "tipo": "Acessórios",
+        "tags": ""
+    },
+    {
+        "id": 9973463187744,
+        "nome": "Biscoito Cookie Premier para Cães Adultos de Raças Pequenas 250g",
+        "preco": 16.11,
+        "preco_antigo": 21.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/BiscoitoCookiePremierparaCaesAdultosdeRacasPequenas250g.webp?v=1749674592",
+        "desconto": 26,
+        "tipo": "Ração PremieR",
+        "tags": "cachorro"
+    },
+    {
+        "id": 9973462466848,
+        "nome": "Biscoito Premier Biscoito para Cães Adultos Sabor Frutas Vermelhas 250g",
+        "preco": 16.11,
+        "preco_antigo": 21.1,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Biscoito_Premier_Biscoito_para_Caes_Adultos_Sabor_Frutas_Vermelhas_250g.webp?v=1750161495",
+        "desconto": 23,
+        "tipo": "Ração PremieR",
+        "tags": "cachorro"
+    },
+    {
+        "id": 9973462106400,
+        "nome": "Biscoito Premier Biscoito para Cães Filhotes Sabor Coco e Aveia 250g",
+        "preco": 16.11,
+        "preco_antigo": 21.1,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Biscoito_Premier_Biscoito_para_Caes_Filhotes_Sabor_Coco_e_Aveia_250g.webp?v=1750165212",
+        "desconto": 23,
+        "tipo": "Ração PremieR",
+        "tags": "Cão"
+    },
+    {
+        "id": 9979371979040,
+        "nome": "Biscoito Quatree Snacks Crock Tradicional para Cães Adultos",
+        "preco": 17.5,
+        "preco_antigo": 18.6,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/270122.png?v=1750358384",
+        "desconto": 5,
+        "tipo": "Ração Quatree",
+        "tags": "cachorro"
+    },
+    {
+        "id": 9977660703008,
+        "nome": "Biscoitos Fórmula Natural para Cães de Adultos de Mini e Pequeno Porte Sabor Batata Doce 250g",
+        "preco": 18.5,
+        "preco_antigo": 21.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/270222.png?v=1750191890",
+        "desconto": 15,
+        "tipo": "Fórmula Natural",
+        "tags": "cachorro"
+    },
+    {
+        "id": 10169932611872,
+        "nome": "Bola Chuck it Brilha no escuro",
+        "preco": 59.9,
+        "preco_antigo": 79.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_67.jpg?v=1769520425",
+        "desconto": 24,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169932546336,
+        "nome": "Brinquedo Osso Resistente para cães",
+        "preco": 14.9,
+        "preco_antigo": 34.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_62.jpg?v=1769520844",
+        "desconto": 57,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10173521690912,
+        "nome": "Brinquedo Peixe",
+        "preco": 14.9,
+        "preco_antigo": 34.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_48.jpg?v=1769541428",
+        "desconto": 57,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169932022048,
+        "nome": "Brinquedo sonoro P",
+        "preco": 19.9,
+        "preco_antigo": 39.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_kbcsv8kbcsv8kbcs_b3ddada1-c959-4964-8b05-9557353d32fe.png?v=1769537931",
+        "desconto": 50,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169929531680,
+        "nome": "Cinto de segurança duplo vermelho",
+        "preco": 39.9,
+        "preco_antigo": 54.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/000.jpg?v=1769606851",
+        "desconto": 27,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169929629984,
+        "nome": "Cinto de segurança single",
+        "preco": 19.9,
+        "preco_antigo": 29.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_t81k7rt81k7rt81k.png?v=1769705330",
+        "desconto": 33,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10174597071136,
+        "nome": "Coleira Diamond Amarelo c/ Guia",
+        "preco": 34.9,
+        "preco_antigo": 54.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_82.jpg?v=1769629804",
+        "desconto": 36,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10175412240672,
+        "nome": "Coleira Poly",
+        "preco": 27.9,
+        "preco_antigo": 47.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_63.jpg?v=1769692343",
+        "desconto": 41,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169931301152,
+        "nome": "Coleiras Club Colours",
+        "preco": 15.9,
+        "preco_antigo": 35.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_70_9527248e-3230-47ef-9ddb-170ba5981913.jpg?v=1769691753",
+        "desconto": 55,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169929433376,
+        "nome": "Coleiras para porquinho da india",
+        "preco": 65.9,
+        "preco_antigo": 79.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_-_2026-01-26T103648.562.jpg?v=1769606645",
+        "desconto": 17,
+        "tipo": "Guias e Coleiras",
+        "tags": ""
+    },
+    {
+        "id": 10174582063392,
+        "nome": "Conjunto Peitoral Tradicional c/ Guia",
+        "preco": 54.9,
+        "preco_antigo": 74.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_as73vjas73vjas73.png?v=1769629366",
+        "desconto": 26,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 9904976920864,
+        "nome": "Demevert Cápsulas Suplemento para Cães e Gatos 30 cápsulas",
+        "preco": 50.84,
+        "preco_antigo": 89.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/DemevertCapsulasSuplementoparaCaeseGatos30capsulas.webp?v=1748022194",
+        "desconto": 43,
+        "tipo": "Suplementação para Cães e Gatos",
+        "tags": "BF, cachorro, gato"
+    },
+    {
+        "id": 10169930744096,
+        "nome": "Dog Guia Peitoral refletiva Night P",
+        "preco": 36.9,
+        "preco_antigo": 56.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_s7100es7100es710.png?v=1769631432",
+        "desconto": 35,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169930809632,
+        "nome": "Dog guia peitoral super XGG",
+        "preco": 39.9,
+        "preco_antigo": 59.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_1.jpg?v=1769631655",
+        "desconto": 33,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169932841248,
+        "nome": "FlyingCat Refil com 6",
+        "preco": 39.9,
+        "preco_antigo": 59.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_51.jpg?v=1769519344",
+        "desconto": 33,
+        "tipo": "Acessórios",
+        "tags": "gato"
+    },
+    {
+        "id": 9977662112032,
+        "nome": "Fórmula Natural Vet Care Obesidade Cães Portes Mini e Pequeno",
+        "preco": 399.0,
+        "preco_antigo": 410.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/270052.png?v=1750196510",
+        "desconto": 2,
+        "tipo": "Ração Fórmula Natural",
+        "tags": "cachorro"
+    },
+    {
+        "id": 10173507207456,
+        "nome": "Frisbee Plastico",
+        "preco": 14.9,
+        "preco_antigo": 34.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/11_3.jpg?v=1769541135",
+        "desconto": 57,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 9904980590880,
+        "nome": "GIARDIA AG ECO VET 1 un",
+        "preco": 52.9,
+        "preco_antigo": 62.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/3189809-3.png?v=1763812660",
+        "desconto": 15,
+        "tipo": "Insumos",
+        "tags": "BF, gato, Uso Veterinário"
+    },
+    {
+        "id": 10169929793824,
+        "nome": "Guia colorida Zeedog",
+        "preco": 59.9,
+        "preco_antigo": 79.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_bbd38mbbd38mbbd3.png?v=1769617828",
+        "desconto": 25,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169930121504,
+        "nome": "Guia Colours P",
+        "preco": 54.9,
+        "preco_antigo": 74.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_-_2026-01-26T102607.156.jpg?v=1769621060",
+        "desconto": 26,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169929564448,
+        "nome": "Guia dupla",
+        "preco": 49.9,
+        "preco_antigo": 69.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed-2026-01-26T103236.594.jpg?v=1769615862",
+        "desconto": 28,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169930088736,
+        "nome": "Guia Ergo Comfort",
+        "preco": 139.9,
+        "preco_antigo": 179.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_-_2026-01-26T102607.602.jpg?v=1769620460",
+        "desconto": 22,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169929990432,
+        "nome": "Guia Italian Design 1,20m",
+        "preco": 69.9,
+        "preco_antigo": 94.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_-_2026-01-26T102607.572.jpg?v=1769619943",
+        "desconto": 26,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169929957664,
+        "nome": "Guia Italian Design Tricolor",
+        "preco": 69.9,
+        "preco_antigo": 94.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_-_2026-01-26T102607.120.jpg?v=1769617969",
+        "desconto": 26,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10174454300960,
+        "nome": "Guia laranja Ridelf",
+        "preco": 54.9,
+        "preco_antigo": 74.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_-_2026-01-26T102953.096.jpg?v=1769617625",
+        "desconto": 26,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169930252576,
+        "nome": "Guia Noturno",
+        "preco": 39.9,
+        "preco_antigo": 54.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_-_2026-01-26T102607.716.jpg?v=1769621480",
+        "desconto": 27,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169929400608,
+        "nome": "Guia Retrátil 3 m - Cães até 25kg",
+        "preco": 44.9,
+        "preco_antigo": 55.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed-2026-01-26T103648.284.jpg?v=1769606427",
+        "desconto": 19,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169929269536,
+        "nome": "Guia Retrátil 5m - Cães até 15kg",
+        "preco": 79.9,
+        "preco_antigo": 89.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_-_2026-01-26T103648.543.jpg?v=1769605913",
+        "desconto": 11,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169929302304,
+        "nome": "Guia Retrátil 5m - Cães até 20kg",
+        "preco": 54.9,
+        "preco_antigo": 64.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_-_2026-01-26T103648.568.jpg?v=1769606050",
+        "desconto": 15,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169929335072,
+        "nome": "Guia Retrátil 5m - Cães até 25kg",
+        "preco": 99.9,
+        "preco_antigo": 120.75,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_-_2026-01-26T103648.551.jpg?v=1769606257",
+        "desconto": 17,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169930711328,
+        "nome": "Guia Tradicional Reg C/guia P",
+        "preco": 54.9,
+        "preco_antigo": 74.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_8.jpg?v=1769631282",
+        "desconto": 26,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169929695520,
+        "nome": "Guias Meu AuAu",
+        "preco": 59.9,
+        "preco_antigo": 79.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_srfqj5srfqj5srfq.png?v=1769617130",
+        "desconto": 25,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169932185888,
+        "nome": "Halter Coração P",
+        "preco": 9.9,
+        "preco_antigo": 29.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_of10bqof10bqof10.png?v=1769537597",
+        "desconto": 66,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169932284192,
+        "nome": "Halter Osso P",
+        "preco": 9.9,
+        "preco_antigo": 29.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_msx6dimsx6dimsx6_9d47db30-df21-4bd7-94d1-ac9da4c4f75e.png?v=1769536275",
+        "desconto": 66,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10173548560672,
+        "nome": "Jogo americado espuma",
+        "preco": 59.9,
+        "preco_antigo": 79.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/9_2.jpg?v=1769542265",
+        "desconto": 24,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão, gato"
+    },
+    {
+        "id": 10173532504352,
+        "nome": "Jogo Americado Pet Milão",
+        "preco": 29.9,
+        "preco_antigo": 49.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_jjkclljjkclljjkc.png?v=1769541735",
+        "desconto": 39,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão, gato"
+    },
+    {
+        "id": 10173542629664,
+        "nome": "jogo Americano Pet  Napoli",
+        "preco": 35.9,
+        "preco_antigo": 55.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/12_1.jpg?v=1769542029",
+        "desconto": 35,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão, gato"
+    },
+    {
+        "id": 10169931890976,
+        "nome": "Kong Classic",
+        "preco": 219.9,
+        "preco_antigo": 239.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_91.jpg?v=1769539575",
+        "desconto": 8,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169933070624,
+        "nome": "Manta Pet Soninho Coala",
+        "preco": 65.9,
+        "preco_antigo": 85.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/5.jpg?v=1769519017",
+        "desconto": 23,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão, gato"
+    },
+    {
+        "id": 9904983507232,
+        "nome": "Marbocyl P 20Mg Vetoquinol",
+        "preco": 89.9,
+        "preco_antigo": 102.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/MarbocylP20MgVetoquinol.webp?v=1748277220",
+        "desconto": 12,
+        "tipo": "Antibióticos",
+        "tags": "BF, cachorro"
+    },
+    {
+        "id": 10169932251424,
+        "nome": "Mordedor P",
+        "preco": 9.9,
+        "preco_antigo": 29.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_q3eybuq3eybuq3ey.png?v=1769537439",
+        "desconto": 66,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169932677408,
+        "nome": "Mordedor para cães 4 em 1",
+        "preco": 49.9,
+        "preco_antigo": 69.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_41.jpg?v=1769520220",
+        "desconto": 28,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 9904985243936,
+        "nome": "Norflagen Agener União 200mg 10 Comprimidos",
+        "preco": 43.9,
+        "preco_antigo": 69.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/NorflagenAgenerUniao200mg10Comprimidos.webp?v=1748277054",
+        "desconto": 37,
+        "tipo": "Antibióticos",
+        "tags": "BF, cachorro, gato"
+    },
+    {
+        "id": 10169932415264,
+        "nome": "Osso Plaque Ataque",
+        "preco": 14.9,
+        "preco_antigo": 34.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_70.jpg?v=1769521420",
+        "desconto": 57,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10173320331552,
+        "nome": "Osso Topbone Borracha",
+        "preco": 14.9,
+        "preco_antigo": 34.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_68.jpg?v=1769535654",
+        "desconto": 57,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10174669685024,
+        "nome": "Peiteira Power c/ Guia M",
+        "preco": 79.9,
+        "preco_antigo": 99.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_-_2026-01-26T102408.511.jpg?v=1769631974",
+        "desconto": 19,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10175407161632,
+        "nome": "Peitoral Antipuxao c/ guia",
+        "preco": 99.9,
+        "preco_antigo": 119.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_25.jpg?v=1769690713",
+        "desconto": 16,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169930285344,
+        "nome": "Peitoral Estampa SuperCão - G",
+        "preco": 39.9,
+        "preco_antigo": 54.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_27.jpg?v=1769628851",
+        "desconto": 27,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10174696554784,
+        "nome": "Peitoral H c/ Guia",
+        "preco": 79.9,
+        "preco_antigo": 99.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_22.jpg?v=1769687936",
+        "desconto": 19,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169930940704,
+        "nome": "Peitoral H Camuflado Tamanho M",
+        "preco": 82.9,
+        "preco_antigo": 102.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_kcmu57kcmu57kcmu.png?v=1769632328",
+        "desconto": 19,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169931530528,
+        "nome": "Peitoral NeoFlex c/ guia",
+        "preco": 99.9,
+        "preco_antigo": 119.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/7_1.jpg?v=1769693621",
+        "desconto": 16,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169931661600,
+        "nome": "Peitoral Style Meu AuAu",
+        "preco": 89.9,
+        "preco_antigo": 109.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_-_2026-01-23T132153.072.jpg?v=1769694099",
+        "desconto": 18,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169930776864,
+        "nome": "Peitoral tático n2",
+        "preco": 72.9,
+        "preco_antigo": 92.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_6.jpg?v=1769631573",
+        "desconto": 21,
+        "tipo": "Guias e Coleiras",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169932579104,
+        "nome": "Pente Fino",
+        "preco": 19.9,
+        "preco_antigo": 39.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_60.jpg?v=1769520670",
+        "desconto": 50,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão, gato"
+    },
+    {
+        "id": 10169931858208,
+        "nome": "Pet Pasta",
+        "preco": 27.3,
+        "preco_antigo": 62.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_85.jpg?v=1769540483",
+        "desconto": 56,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 9979369849120,
+        "nome": "Petisco Quatree Nuggets Bola de Pelo para Gatos 60g",
+        "preco": 7.65,
+        "preco_antigo": 15.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/267587.jpg?v=1750358319",
+        "desconto": 51,
+        "tipo": "Ração Quatree",
+        "tags": "gato"
+    },
+    {
+        "id": 9979369783584,
+        "nome": "Petisco Quatree Pallitus Sabor Carne e Batata Doce",
+        "preco": 30.9,
+        "preco_antigo": 32.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/268510-1.png?v=1750358316",
+        "desconto": 6,
+        "tipo": "Ração Quatree",
+        "tags": "cachorro"
+    },
+    {
+        "id": 9979369685280,
+        "nome": "Petisco Quatree Pallitus Sabor Cordeiro e Batata Doce",
+        "preco": 30.9,
+        "preco_antigo": 32.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/268512-1.png?v=1750358314",
+        "desconto": 6,
+        "tipo": "Ração Quatree",
+        "tags": "cachorro"
+    },
+    {
+        "id": 9973462008096,
+        "nome": "Premier Pet Formula Cães Filhotes Raças Grandes e Gigantes Frango 15kg",
+        "preco": 263.9,
+        "preco_antigo": 275.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Premier_Pet_Formula_Caes_Filhotes_Racas_Grandes_e_Gigantes_Frango.webp?v=1750165604",
+        "desconto": 4,
+        "tipo": "Ração PremieR",
+        "tags": "Cão"
+    },
+    {
+        "id": 9977661718816,
+        "nome": "Ração Fórmula Natural para Cães Sênior de Raças Médias e Grandes",
+        "preco": 294.8,
+        "preco_antigo": 310.6,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/269680-1.png?v=1750196994",
+        "desconto": 5,
+        "tipo": "Ração Fórmula Natural",
+        "tags": "cachorro"
+    },
+    {
+        "id": 9977660735776,
+        "nome": "Ração Fórmula Natural Vet Care Renal para Gatos Adultos com Doença Renal Crônica 1,5kg",
+        "preco": 89.7,
+        "preco_antigo": 95.1,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/269870-1.png?v=1750191892",
+        "desconto": 5,
+        "tipo": "Ração Fórmula Natural",
+        "tags": "cachorro"
+    },
+    {
+        "id": 9973463941408,
+        "nome": "Ração Premier Nattu para Cães Adultos Sabor Abóbora 12kg",
+        "preco": 217.8,
+        "preco_antigo": 255.1,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/RacaoPremierNattuparaCaesAdultosSaborAbobora.webp?v=1749669181",
+        "desconto": 14,
+        "tipo": "Ração PremieR",
+        "tags": "cachorro"
+    },
+    {
+        "id": 9973461582112,
+        "nome": "Ração Premier Nattu para Gatos Filhotes Sabor Abóbora 1,5 kg",
+        "preco": 79.9,
+        "preco_antigo": 89.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Racao_Premier_Nattu_para_Gatos_Filhotes_Sabor_Abobora_1_5_kg.webp?v=1750176376",
+        "desconto": 11,
+        "tipo": "Ração PremieR",
+        "tags": "Gato"
+    },
+    {
+        "id": 9973460992288,
+        "nome": "Ração Premier Nutrição Clínica Hipoalergênica para Cães de Médio e Grande Porte 10,1kg",
+        "preco": 299.3,
+        "preco_antigo": 372.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Racao_Premier_Nutricao_Clinica_Hipoalergenica_para_Caes_de_Medio_e_Grande_Porte.webp?v=1750178581",
+        "desconto": 19,
+        "tipo": "Ração PremieR",
+        "tags": "Cão"
+    },
+    {
+        "id": 9973463613728,
+        "nome": "Ração Premier Pet Formula Cães Adultos Light 15kg",
+        "preco": 254.9,
+        "preco_antigo": 269.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/RacaoPremierPetFormulaCaesAdultosLight.webp?v=1749672672",
+        "desconto": 5,
+        "tipo": "Ração PremieR",
+        "tags": "cachorro"
+    },
+    {
+        "id": 9973461975328,
+        "nome": "Ração Premier Pet Gatos Ambientes Internos Pelos Longos Adultos Frango 7,5kg",
+        "preco": 199.7,
+        "preco_antigo": 210.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Racao_Premier_Pet_Gatos_Ambientes_Internos_Pelos_Longos_Adultos_Frango.webp?v=1750165704",
+        "desconto": 5,
+        "tipo": "Ração PremieR",
+        "tags": "Gato"
+    },
+    {
+        "id": 9979370832160,
+        "nome": "Ração Quatree Supreme Adulto Porte Medio e Grande - Frango e Batata Doce",
+        "preco": 197.91,
+        "preco_antigo": 280.1,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/268155-1.png?v=1750358350",
+        "desconto": 29,
+        "tipo": "Ração Quatree",
+        "tags": "cachorro"
+    },
+    {
+        "id": 9979373682976,
+        "nome": "RAÇÃO QUATREE SUPREME GATOS FILHOTES",
+        "preco": 217.9,
+        "preco_antigo": 235.6,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/269070.jpg?v=1750358425",
+        "desconto": 7,
+        "tipo": "Ração Quatree",
+        "tags": "gato"
+    },
+    {
+        "id": 9977659425056,
+        "nome": "Ração Úmida Fórmula Natural Receitas Caseiras para Cães Adultos Sabor Picadinho de Carne com Abóbora e Mandioquinha 270g",
+        "preco": 19.9,
+        "preco_antigo": 21.1,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/270014-1.png?v=1750191843",
+        "desconto": 5,
+        "tipo": "Ração Fórmula Natural",
+        "tags": "cachorro"
+    },
+    {
+        "id": 9979370045728,
+        "nome": "Ração Úmida Quatree Supreme Peixe para Gatos Adultos",
+        "preco": 3.4,
+        "preco_antigo": 3.59,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/269803.jpg?v=1750358326",
+        "desconto": 5,
+        "tipo": "Ração Quatree",
+        "tags": "gato"
+    },
+    {
+        "id": 10169933201696,
+        "nome": "Rede de Gato",
+        "preco": 59.9,
+        "preco_antigo": 79.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_9rysnn9rysnn9rys.png?v=1769518811",
+        "desconto": 24,
+        "tipo": "Acessórios",
+        "tags": "gato"
+    },
+    {
+        "id": 9979369554208,
+        "nome": "Snack Quatree Bifinho Para Cães Sabor Carne 60g",
+        "preco": 4.2,
+        "preco_antigo": 5.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/270281.png?v=1750358310",
+        "desconto": 28,
+        "tipo": "Ração Quatree",
+        "tags": "cachorro"
+    },
+    {
+        "id": 9904982950176,
+        "nome": "Solução Ourofino para Limpeza de Ouvidos Limp e Hidrat em Cães e Gatos - 100 mL",
+        "preco": 79.9,
+        "preco_antigo": 89.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/SolucaoOurofinoparaLimpezadeOuvidosLimpeHidratemCaeseGatos-100mL.webp?v=1747418524",
+        "desconto": 11,
+        "tipo": "Soluções Ontológica",
+        "tags": "BF, cachorro, gato"
+    },
+    {
+        "id": 10169932087584,
+        "nome": "Super mordedor Recheavel  2 em 1 G",
+        "preco": 59.9,
+        "preco_antigo": 79.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Gemini_Generated_Image_tnevjptnevjptnev.png?v=1769538147",
+        "desconto": 24,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 10169932710176,
+        "nome": "Super mordedor Recheavel  2 em 1 M",
+        "preco": 49.9,
+        "preco_antigo": 69.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_55.jpg?v=1769520000",
+        "desconto": 28,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 9904978526496,
+        "nome": "Suplemento Vitamínico Organnact Eritrós Tabs",
+        "preco": 49.9,
+        "preco_antigo": 99.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/SuplementoVitaminicoOrgannactEritrosTabs.webp?v=1748021813",
+        "desconto": 50,
+        "tipo": "Suplementação para Cães",
+        "tags": "BF, cachorro"
+    },
+    {
+        "id": 9904992747808,
+        "nome": "Suplemento Vitamínico para Cães e Gatos Vitecol 30 comprimidos",
+        "preco": 98.9,
+        "preco_antigo": 115.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/SuplementoVitaminicoparaCaeseGatosVitecol30comprimidos.webp?v=1748004247",
+        "desconto": 14,
+        "tipo": "Suplementação para Cães e Gatos",
+        "tags": "BF, cachorro, gato"
+    },
+    {
+        "id": 10169932808480,
+        "nome": "Totem Nylon M",
+        "preco": 49.9,
+        "preco_antigo": 69.8,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/unnamed_57.jpg?v=1769519563",
+        "desconto": 28,
+        "tipo": "Acessórios",
+        "tags": "cachorro, Cão"
+    },
+    {
+        "id": 9904993108256,
+        "nome": "Zitrex",
+        "preco": 54.7,
+        "preco_antigo": 74.9,
+        "imagem": "https://cdn.shopify.com/s/files/1/0943/4791/9648/files/Zitrex500mgCepav3Unidades.webp?v=1747927506",
+        "desconto": 26,
+        "tipo": "Antibióticos",
+        "tags": "BF, cachorro, gato"
+    }
+]

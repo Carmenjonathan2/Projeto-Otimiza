@@ -1,0 +1,2364 @@
+{
+  "executado_em": "2026-05-18T19:21:32.937Z",
+  "modo": "LIVE",
+  "plataforma_concorrente": "Pet Cães e Cia",
+  "itens_atualizados": [
+    {
+      "variantId": 50296245748000,
+      "titulo": "Biscoito Biscoito Premier para Cães Adultos 250g (Único)",
+      "nomeConcorrente": "Biscoito Cookie Premier para Cães Adultos 250g",
+      "preco_anterior": 17.8,
+      "preco_novo": 16.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296245682464,
+      "titulo": "Biscoito Biscoito Premier para Cães Filhotes 250g (Único)",
+      "nomeConcorrente": "Biscoito Cookie Premier para Cães Filhotes 250g",
+      "preco_anterior": 17.8,
+      "preco_novo": 16.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296242209056,
+      "titulo": "Biscoito Cookie Premier para Cães Adultos de Raças Pequenas 250g (Único)",
+      "nomeConcorrente": "Biscoito Cookie Premier para Cães Adultos 250g",
+      "preco_anterior": 17.8,
+      "preco_novo": 16.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296239456544,
+      "titulo": "Biscoito Premier Biscoito para Cães Adultos Sabor Frutas Vermelhas 250g (Único)",
+      "nomeConcorrente": "Biscoito Cookie Premier para Cães Adultos 250g",
+      "preco_anterior": 17.8,
+      "preco_novo": 16.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296237523232,
+      "titulo": "Biscoito Premier Biscoito para Cães Filhotes Sabor Coco e Aveia 250g (Único)",
+      "nomeConcorrente": "Biscoito Cookie Premier para Cães Filhotes 250g",
+      "preco_anterior": 17.8,
+      "preco_novo": 16.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296231133472,
+      "titulo": "Biscoito Premier Cookie Fit para Cães Adultos Sabor Frango com Batata Doce (Único)",
+      "nomeConcorrente": "Biscoito Cookie Premier para Cães Adultos 250g",
+      "preco_anterior": 17.8,
+      "preco_novo": 16.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296237490464,
+      "titulo": "Biscoito Premier Cookie para Cães Adultos de Raças Pequenas Sabor Côco e Aveia (Único)",
+      "nomeConcorrente": "Biscoito Cookie Premier para Cães Adultos 250g",
+      "preco_anterior": 17.8,
+      "preco_novo": 16.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320625991968,
+      "titulo": "Biscoito Quatree Snacks Crock Mini para Cães Adultos Porte Mini e Pequeno 400g (Único)",
+      "nomeConcorrente": "Biscoito Quatree Snacks Crock Tradicional para Cães Adultos",
+      "preco_anterior": 15.9,
+      "preco_novo": 17.5,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320626712864,
+      "titulo": "Biscoito Quatree Snacks Crock Mix para Cães Adultos (Único)",
+      "nomeConcorrente": "Biscoito Quatree Snacks Crock Tradicional para Cães Adultos",
+      "preco_anterior": 15.9,
+      "preco_novo": 17.5,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320630350112,
+      "titulo": "Biscoito Quatree Snacks Crock Tradicional para Cães Adultos (Único)",
+      "nomeConcorrente": "Biscoito Quatree Snacks Crock Tradicional para Cães Adultos",
+      "preco_anterior": 15.9,
+      "preco_novo": 17.5,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118639878432,
+      "titulo": "GOLDEN GOURMET CAES (Único)",
+      "nomeConcorrente": "Ração Úmida Sachê Golden Gourmet para Cães Adultos de Porte Pequeno",
+      "preco_anterior": 5,
+      "preco_novo": 2.9,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50295106109728,
+      "titulo": "Golden Mega para Cães Adultos de Grande Porte Sabor Frango e Arroz (15kg)",
+      "nomeConcorrente": "Ração Golden Seleção Natural para Cães Adultos de Porte Médio e Grande Sabor Frango com Batata Doce",
+      "preco_anterior": 169.7,
+      "preco_novo": 161.91,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320626975008,
+      "titulo": "Petisco Quatree Nuggets Bola de Pelo para Gatos 60g (Único)",
+      "nomeConcorrente": "Petisco Quatree Nuggets Bola de Pelo para Gatos 60g",
+      "preco_anterior": 11.9,
+      "preco_novo": 7.65,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320626909472,
+      "titulo": "Petisco Quatree Pallitus Sabor Carne e Batata Doce (Único)",
+      "nomeConcorrente": "Petisco Quatree Pallitus Sabor Cordeiro e Batata Doce",
+      "preco_anterior": 30.9,
+      "preco_novo": 3.78,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50320626778400,
+      "titulo": "Petisco Quatree Pallitus Sabor Cordeiro e Batata Doce (Único)",
+      "nomeConcorrente": "Petisco Quatree Pallitus Sabor Cordeiro e Batata Doce",
+      "preco_anterior": 30.9,
+      "preco_novo": 3.78,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296230084896,
+      "titulo": "Premier Fórmula para Cães Adultos de Raças Grandes e Gigantes Sabor Cordeiro (Único)",
+      "nomeConcorrente": "Ração Premier Formula Raças Grandes Adultos Light",
+      "preco_anterior": 256.3,
+      "preco_novo": 223.02,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294998597920,
+      "titulo": "Premier Golden Formula Cães Sênior Frango e Arroz (15kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Sênior de Porte Grande e Gigante Sabor Frango 15kg",
+      "preco_anterior": 176.7,
+      "preco_novo": 181.17,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312158249248,
+      "titulo": "Premier Nutrição Clínica Obesidade para Cães Adultos Pequeno Porte (2kg)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 93.7,
+      "preco_novo": 289.8,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50312158282016,
+      "titulo": "Premier Nutrição Clínica Obesidade para Cães Adultos Pequeno Porte (10.1kg)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 352.2,
+      "preco_novo": 289.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312959394080,
+      "titulo": "Premier Nutrição Clínica Renal para Cães Adultos de Porte Médio e Grande (2kg)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 87.5,
+      "preco_novo": 289.8,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50312959426848,
+      "titulo": "Premier Nutrição Clínica Renal para Cães Adultos de Porte Médio e Grande (10.1kg)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 333.5,
+      "preco_novo": 289.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296237424928,
+      "titulo": "Premier Pet Formula Cães Filhotes Raças Grandes e Gigantes Frango 15kg (Único)",
+      "nomeConcorrente": "Premier Golden Formula Cães Filhotes Frango e Arroz",
+      "preco_anterior": 263.9,
+      "preco_novo": 158.13,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296245944608,
+      "titulo": "Premier Pet Formula Carne Cães Adultos Porte Grande e Gigante 15kg (Único)",
+      "nomeConcorrente": "Premier Pet Formula Carne Cães Adultos Porte Grande e Gigante",
+      "preco_anterior": 234.4,
+      "preco_novo": 207.54,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296231035168,
+      "titulo": "Premier Pet Seleção Natural Frango Korin com Batata Doce Cães Filhotes Raças Médias 10,1kg (Único)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 255.7,
+      "preco_novo": 297.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50300402073888,
+      "titulo": "Premier Seleção Natural Premier para Cães Filhotes Raças Pequenas sabor Frango com Batata Doce (1kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 43.9,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50300402106656,
+      "titulo": "Premier Seleção Natural Premier para Cães Filhotes Raças Pequenas sabor Frango com Batata Doce (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 96.7,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50297155387680,
+      "titulo": "Premier Seleção Natural Raças Pequenas para Cães Adultos (1kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 43.1,
+      "preco_novo": 250.11,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50297155420448,
+      "titulo": "Premier Seleção Natural Raças Pequenas para Cães Adultos (2.5kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 93.7,
+      "preco_novo": 250.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50297155453216,
+      "titulo": "Premier Seleção Natural Raças Pequenas para Cães Adultos (10.1kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 243.7,
+      "preco_novo": 250.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320922444064,
+      "titulo": "Quatree Life Frango e Arroz Cães Adultos Raças Médias e Grandes (15kg)",
+      "nomeConcorrente": "Quatree Life Frango e Arroz Cães Adultos Raças Médias e Grandes",
+      "preco_anterior": 172.8,
+      "preco_novo": 204.66,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320922476832,
+      "titulo": "Quatree Life Frango e Arroz Cães Adultos Raças Médias e Grandes (20kg)",
+      "nomeConcorrente": "Quatree Life Frango e Arroz Cães Adultos Raças Médias e Grandes",
+      "preco_anterior": 220.8,
+      "preco_novo": 204.66,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50118646661408,
+      "titulo": "Quatree para cães adultos sabor carne (Único)",
+      "nomeConcorrente": "Quatree para Cães Adultos Sabor Carne",
+      "preco_anterior": 159.9,
+      "preco_novo": 89.9,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320706830624,
+      "titulo": "Quatree para Cães Adultos Sabor Carne (15kg)",
+      "nomeConcorrente": "Quatree para Cães Adultos Sabor Carne",
+      "preco_anterior": 159.9,
+      "preco_novo": 89.9,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320706863392,
+      "titulo": "Quatree para Cães Adultos Sabor Carne (20kg)",
+      "nomeConcorrente": "Quatree para Cães Adultos Sabor Carne",
+      "preco_anterior": 159.9,
+      "preco_novo": 89.9,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320908845344,
+      "titulo": "Quatree Supreme Light para Cães Adultos de Todos os Portes (3kg)",
+      "nomeConcorrente": "Ração Quatree Supreme Light Cães Castrado Adulto RP",
+      "preco_anterior": 90.2,
+      "preco_novo": 74.61,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320908878112,
+      "titulo": "Quatree Supreme Light para Cães Adultos de Todos os Portes (15kg)",
+      "nomeConcorrente": "Ração Quatree Supreme Light Cães Castrado Adulto RP",
+      "preco_anterior": 244.8,
+      "preco_novo": 74.61,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50118646792480,
+      "titulo": "Quatree supreme Senior de 10kg (Único)",
+      "nomeConcorrente": "Ração Quatree Supreme para Cães Sênior +7 de Porte Pequeno Sabor Salmão e Frango",
+      "preco_anterior": 165.9,
+      "preco_novo": 28.44,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50295101128992,
+      "titulo": "Ração Golden Duii Mini Bits para Cães Adultos de Porte Pequeno Sabor Frango e Seleção de Carnes (3kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 73.7,
+      "preco_novo": 250.11,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50295102964000,
+      "titulo": "Ração Golden Duii Mini Bits para Cães Adultos de Porte Pequeno Sabor Salmão com Ervas e Cordeiro com Arroz (3kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 78.34,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287402320160,
+      "titulo": "Ração Golden Duii para Cães Adultos sabor Frango e Carne 10.1kg (Único)",
+      "nomeConcorrente": "Ração Golden Formula Cães Adultos - Frango e Arroz",
+      "preco_anterior": 169.7,
+      "preco_novo": 146.97,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287401042208,
+      "titulo": "Ração Golden Duii para Cães Adultos Sabor Salmão e Cordeiro 10.1kg (Único)",
+      "nomeConcorrente": "Ração Golden Mini Bits para Cães Adultos Sabor Salmão",
+      "preco_anterior": 174.7,
+      "preco_novo": 169.02,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50290371985696,
+      "titulo": "Ração Golden Formula Cães Adultos - Frango e Arroz (3kg)",
+      "nomeConcorrente": "Ração Premier Golden Power Training Cães Adultos Frango e Arroz",
+      "preco_anterior": 55.9,
+      "preco_novo": 152.64,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50290372018464,
+      "titulo": "Ração Golden Formula Cães Adultos - Frango e Arroz (15kg)",
+      "nomeConcorrente": "Ração Premier Golden Power Training Cães Adultos Frango e Arroz",
+      "preco_anterior": 158.7,
+      "preco_novo": 152.64,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50290372051232,
+      "titulo": "Ração Golden Formula Cães Adultos - Frango e Arroz (20kg)",
+      "nomeConcorrente": "Ração Premier Golden Power Training Cães Adultos Frango e Arroz",
+      "preco_anterior": 203.6,
+      "preco_novo": 152.64,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294485778720,
+      "titulo": "Ração Golden Fórmula Mini Bits para Cães Adultos de Porte Pequeno (1kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 22.4,
+      "preco_novo": 154.8,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50294485811488,
+      "titulo": "Ração Golden Fórmula Mini Bits para Cães Adultos de Porte Pequeno (3kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 55.7,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294485844256,
+      "titulo": "Ração Golden Fórmula Mini Bits para Cães Adultos de Porte Pequeno (10.1kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 131.7,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294485877024,
+      "titulo": "Ração Golden Fórmula Mini Bits para Cães Adultos de Porte Pequeno (15kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 158.7,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50295015342368,
+      "titulo": "Ração Golden Fórmula Mini Bits para Cães Filhotes de Porte Pequeno Sabor Frango e Arroz (3kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Filhotes de Raças Pequenas Sabor Frango",
+      "preco_anterior": 22.8,
+      "preco_novo": 32.31,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287402352928,
+      "titulo": "Ração Golden Fórmula para Cães Filhote Sabor Frango e Arroz 3kg (Único)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Filhotes de Raças Pequenas Sabor Frango",
+      "preco_anterior": 47.9,
+      "preco_novo": 32.31,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287402090784,
+      "titulo": "Ração Golden Formula Peru & Arroz para Cães Adultos (Único)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 170.9,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50290346983712,
+      "titulo": "Ração Golden Light para Cães Adultos de Pequeno Porte (1kg)",
+      "nomeConcorrente": "Ração Golden Seleção Natural para Cães Adultos de Porte Pequeno Sabor Frango com Batata Doce",
+      "preco_anterior": 23.3,
+      "preco_novo": 138.51,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50290347016480,
+      "titulo": "Ração Golden Light para Cães Adultos de Pequeno Porte (3kg)",
+      "nomeConcorrente": "Ração Golden Special Cães Adultos Porte Pequeno Frango e Carne 3 kg",
+      "preco_anterior": 59.7,
+      "preco_novo": 117.81,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50290347049248,
+      "titulo": "Ração Golden Light para Cães Adultos de Pequeno Porte (10.1kg)",
+      "nomeConcorrente": "Ração Golden Seleção Natural para Cães Adultos de Porte Pequeno Sabor Frango com Batata Doce",
+      "preco_anterior": 135.7,
+      "preco_novo": 138.51,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294612328736,
+      "titulo": "Ração Golden Light para Cães Adultos Raças Médias e Grandes sabor Frango e Arroz 15kg (15kg)",
+      "nomeConcorrente": "Ração Premier Formula Raças Grandes Adultos Light",
+      "preco_anterior": 176.7,
+      "preco_novo": 223.02,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287402189088,
+      "titulo": "Ração Golden Mega Cães Filhotes Raças Grandes Frango e Arroz (Único)",
+      "nomeConcorrente": "Ração Golden Mega Cães Filhotes Raças Grandes Frango e Arroz",
+      "preco_anterior": 179.7,
+      "preco_novo": 158.22,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50289312366880,
+      "titulo": "Ração Golden Mini Bits para Cães Adultos Sabor Peru (1kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 23.3,
+      "preco_novo": 154.8,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50289312399648,
+      "titulo": "Ração Golden Mini Bits para Cães Adultos Sabor Peru (3kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 59,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50289312432416,
+      "titulo": "Ração Golden Mini Bits para Cães Adultos Sabor Peru (10.1kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 136.7,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50289290477856,
+      "titulo": "Ração Golden Mini Bits para Cães Adultos Sabor Peru (1kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 23.3,
+      "preco_novo": 154.8,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50289290510624,
+      "titulo": "Ração Golden Mini Bits para Cães Adultos Sabor Peru (3kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 59,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50289290543392,
+      "titulo": "Ração Golden Mini Bits para Cães Adultos Sabor Peru (10.1kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 136.7,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294599680288,
+      "titulo": "Ração Golden Mini Bits para Cães Adultos Sabor Salmão (1kg)",
+      "nomeConcorrente": "Ração Golden Mini Bits para Cães Adultos Sabor Peru",
+      "preco_anterior": 23.3,
+      "preco_novo": 52.29,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294599713056,
+      "titulo": "Ração Golden Mini Bits para Cães Adultos Sabor Salmão (3kg)",
+      "nomeConcorrente": "Ração Golden Mini Bits para Cães Adultos Sabor Peru",
+      "preco_anterior": 59.9,
+      "preco_novo": 52.29,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294599745824,
+      "titulo": "Ração Golden Mini Bits para Cães Adultos Sabor Salmão (10.1)",
+      "nomeConcorrente": "RAÇÃO GOLDEN FORM CÃES ADULTO SÊNIOR MINI BITS 10,1 KG",
+      "preco_anterior": 141.7,
+      "preco_novo": 130.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294599778592,
+      "titulo": "Ração Golden Mini Bits para Cães Adultos Sabor Salmão (15kg)",
+      "nomeConcorrente": "Ração Golden Mini Bits para Cães Adultos Sabor Peru",
+      "preco_anterior": 178.9,
+      "preco_novo": 52.29,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50295091953952,
+      "titulo": "Ração Golden Mini Bits para Cães Filhotes Sabor Carne (1kg)",
+      "nomeConcorrente": "Ração Golden Special para Cães Filhotes de Porte Pequeno Sabor Frango e Carne",
+      "preco_anterior": 23.3,
+      "preco_novo": 149.22,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50295091986720,
+      "titulo": "Ração Golden Mini Bits para Cães Filhotes Sabor Carne (3kg)",
+      "nomeConcorrente": "Ração Golden Special para Cães Filhotes de Porte Pequeno Sabor Frango e Carne",
+      "preco_anterior": 58.7,
+      "preco_novo": 149.22,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50295092019488,
+      "titulo": "Ração Golden Mini Bits para Cães Filhotes Sabor Carne (10.1kg)",
+      "nomeConcorrente": "RAÇÃO GOLDEN FORMULA MINI BITS AD PP CARNE E ARROZ 10,1KG",
+      "preco_anterior": 138.7,
+      "preco_novo": 110.88,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50289308270880,
+      "titulo": "Ração Golden Mini Bits para Cães Filhotes Sabor Frango (1kg)",
+      "nomeConcorrente": "Ração Golden Special para Cães Filhotes de Porte Pequeno Sabor Frango e Carne",
+      "preco_anterior": 23.3,
+      "preco_novo": 149.22,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50289308303648,
+      "titulo": "Ração Golden Mini Bits para Cães Filhotes Sabor Frango (3kg)",
+      "nomeConcorrente": "Ração Golden Special para Cães Filhotes de Porte Pequeno Sabor Frango e Carne",
+      "preco_anterior": 58.1,
+      "preco_novo": 149.22,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50289308336416,
+      "titulo": "Ração Golden Mini Bits para Cães Filhotes Sabor Frango (10.1kg)",
+      "nomeConcorrente": "Ração Golden Fórmula Mini Bits para Cães Filhotes de Porte Pequeno Sabor Frango e Arroz",
+      "preco_anterior": 138.7,
+      "preco_novo": 17.82,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50294593159456,
+      "titulo": "Ração Golden para Cães Adultos de Pequeno Porte sabor Carne e Arroz (1kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 22.4,
+      "preco_novo": 154.8,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50294593192224,
+      "titulo": "Ração Golden para Cães Adultos de Pequeno Porte sabor Carne e Arroz (3kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 55.7,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294593224992,
+      "titulo": "Ração Golden para Cães Adultos de Pequeno Porte sabor Carne e Arroz (15kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 158.7,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287446950176,
+      "titulo": "Ração Golden para Cães Adultos Sabor Carne e Arroz 15kg (15kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 158.7,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287446130976,
+      "titulo": "Ração Golden para Cães Adultos Sabor Salmão e Arroz (15kg)",
+      "nomeConcorrente": "Ração Golden Formula Peru & Arroz para Cães Adultos",
+      "preco_anterior": 178.9,
+      "preco_novo": 154.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50290287509792,
+      "titulo": "Ração Golden para Cães Filhotes Sabor Carne e Arroz (3kg)",
+      "nomeConcorrente": "Ração Golden Special para Cães Filhotes de Porte Pequeno Sabor Frango e Carne",
+      "preco_anterior": 56.2,
+      "preco_novo": 149.22,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50290287542560,
+      "titulo": "Ração Golden para Cães Filhotes Sabor Carne e Arroz (15kg)",
+      "nomeConcorrente": "Ração Golden Special para Cães Filhotes de Porte Pequeno Sabor Frango e Carne",
+      "preco_anterior": 170.3,
+      "preco_novo": 149.22,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287401238816,
+      "titulo": "Ração Golden Seleção Natural Cães Adultos Raças Pequenas Frango e Abóbora 3kg (Único)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 57.3,
+      "preco_novo": 250.11,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50290396856608,
+      "titulo": "Ração Golden Selecao Natural Mini Bits para Cães Adultos (1kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 23.3,
+      "preco_novo": 250.11,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50290396889376,
+      "titulo": "Ração Golden Selecao Natural Mini Bits para Cães Adultos (3kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 59.7,
+      "preco_novo": 250.11,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50290396922144,
+      "titulo": "Ração Golden Selecao Natural Mini Bits para Cães Adultos (10.1kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 144.7,
+      "preco_novo": 250.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50290402492704,
+      "titulo": "Ração Golden Seleção Natural Mini Bits para Cães Filhotes (1kg)",
+      "nomeConcorrente": "Ração Golden Fórmula Mini Bits para Cães Filhotes de Porte Pequeno Sabor Frango e Arroz",
+      "preco_anterior": 24.2,
+      "preco_novo": 17.82,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50290402525472,
+      "titulo": "Ração Golden Seleção Natural Mini Bits para Cães Filhotes (3kg)",
+      "nomeConcorrente": "Ração Golden Fórmula Mini Bits para Cães Filhotes de Porte Pequeno Sabor Frango e Arroz",
+      "preco_anterior": 62.8,
+      "preco_novo": 17.82,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50290402558240,
+      "titulo": "Ração Golden Seleção Natural Mini Bits para Cães Filhotes (10.1kg)",
+      "nomeConcorrente": "Ração Golden Mini Bits para Cães Filhotes Sabor Carne",
+      "preco_anterior": 149.7,
+      "preco_novo": 129.78,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50290392957216,
+      "titulo": "Ração Golden Selecao Natural Mini Bits para Cães Filhotes (1kg)",
+      "nomeConcorrente": "Ração Golden Fórmula Mini Bits para Cães Filhotes de Porte Pequeno Sabor Frango e Arroz",
+      "preco_anterior": 24.2,
+      "preco_novo": 17.82,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50290392989984,
+      "titulo": "Ração Golden Selecao Natural Mini Bits para Cães Filhotes (3kg)",
+      "nomeConcorrente": "Ração Golden Fórmula Mini Bits para Cães Filhotes de Porte Pequeno Sabor Frango e Arroz",
+      "preco_anterior": 62.8,
+      "preco_novo": 17.82,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50290393022752,
+      "titulo": "Ração Golden Selecao Natural Mini Bits para Cães Filhotes (10.1kg)",
+      "nomeConcorrente": "Ração Golden Mini Bits para Cães Filhotes Sabor Carne",
+      "preco_anterior": 149.7,
+      "preco_novo": 129.78,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50289203314976,
+      "titulo": "Ração Golden Seleção Natural para Cães Adultos (3kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 59.9,
+      "preco_novo": 250.11,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50289203347744,
+      "titulo": "Ração Golden Seleção Natural para Cães Adultos (12kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 169.7,
+      "preco_novo": 250.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50295098868000,
+      "titulo": "Ração Golden Seleção Natural para Cães Adultos de Porte Médio e Grande Sabor Frango com Batata Doce (12kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 169.7,
+      "preco_novo": 250.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50295125672224,
+      "titulo": "Ração Golden Seleção Natural para Cães Adultos de Porte Pequeno Sabor Frango com Abóbora e Alecrim (10.1kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 144.7,
+      "preco_novo": 250.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50295056007456,
+      "titulo": "Ração Golden Seleção Natural para Cães Adultos de Porte Pequeno Sabor Frango com Batata Doce (3kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 59.9,
+      "preco_novo": 250.11,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50295056040224,
+      "titulo": "Ração Golden Seleção Natural para Cães Adultos de Porte Pequeno Sabor Frango com Batata Doce (10.1kg)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 144.7,
+      "preco_novo": 250.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287401140512,
+      "titulo": "Ração Golden Seleção Natural para Cães Adultos Sabor Frango com Abóbora e Alecrim 12kg (Único)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 169.7,
+      "preco_novo": 250.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287402877216,
+      "titulo": "Ração Golden Seleção Natural para Cães Filhotes 10.1kg (Único)",
+      "nomeConcorrente": "Ração Golden Seleção Natural para Cães Filhotes",
+      "preco_anterior": 156.8,
+      "preco_novo": 139.86,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287403172128,
+      "titulo": "Ração Golden Selecao Natural para Cães Filhotes 3kg (Único)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Filhotes de Raças Pequenas",
+      "preco_anterior": 61.3,
+      "preco_novo": 87.03,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50289280319776,
+      "titulo": "Ração Golden Senior Mini Bits Sabor Frango (3kg)",
+      "nomeConcorrente": "Ração Golden Cães Adulto Sênior Mini Bits Carne e Arroz 3kg",
+      "preco_anterior": 56.7,
+      "preco_novo": 47.07,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50289280352544,
+      "titulo": "Ração Golden Senior Mini Bits Sabor Frango (10.1kg)",
+      "nomeConcorrente": "RAÇÃO GOLDEN FORM CÃES ADULTO SÊNIOR MINI BITS 10,1 KG",
+      "preco_anterior": 135.7,
+      "preco_novo": 130.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294594437408,
+      "titulo": "Ração Golden Special Cães Adultos Porte Pequeno Frango e Carne 3 kg (3kg)",
+      "nomeConcorrente": "Ração Golden Special Cães Adultos Porte Pequeno Frango e Carne 3 kg",
+      "preco_anterior": 45.5,
+      "preco_novo": 117.81,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294594470176,
+      "titulo": "Ração Golden Special Cães Adultos Porte Pequeno Frango e Carne 3 kg (15kg)",
+      "nomeConcorrente": "Ração Golden Special Cães Adultos Porte Pequeno Frango e Carne 3 kg",
+      "preco_anterior": 154.1,
+      "preco_novo": 117.81,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294608199968,
+      "titulo": "Ração Golden Special para Cães Filhotes de Porte Pequeno Sabor Frango e Carne (3kg)",
+      "nomeConcorrente": "Ração Golden Special para Cães Filhotes de Porte Pequeno Sabor Frango e Carne",
+      "preco_anterior": 52.6,
+      "preco_novo": 149.22,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50294608232736,
+      "titulo": "Ração Golden Special para Cães Filhotes de Porte Pequeno Sabor Frango e Carne (15kg)",
+      "nomeConcorrente": "Ração Golden Special para Cães Filhotes de Porte Pequeno Sabor Frango e Carne",
+      "preco_anterior": 159.2,
+      "preco_novo": 149.22,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287402221856,
+      "titulo": "Ração Origens Raças Especificas para Labrador e Golden Retriever Adultos (Único)",
+      "nomeConcorrente": "Ração Origens Raças Especificas para Labrador e Golden Retriever Adultos",
+      "preco_anterior": 183.2,
+      "preco_novo": 183.33,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296610259232,
+      "titulo": "Ração Premier Ambientes Internos Dermacare para Cães Adultos (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 93.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296610292000,
+      "titulo": "Ração Premier Ambientes Internos Dermacare para Cães Adultos (12kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 257.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296230871328,
+      "titulo": "Ração Premier Ambientes Internos para Cães Adultos de Médio Porte Sabor Frango e Salmão 12kg (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 199.9,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296923750688,
+      "titulo": "Ração Premier Ambientes Internos para Cães Adultos Light (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 89.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296923783456,
+      "titulo": "Ração Premier Ambientes Internos para Cães Adultos Light (12kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 246.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296931909920,
+      "titulo": "Ração Premier Ambientes Internos para Cães Adultos Porte Pequeno (1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 44.8,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296931942688,
+      "titulo": "Ração Premier Ambientes Internos para Cães Adultos Porte Pequeno (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 85.1,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296931975456,
+      "titulo": "Ração Premier Ambientes Internos para Cães Adultos Porte Pequeno (7.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 214,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296932008224,
+      "titulo": "Ração Premier Ambientes Internos para Cães Adultos Porte Pequeno (12kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 234.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296906252576,
+      "titulo": "Ração Premier Ambientes Internos para Cães Sênior (2.5kg)",
+      "nomeConcorrente": "Ração Premier Ambientes Internos Dermacare para Cães Adultos",
+      "preco_anterior": 89.7,
+      "preco_novo": 240.39,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296906285344,
+      "titulo": "Ração Premier Ambientes Internos para Cães Sênior (12kg)",
+      "nomeConcorrente": "Ração Premier Ambientes Internos Dermacare para Cães Adultos",
+      "preco_anterior": 235.5,
+      "preco_novo": 240.39,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296239816992,
+      "titulo": "Ração Premier Diabetes para Cães Raças Média e Grande (Único)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 67.2,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50312944025888,
+      "titulo": "Ração Premier Fórmula para Cães Adultos de Raças Grandes Sabor Frango (15kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 225.5,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50312944058656,
+      "titulo": "Ração Premier Fórmula para Cães Adultos de Raças Grandes Sabor Frango (20kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 312.1,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50312021770528,
+      "titulo": "Ração Premier Fórmula para Cães Adultos de Raças Médias (15kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 225.5,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50312021803296,
+      "titulo": "Ração Premier Fórmula para Cães Adultos de Raças Médias (20kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 300.6,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50312019673376,
+      "titulo": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas (1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 36.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312019706144,
+      "titulo": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 79.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312019738912,
+      "titulo": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas (15kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 225.5,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50312019771680,
+      "titulo": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas (20kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 312.1,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296648040736,
+      "titulo": "Ração Premier Fórmula para Cães Filhotes de Raças Pequenas (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 83.7,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50296648073504,
+      "titulo": "Ração Premier Fórmula para Cães Filhotes de Raças Pequenas (20kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 324.2,
+      "preco_novo": 297.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50297142870304,
+      "titulo": "Ração Premier Fórmula para Cães Filhotes de Raças Pequenas Sabor Frango (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 83.7,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50297142903072,
+      "titulo": "Ração Premier Fórmula para Cães Filhotes de Raças Pequenas Sabor Frango (20kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 324.2,
+      "preco_novo": 297.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296231002400,
+      "titulo": "Ração Premier Fórmula para Cães Sênior de Porte Grande e Gigante Sabor Frango 15kg (Único)",
+      "nomeConcorrente": "Ração Premier Ambientes Internos para Cães Sênior",
+      "preco_anterior": 217.4,
+      "preco_novo": 209.97,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296232935712,
+      "titulo": "Ração Premier Fórmula Sênior para Cães Adultos de Raças Grandes e Gigantes 15kg (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 251.8,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50287402156320,
+      "titulo": "Ração Premier Golden Power Training Cães Adultos Frango e Arroz (Único)",
+      "nomeConcorrente": "Ração Premier Golden Power Training Cães Adultos Frango e Arroz",
+      "preco_anterior": 159.9,
+      "preco_novo": 152.64,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50295112270112,
+      "titulo": "Ração Premier Golden Power Training Cães Filhotes Frango e Arroz (15kg)",
+      "nomeConcorrente": "Premier Golden Formula Cães Filhotes Frango e Arroz",
+      "preco_anterior": 179.7,
+      "preco_novo": 158.13,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296237588768,
+      "titulo": "Ração PremieR Nattú Mandioca para Cães Idosos Porte Pequeno 10,1kg (Único)",
+      "nomeConcorrente": "Ração Premier Nattu para Cães Filhotes Sabor Mandioca",
+      "preco_anterior": 231.7,
+      "preco_novo": 196.92,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296242569504,
+      "titulo": "Ração PremieR Nattú Mandioquinha para Cães Adultos 12kg (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 249.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50312941961504,
+      "titulo": "Ração Premier Nattu para Cães Adultos de Raças Pequenas Sabor Abóbora (1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 43,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312941994272,
+      "titulo": "Ração Premier Nattu para Cães Adultos de Raças Pequenas Sabor Abóbora (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 89.9,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312942027040,
+      "titulo": "Ração Premier Nattu para Cães Adultos de Raças Pequenas Sabor Abóbora (10.1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 220.8,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50313197453600,
+      "titulo": "Ração Premier Nattu para Cães Adultos de Raças Pequenas Sabor Mandioca (1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 43,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50313197486368,
+      "titulo": "Ração Premier Nattu para Cães Adultos de Raças Pequenas Sabor Mandioca (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 89.9,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50313197519136,
+      "titulo": "Ração Premier Nattu para Cães Adultos de Raças Pequenas Sabor Mandioca (10.1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 219.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296243290400,
+      "titulo": "Ração Premier Nattu para Cães Adultos Sabor Abóbora 12kg (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 249.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296230215968,
+      "titulo": "Ração Premier Nattu para Cães Adultos Sabor Mandioca (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 249.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50312643019040,
+      "titulo": "Ração Premier Nattu para Cães Filhotes de Raças Pequenas Sabor Mandioca (1kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 44.8,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50312643051808,
+      "titulo": "Ração Premier Nattu para Cães Filhotes de Raças Pequenas Sabor Mandioca (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 91.9,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50296243257632,
+      "titulo": "Ração Premier Nattu para Cães Filhotes Sabor Mandioca 10.1kg (Único)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 219.7,
+      "preco_novo": 297.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296233165088,
+      "titulo": "Ração Premier Nattu para Cães Sênior de Porte Pequeno Sabor Mandioca 2,5kg (Único)",
+      "nomeConcorrente": "Ração Premier Nattu para Cães Adultos Sabor Mandioca",
+      "preco_anterior": 94.9,
+      "preco_novo": 220.5,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296233066784,
+      "titulo": "Ração Premier Nutrição Clínica Cardio para Cães de Porte Pequeno 2Kg (Único)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 87.9,
+      "preco_novo": 289.8,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50296232837408,
+      "titulo": "Ração Premier Nutrição Clínica Diabetes Cães Adultos e Filhotes de Porte Pequeno 10,1kg (Único)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 333.5,
+      "preco_novo": 289.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296237195552,
+      "titulo": "Ração Premier Nutrição Clínica Diabetes para Cães de Raças Pequenas (Único)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 88,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50312211366176,
+      "titulo": "Ração Premier Nutrição Clínica Gastrointestinal para Cães de Pequeno Porte (2kg)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 88,
+      "preco_novo": 289.8,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50312211398944,
+      "titulo": "Ração Premier Nutrição Clínica Gastrointestinal para Cães de Pequeno Porte (10kg)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 333.4,
+      "preco_novo": 289.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296230052128,
+      "titulo": "Ração Premier Nutrição Clínica Gastrointestinal para Cães de Raças Médias e Grandes (Único)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 333.5,
+      "preco_novo": 297.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312935178528,
+      "titulo": "Ração Premier Nutrição Clínica Hipoalergênica Hidrolisada para Cães de Pequeno Porte (2kg)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 93.7,
+      "preco_novo": 289.8,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50312935211296,
+      "titulo": "Ração Premier Nutrição Clínica Hipoalergênica Hidrolisada para Cães de Pequeno Porte (10.1kg)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 352.3,
+      "preco_novo": 289.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296232640800,
+      "titulo": "Ração Premier Nutrição Clínica Hipoalergênica para Cães de Médio e Grande Porte 10,1kg (Único)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 351.9,
+      "preco_novo": 289.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296230969632,
+      "titulo": "Ração Premier Nutrição Clínica Hipoalergênica para Cães de Médio e Grande Porte Cordeiro e Arroz 10,kg (Único)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 352.2,
+      "preco_novo": 289.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50313166717216,
+      "titulo": "Ração Premier Nutrição Clínica Hipoalergênica para Cães de Raças Pequenas (2kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 93.7,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50313166749984,
+      "titulo": "Ração Premier Nutrição Clínica Hipoalergênica para Cães de Raças Pequenas (10.1kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 352.2,
+      "preco_novo": 297.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296233001248,
+      "titulo": "Ração Premier Nutrição Clínica Obesidade para Cães de Raças Grandes 10,1kg (Único)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 352.2,
+      "preco_novo": 297.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50313325052192,
+      "titulo": "Ração Premier Nutrição Clínica Renal para Cães (2kg)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 87.5,
+      "preco_novo": 289.8,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50313325084960,
+      "titulo": "Ração Premier Nutrição Clínica Renal para Cães (10.1kg)",
+      "nomeConcorrente": "Ração Premier Nutrição Clínica Cardio para Cães",
+      "preco_anterior": 333.5,
+      "preco_novo": 289.8,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296244044064,
+      "titulo": "Ração Premier para Cães Filhotes de Raças Médias 20kg (Único)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 336.5,
+      "preco_novo": 297.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312083177760,
+      "titulo": "Ração Premier para Shih Tzu Adulto Sabor Frango (1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 41.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312083210528,
+      "titulo": "Ração Premier para Shih Tzu Adulto Sabor Frango (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 91.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312083243296,
+      "titulo": "Ração Premier para Shih Tzu Adulto Sabor Frango (7.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 219.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50118647021856,
+      "titulo": "Ração Premier para Shih Tzu Adulto Sabor Frango 7,5 kg (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 21990,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50297162137888,
+      "titulo": "Ração Premier para Shih Tzu Filhote Sabor Frango (1kg)",
+      "nomeConcorrente": "Ração Premier para Shih Tzu Filhote Sabor Frango",
+      "preco_anterior": 43.7,
+      "preco_novo": 89.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50297162170656,
+      "titulo": "Ração Premier para Shih Tzu Filhote Sabor Frango (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Shih Tzu Filhote Sabor Frango",
+      "preco_anterior": 95.7,
+      "preco_novo": 89.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296652857632,
+      "titulo": "Ração Premier para Spitz Alemão Adulto (1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 44.9,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296652890400,
+      "titulo": "Ração Premier para Spitz Alemão Adulto (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 91.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296652923168,
+      "titulo": "Ração Premier para Spitz Alemão Adulto (7.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 219.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296667537696,
+      "titulo": "Ração Premier para Spitz Alemão Filhote (1kg)",
+      "nomeConcorrente": "Ração Premier para Spitz Alemão Filhote",
+      "preco_anterior": 43.9,
+      "preco_novo": 42.21,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296667570464,
+      "titulo": "Ração Premier para Spitz Alemão Filhote (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Spitz Alemão Filhote",
+      "preco_anterior": 95.7,
+      "preco_novo": 42.21,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296532566304,
+      "titulo": "Ração Premier para Yorkshire Adulto (1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 41.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296532599072,
+      "titulo": "Ração Premier para Yorkshire Adulto (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 91.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296532631840,
+      "titulo": "Ração Premier para Yorkshire Adulto (7.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 219.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296742609184,
+      "titulo": "Ração Premier Pet Ambiente Interno Cães Castrados (2.5kg)",
+      "nomeConcorrente": "Ração Premier Pet Ambiente Interno Cães Castrados",
+      "preco_anterior": 89.7,
+      "preco_novo": 209.97,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296742641952,
+      "titulo": "Ração Premier Pet Ambiente Interno Cães Castrados (12kg)",
+      "nomeConcorrente": "Ração Premier Pet Ambiente Interno Cães Castrados",
+      "preco_anterior": 246.7,
+      "preco_novo": 209.97,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296242864416,
+      "titulo": "Ração Premier Pet Formula Cães Adultos Light 15kg (Único)",
+      "nomeConcorrente": "Ração Premier Pet Formula Cães Adultos Light",
+      "preco_anterior": 254.9,
+      "preco_novo": 214.2,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50297169772832,
+      "titulo": "Ração Premier Pet Raças Específicas Lhasa Apso Adulto (1kg)",
+      "nomeConcorrente": "RAÇÃO PREMIER RAÇAS ESPECÍFICAS ADULTO PUG 1KG",
+      "preco_anterior": 42.1,
+      "preco_novo": 40.95,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50297169805600,
+      "titulo": "Ração Premier Pet Raças Específicas Lhasa Apso Adulto (2.5kg)",
+      "nomeConcorrente": "Ração Premier Pet Raças Específicas Lhasa Apso Adulto",
+      "preco_anterior": 91.9,
+      "preco_novo": 82.71,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50297169838368,
+      "titulo": "Ração Premier Pet Raças Específicas Lhasa Apso Adulto (7.5kg)",
+      "nomeConcorrente": "Ração Premier Pet Raças Específicas Lhasa Apso Adulto",
+      "preco_anterior": 219.7,
+      "preco_novo": 82.71,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296517099808,
+      "titulo": "Ração Premier Pitbull para Adultos (12kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 221.9,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50300418031904,
+      "titulo": "Ração Premier Raças Específicas para Cães Bulldog Francês Adultos (1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 42.1,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50300418064672,
+      "titulo": "Ração Premier Raças Específicas para Cães Bulldog Francês Adultos (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 91.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50300418097440,
+      "titulo": "Ração Premier Raças Específicas para Cães Bulldog Francês Adultos (7.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 219.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50312170209568,
+      "titulo": "Ração Premier Raças Específicas para Cães Bulldog Francês Filhotes (1kg)",
+      "nomeConcorrente": "Ração Premier Raças Específicas Yorkshire Filhotes",
+      "preco_anterior": 44.8,
+      "preco_novo": 89.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312170242336,
+      "titulo": "Ração Premier Raças Específicas para Cães Bulldog Francês Filhotes (2.5kg)",
+      "nomeConcorrente": "Ração Premier Raças Específicas Yorkshire Filhotes",
+      "preco_anterior": 95.7,
+      "preco_novo": 89.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296239751456,
+      "titulo": "Ração Premier Raças Específicas para Cães Bulldog Inglês Adultos 12kg (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 244.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50287403303200,
+      "titulo": "Ração Premier Raças Específicas para Cães Golden Retriver Adultos (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 244.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296725438752,
+      "titulo": "Ração Premier Raças Específicas para Cães Lhasa Apso Filhotes (1kg)",
+      "nomeConcorrente": "Ração Premier Raças Específicas Yorkshire Filhotes",
+      "preco_anterior": 44.8,
+      "preco_novo": 89.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296725471520,
+      "titulo": "Ração Premier Raças Específicas para Cães Lhasa Apso Filhotes (2.5kg)",
+      "nomeConcorrente": "Ração Premier Raças Específicas Yorkshire Filhotes",
+      "preco_anterior": 95.2,
+      "preco_novo": 89.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50297204637984,
+      "titulo": "Ração Premier Raças Específicas para Cães Maltes Adultos (1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 42.1,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50297204670752,
+      "titulo": "Ração Premier Raças Específicas para Cães Maltes Adultos (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 91.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50297204703520,
+      "titulo": "Ração Premier Raças Específicas para Cães Maltes Adultos (7.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 219.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50297173115168,
+      "titulo": "Ração Premier Raças Específicas para Cães Maltes Filhote (1kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 43.9,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50297173147936,
+      "titulo": "Ração Premier Raças Específicas para Cães Maltes Filhote (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 96.6,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50296235720992,
+      "titulo": "Ração Premier Raças Específicas Pug para Cães Adultos Sabor Frango (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 93.2,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312238530848,
+      "titulo": "Ração Premier Raças Específicas Pug para Cães Filhotes Sabor Frango (1kg)",
+      "nomeConcorrente": "Ração Premier Raças Específicas Yorkshire Filhotes",
+      "preco_anterior": 44.8,
+      "preco_novo": 89.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312238563616,
+      "titulo": "Ração Premier Raças Específicas Pug para Cães Filhotes Sabor Frango (2.5kg)",
+      "nomeConcorrente": "Ração Premier Raças Específicas Yorkshire Filhotes",
+      "preco_anterior": 98.8,
+      "preco_novo": 89.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312238596384,
+      "titulo": "Ração Premier Raças Específicas Pug para Cães Filhotes Sabor Frango (7.5kg)",
+      "nomeConcorrente": "Ração Premier Raças Específicas Yorkshire Filhotes",
+      "preco_anterior": 226.8,
+      "preco_novo": 89.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296584241440,
+      "titulo": "Ração Premier Raças Específicas Yorkshire Filhotes (1kg)",
+      "nomeConcorrente": "Ração Premier Raças Específicas Yorkshire Filhotes",
+      "preco_anterior": 43.9,
+      "preco_novo": 89.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296584274208,
+      "titulo": "Ração Premier Raças Específicas Yorkshire Filhotes (2.5kg)",
+      "nomeConcorrente": "Ração Premier Raças Específicas Yorkshire Filhotes",
+      "preco_anterior": 95.7,
+      "preco_novo": 89.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296230936864,
+      "titulo": "Ração Premier Seleção Natural Cães Adultos Raças Pequenas Frango com Batata Doce 2,5 kg (Único)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 67.9,
+      "preco_novo": 250.11,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50296779538720,
+      "titulo": "Ração Premier Seleção Natural para Cães Adultos (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 76.8,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296779571488,
+      "titulo": "Ração Premier Seleção Natural para Cães Adultos (12kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 274.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50312227291424,
+      "titulo": "Ração Premier Seleção Natural para Cães Adultos de Raças Pequenas Sabor Batata Doce (1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 43.1,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312227324192,
+      "titulo": "Ração Premier Seleção Natural para Cães Adultos de Raças Pequenas Sabor Batata Doce (2.5kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 93.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50312227356960,
+      "titulo": "Ração Premier Seleção Natural para Cães Adultos de Raças Pequenas Sabor Batata Doce (10.1kg)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 243.7,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296232608032,
+      "titulo": "Ração Premier Seleção Natural para Cães Adultos de Raças Pequenas Sabor Chia & Quinoa (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 92.7,
+      "preco_novo": 40.05,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296239423776,
+      "titulo": "Ração Premier Seleção Natural para Cães Adultos Sabor Batata Doce 12kg (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 272,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50296239685920,
+      "titulo": "Ração Premier Seleção Natural para Cães Filhotes de Raças Pequenas 2,5kg (Único)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 96.7,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50296233525536,
+      "titulo": "Ração Premier Vitta Natural Cães Adultos Carne e Arroz - 15 Kg (Único)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 135.9,
+      "preco_novo": 250.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296233558304,
+      "titulo": "Ração Premier Vitta Natural Cães Adultos Frango e Cereais - 15 Kg (Único)",
+      "nomeConcorrente": "Ração Premier Seleção Natural para Cães Adultos",
+      "preco_anterior": 135.9,
+      "preco_novo": 250.11,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320698704160,
+      "titulo": "Ração Quatree Gourmet para Cães Adultos De Raças Pequenas (1kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas",
+      "preco_anterior": 18.9,
+      "preco_novo": 276.66,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320698736928,
+      "titulo": "Ração Quatree Gourmet para Cães Adultos De Raças Pequenas (3kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas",
+      "preco_anterior": 207.9,
+      "preco_novo": 276.66,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320698769696,
+      "titulo": "Ração Quatree Gourmet para Cães Adultos De Raças Pequenas (10.1kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas",
+      "preco_anterior": 207.9,
+      "preco_novo": 276.66,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320698802464,
+      "titulo": "Ração Quatree Gourmet para Cães Adultos De Raças Pequenas (20kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas",
+      "preco_anterior": 207.9,
+      "preco_novo": 276.66,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320702046496,
+      "titulo": "Ração Quatree Gourmet para Cães Filhotes De Raças Médias e Grandes (3kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 49.4,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320702079264,
+      "titulo": "Ração Quatree Gourmet para Cães Filhotes De Raças Médias e Grandes (10.1kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 49.4,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320702112032,
+      "titulo": "Ração Quatree Gourmet para Cães Filhotes De Raças Médias e Grandes (15kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 49.4,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320702144800,
+      "titulo": "Ração Quatree Gourmet para Cães Filhotes De Raças Médias e Grandes (20kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 49.4,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320715219232,
+      "titulo": "Ração Quatree Gourmet Sem Corantes para Cães Adultos Raças Médias e Grandes (10.1kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Adultos de Raças Médias",
+      "preco_anterior": 91.1,
+      "preco_novo": 268.47,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320715252000,
+      "titulo": "Ração Quatree Gourmet Sem Corantes para Cães Adultos Raças Médias e Grandes (15kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Adultos de Raças Médias",
+      "preco_anterior": 129.2,
+      "preco_novo": 268.47,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320715284768,
+      "titulo": "Ração Quatree Gourmet Sem Corantes para Cães Adultos Raças Médias e Grandes (20kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Adultos de Raças Médias",
+      "preco_anterior": 167.3,
+      "preco_novo": 268.47,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320905109792,
+      "titulo": "Ração Quatree Life Filhote Porte Medio e Grande - Frango e Arroz (15kg)",
+      "nomeConcorrente": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz",
+      "preco_anterior": 181.4,
+      "preco_novo": 24.12,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50320712040736,
+      "titulo": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz (1kg)",
+      "nomeConcorrente": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz",
+      "preco_anterior": 25.9,
+      "preco_novo": 24.12,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320712073504,
+      "titulo": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz (3kg)",
+      "nomeConcorrente": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz",
+      "preco_anterior": 65.2,
+      "preco_novo": 24.12,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320712106272,
+      "titulo": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz (10.1kg)",
+      "nomeConcorrente": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz",
+      "preco_anterior": 123.8,
+      "preco_novo": 24.12,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50320712139040,
+      "titulo": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz (20kg)",
+      "nomeConcorrente": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz",
+      "preco_anterior": 232.3,
+      "preco_novo": 24.12,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50321028514080,
+      "titulo": "Ração Quatree Life para Cães Adultos de Porte Pequeno - Frango e Arroz (1kg)",
+      "nomeConcorrente": "Ração Golden Light para Cães Adultos de Pequeno Porte",
+      "preco_anterior": 25.9,
+      "preco_novo": 53.37,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50321028546848,
+      "titulo": "Ração Quatree Life para Cães Adultos de Porte Pequeno - Frango e Arroz (3kg)",
+      "nomeConcorrente": "Ração Golden Special Cães Adultos Porte Pequeno Frango e Carne 3 kg",
+      "preco_anterior": 64.3,
+      "preco_novo": 117.81,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50321028579616,
+      "titulo": "Ração Quatree Life para Cães Adultos de Porte Pequeno - Frango e Arroz (10.1kg)",
+      "nomeConcorrente": "Ração Golden Light para Cães Adultos de Pequeno Porte",
+      "preco_anterior": 120.9,
+      "preco_novo": 53.37,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50321028612384,
+      "titulo": "Ração Quatree Life para Cães Adultos de Porte Pequeno - Frango e Arroz (20kg)",
+      "nomeConcorrente": "Ração Golden Light para Cães Adultos de Pequeno Porte",
+      "preco_anterior": 225.6,
+      "preco_novo": 53.37,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50324203012384,
+      "titulo": "Ração Quatree Life para Cães Filhotes de Raças Pequenas (1kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 25.9,
+      "preco_novo": 297.72,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50324203045152,
+      "titulo": "Ração Quatree Life para Cães Filhotes de Raças Pequenas (3kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 207.9,
+      "preco_novo": 297.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50324203077920,
+      "titulo": "Ração Quatree Life para Cães Filhotes de Raças Pequenas (10.1kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 207.9,
+      "preco_novo": 297.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50324203110688,
+      "titulo": "Ração Quatree Life para Cães Filhotes de Raças Pequenas (20kg)",
+      "nomeConcorrente": "Ração Premier para Cães Filhotes de Raças Médias",
+      "preco_anterior": 207.9,
+      "preco_novo": 297.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320935551264,
+      "titulo": "Ração Quatree Select para Cães Adultos de Porte Médio e Grande (15kg)",
+      "nomeConcorrente": "Ração Golden Seleção Natural para Cães Adultos de Porte Médio e Grande Sabor Frango com Batata Doce",
+      "preco_anterior": 154.8,
+      "preco_novo": 161.91,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320935584032,
+      "titulo": "Ração Quatree Select para Cães Adultos de Porte Médio e Grande (20kg)",
+      "nomeConcorrente": "Ração Golden Seleção Natural para Cães Adultos de Porte Médio e Grande Sabor Frango com Batata Doce",
+      "preco_anterior": 198.5,
+      "preco_novo": 161.91,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320903438624,
+      "titulo": "Ração Quatree Select para Cães Adultos de Raças Pequenas (1kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas",
+      "preco_anterior": 24.7,
+      "preco_novo": 276.66,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320903471392,
+      "titulo": "Ração Quatree Select para Cães Adultos de Raças Pequenas (3kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas",
+      "preco_anterior": 207.9,
+      "preco_novo": 276.66,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320903504160,
+      "titulo": "Ração Quatree Select para Cães Adultos de Raças Pequenas (10.1kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas",
+      "preco_anterior": 207.9,
+      "preco_novo": 276.66,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320903536928,
+      "titulo": "Ração Quatree Select para Cães Adultos de Raças Pequenas (15kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas",
+      "preco_anterior": 207.9,
+      "preco_novo": 276.66,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320903569696,
+      "titulo": "Ração Quatree Select para Cães Adultos de Raças Pequenas (20kg)",
+      "nomeConcorrente": "Ração Premier Fórmula para Cães Adultos de Raças Pequenas",
+      "preco_anterior": 207.9,
+      "preco_novo": 276.66,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320936861984,
+      "titulo": "Ração Quatree Select para Cães Filhotes de Porte Médio e Grande (3kg)",
+      "nomeConcorrente": "Ração Quatree Supreme Filhotes Portes Medio e Grande",
+      "preco_anterior": 60.8,
+      "preco_novo": 206.1,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320936894752,
+      "titulo": "Ração Quatree Select para Cães Filhotes de Porte Médio e Grande (15kg)",
+      "nomeConcorrente": "Ração Quatree Supreme Filhotes Portes Medio e Grande",
+      "preco_anterior": 167.2,
+      "preco_novo": 206.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320936927520,
+      "titulo": "Ração Quatree Select para Cães Filhotes de Porte Médio e Grande (20kg)",
+      "nomeConcorrente": "Ração Quatree Supreme Filhotes Portes Medio e Grande",
+      "preco_anterior": 216.6,
+      "preco_novo": 206.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320827023648,
+      "titulo": "Ração Quatree Select para Cães Filhotes de Porte Pequeno (1kg)",
+      "nomeConcorrente": "Ração Quatree Select para Cães Filhotes de Porte Pequeno",
+      "preco_anterior": 24.7,
+      "preco_novo": 245.61,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320827056416,
+      "titulo": "Ração Quatree Select para Cães Filhotes de Porte Pequeno (3kg)",
+      "nomeConcorrente": "Ração Quatree Select para Cães Filhotes de Porte Pequeno",
+      "preco_anterior": 60.8,
+      "preco_novo": 245.61,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320827089184,
+      "titulo": "Ração Quatree Select para Cães Filhotes de Porte Pequeno (10.1kg)",
+      "nomeConcorrente": "Ração Quatree Select para Cães Filhotes de Porte Pequeno",
+      "preco_anterior": 113.9,
+      "preco_novo": 245.61,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320827121952,
+      "titulo": "Ração Quatree Select para Cães Filhotes de Porte Pequeno (20kg)",
+      "nomeConcorrente": "Ração Quatree Select para Cães Filhotes de Porte Pequeno",
+      "preco_anterior": 214.7,
+      "preco_novo": 245.61,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320930930976,
+      "titulo": "Ração Quatree Supreme Adulto Porte Medio e Grande - Frango e Batata Doce (15kg)",
+      "nomeConcorrente": "Ração Golden Seleção Natural para Cães Adultos de Porte Médio e Grande Sabor Frango com Batata Doce",
+      "preco_anterior": 237.1,
+      "preco_novo": 161.91,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320930963744,
+      "titulo": "Ração Quatree Supreme Adulto Porte Medio e Grande - Frango e Batata Doce (20kg)",
+      "nomeConcorrente": "Ração Golden Seleção Natural para Cães Adultos de Porte Médio e Grande Sabor Frango com Batata Doce",
+      "preco_anterior": 306.2,
+      "preco_novo": 161.91,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320931684640,
+      "titulo": "Ração Quatree Supreme Adulto Porte Pequeno - Frango e Batata Doce (1kg)",
+      "nomeConcorrente": "Ração Golden Seleção Natural para Cães Adultos de Porte Pequeno Sabor Frango com Batata Doce",
+      "preco_anterior": 30.7,
+      "preco_novo": 138.51,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320931717408,
+      "titulo": "Ração Quatree Supreme Adulto Porte Pequeno - Frango e Batata Doce (3kg)",
+      "nomeConcorrente": "Ração Golden Seleção Natural para Cães Adultos de Porte Pequeno Sabor Frango com Batata Doce",
+      "preco_anterior": 90.2,
+      "preco_novo": 138.51,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320931750176,
+      "titulo": "Ração Quatree Supreme Adulto Porte Pequeno - Frango e Batata Doce (10kg)",
+      "nomeConcorrente": "Ração Golden Seleção Natural para Cães Adultos de Porte Pequeno Sabor Frango com Batata Doce",
+      "preco_anterior": 165.9,
+      "preco_novo": 138.51,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320931782944,
+      "titulo": "Ração Quatree Supreme Adulto Porte Pequeno - Frango e Batata Doce (15kg)",
+      "nomeConcorrente": "Ração Golden Seleção Natural para Cães Adultos de Porte Pequeno Sabor Frango com Batata Doce",
+      "preco_anterior": 237.1,
+      "preco_novo": 138.51,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320705257760,
+      "titulo": "Ração Quatree Supreme Dermato para Cães Adultos Sabor Cordeiro e Salmão (3kg)",
+      "nomeConcorrente": "Ração Golden para Cães Adultos Sabor Salmão e Arroz",
+      "preco_anterior": 159.9,
+      "preco_novo": 162.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320705290528,
+      "titulo": "Ração Quatree Supreme Dermato para Cães Adultos Sabor Cordeiro e Salmão (15kg)",
+      "nomeConcorrente": "Ração Golden para Cães Adultos Sabor Salmão e Arroz",
+      "preco_anterior": 159.9,
+      "preco_novo": 162.72,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320906092832,
+      "titulo": "Ração Quatree Supreme Filhote Porte Pequeno - Frango e Batata Doce (1kg)",
+      "nomeConcorrente": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz",
+      "preco_anterior": 31.6,
+      "preco_novo": 24.12,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320906125600,
+      "titulo": "Ração Quatree Supreme Filhote Porte Pequeno - Frango e Batata Doce (3kg)",
+      "nomeConcorrente": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz",
+      "preco_anterior": 91.2,
+      "preco_novo": 24.12,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50320906158368,
+      "titulo": "Ração Quatree Supreme Filhote Porte Pequeno - Frango e Batata Doce (10.1kg)",
+      "nomeConcorrente": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz",
+      "preco_anterior": 179.5,
+      "preco_novo": 24.12,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50320906191136,
+      "titulo": "Ração Quatree Supreme Filhote Porte Pequeno - Frango e Batata Doce (15kg)",
+      "nomeConcorrente": "Ração Quatree Life Filhote Porte Pequeno - Frango e Arroz",
+      "preco_anterior": 241.9,
+      "preco_novo": 24.12,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [QUEDA ALTA (<3x) - VERIFICAR MARGEM]"
+    },
+    {
+      "variantId": 50324238336288,
+      "titulo": "Ração Quatree Supreme Filhotes Portes Medio e Grande (10.1kg)",
+      "nomeConcorrente": "Ração Quatree Supreme Filhotes Portes Medio e Grande",
+      "preco_anterior": 166.9,
+      "preco_novo": 206.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50324238369056,
+      "titulo": "Ração Quatree Supreme Filhotes Portes Medio e Grande (15kg)",
+      "nomeConcorrente": "Ração Quatree Supreme Filhotes Portes Medio e Grande",
+      "preco_anterior": 241.9,
+      "preco_novo": 206.1,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50321045389600,
+      "titulo": "Ração Quatree Supreme para Cães Sênior +7 de Porte Pequeno Sabor Salmão e Frango (1kg)",
+      "nomeConcorrente": "Ração Premier Nattu para Cães Sênior de Porte Pequeno Sabor Mandioca",
+      "preco_anterior": 30.7,
+      "preco_novo": 87.3,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50321045422368,
+      "titulo": "Ração Quatree Supreme para Cães Sênior +7 de Porte Pequeno Sabor Salmão e Frango (3kg)",
+      "nomeConcorrente": "Ração Premier Nattu para Cães Sênior de Porte Pequeno Sabor Mandioca",
+      "preco_anterior": 89.3,
+      "preco_novo": 87.3,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50321045455136,
+      "titulo": "Ração Quatree Supreme para Cães Sênior +7 de Porte Pequeno Sabor Salmão e Frango (10.1kg)",
+      "nomeConcorrente": "Ração Premier Nattu para Cães Sênior de Porte Pequeno Sabor Mandioca",
+      "preco_anterior": 165.1,
+      "preco_novo": 87.3,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296233034016,
+      "titulo": "Ração Úmida Premier Gourmet para Cães Adultos Raças Pequenas Sabor Peito de Frango 85g (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 9.9,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50296242143520,
+      "titulo": "Ração Úmida Premier Gourmet para Cães Adultos Sabor Salmão 85g (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 9.9,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320630513952,
+      "titulo": "Ração Úmida Quatree Supreme Cordeiro para Cães Adultos (Único)",
+      "nomeConcorrente": "Ração Quatree Supreme Light Cães Castrado Adulto RP",
+      "preco_anterior": 3.4,
+      "preco_novo": 74.61,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320630481184,
+      "titulo": "Ração Úmida Quatree Supreme Frango para Cães Adultos (Único)",
+      "nomeConcorrente": "Ração Úmida Premier Gourmet para Cães Adultos Raças Pequenas Sabor Peito de Frango 85g",
+      "preco_anterior": 3.4,
+      "preco_novo": 8.01,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287400943904,
+      "titulo": "Ração Úmida Sachê Golden Gourmet para Cães Adultos de Porte Médio e Grande (Único)",
+      "nomeConcorrente": "Ração Úmida Sachê Premier para Cães Adultos Porte Médio e Grande Sabor Frango, Batata Doce e Brócolis 85g",
+      "preco_anterior": 5,
+      "preco_novo": 8.01,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287402123552,
+      "titulo": "Ração Úmida Sachê Golden Gourmet para Cães Adultos de Porte Pequeno (Único)",
+      "nomeConcorrente": "Ração Úmida Sachê Premier para Cães Adultos Porte Médio e Grande Sabor Frango, Batata Doce e Brócolis 85g",
+      "preco_anterior": 5,
+      "preco_novo": 8.01,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287401009440,
+      "titulo": "Ração Úmida Sachê Golden Gourmet para Cães Adultos de Porte Pequeno Sabor Carne (Único)",
+      "nomeConcorrente": "Ração Úmida Premier Gourmet para Cães Adultos Sabor Salmão 85g",
+      "preco_anterior": 5,
+      "preco_novo": 8.9,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50287402058016,
+      "titulo": "Ração Úmida Sachê Golden Gourmet para Cães Filhotes Sabor Frango (Único)",
+      "nomeConcorrente": "Ração Úmida Premier para Cães Filhotes Sabor Frango, Batata Doce e Brócolis 85g",
+      "preco_anterior": 5,
+      "preco_novo": 8.01,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50296230478112,
+      "titulo": "Ração Úmida Sachê Premier para Cães Adultos Porte Médio e Grande Sabor Frango, Batata Doce e Brócolis 85g (Único)",
+      "nomeConcorrente": "Ração Premier para Yorkshire Adulto",
+      "preco_anterior": 9.9,
+      "preco_novo": 40.05,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320630120736,
+      "titulo": "Ração Úmida Sache Quatree Supreme Carne para Cães Adultos (Único)",
+      "nomeConcorrente": "Ração Úmida Sachê Golden Gourmet para Cães Adultos de Porte Pequeno Sabor Carne",
+      "preco_anterior": 3.4,
+      "preco_novo": 2.9,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320626647328,
+      "titulo": "Snack Quatree Bifinho Para Cães Sabor Carne 60g (Único)",
+      "nomeConcorrente": "Quatree para Cães Adultos Sabor Carne",
+      "preco_anterior": 4.9,
+      "preco_novo": 89.9,
+      "status": "IGNORADO",
+      "motivo": "⚠️ [AUMENTO ALTO (>3x) - VERIFICAR DIGITAÇÃO CONCORRENTE]"
+    },
+    {
+      "variantId": 50320626123040,
+      "titulo": "Snack Quatree Nuggets Previne Bola de Pelo para Gatos Sabor Frango 150g (Único)",
+      "nomeConcorrente": "Snack Quatree Nuggets Previne Bola de Pelo para Gatos Sabor Frango 150g",
+      "preco_anterior": 15.9,
+      "preco_novo": 16.5,
+      "status": "SUCESSO"
+    },
+    {
+      "variantId": 50320626450720,
+      "titulo": "Snack Quatree para Gatos Adultos Sabor Carne Bola de Pelo (Único)",
+      "nomeConcorrente": "Snack Quatree Nuggets Previne Bola de Pelo para Gatos Sabor Frango 150g",
+      "preco_anterior": 15.9,
+      "preco_novo": 16.5,
+      "status": "SUCESSO"
+    }
+  ]
+}

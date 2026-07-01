@@ -1,0 +1,5 @@
+{
+  "_doc": "Base de aniversários de pets. Carmen popula manualmente OU via coleta passiva no atendimento (a IA pergunta o aniversário do pet ao fim do primeiro atendimento). Formato data_nasc: DD/MM (ano ignorado).",
+  "atualizado_em": "2026-06-17",
+  "pets": []
+}

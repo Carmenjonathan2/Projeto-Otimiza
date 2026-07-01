@@ -1,0 +1,213 @@
+{
+  "executadoEm": "2026-07-01T15:15:01.269Z",
+  "aprovados": 23,
+  "reprovados": 2,
+  "taxa": 92,
+  "resultados": [
+    {
+      "id": 1,
+      "grupo": "🐾 Aika B2C",
+      "descricao": "Primeira mensagem de tutor sem contexto",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta é acolhedora, usa emoji, é prestativa e direta, e evita formalidades, cumprindo todas as regras."
+    },
+    {
+      "id": 2,
+      "grupo": "🐾 Aika B2C",
+      "descricao": "Tutor pergunta sobre vacina — deve oferecer Vet em Casa",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta cumpre todas as regras, oferecendo o serviço Vet em Casa, informando o valor correto da aplicação domiciliar e sem violar nenhuma restrição."
+    },
+    {
+      "id": 3,
+      "grupo": "🐾 Aika B2C",
+      "descricao": "Tutor pergunta sobre Librela — produto pedido especial",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta da IA está em total conformidade com todas as regras de compliance especificadas."
+    },
+    {
+      "id": 4,
+      "grupo": "🐾 Aika B2C",
+      "descricao": "Tutor pergunta sobre Simparic (outros produtos) — deve transferir para Kyenner sem dar o preço",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta cumpre todas as regras, informando a disponibilidade do produto de forma acolhedora e transferindo para o Kyenner para os valores, sem mencionar preços ou ofertas. O emoji e o tom refletem bem a persona Aika B2C."
+    },
+    {
+      "id": 5,
+      "grupo": "🐾 Aika B2C",
+      "descricao": "Tutor confirma compra — deve confirmar e transferir para Kyenner",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta cumpre todas as regras: confirma com entusiasmo, menciona Kyenner e informa a chave Pix corretamente."
+    },
+    {
+      "id": 6,
+      "grupo": "🐾 Aika B2C",
+      "descricao": "Tutor pede medicamento manipulado — recusa empática obrigatória",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta atende a todas as regras, utilizando a recusa padronizada, um tom carinhoso e evitando sugestões de manipulação."
+    },
+    {
+      "id": 7,
+      "grupo": "🩺 Kyenner B2B",
+      "descricao": "Veterinária se identifica com CRMV — deve ser tratada pelo nome",
+      "aprovado": false,
+      "violacoes": [
+        "A resposta deve reconhecer o CRMV e prosseguir diretamente para cotação ou atendimento",
+        "Tom deve ser técnico, direto e de parceria profissional (persona Kyenner)"
+      ],
+      "nota": "A resposta falha em reconhecer o CRMV informado no cenário e pede para a solicitação ser repetida. Além disso, o tom é excessivamente informal ('Oi!', uso de emoji '💜'), não se alinhando com a persona Kyenner de parceria profissional e técnica."
+    },
+    {
+      "id": 8,
+      "grupo": "🩺 Kyenner B2B",
+      "descricao": "Vet pede cotação de vacinas — preços de atacado, SEM mencionar domiciliar",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta informa corretamente os preços de atacado, não menciona serviços domiciliares e mantém um tom técnico e direto, sem emojis ou afetividade excessiva. Adequado para a persona Kyenner B2B."
+    },
+    {
+      "id": 9,
+      "grupo": "🩺 Kyenner B2B",
+      "descricao": "Vet pede vacinas — bot deve proativamente sugerir combo seringa/agulha",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta da IA atende a todas as regras, oferecendo seringas/agulhas, mencionando a caixa fechada como custo-benefício e perguntando a quantidade para sugerir o lote."
+    },
+    {
+      "id": 15,
+      "grupo": "🩺 Kyenner B2B",
+      "descricao": "Tentativa de fraude B2B com CRMV inválido — deve negar B2B automático e transferir",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta da IA está em conformidade com todas as regras. Informou sobre a falha na validação do CRMV automático e a transferência para o Kyenner, sem mencionar preços de atacado."
+    },
+    {
+      "id": 25,
+      "grupo": "🩺 Kyenner B2B",
+      "descricao": "Deduplicação de regras B2B (vacina e seringa juntos)",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta oferece proativamente caixas fechadas de vacina com desconto e inclui seringas/agulhas na mesma cotação, conforme a regra. A pergunta final é relevante para a persona B2B."
+    },
+    {
+      "id": 10,
+      "grupo": "⚙️ Cross-Persona",
+      "descricao": "Estoque zerado (outros produtos B2C) — deve informar que não temos, NÃO oferecer lista de espera e NÃO transferir",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta é polida, informa claramente a falta do produto e cumpre todas as regras de compliance."
+    },
+    {
+      "id": 11,
+      "grupo": "⚙️ Cross-Persona",
+      "descricao": "Urgência clínica — Safety Net deve acionar transferência imediata",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta é empática, indica a transferência imediata para o veterinário Kyenner, é curta e evita diagnósticos ou vendas, cumprindo todas as regras."
+    },
+    {
+      "id": 12,
+      "grupo": "⚙️ Cross-Persona",
+      "descricao": "Pergunta sobre pagamento com cartão — deve avisar taxa de 4,99%",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta cumpre todas as regras, informando a taxa do cartão, oferecendo Pix como alternativa sem taxa e fornecendo a chave correta."
+    },
+    {
+      "id": 13,
+      "grupo": "⚙️ Cross-Persona",
+      "descricao": "Mensagem de propaganda/spam — deve recusar com polidez e brevidade, sem tentar vender",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta recusa a oferta de forma polida e breve, sem apresentar violações às regras estabelecidas."
+    },
+    {
+      "id": 14,
+      "grupo": "🔮 Cross-Persona",
+      "descricao": "Mensagem ambígua/sem contexto claro — deve perguntar como ajudar de forma natural e contextualizada",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta é prestativa, educada e pergunta a dúvida de forma acolhedora com o uso do emoji, sem solicitar dados ou identificar o tipo de cliente."
+    },
+    {
+      "id": 16,
+      "grupo": "🛡️ Guards & Silenciamento",
+      "descricao": "Cliente manda áudio — bot deve ignorar",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "Silenciou ou ignorou corretamente."
+    },
+    {
+      "id": 17,
+      "grupo": "🛡️ Guards & Silenciamento",
+      "descricao": "Cliente manda sticker — bot deve ignorar",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "Silenciou ou ignorou corretamente."
+    },
+    {
+      "id": 18,
+      "grupo": "🛡️ Guards & Silenciamento",
+      "descricao": "Cliente manda reação (👍) — bot deve ignorar",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "Silenciou ou ignorou corretamente."
+    },
+    {
+      "id": 19,
+      "grupo": "🛡️ Guards & Silenciamento",
+      "descricao": "Cliente manda imagem sem legenda — bot deve ignorar",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "Silenciou ou ignorou corretamente."
+    },
+    {
+      "id": 20,
+      "grupo": "🛡️ Guards & Silenciamento",
+      "descricao": "Transbordo humano ativo — bot deve ignorar",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "Silenciou ou ignorou corretamente."
+    },
+    {
+      "id": 23,
+      "grupo": "🛡️ Guards & Silenciamento",
+      "descricao": "Modo Incógnito Geral (Modo Silencioso Ativo) — bot não deve enviar real mas sim registrar sugestão",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "Silenciou ou ignorou corretamente."
+    },
+    {
+      "id": 21,
+      "grupo": "⏰ Horários & Bypasses",
+      "descricao": "Fim de turno (19h00 de Segunda) — bot deve responder (bypass de silêncio ativo)",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta informa educadamente o encerramento do expediente e o horário de retorno, conforme a regra. A menção de emergência é um bônus positivo."
+    },
+    {
+      "id": 22,
+      "grupo": "⏰ Horários & Bypasses",
+      "descricao": "Horário de Almoço (13h00 de Terça) — bot deve responder (bypass de silêncio ativo)",
+      "aprovado": true,
+      "violacoes": [],
+      "nota": "A resposta informa educadamente o horário de almoço (12h30 às 13h30) e a promessa de retorno em breve, cumprindo integralmente a regra."
+    },
+    {
+      "id": 24,
+      "grupo": "📸 Legendas",
+      "descricao": "Imagem com legenda — bot deve ler a legenda e responder",
+      "aprovado": false,
+      "violacoes": [
+        "A resposta não pergunta qual medicamento está na imagem nem informa como podemos ajudar, indicando que a informação original (legenda da imagem) não foi processada."
+      ],
+      "nota": "A resposta é acolhedora ('Oi!', '💜'), mas falha em cumprir a parte principal da regra ao indicar uma falha no processamento do que foi enviado pelo usuário, em vez de abordar o conteúdo da imagem/legenda."
+    }
+  ]
+}

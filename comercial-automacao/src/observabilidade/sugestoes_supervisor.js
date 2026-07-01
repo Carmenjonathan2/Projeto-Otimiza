@@ -1,95 +1,75 @@
-/**
- * Supervisor de Sugestões — registra respostas do bot e alerta equipe via Telegram.
- * Integrar em server_integracao.js após resposta do Gemini.
- */
-
-const fs   = require('fs');
+'use strict';
+const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
-const ARQUIVO_JSONL    = path.join(__dirname, '../../sugestoes_bot.jsonl');
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
-const TELEGRAM_IDS     = ['6823632451', '868045878']; // Carmen, Jonathas
+const ARQUIVO = path.resolve(__dirname, '../../sugestoes_bot.jsonl');
 
-/**
- * Mascara telefone para privacidade: 5511912345678 → 551191***5678
- */
-function mascararTelefone(telefone) {
-  const t = String(telefone);
-  if (t.length < 8) return '***';
-  return t.slice(0, 6) + '***' + t.slice(-4);
+function registrarSugestao({ numero, mensagemCliente, respostaSugerida, persona, estrategiaAtivada, contextoInjetado }) {
+    const registro = {
+        id: `${Date.now()}_${String(numero).slice(-4)}`,
+        timestamp: new Date().toISOString(),
+        numero: String(numero).replace(/(\d{2})(\d{2})(\d{4,5})(\d{4})/, '$1$2****$4'),
+        persona: persona || 'Aika',
+        mensagemCliente,
+        respostaSugerida,
+        estrategiaAtivada: estrategiaAtivada || null,
+        contextoInjetado: (contextoInjetado || '').substring(0, 500),
+        aprovado_humano: null,
+        motivo_reprovacao: null
+    };
+    fs.appendFileSync(ARQUIVO, JSON.stringify(registro) + '\n', 'utf8');
+    console.log(`[SUPERVISOR] Sugestão registrada: ${registro.id}`);
+    return registro.id;
 }
 
-/**
- * Registra uma interação no arquivo JSONL.
- * @param {string} telefone - Número do cliente
- * @param {string} intencaoDetectada - Intenção identificada pelo bot
- * @param {string} respostaBot - Resposta gerada pelo Gemini
- * @param {boolean} flagRevisao - true se o bot indicou incerteza ou escalada
- */
-function registrarSugestao(telefone, intencaoDetectada, respostaBot, flagRevisao = false) {
-  const entrada = {
-    timestamp:          new Date().toISOString(),
-    telefone_mascarado: mascararTelefone(telefone),
-    intencao_detectada: intencaoDetectada,
-    resposta_bot:       respostaBot ? respostaBot.substring(0, 500) : '',
-    flag_revisao:       flagRevisao
-  };
+function alertarTelegram({ id, persona, mensagemCliente, respostaSugerida, estrategiaAtivada }) {
+    const token = process.env.TELEGRAM_BOT_TOKEN;
+    const chatIds = (process.env.TELEGRAM_CHAT_IDS || '6823632451,868045878').split(',').filter(Boolean);
+    if (!token) return;
 
-  try {
-    fs.appendFileSync(ARQUIVO_JSONL, JSON.stringify(entrada) + '\n', 'utf8');
-  } catch (err) {
-    console.error('[SUPERVISOR] Erro ao registrar sugestão:', err.message);
-  }
+    const emoji = persona === 'Kyenner' ? '🦷' : '🐾';
+    const texto = `${emoji} *SUGESTÃO ${persona.toUpperCase()} [Incógnito]*\n\n💬 *Cliente:*\n_${mensagemCliente.substring(0, 200)}_\n\n🎯 Estratégia: ${estrategiaAtivada || 'nenhuma'}\n\n🤖 *Bot sugere:*\n${respostaSugerida.substring(0, 400)}\n\n🆔 ID: ${id}`;
 
-  return entrada;
-}
-
-/**
- * Envia alerta no Telegram para Carmen e Jonathas.
- * Só dispara se flagRevisao=true ou se for escalada para humano.
- */
-function alertarTelegram(intencaoDetectada, respostaBot, telefone) {
-  if (!TELEGRAM_BOT_TOKEN) {
-    console.warn('[SUPERVISOR] TELEGRAM_BOT_TOKEN não configurado. Alerta não enviado.');
-    return;
-  }
-
-  const msg = encodeURIComponent(
-    `🔔 *Aika — Revisão Necessária*\n\n` +
-    `📱 Cliente: ${mascararTelefone(telefone)}\n` +
-    `🎯 Intenção: ${intencaoDetectada}\n` +
-    `💬 Resposta: ${(respostaBot || '').substring(0, 200)}...\n\n` +
-    `_Acesse o Chatwoot para revisar._`
-  );
-
-  TELEGRAM_IDS.forEach(chatId => {
-    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${chatId}&text=${msg}&parse_mode=Markdown`;
-    https.get(url, (res) => {
-      if (res.statusCode !== 200) {
-        console.error(`[SUPERVISOR] Telegram erro ${res.statusCode} para ${chatId}`);
-      }
-    }).on('error', (err) => {
-      console.error('[SUPERVISOR] Telegram request error:', err.message);
+    chatIds.forEach(chatId => {
+        const data = JSON.stringify({ chat_id: chatId.trim(), text: texto, parse_mode: 'Markdown' });
+        const req = https.request(
+            `https://api.telegram.org/bot${token}/sendMessage`,
+            { method: 'POST', headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) } },
+            res => res.resume()
+        );
+        req.on('error', e => console.error(`[SUPERVISOR-TG] ${e.message}`));
+        req.write(data);
+        req.end();
     });
-  });
 }
 
-/**
- * Ponto de entrada principal — chamar após resposta do Gemini.
- * @param {object} params
- * @param {string} params.telefone
- * @param {string} params.intencaoDetectada
- * @param {string} params.respostaBot
- * @param {boolean} params.flagRevisao - true quando bot está incerto ou escalando
- * @param {boolean} params.alertar - true para enviar alerta Telegram imediato
- */
-function supervisionar({ telefone, intencaoDetectada, respostaBot, flagRevisao = false, alertar = false }) {
-  registrarSugestao(telefone, intencaoDetectada, respostaBot, flagRevisao);
+function supervisionar({ telefone, intencaoDetectada, respostaBot, flagRevisao, alertar }) {
+    const id = registrarSugestao({
+        numero: telefone,
+        mensagemCliente: "(Mensagem capturada via webhook)",
+        respostaSugerida: respostaBot,
+        persona: 'Aika',
+        estrategiaAtivada: intencaoDetectada,
+        contextoInjetado: ''
+    });
 
-  if (flagRevisao || alertar) {
-    alertarTelegram(intencaoDetectada, respostaBot, telefone);
-  }
+    // Alertar Telegram por padrão se estiver no modo silencioso ou se alertar for true
+    if (alertar !== false || process.env.MODO_SILENCIOSO === 'true') {
+        try {
+            alertarTelegram({
+                id,
+                persona: 'Aika',
+                mensagemCliente: "(Mensagem capturada via webhook)",
+                respostaSugerida: respostaBot,
+                estrategiaAtivada: intencaoDetectada
+            });
+        } catch (e) {
+            console.error(`[SUPERVISOR-TG] Erro ao enviar alerta: ${e.message}`);
+        }
+    }
+
+    return id;
 }
 
-module.exports = { supervisionar, registrarSugestao, alertarTelegram };
+module.exports = { registrarSugestao, alertarTelegram, supervisionar };

@@ -1,0 +1,20 @@
+{
+  "name": "otimiza-farmavet-bot",
+  "version": "1.0.0",
+  "description": "Bot WhatsApp comercial Otimiza FarmaVet — webhook Z-API + Gemini + GestãoClick",
+  "main": "server_integracao.js",
+  "scripts": {
+    "start": "node server_integracao.js",
+    "dev": "MODO_SILENCIOSO=true node server_integracao.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "node-cron": "^3.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

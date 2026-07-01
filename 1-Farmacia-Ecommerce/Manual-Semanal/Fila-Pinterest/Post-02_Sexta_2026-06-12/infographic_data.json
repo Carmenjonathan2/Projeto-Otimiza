@@ -1,0 +1,96 @@
+{
+  "posting_time": "2026-06-12 09:00",
+  "dia_nome": "Sexta",
+  "titulo_pin": "Gatos em Apartamento: Como Criar um Espaço Vertical",
+  "descricao_pin": "A verticalização é fundamental para o bem-estar físico e mental dos felinos. Veja como prateleiras, nichos e redes podem transformar a rotina do seu gato no apartamento, reduzindo o estresse e promovendo exercícios. #gatosemapartamento #comportamentofelino #otimizafarmavet",
+  "whatsapp_link": "https://wa.me/5531987936822?text=Olá! Vim pelo Pinterest e gostaria de saber mais sobre bem-estar e cuidados com gatos.",
+  "infographic_data": {
+    "header": {
+      "title": "Gatos em Apartamento: Como Criar um Espaço Vertical",
+      "subtitle": "MAXIMIZANDO O BEM-ESTAR FELINO EM PEQUENOS ESPAÇOS",
+      "category": "COMPORTAMENTO",
+      "schedule": "SEXTA, 12 DE JUNHO | 09:00"
+    },
+    "columns": [
+      {
+        "title": "Benefícios",
+        "type": "list",
+        "icon": "check",
+        "description": "Por que verticalizar o apartamento para os gatos?",
+        "content": {
+          "items": [
+            {
+              "label": "Segurança",
+              "desc": "Gatos no alto sentem-se protegidos de predadores imaginários."
+            },
+            {
+              "label": "Exercício Físico",
+              "desc": "Estimula o instinto de caça, saltos, equilíbrio e escaladas."
+            },
+            {
+              "label": "Harmonia",
+              "desc": "Reduz conflitos territoriais entre múltiplos gatos."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Estruturas",
+        "type": "diagram",
+        "icon": "compare",
+        "description": "Elementos ideais para compor a verticalização",
+        "content": {
+          "nodes": [
+            {
+              "label": "Prateleiras",
+              "desc": "Caminhos nas paredes com carpete para melhor aderência."
+            },
+            {
+              "label": "Nichos",
+              "desc": "Esconderijos fechados no alto para sonecas seguras."
+            },
+            {
+              "label": "Pontes / Redes",
+              "desc": "Conectores suspensos para transitar entre móveis."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Como Fazer",
+        "type": "flowchart",
+        "icon": "bulb",
+        "description": "Planeje a instalação com segurança para o pet",
+        "content": {
+          "steps": [
+            {
+              "step": "Localização",
+              "options": [
+                "Próximo a janelas com tela",
+                "Sala principal"
+              ]
+            },
+            {
+              "step": "Altura",
+              "options": [
+                "Fácil acesso",
+                "Escadas progressivas"
+              ]
+            },
+            {
+              "step": "Segurança",
+              "options": [
+                "Suportes reforçados",
+                "Superfícies antiderrapantes"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "footer": {
+      "cta_text": "Dúvidas? Chame no WhatsApp!",
+      "hashtags": "#saudepet #otimizafarmavet"
+    }
+  }
+}

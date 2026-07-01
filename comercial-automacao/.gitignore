@@ -1,17 +1,14 @@
-# Credenciais e tokens OAuth
 credentials.json
 token.json
-
-# Estado de conversas (runtime — não versionado)
+token_gmb.json
+sugestoes_bot.jsonl
+exemplos_aprovados.jsonl
+tiktok_fila_revisao.jsonl
+kyenner_vagas_vistas.json
+flyers/
+audios_comercial/
 conversas_state.json
 conversas_state_qa.json
-
-# Logs de observabilidade
-sugestoes_bot.jsonl
-
-# Variáveis de ambiente locais
 .env
 .env.local
-
-# Dependências
 node_modules/

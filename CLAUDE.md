@@ -7,7 +7,8 @@ Nossa arquitetura de Agentes funciona baseada em memória partilhada. No diretó
 
 **Regra de Ouro (MCP/CLI):** 
 1. Sempre que você iniciar um projeto, revisar prioridades ou precisar saber o que deve ser feito, LEIA o arquivo: `painel-autoridade/contexto_mestre.json`.
-2. Este arquivo JSON dita o fluxo do projeto. 
+2. OBRIGATÓRIO ler o arquivo `painel-autoridade/SNC.md` para garantir que a voz e a intenção (emoção) da Otimiza sejam aplicadas em todos os outputs.
+3. Este arquivo JSON (`contexto_mestre.json`) dita o fluxo do projeto.
    - A coluna `cofre` contém ideias a serem desenhadas.
    - A coluna `gargalo` são obrigações de execução manual ou refinos a serem revisados pelo RT.
    - A coluna `motor` contém o que já foi automatizado ou corrigido.

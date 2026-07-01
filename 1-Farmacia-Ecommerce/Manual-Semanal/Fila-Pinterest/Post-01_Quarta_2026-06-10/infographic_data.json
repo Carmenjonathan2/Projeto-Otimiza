@@ -1,0 +1,117 @@
+{
+  "posting_time": "2026-06-10 09:00",
+  "dia_nome": "Quarta",
+  "titulo_pin": "Ração Premium vs Ração Comum: Qual Escolher",
+  "descricao_pin": "Entenda as principais diferenças entre a Ração Comum, Premium e Super Premium para a nutrição e saúde do seu cão ou gato. Conheça as tabelas comparativas e saiba como escolher com base na idade, porte e necessidades do seu melhor amigo. #saudepet #nutricaopet #otimizafarmavet",
+  "whatsapp_link": "https://wa.me/5531987936822?text=Olá! Vim pelo Pinterest e gostaria de cotar rações ou tirar dúvidas sobre alimentação pet.",
+  "infographic_data": {
+    "header": {
+      "title": "Ração Premium vs Ração Comum: Qual Escolher",
+      "subtitle": "GUIA COMPLETO DE ALIMENTAÇÃO PARA PETS",
+      "category": "NUTRIÇÃO",
+      "schedule": "QUARTA, 10 DE JUNHO | 09:00"
+    },
+    "columns": [
+      {
+        "title": "Diferenças",
+        "type": "diagram",
+        "icon": "check",
+        "description": "Diferenças entre ração premium, super premium e comum afetam saúde do pet",
+        "content": {
+          "nodes": [
+            {
+              "label": "Comum",
+              "desc": "Ingredientes básicos, menor digestibilidade e custo mais baixo."
+            },
+            {
+              "label": "Premium",
+              "desc": "Melhores ingredientes, equilíbrio nutricional e ótima aceitação."
+            },
+            {
+              "label": "Super Premium",
+              "desc": "Maior qualidade de proteína, ingredientes funcionais e alta digestibilidade."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Compare",
+        "type": "table",
+        "icon": "compare",
+        "description": "Compare a qualidade de ingredientes, valor nutricional e custo-benefício",
+        "content": {
+          "headers": [
+            "Critério",
+            "Comum",
+            "Premium",
+            "Super Premium"
+          ],
+          "rows": [
+            {
+              "criterio": "Ingredientes",
+              "comum": "Subprodutos / Grãos",
+              "premium": "Farinhas selecionadas",
+              "super_premium": "Carne fresca e selecionada"
+            },
+            {
+              "criterio": "Valor Nutricional",
+              "comum": "Básico",
+              "premium": "Equilibrado (Vitaminas)",
+              "super_premium": "Funcional (Vitaminas + Minerais)"
+            },
+            {
+              "criterio": "Digestibilidade",
+              "comum": "Baixa (fezes volumosas)",
+              "premium": "Média / Boa",
+              "super_premium": "Alta (fezes firmes e menores)"
+            },
+            {
+              "criterio": "Custo-Benefício",
+              "comum": "Baixo a Médio",
+              "premium": "Excelente",
+              "super_premium": "Alto a Longo Prazo"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Aprenda",
+        "type": "flowchart",
+        "icon": "bulb",
+        "description": "Como escolher a ração ideal para as necessidades do seu cão ou gato",
+        "content": {
+          "steps": [
+            {
+              "step": "Idade",
+              "options": [
+                "filhote",
+                "adulto",
+                "sênior"
+              ]
+            },
+            {
+              "step": "Porte",
+              "options": [
+                "pequeno",
+                "médio",
+                "grande"
+              ]
+            },
+            {
+              "step": "Necessidades Especiais",
+              "options": [
+                "estômago sensível",
+                "controle de peso",
+                "alergias"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "footer": {
+      "cta_text": "Dúvidas? Chame no WhatsApp!",
+      "hashtags": "#saudepet #otimizafarmavet"
+    }
+  }
+}
