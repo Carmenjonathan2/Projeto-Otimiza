@@ -1540,13 +1540,20 @@ ${clientMessage}
         const isSilentMode = !whatsappGateway.deveEnviarReal(phone);
         if (isSilentMode) {
             try {
-                supervisor.registrarSugestao({
+                const id = supervisor.registrarSugestao({
                     numero: phone,
                     mensagemCliente: clientMessage,
                     respostaSugerida: responseText,
                     persona: chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika',
-                    estrategiaAtivada: null, // Pode ser preenchido caso queira rastrear
-                    contextoInjetado: contextoInjetado
+                    estrategiaAtivada: null,
+                    contextoInjetado: contextoInjetado || ''
+                });
+                supervisor.alertarTelegram({
+                    id,
+                    persona: chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika',
+                    mensagemCliente: clientMessage,
+                    respostaSugerida: responseText,
+                    estrategiaAtivada: null
                 });
             } catch (supErr) {
                 console.error("❌ [SUPERVISOR] Erro ao registrar sugestão:", supErr.message);
