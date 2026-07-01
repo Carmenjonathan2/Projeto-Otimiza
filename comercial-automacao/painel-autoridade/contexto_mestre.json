@@ -401,6 +401,17 @@
       "autonomia": "auto",
       "atualizado_em": "2026-07-01",
       "atualizado_por": "antigravity"
+    },
+    {
+      "id": "go_live_001",
+      "titulo": "Ativar MODO_SILENCIOSO=false",
+      "descricao": "Religar o bot para responder aos clientes em produção.",
+      "coluna": "motor",
+      "tags": ["Go-Live", "Produção"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
     }
   ]
 }
