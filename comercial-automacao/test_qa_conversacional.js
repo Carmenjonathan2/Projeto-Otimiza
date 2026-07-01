@@ -455,14 +455,14 @@ async function rodarCenario(cenario) {
             process.env.MODO_SILENCIOSO = 'false'; // Garantir ativo por padrão para testes de QA
         }
 
-        // Mockar hora/dia se especificado no cenário
-        if (cenario.hora_simulada !== undefined) {
-            Date.prototype.getHours = () => cenario.hora_simulada;
-            Date.prototype.getMinutes = () => cenario.minuto_simulado !== undefined ? cenario.minuto_simulado : 0;
-        }
-        if (cenario.dia_semana_simulado !== undefined) {
-            Date.prototype.getDay = () => cenario.dia_semana_simulado;
-        }
+        // Mockar hora/dia (padrão seguro: quarta-feira, 10h00, para evitar bloqueios de horário/almoço do mundo real)
+        const horaSimulada = cenario.hora_simulada !== undefined ? cenario.hora_simulada : 10;
+        const minutoSimulado = cenario.minuto_simulado !== undefined ? cenario.minuto_simulado : 0;
+        const diaSemanaSimulado = cenario.dia_semana_simulado !== undefined ? cenario.dia_semana_simulado : 3; // Quarta-feira
+
+        Date.prototype.getHours = () => horaSimulada;
+        Date.prototype.getMinutes = () => minutoSimulado;
+        Date.prototype.getDay = () => diaSemanaSimulado;
 
         // Configurar o estado inicial no arquivo JSON antes de rodar
         const states = fs.existsSync(stateFilePath) ? JSON.parse(fs.readFileSync(stateFilePath, 'utf8')) : {};

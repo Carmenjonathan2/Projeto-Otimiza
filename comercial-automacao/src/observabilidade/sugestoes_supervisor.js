@@ -44,4 +44,32 @@ function alertarTelegram({ id, persona, mensagemCliente, respostaSugerida, estra
     });
 }
 
-module.exports = { registrarSugestao, alertarTelegram };
+function supervisionar({ telefone, intencaoDetectada, respostaBot, flagRevisao, alertar }) {
+    const id = registrarSugestao({
+        numero: telefone,
+        mensagemCliente: "(Mensagem capturada via webhook)",
+        respostaSugerida: respostaBot,
+        persona: 'Aika',
+        estrategiaAtivada: intencaoDetectada,
+        contextoInjetado: ''
+    });
+
+    // Alertar Telegram por padrão se estiver no modo silencioso ou se alertar for true
+    if (alertar !== false || process.env.MODO_SILENCIOSO === 'true') {
+        try {
+            alertarTelegram({
+                id,
+                persona: 'Aika',
+                mensagemCliente: "(Mensagem capturada via webhook)",
+                respostaSugerida: respostaBot,
+                estrategiaAtivada: intencaoDetectada
+            });
+        } catch (e) {
+            console.error(`[SUPERVISOR-TG] Erro ao enviar alerta: ${e.message}`);
+        }
+    }
+
+    return id;
+}
+
+module.exports = { registrarSugestao, alertarTelegram, supervisionar };

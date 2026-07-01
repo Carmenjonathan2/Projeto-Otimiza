@@ -19,7 +19,7 @@ const pagamento = require('./src/integracoes/integracao_pagamento');
 const logistica = require('./src/integracoes/integracao_logistica');
 const vendas = require('./src/comercial/estrategias_vendas');
 const detectorInjecao = require('./src/privacidade/detector_injecao');
-const supervisor = require('./src/observabilidade/sugestoes_supervisor');
+const { supervisionar } = require('./src/observabilidade/sugestoes_supervisor');
 
 const app = express();
 app.use(bodyParser.json());
@@ -650,6 +650,7 @@ async function processarMensagem(payload) {
     const inicioAlmoco = timeToMinutes(process.env.HORARIO_ALMOCO_INICIO, "12:30");
     const fimAlmoco = timeToMinutes(process.env.HORARIO_ALMOCO_FIM, "13:30");
     const atendeDomingo = (process.env.ATENDE_DOMINGO || 'false') === 'true';
+    const atendeSabado = (process.env.ATENDE_SABADO || 'false') === 'true';
 
     const agoraDate = new Date();
     // Ajustar para o fuso horário de Brasília (UTC-3) para Railway
@@ -659,10 +660,12 @@ async function processarMensagem(payload) {
     const diaSemana = agoraBr.getDay(); // 0=Dom, 6=Sáb
     const horaMinutoEmMinutos = horaAgora * 60 + minutoAgora;
 
-    // Verificar se está fora do expediente comercial ou se é domingo (e não atende domingo)
-    const foraExpediente = (horaMinutoEmMinutos < inicioComercial || horaMinutoEmMinutos >= fimComercial) || (diaSemana === 0 && !atendeDomingo);
-    // Verificar se está no horário de almoço (apenas dias úteis/sábado)
-    const emAlmoco = (horaMinutoEmMinutos >= inicioAlmoco && horaMinutoEmMinutos < fimAlmoco) && (diaSemana !== 0);
+    // Verificar se está fora do expediente comercial, se é domingo (e não atende domingo) ou se é sábado (e não atende sábado)
+    const foraExpediente = (horaMinutoEmMinutos < inicioComercial || horaMinutoEmMinutos >= fimComercial) || 
+                           (diaSemana === 0 && !atendeDomingo) ||
+                           (diaSemana === 6 && !atendeSabado);
+    // Verificar se está no horário de almoço (apenas dias úteis)
+    const emAlmoco = (horaMinutoEmMinutos >= inicioAlmoco && horaMinutoEmMinutos < fimAlmoco) && (diaSemana !== 0 && diaSemana !== 6);
 
     const foraDoHorario = foraExpediente || emAlmoco;
 
@@ -1536,32 +1539,36 @@ ${clientMessage}
         chatState.contador_fallback = 0;
         saveStates(states, phone);
 
-        // Se o bot estiver em modo silencioso, registrar a sugestão no pipeline de supervisão (Fase 1.2 & 1.3)
-        const isSilentMode = !whatsappGateway.deveEnviarReal(phone);
-        if (isSilentMode) {
-            try {
-                const id = supervisor.registrarSugestao({
-                    numero: phone,
-                    mensagemCliente: clientMessage,
-                    respostaSugerida: responseText,
-                    persona: chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika',
-                    estrategiaAtivada: null,
-                    contextoInjetado: contextoInjetado || ''
-                });
-                supervisor.alertarTelegram({
-                    id,
-                    persona: chatState.tipo_cliente === 'B2B' ? 'Kyenner' : 'Aika',
-                    mensagemCliente: clientMessage,
-                    respostaSugerida: responseText,
-                    estrategiaAtivada: null
-                });
-            } catch (supErr) {
-                console.error("❌ [SUPERVISOR] Erro ao registrar sugestão:", supErr.message);
+        // ─── Pipeline de Supervisão (Fase 1.2 & 1.3) ─────────────────────────────
+        const MODO_SILENCIOSO = !whatsappGateway.deveEnviarReal(phone);
+
+        let estrategiaAtivada = 'indefinida';
+        try {
+            const msgLower = clientMessage.toLowerCase();
+            const regras = chatState.tipo_cliente === 'B2B' ? vendas.REGRAS_B2B : vendas.REGRAS_B2C;
+            if (regras) {
+                for (let key in regras) {
+                    if (regras[key].detectores.some(d => msgLower.includes(d))) {
+                        estrategiaAtivada = key;
+                        break;
+                    }
+                }
             }
+        } catch (err) {
+            console.error("❌ Erro ao detectar estratégia para o supervisor:", err.message);
         }
 
-        // Enviar a resposta via Z-API
-        await enviarMensagemBot(phone, responseText);
+        if (MODO_SILENCIOSO) {
+            supervisionar({
+                telefone: phone,
+                intencaoDetectada: estrategiaAtivada || 'indefinida',
+                respostaBot: responseText,
+                flagRevisao: !responseText,
+                alertar: false
+            });
+        } else {
+            await enviarMensagemBot(phone, responseText);
+        }
         
         // Registrar log estruturado de sucesso
         salvarLogConversa({

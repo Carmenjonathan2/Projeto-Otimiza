@@ -112,5 +112,7 @@ function verificarOportunidadeVenda(mensagemCliente, tipoCliente = "B2C") {
 }
 
 module.exports = {
-    verificarOportunidadeVenda
+    verificarOportunidadeVenda,
+    REGRAS_B2B,
+    REGRAS_B2C
 };
