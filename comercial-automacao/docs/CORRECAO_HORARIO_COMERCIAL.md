@@ -1,38 +1,24 @@
-# Correção: Horário Comercial e Mensagem Acolhedora
-
-**Versão:** 1.0  
+# Correção — Horário Comercial
 **Data:** 2026-07-01  
-**Prioridade:** P1 (fase1_001)  
-**Arquivo alvo:** `src/server_integracao.js`
+**Para:** Antigravity  
+**Prioridade:** P1 (corrigir antes de religar)
 
 ---
 
-## Problema Atual
+## Horário oficial da Otimiza FarmaVet
 
-O guard de horário comercial atual:
-- Só bloqueia **domingo** (`_diaSemana === 0`)
-- **Não bloqueia sábado** — bug crítico
-- Em vez de acolher o cliente, simplesmente silencia (péssima UX)
-
----
-
-## Especificação Correta (confirmada pelo RT em 2026-07-01)
-
-| Parâmetro | Valor |
-|-----------|-------|
-| Dias de atendimento | Segunda a Sexta |
-| Início | 9h (BRT) |
-| Fim | 18h (BRT) |
-| Sábado | **OFF** |
-| Domingo | **OFF** |
+- **Dias:** Segunda a Sexta
+- **Horas:** 9h às 18h (BRT)
+- **Sábado:** OFF
+- **Domingo:** OFF
 
 ---
 
-## Variáveis de Ambiente — Railway
+## 1. Atualizar variáveis no `.env` da Railway
 
-Adicionar/atualizar no painel Railway:
+No painel da Railway, atualizar (ou confirmar) as variáveis de ambiente:
 
-```env
+```
 HORARIO_COMERCIAL_INICIO=9
 HORARIO_COMERCIAL_FIM=18
 ATENDE_SABADO=false
@@ -41,98 +27,90 @@ ATENDE_DOMINGO=false
 
 ---
 
-## Código Corrigido do Guard
+## 2. Corrigir o guard de horário em `server_integracao.js`
 
-Substituir o guard existente no início de `processarMensagem()`:
+O guard anterior só bloqueava domingo. **Sábado também deve ser bloqueado.**
 
-```javascript
-// ─── Guard de Horário Comercial ───────────────────────────────────────────────
+Substituir o bloco de horário por este (adaptar nomes de variável ao código real):
+
+```js
+// GUARD: horário comercial — seg-sex 9h-18h BRT
+const _agora = new Date();
+// Se Railway em UTC, usar getUTCHours()-3. Se já em BRT, usar getHours().
+const _horaBRT = (_agora.getUTCHours() - 3 + 24) % 24;
+const _diaSemana = new Date(_agora.getTime() - 3 * 3600000).getUTCDay(); // 0=dom, 6=sab
 const _inicioComercial = parseInt(process.env.HORARIO_COMERCIAL_INICIO || '9');
-const _fimComercial    = parseInt(process.env.HORARIO_COMERCIAL_FIM    || '18');
-const _agora           = new Date();
+const _fimComercial = parseInt(process.env.HORARIO_COMERCIAL_FIM || '18');
+const _ehFimDeSemana = _diaSemana === 0 || _diaSemana === 6; // domingo ou sabado
 
-// BRT = UTC-3 (Railway roda em UTC)
-const _horaBRT    = (_agora.getUTCHours() - 3 + 24) % 24;
-const _agora_brt  = new Date(_agora.getTime() - 3 * 3600000);
-const _diaSemana  = _agora_brt.getUTCDay(); // 0=dom, 1=seg ... 6=sab
-
-const _ehFimDeSemana  = _diaSemana === 0 || _diaSemana === 6; // dom ou sab
-const _foraDoHorario  = _horaBRT < _inicioComercial || _horaBRT >= _fimComercial || _ehFimDeSemana;
+const _foraDoHorario = _horaBRT < _inicioComercial || _horaBRT >= _fimComercial || _ehFimDeSemana;
 
 if (_foraDoHorario) {
-  const _stateCliente   = conversas[telefone] || {};
-  const _ultimoAviso    = _stateCliente.ultimo_aviso_horario;
-  const _quatroHoras    = 4 * 60 * 60 * 1000;
-  const _deveAvisar     = !_ultimoAviso || (Date.now() - _ultimoAviso) > _quatroHoras;
+    // Resposta acolhedora em vez de silencio
+    const _msgForaHorario =
+        `Olá! 🐾 Recebi sua mensagem mas nosso time atende de segunda a sexta, das 9h às 18h.\n\n` +
+        `Assim que abrirmos, te respondemos com tudo que precisa. Obrigada pela compreensão! 😊`;
 
-  if (_deveAvisar) {
-    // EXCEÇÃO: mensagem acolhedora envia MESMO em MODO_SILENCIOSO
-    const _msgAcolhedora = 'Olá! 🐾 Recebi sua mensagem mas nosso time atende de segunda a sexta, das 9h às 18h. Assim que abrirmos, te respondemos com tudo que precisa. Obrigada pela compreensão! 😊';
-    await enviarMensagem(telefone, _msgAcolhedora);
+    // Enviar a mensagem de fora de horário (esta é a única mensagem que sai mesmo com MODO_SILENCIOSO=true)
+    try {
+        await enviarMensagem(phone, _msgForaHorario);
+    } catch (_e) {
+        console.error('[HORÁRIO] Erro ao enviar aviso fora de horário:', _e.message);
+    }
 
-    // Atualiza anti-repetição no state
-    conversas[telefone] = { ..._stateCliente, ultimo_aviso_horario: Date.now() };
-    salvarConversas(conversas);
-  }
-
-  return; // Encerra sem chamar Gemini
+    console.log(`[HORÁRIO] Fora do comercial (${_horaBRT}h BRT, dia ${_diaSemana}). Aviso enviado para ${phone}.`);
+    return res.status(200).json({ status: 'fora-horario' });
 }
-// ─────────────────────────────────────────────────────────────────────────────
 ```
 
----
-
-## Comportamento Esperado
-
-| Situação | Ação do Bot |
-|----------|-------------|
-| Seg-Sex 9h-18h BRT | Processa normalmente |
-| Seg-Sex fora do horário | Envia acolhedora (1x a cada 4h) e encerra |
-| Sábado (qualquer hora) | Envia acolhedora (1x a cada 4h) e encerra |
-| Domingo (qualquer hora) | Envia acolhedora (1x a cada 4h) e encerra |
-| 2ª mensagem dentro de 4h fora do horário | Silencia (não repete aviso) |
+> **Importante:** A mensagem de fora de horário é a **única exceção** ao `MODO_SILENCIOSO`. Ela sai sempre, porque o cliente precisa saber que foi ouvido.
+>
+> Adaptar `enviarMensagem` ao nome real da função de envio Z-API no código.
 
 ---
 
-## Atenção: MODO_SILENCIOSO não se aplica à mensagem acolhedora
+## 3. Anti-repetição da mensagem fora de horário
 
-A função `enviarMensagem()` normalmente respeita `MODO_SILENCIOSO=true`.  
-Para a mensagem acolhedora, chamar diretamente o endpoint Z-API **sem** o check do MODO_SILENCIOSO, ou adicionar parâmetro `forcar=true`:
+Se o cliente mandar várias mensagens fora do horário (ex: manda 3 mensagens seguidas à meia-noite), o bot não deve repetir o aviso 3 vezes. Usar o state do cliente para controlar:
 
-```javascript
-// Opção A: novo parâmetro na função enviarMensagem
-async function enviarMensagem(telefone, mensagem, forcar = false) {
-  if (MODO_SILENCIOSO && !forcar) {
-    console.log('[SILENCIOSO] Mensagem não enviada:', mensagem.substring(0, 50));
-    return;
-  }
-  // ... lógica Z-API existente
+```js
+const _stateCliente = carregarState()[phone] || {};
+const _ultimoAvisoHorario = _stateCliente.ultimo_aviso_horario || 0;
+const _quatroHoras = 4 * 60 * 60 * 1000;
+
+if (_foraDoHorario) {
+    if (Date.now() - _ultimoAvisoHorario > _quatroHoras) {
+        // Só envia aviso se já passaram 4h desde o último
+        await enviarMensagem(phone, _msgForaHorario);
+        // Salvar timestamp do aviso no state
+        const _state = carregarState();
+        _state[phone] = { ..._stateCliente, ultimo_aviso_horario: Date.now() };
+        salvarState(_state);
+    } else {
+        console.log(`[HORÁRIO] Aviso já enviado recentemente para ${phone}. Silenciando.`);
+    }
+    return res.status(200).json({ status: 'fora-horario' });
 }
-
-// Chamada com forçar:
-await enviarMensagem(telefone, _msgAcolhedora, true);
 ```
 
 ---
 
-## Validação Após Deploy
+## 4. Commit
 
-1. Enviar mensagem no sábado → deve receber acolhedora
-2. Enviar 2ª mensagem em < 4h no sábado → deve silenciar (sem repetição)
-3. Enviar mensagem segunda às 8h → deve receber acolhedora
-4. Enviar mensagem segunda às 10h → deve ser processada normalmente
-5. Verificar log Railway: `[HORARIO] Fora do horário - sab/dom/feriado`
+`fix(horario): seg-sex 9h-18h BRT, sabado e domingo off, resposta acolhedora anti-repeticao`
 
 ---
 
-## Commit Message
+## 5. Atualizar `contexto_mestre.json`
 
-```
-feat(horario): corrigir guard seg-sex 9h-18h BRT, sab/dom OFF com mensagem acolhedora
+Após implementar, mover `fase1_001` de `gargalo` para `motor` com nota:
 
-- Adiciona bloqueio de sábado (apenas domingo era bloqueado)
-- Substitui silêncio por mensagem acolhedora 🐾
-- Anti-repetição de 4h via ultimo_aviso_horario no state
-- Exceção MODO_SILENCIOSO: acolhedora sempre envia
-- Vars Railway: HORARIO_COMERCIAL_INICIO=9, HORARIO_COMERCIAL_FIM=18
+```json
+"descricao": "Guard implementado: seg-sex 9h-18h BRT. Sabado e domingo bloqueados. Resposta acolhedora com anti-repetição (4h TTL).",
+"atualizado_em": "2026-07-01",
+"atualizado_por": "antigravity"
 ```
+
+---
+
+*Correção gerada em 2026-07-01 pelo Claude.*
