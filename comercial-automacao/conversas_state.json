@@ -1,49 +1,50 @@
 {
-    "553192681115": {
+    "553190000001": {
         "owner": "AI",
         "history": [
             {
-                "role": "user",
-                "content": ""
-            },
-            {
                 "role": "model",
-                "content": "Oi! Peço desculpas pela mensagem anterior. O que eu mais quero é te ajudar a cuidar do seu animalzinho! Como posso ajudar você e ele agora? 💜"
+                "content": "Olá! Tudo bem? Como posso te ajudar hoje? 🐾"
             },
             {
                 "role": "user",
-                "content": ""
+                "content": "Oi, tudo bem?"
             },
             {
                 "role": "model",
-                "content": "🐾"
+                "content": "Olá! Tudo bem? Como posso te ajudar hoje? 🐾"
             },
             {
                 "role": "user",
-                "content": ""
+                "content": "Oi, tudo bem?"
             },
             {
                 "role": "model",
-                "content": ""
+                "content": "Olá! Tudo bem? Como posso te ajudar hoje? 🐾"
             },
             {
                 "role": "user",
-                "content": "Quais outras seringas vc tem?"
+                "content": "Oi, tudo bem?"
             },
             {
                 "role": "model",
-                "content": "Oi! Tudo bem por aí? \n\nPor aqui nós temos várias opções de seringas para ajudar você a cuidar do seu parceirinho com toda a segurança e carinho! Olha só os tamanhos e modelos que costumamos ter em estoque:\n\n*   **Seringas de Insulina (1ml / U-100):** Elas vêm com aquela agulha bem fininha e integrada, perfeitas para doses super pequenas ou para a aplicação diária de insulina.\n*   **Seringas de 1ml (Tuberculina):** Excelentes para dosagens de extrema precisão, muito usadas para dar medicamentos líquidos direto na boquinha de pets menores.\n*   **Seringas de 3ml e 5ml:** As campeãs de saída! São ótimas tanto para aplicar medicações injetáveis (com agulha) quanto para dar xaropes e suspensões orais.\n*   **Seringas de 10ml e 20ml:** Ideais para volumes maiores, como alimentação assistida (papinhas) ou lavagens. \n\nAh, e nós temos modelos com **Bico Luer Slip** (aquele de encaixe simples) e **Bico Luer Lock** (aquele de rosca, que não deixa a agulha ou a sonda soltar de jeito nenhum na hora de aplicar).\n\nPara eu te indicar a seringa perfeita e conferir a disponibilidade exata agora: **qual é o nome do seu pet?** E qual é o remedinho ou procedimento que você vai fazer com ele? \n\nAssim eu te ajudo a escolher o tamanho ideal para não ter erro! 💜🐾"
+                "content": "Olá! Tudo bem? Como posso te ajudar hoje? 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Oi, tudo bem?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Tudo bem? Como posso te ajudar hoje? 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Oi, tudo bem?"
             }
         ],
         "cpf": null,
         "crmv": null,
-        "tipo_cliente": null
-    },
-    "553190000001": {
-        "owner": "AI",
-        "history": [],
-        "cpf": null,
-        "crmv": null,
         "tipo_cliente": "B2C",
         "nome_cadastro": null,
         "aguardando_crmv": false,
@@ -52,11 +53,58 @@
         "medicamento_restrito": null,
         "produto_sem_estoque": null,
         "produto_mencionado": null,
-        "aguardando_confirmar_lista_espera": false
+        "aguardando_confirmar_lista_espera": false,
+        "mensagensRecentes": [
+            "Oi, tudo bem?"
+        ],
+        "contadorRepeticao": 0,
+        "contador_fallback": 1,
+        "ultima_atividade": "2026-06-30T17:31:16.751Z"
     },
     "553190000002": {
         "owner": "AI",
-        "history": [],
+        "history": [
+            {
+                "role": "model",
+                "content": "Oi! Tive uma oscilação rápida aqui na minha rede. Você poderia repetir o que precisa, por favor? 💜"
+            },
+            {
+                "role": "user",
+                "content": "Oi! Meu cachorro precisa tomar vacina antirrábica. Vocês vendem?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Como é seu nome e o do seu pet? 🐾 Oferecemos a vacina antirrábica com aplicação domiciliar pelo nosso veterinário via *Vet em Casa* por *R$ 60,00*."
+            },
+            {
+                "role": "user",
+                "content": "Oi! Meu cachorro precisa tomar vacina antirrábica. Vocês vendem?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Como é seu nome e o do seu pet? 🐾 Oferecemos a vacina antirrábica com aplicação domiciliar pelo nosso veterinário via *Vet em Casa* por *R$ 60,00*."
+            },
+            {
+                "role": "user",
+                "content": "Oi! Meu cachorro precisa tomar vacina antirrábica. Vocês vendem?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Como é seu nome e o do seu pet? 🐾 Oferecemos a vacina antirrábica com aplicação domiciliar pelo nosso veterinário via *Vet em Casa* por *R$ 60,00*."
+            },
+            {
+                "role": "user",
+                "content": "Oi! Meu cachorro precisa tomar vacina antirrábica. Vocês vendem?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Como é seu nome e o do seu pet? 🐾 Oferecemos a vacina antirrábica com aplicação domiciliar pelo nosso veterinário via *Vet em Casa* por *R$ 60,00*."
+            },
+            {
+                "role": "user",
+                "content": "Oi! Meu cachorro precisa tomar vacina antirrábica. Vocês vendem?"
+            }
+        ],
         "cpf": null,
         "crmv": null,
         "tipo_cliente": "B2C",
@@ -67,11 +115,53 @@
         "medicamento_restrito": null,
         "produto_sem_estoque": null,
         "produto_mencionado": null,
-        "aguardando_confirmar_lista_espera": false
+        "aguardando_confirmar_lista_espera": false,
+        "mensagensRecentes": [
+            "Oi! Meu cachorro precisa tomar vacina antirrábica. Vocês vendem?"
+        ],
+        "contadorRepeticao": 0,
+        "contador_fallback": 1,
+        "ultima_atividade": "2026-06-30T17:31:34.609Z"
     },
     "553190000003": {
         "owner": "AI",
         "history": [
+            {
+                "role": "model",
+                "content": "Olá! Temos o Librela disponível por *R$ 380* a unidade, ou *R$ 350* cada na compra de 2 ampolas. A entrega é prevista para 1 a 2 dias úteis, e daremos a previsão exata de entrega após confirmarmos o pedido. 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Minha cachorra tem artrite. O veterinário receitou Librela. Vocês têm em estoque?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! A Librela está disponível por *R$ 380* a unidade, ou *R$ 350* cada na compra de 2 ampolas. A entrega é prevista para 1 a 2 dias úteis, e daremos a previsão exata de entrega após confirmarmos o pedido. 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Minha cachorra tem artrite. O veterinário receitou Librela. Vocês têm em estoque?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Sim, temos o Librela disponível por *R$ 380* a unidade. Se levar 2 ampolas, o valor fica *R$ 350* cada. A entrega é prevista para 1 a 2 dias úteis, e daremos a previsão exata de entrega após confirmarmos o pedido. 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Minha cachorra tem artrite. O veterinário receitou Librela. Vocês têm em estoque?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Sim, temos Librela disponível. A entrega é prevista para 1 a 2 dias úteis, e daremos a previsão exata de entrega após confirmarmos o pedido. 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Minha cachorra tem artrite. O veterinário receitou Librela. Vocês têm em estoque?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Temos sim o Librela disponível. Fica *R$ 380* a unidade, ou *R$ 350* cada levando 2 ampolas. A entrega leva de 1 a 2 dias úteis, e te damos a previsão exata após confirmar o pedido. 🐾"
+            },
             {
                 "role": "user",
                 "content": "Minha cachorra tem artrite. O veterinário receitou Librela. Vocês têm em estoque?"
@@ -87,11 +177,50 @@
         "medicamento_restrito": "librela",
         "produto_sem_estoque": null,
         "produto_mencionado": "Librela 15mg",
-        "aguardando_confirmar_lista_espera": false
+        "aguardando_confirmar_lista_espera": false,
+        "mensagensRecentes": [
+            "Minha cachorra tem artrite. O veterinário receitou Librela. Vocês têm em estoque?"
+        ],
+        "contadorRepeticao": 0,
+        "contador_fallback": 1,
+        "ultima_atividade": "2026-06-30T17:31:48.772Z"
     },
     "553190000004": {
-        "owner": "AI",
-        "history": [],
+        "owner": "human",
+        "history": [
+            {
+                "role": "user",
+                "content": "Quero Simparic para meu golden de 18kg. Qual o preço?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Verifiquei no sistema e temos o *Simparic 10mg* disponível. Vou transferir o seu atendimento agora mesmo para o Kyenner (nosso veterinário), que vai te passar as informações de valores e finalizar tudo com você. Só um instantinho! 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Quero Simparic para meu golden de 18kg. Qual o preço?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Verifiquei no sistema e temos o *Simparic 10mg* disponível. Vou transferir o seu atendimento agora mesmo para o Kyenner (nosso veterinário), que vai te passar as informações de valores e finalizar tudo com você. Só um instantinho! 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Quero Simparic para meu golden de 18kg. Qual o preço?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Verifiquei no sistema e temos o *Simparic 10mg* disponível. Vou transferir o seu atendimento agora mesmo para o Kyenner (nosso veterinário), que vai te passar as informações de valores e finalizar tudo com você. Só um instantinho! 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Quero Simparic para meu golden de 18kg. Qual o preço?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Verifiquei no sistema e temos o *Simparic 10mg* disponível. Vou transferir o seu atendimento agora mesmo para o Kyenner (nosso veterinário), que vai te passar as informações de valores e finalizar tudo com você. Só um instantinho! 🐾"
+            }
+        ],
         "cpf": null,
         "crmv": null,
         "tipo_cliente": "B2C",
@@ -102,11 +231,56 @@
         "medicamento_restrito": null,
         "produto_sem_estoque": null,
         "produto_mencionado": null,
-        "aguardando_confirmar_lista_espera": false
+        "aguardando_confirmar_lista_espera": false,
+        "mensagensRecentes": [],
+        "contadorRepeticao": 0,
+        "contador_fallback": 0,
+        "ultima_atividade": "2026-06-30T17:32:01.917Z"
     },
     "553190000005": {
-        "owner": "AI",
-        "history": [],
+        "owner": "human",
+        "history": [
+            {
+                "role": "user",
+                "content": "Quero comprar sim! Pode me passar o pix para pagar?"
+            },
+            {
+                "role": "model",
+                "content": "Oi! Tive uma oscilação rápida aqui na minha rede. Você poderia repetir o que precisa, por favor? 💜"
+            },
+            {
+                "role": "user",
+                "content": "Quero comprar sim! Pode me passar o pix para pagar?"
+            },
+            {
+                "role": "model",
+                "content": "Oba, que ótimo! 💜 A chave Pix é *(31) 98793-6822* (C6 Bank), e o Kyenner já vai entrar em contato para agendar a entrega."
+            },
+            {
+                "role": "user",
+                "content": "Quero comprar sim! Pode me passar o pix para pagar?"
+            },
+            {
+                "role": "model",
+                "content": "Oba, que ótimo! 💜 A chave Pix é *(31) 98793-6822* (C6 Bank), e o Kyenner já vai entrar em contato para agendar a entrega."
+            },
+            {
+                "role": "user",
+                "content": "Quero comprar sim! Pode me passar o pix para pagar?"
+            },
+            {
+                "role": "model",
+                "content": "Oba, que ótimo! 💜 A chave Pix é *(31) 98793-6822* (C6 Bank), e o Kyenner já vai entrar em contato para agendar a entrega."
+            },
+            {
+                "role": "user",
+                "content": "Quero comprar sim! Pode me passar o pix para pagar?"
+            },
+            {
+                "role": "model",
+                "content": "Oba, que ótimo! 💜 A chave Pix é *(31) 98793-6822* (C6 Bank), e o Kyenner já vai entrar em contato para agendar a entrega. Já que vamos cuidar da dor, quer combinar com *Cytopoint* pra atacar a coceira na mesma rota?"
+            }
+        ],
         "cpf": null,
         "crmv": null,
         "tipo_cliente": "B2C",
@@ -117,11 +291,58 @@
         "medicamento_restrito": "librela",
         "produto_sem_estoque": null,
         "produto_mencionado": "Librela 15mg",
-        "aguardando_confirmar_lista_espera": false
+        "aguardando_confirmar_lista_espera": false,
+        "mensagensRecentes": [
+            "Quero comprar sim! Pode me passar o pix para pagar?"
+        ],
+        "contadorRepeticao": 0,
+        "contador_fallback": 0,
+        "ultima_atividade": "2026-06-30T17:32:43.150Z"
     },
     "553190000006": {
         "owner": "AI",
-        "history": [],
+        "history": [
+            {
+                "role": "model",
+                "content": "Olá! Agradecemos o contato. Nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o pet! Se precisar de outros de fábrica, estamos aqui. 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Boa tarde! Vocês fazem remédio manipulado para gatos?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Agradecemos o contato. Nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o pet! Se precisar de outros de fábrica, estamos aqui. 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Boa tarde! Vocês fazem remédio manipulado para gatos?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Agradecemos o contato. Nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o pet! Se precisar de outros de fábrica, estamos aqui. 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Boa tarde! Vocês fazem remédio manipulado para gatos?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Agradecemos o contato. Nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o pet! Se precisar de outros de fábrica, estamos aqui. 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Boa tarde! Vocês fazem remédio manipulado para gatos?"
+            },
+            {
+                "role": "model",
+                "content": "Olá! Agradecemos o contato. Nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o pet! Se precisar de outros de fábrica, estamos aqui. 🐾"
+            },
+            {
+                "role": "user",
+                "content": "Boa tarde! Vocês fazem remédio manipulado para gatos?"
+            }
+        ],
         "cpf": null,
         "crmv": null,
         "tipo_cliente": "B2C",
@@ -132,11 +353,53 @@
         "medicamento_restrito": null,
         "produto_sem_estoque": null,
         "produto_mencionado": null,
-        "aguardando_confirmar_lista_espera": false
+        "aguardando_confirmar_lista_espera": false,
+        "mensagensRecentes": [
+            "Boa tarde! Vocês fazem remédio manipulado para gatos?"
+        ],
+        "contadorRepeticao": 0,
+        "contador_fallback": 1,
+        "ultima_atividade": "2026-06-30T17:32:58.763Z"
     },
     "553190000007": {
         "owner": "AI",
         "history": [
+            {
+                "role": "model",
+                "content": "Beatriz, CRMV *15234* anotado. Como posso ajudar com seu pedido hoje?"
+            },
+            {
+                "role": "user",
+                "content": "Boa tarde, sou a Dra. Beatriz Santos, CRMV 15234. Gostaria de fazer um pedido de vacinas."
+            },
+            {
+                "role": "model",
+                "content": "Beatriz, CRMV *15234* anotado. Como posso ajudar com seu pedido hoje?"
+            },
+            {
+                "role": "user",
+                "content": "Boa tarde, sou a Dra. Beatriz Santos, CRMV 15234. Gostaria de fazer um pedido de vacinas."
+            },
+            {
+                "role": "model",
+                "content": "Beatriz, CRMV *15234* anotado. Como posso ajudar com seu pedido hoje?"
+            },
+            {
+                "role": "user",
+                "content": "Boa tarde, sou a Dra. Beatriz Santos, CRMV 15234. Gostaria de fazer um pedido de vacinas."
+            },
+            {
+                "role": "model",
+                "content": "Beatriz, CRMV *15234* anotado. Como posso ajudar com seu pedido hoje?"
+            },
+            {
+                "role": "user",
+                "content": "Boa tarde, sou a Dra. Beatriz Santos, CRMV 15234. Gostaria de fazer um pedido de vacinas."
+            },
+            {
+                "role": "model",
+                "content": "Beatriz, CRMV *15234* anotado. Como posso ajudar com seu pedido hoje?"
+            },
             {
                 "role": "user",
                 "content": "Boa tarde, sou a Dra. Beatriz Santos, CRMV 15234. Gostaria de fazer um pedido de vacinas."
@@ -152,11 +415,59 @@
         "medicamento_restrito": null,
         "produto_sem_estoque": null,
         "produto_mencionado": null,
-        "aguardando_confirmar_lista_espera": false
+        "aguardando_confirmar_lista_espera": false,
+        "mensagensRecentes": [
+            "Boa tarde, sou a Dra. Beatriz Santos, CRMV 15234. Gostaria de fazer um pedido de vacinas."
+        ],
+        "contadorRepeticao": 0,
+        "contador_fallback": 1,
+        "id_cliente_erp": "59352900",
+        "ultima_atividade": "2026-06-30T17:33:17.821Z"
     },
     "553190000008": {
         "owner": "AI",
-        "history": [],
+        "history": [
+            {
+                "role": "model",
+                "content": "Olá, Marcos! Rabisin custa *R$ 17,90* e Nobivac V8 *R$ 44,50*. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício? Quantas doses você aplica por mês?"
+            },
+            {
+                "role": "user",
+                "content": "Me passa o preço da Rabisin e do Nobivac V8, por favor."
+            },
+            {
+                "role": "model",
+                "content": "Olá, Marcos! A Rabisin custa *R$ 17,90* a dose e o Nobivac V8 sai por *R$ 44,50*. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício? Quantas doses você aplica por mês?"
+            },
+            {
+                "role": "user",
+                "content": "Me passa o preço da Rabisin e do Nobivac V8, por favor."
+            },
+            {
+                "role": "model",
+                "content": "Olá, Marcos! Rabisin custa *R$ 17,90* e Nobivac V8 *R$ 44,50*. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício? Quantas doses você aplica por mês?"
+            },
+            {
+                "role": "user",
+                "content": "Me passa o preço da Rabisin e do Nobivac V8, por favor."
+            },
+            {
+                "role": "model",
+                "content": "Olá, Marcos! A Rabisin custa *R$ 17,90* e o Nobivac V8 sai por *R$ 44,50*. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício? Quantas doses você aplica por mês?"
+            },
+            {
+                "role": "user",
+                "content": "Me passa o preço da Rabisin e do Nobivac V8, por favor."
+            },
+            {
+                "role": "model",
+                "content": "Rabisin custa *R$ 17,90* a dose e Nobivac V8 *R$ 44,50*. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício? Quantas doses você aplica por mês?"
+            },
+            {
+                "role": "user",
+                "content": "Me passa o preço da Rabisin e do Nobivac V8, por favor."
+            }
+        ],
         "cpf": "9999",
         "crmv": "12345",
         "tipo_cliente": "B2B",
@@ -167,11 +478,58 @@
         "medicamento_restrito": null,
         "produto_sem_estoque": null,
         "produto_mencionado": null,
-        "aguardando_confirmar_lista_espera": false
+        "aguardando_confirmar_lista_espera": false,
+        "mensagensRecentes": [
+            "Me passa o preço da Rabisin e do Nobivac V8, por favor."
+        ],
+        "contadorRepeticao": 0,
+        "contador_fallback": 1,
+        "ultima_atividade": "2026-06-30T17:33:32.596Z"
     },
     "553190000009": {
         "owner": "AI",
-        "history": [],
+        "history": [
+            {
+                "role": "model",
+                "content": "Oi! Tive uma oscilação rápida aqui na minha rede. Você poderia repetir o que precisa, por favor? 💜"
+            },
+            {
+                "role": "user",
+                "content": "Quero fechar 20 doses de Rabisin."
+            },
+            {
+                "role": "model",
+                "content": "Olá, Marcos! Rabisin fica *R$ 17,90* a dose. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício? Quantas doses você aplica por mês?"
+            },
+            {
+                "role": "user",
+                "content": "Quero fechar 20 doses de Rabisin."
+            },
+            {
+                "role": "model",
+                "content": "Olá, Marcos! Rabisin fica *R$ 17,90* a dose. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício? Quantas doses você aplica por mês?"
+            },
+            {
+                "role": "user",
+                "content": "Quero fechar 20 doses de Rabisin."
+            },
+            {
+                "role": "model",
+                "content": "Olá, Marcos! Rabisin fica *R$ 17,90* a dose. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício? Quantas doses você aplica por mês?"
+            },
+            {
+                "role": "user",
+                "content": "Quero fechar 20 doses de Rabisin."
+            },
+            {
+                "role": "model",
+                "content": "Olá, Marcos! Rabisin fica *R$ 17,90* a dose. Quer aproveitar e levar a caixa fechada com 100 seringas e agulhas para a aplicação como uma opção de excelente custo-benefício? Quantas doses você aplica por mês?"
+            },
+            {
+                "role": "user",
+                "content": "Quero fechar 20 doses de Rabisin."
+            }
+        ],
         "cpf": "9999",
         "crmv": "12345",
         "tipo_cliente": "B2B",
@@ -182,11 +540,22 @@
         "medicamento_restrito": null,
         "produto_sem_estoque": null,
         "produto_mencionado": null,
-        "aguardando_confirmar_lista_espera": false
+        "aguardando_confirmar_lista_espera": false,
+        "mensagensRecentes": [
+            "Quero fechar 20 doses de Rabisin."
+        ],
+        "contadorRepeticao": 0,
+        "contador_fallback": 1,
+        "ultima_atividade": "2026-06-30T17:33:47.108Z"
     },
     "553190000015": {
-        "owner": "AI",
-        "history": [],
+        "owner": "human",
+        "history": [
+            {
+                "role": "model",
+                "content": "Olá, *Vander Luiz*! Não consegui validar o CRMV *99999* automaticamente em nosso cadastro profissional. Vou transferir você agora mesmo para o Kyenner para darmos andamento ao seu atendimento de forma manual, tudo bem? Só um minutinho! 🐾\nOlá, *Vander Luiz*! Não consegui validar o CRMV *99999* automaticamente em nosso cadastro profissional. Vou transferir você agora mesmo para o Kyenner para darmos andamento ao seu atendimento de forma manual, tudo bem? Só um minutinho! 🐾\nOlá, *Vander Luiz*! Não consegui validar o CRMV *99999* automaticamente em nosso cadastro profissional. Vou transferir você agora mesmo para o Kyenner para darmos andamento ao seu atendimento de forma manual, tudo bem? Só um minutinho! 🐾\nOlá, *Vander Luiz*! Recebi seu CRMV *99999* e já criei seu pré-cadastro em nosso sistema. Vou transferir você agora mesmo para o Kyenner para validarmos seu registro e liberar seu acesso B2B, tudo bem? Só um minutinho! 🐾\nOlá, *Vander Luiz*! Não consegui validar o CRMV *99999* automaticamente. Por conta disso, criei seu pré-cadastro em nosso sistema e vou transferir você agora mesmo para o Kyenner para darmos andamento ao seu atendimento de forma manual, tudo bem? Só um minutinho! 🐾"
+            }
+        ],
         "cpf": null,
         "crmv": "99999",
         "tipo_cliente": "B2C",
@@ -197,84 +566,28 @@
         "medicamento_restrito": null,
         "produto_sem_estoque": null,
         "produto_mencionado": null,
-        "aguardando_confirmar_lista_espera": false
+        "aguardando_confirmar_lista_espera": false,
+        "mensagensRecentes": [],
+        "contadorRepeticao": 0,
+        "contador_fallback": 0,
+        "ultima_atividade": "2026-06-30T17:34:01.665Z"
     },
-    "553190000010": {
+    "553190000025": {
         "owner": "AI",
         "history": [
             {
                 "role": "user",
-                "content": "Vocês têm Bravecto para cão de 15kg?"
+                "content": "Quero comprar vacina e seringa"
             },
             {
                 "role": "model",
-                "content": "Olá! Verifiquei aqui no sistema, mas infelizmente no momento não temos o *Bravecto* disponível em nosso estoque. 🐾"
+                "content": "Olá, Marcos! Para vacinas, qual seria o tipo e a quantidade de doses que você costuma aplicar por mês? Oferecemos um excelente custo-benefício na compra de caixas fechadas, e posso incluir 100 seringas e agulhas ideais para a aplicação."
             }
         ],
-        "cpf": null,
-        "crmv": null,
-        "tipo_cliente": "B2C",
-        "nome_cadastro": null,
-        "aguardando_crmv": false,
-        "aguardando_receita": false,
-        "receita_validada": false,
-        "medicamento_restrito": null,
-        "produto_sem_estoque": null,
-        "produto_mencionado": null,
-        "aguardando_confirmar_lista_espera": false
-    },
-    "553190000011": {
-        "owner": "AI",
-        "history": [],
-        "cpf": null,
-        "crmv": null,
-        "tipo_cliente": "B2C",
-        "nome_cadastro": null,
-        "aguardando_crmv": false,
-        "aguardando_receita": false,
-        "receita_validada": false,
-        "medicamento_restrito": null,
-        "produto_sem_estoque": null,
-        "produto_mencionado": null,
-        "aguardando_confirmar_lista_espera": false
-    },
-    "553190000012": {
-        "owner": "AI",
-        "history": [],
-        "cpf": null,
-        "crmv": null,
-        "tipo_cliente": "B2C",
-        "nome_cadastro": null,
-        "aguardando_crmv": false,
-        "aguardando_receita": false,
-        "receita_validada": false,
-        "medicamento_restrito": null,
-        "produto_sem_estoque": null,
-        "produto_mencionado": null,
-        "aguardando_confirmar_lista_espera": false
-    },
-    "553190000013": {
-        "owner": "AI",
-        "history": [],
-        "cpf": null,
-        "crmv": null,
-        "tipo_cliente": "B2C",
-        "nome_cadastro": null,
-        "aguardando_crmv": false,
-        "aguardando_receita": false,
-        "receita_validada": false,
-        "medicamento_restrito": null,
-        "produto_sem_estoque": null,
-        "produto_mencionado": null,
-        "aguardando_confirmar_lista_espera": false
-    },
-    "5531999999999": {
-        "owner": "AI",
-        "history": [],
-        "cpf": null,
-        "crmv": null,
-        "tipo_cliente": null,
-        "nome_cadastro": null,
+        "cpf": "9999",
+        "crmv": "12345",
+        "tipo_cliente": "B2B",
+        "nome_cadastro": "Marcos Medvet",
         "aguardando_crmv": false,
         "aguardando_receita": false,
         "receita_validada": false,
@@ -282,9 +595,26 @@
         "produto_sem_estoque": null,
         "produto_mencionado": null,
         "aguardando_confirmar_lista_espera": false,
-        "mensagensRecentes": [],
+        "mensagensRecentes": [
+            "Quero comprar vacina e seringa"
+        ],
         "contadorRepeticao": 0,
-        "escaladoEm": "2026-06-18T20:02:04.180Z",
-        "ultima_atividade": "2026-06-18T20:02:04.189Z"
+        "contador_fallback": 0,
+        "ultima_atividade": "2026-06-30T17:34:33.253Z"
+    },
+    "553190000010": {
+        "owner": "AI",
+        "history": [],
+        "cpf": null,
+        "crmv": null,
+        "tipo_cliente": "B2C",
+        "nome_cadastro": null,
+        "aguardando_crmv": false,
+        "aguardando_receita": false,
+        "receita_validada": false,
+        "medicamento_restrito": null,
+        "produto_sem_estoque": null,
+        "produto_mencionado": null,
+        "aguardando_confirmar_lista_espera": false
     }
 }
