@@ -412,6 +412,17 @@
       "autonomia": "auto",
       "atualizado_em": "2026-07-01",
       "atualizado_por": "antigravity"
+    },
+    {
+      "id": "val_001",
+      "titulo": "Ativar Validador Semântico",
+      "descricao": "Habilitar auditoria pós-Gemini, pré-envio em produção.",
+      "coluna": "motor",
+      "tags": ["Qualidade", "Produção"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
     }
   ]
 }
