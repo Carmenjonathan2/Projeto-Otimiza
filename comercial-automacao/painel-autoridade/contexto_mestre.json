@@ -390,6 +390,17 @@
       "autonomia": "auto",
       "atualizado_em": "2026-07-01",
       "atualizado_por": "antigravity"
+    },
+    {
+      "id": "seg_001",
+      "titulo": "Ignorar segredos e runtime files",
+      "descricao": "Adicionar credentials.json, tokens e arquivos de runtime do bot de comercial ao .gitignore.",
+      "coluna": "motor",
+      "tags": ["Segurança", "Git"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
     }
   ]
 }
