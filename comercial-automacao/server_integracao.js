@@ -1772,5 +1772,16 @@ if (require.main === module) {
     const PORT = process.env.PORT || 4000;
     app.listen(PORT, () => {
         console.log(`🚀 Servidor Integrado Otimiza (Z-API + Chatwoot + Gemini) rodando na porta ${PORT}`);
+        
+        // Inicializar o ciclo de aprendizado few-shot de 24h em 24h
+        try {
+            const { promoverAprovados } = require('./src/aprendizado/ciclo_aprendizado');
+            setInterval(() => {
+                console.log('🔄 [CICLO] Rodando ciclo automático de aprendizado few-shot...');
+                promoverAprovados();
+            }, 24 * 60 * 60 * 1000); // 24 horas
+        } catch (cicloErr) {
+            console.error('❌ [CICLO] Falha ao iniciar ciclo de aprendizado:', cicloErr.message);
+        }
     });
 }
