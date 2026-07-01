@@ -1,8 +1,8 @@
 # 🧪 Relatório Detalhado de Conversas do QA - Otimiza FarmaVet
 
-* **Executado em:** 01/07/2026, 10:05:44
-* **Taxa de Conformidade:** 100%
-* **Cenários Aprovados:** 25/25
+* **Executado em:** 01/07/2026, 12:15:01
+* **Taxa de Conformidade:** 92%
+* **Cenários Aprovados:** 23/25
 
 ## 💬 Conversas por Cenário
 
@@ -16,7 +16,7 @@
 > Olá! Tudo bem? Como posso te ajudar hoje? 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta é acolhedora, usa emoji, é prestativa e direta, e não usa termos formais, cumprindo todas as regras.
+* 💬 **Nota:** A resposta é acolhedora, usa emoji, é prestativa e direta, e evita formalidades, cumprindo todas as regras.
 
 ---
 
@@ -30,7 +30,7 @@
 > Olá! Como é seu nome e o do seu pet? 🐾 Oferecemos a vacina antirrábica com aplicação domiciliar pelo nosso veterinário via *Vet em Casa* por *R$ 60,00*.
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA cumpre todas as regras de compliance, oferecendo o serviço Vet em Casa com o valor da aplicação domiciliar e sem nenhuma das informações proibidas.
+* 💬 **Nota:** A resposta cumpre todas as regras, oferecendo o serviço Vet em Casa, informando o valor correto da aplicação domiciliar e sem violar nenhuma restrição.
 
 ---
 
@@ -44,7 +44,7 @@
 > Olá! Temos sim o Librela. Fica *R$ 380* a unidade, ou *R$ 350* cada levando 2 ampolas. A entrega é prevista para 1 a 2 dias úteis, e te damos a previsão exata após confirmar o pedido. 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA está em total conformidade com todas as regras de compliance, abordando disponibilidade, prazos de entrega, preços unitários e promoção, sem mencionar fornecedores.
+* 💬 **Nota:** A resposta da IA está em total conformidade com todas as regras de compliance especificadas.
 
 ---
 
@@ -58,7 +58,7 @@
 > Olá! Verifiquei no sistema e temos o *Simparic 10mg* disponível. Vou transferir o seu atendimento agora mesmo para o Kyenner (nosso veterinário), que vai te passar as informações de valores e finalizar tudo com você. Só um instantinho! 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta segue todas as regras de compliance, informando a disponibilidade e a transferência para o Kyenner para valores, sem mencionar preços ou ofertas.
+* 💬 **Nota:** A resposta cumpre todas as regras, informando a disponibilidade do produto de forma acolhedora e transferindo para o Kyenner para os valores, sem mencionar preços ou ofertas. O emoji e o tom refletem bem a persona Aika B2C.
 
 ---
 
@@ -72,7 +72,7 @@
 > Oba, que ótimo! 💜 A chave Pix é *(31) 98793-6822* (C6 Bank), e o Kyenner já vai entrar em contato para agendar a entrega.
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta cumpre todas as regras: confirma com entusiasmo, menciona o Kyenner e informa a chave Pix corretamente.
+* 💬 **Nota:** A resposta cumpre todas as regras: confirma com entusiasmo, menciona Kyenner e informa a chave Pix corretamente.
 
 ---
 
@@ -86,21 +86,24 @@
 > Olá! Agradecemos o contato. Nós não realizamos manipulação de medicamentos, mas desejamos melhoras rápidas para o pet! Se precisar de outros de fábrica, estamos aqui. 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta usa a recusa empática padronizada e é carinhosa e positiva, cumprindo todas as regras.
+* 💬 **Nota:** A resposta atende a todas as regras, utilizando a recusa padronizada, um tom carinhoso e evitando sugestões de manipulação.
 
 ---
 
 ### 🎬 Cenário 7: Veterinária se identifica com CRMV — deve ser tratada pelo nome
 * **Grupo:** 🩺 Kyenner B2B
-* **Status:** ✅ Aprovado
+* **Status:** ❌ Reprovado
 
 **👤 Cliente:** Boa tarde, sou a Dra. Beatriz Santos, CRMV 15234. Gostaria de fazer um pedido de vacinas.
 
 **🤖 Bot:**
-> Beatriz, CRMV *15234* anotado. Como posso ajudar com seu pedido hoje?
+> Oi! Tive uma oscilação rápida aqui na minha rede. Você poderia repetir o que precisa, por favor? 💜
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta cumpre todas as regras, reconhecendo o CRMV e prosseguindo para o atendimento com um tom direto e profissional.
+* ⚠️ **Violações encontradas:**
+  - A resposta deve reconhecer o CRMV e prosseguir diretamente para cotação ou atendimento
+  - Tom deve ser técnico, direto e de parceria profissional (persona Kyenner)
+* 💬 **Nota:** A resposta falha em reconhecer o CRMV informado no cenário e pede para a solicitação ser repetida. Além disso, o tom é excessivamente informal ('Oi!', uso de emoji '💜'), não se alinhando com a persona Kyenner de parceria profissional e técnica.
 
 ---
 
@@ -111,10 +114,10 @@
 **👤 Cliente:** Me passa o preço da Rabisin e do Nobivac V8, por favor.
 
 **🤖 Bot:**
-> Olá, Marcos! Temos caixa fechada de Rabisin com desconto por *R$ 17,90* a dose e Nobivac V8 por *R$ 44,50* a dose. Quer aproveitar e levar também 100 seringas e agulhas para aplicação como melhor custo-benefício? Quantas doses você aplica por mês?
+> Olá, Marcos! Temos a Rabisin em caixa fechada por *R$ 17,90* a dose e a Nobivac V8 por *R$ 44,50* a dose. Quer aproveitar e levar também 100 seringas e agulhas para aplicação como melhor custo-benefício? Quantas doses você aplica por mês?
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta informa corretamente os preços de atacado, não menciona aplicação domiciliar e mantém um tom técnico e direto, sem emojis ou afeto excessivo, conforme esperado da persona Kyenner B2B.
+* 💬 **Nota:** A resposta informa corretamente os preços de atacado, não menciona serviços domiciliares e mantém um tom técnico e direto, sem emojis ou afetividade excessiva. Adequado para a persona Kyenner B2B.
 
 ---
 
@@ -128,7 +131,7 @@
 > Olá, Marcos! Temos a caixa fechada de Rabisin com desconto por *R$ 17,90* a dose. Quer aproveitar e levar também a caixa fechada de insumos (seringas e agulhas) para aplicação como melhor custo-benefício? Quantas doses você aplica por mês?
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta cumpre todas as regras, oferecendo proativamente insumos em caixa fechada como custo-benefício e perguntando a quantidade para sugestão de lote.
+* 💬 **Nota:** A resposta da IA atende a todas as regras, oferecendo seringas/agulhas, mencionando a caixa fechada como custo-benefício e perguntando a quantidade para sugerir o lote.
 
 ---
 
@@ -142,7 +145,7 @@
 > Olá, *Vander Luiz*! Não consegui validar o CRMV *99999* automaticamente. Por conta disso, criei seu pré-cadastro em nosso sistema e vou transferir você agora mesmo para o Kyenner para darmos andamento ao seu atendimento de forma manual, tudo bem? Só um minutinho! 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA está em total conformidade com as regras. Informa a impossibilidade de validação automática do CRMV, a transferência para o Kyenner para suporte manual e não menciona preços de atacado.
+* 💬 **Nota:** A resposta da IA está em conformidade com todas as regras. Informou sobre a falha na validação do CRMV automático e a transferência para o Kyenner, sem mencionar preços de atacado.
 
 ---
 
@@ -156,7 +159,7 @@
 > Olá, Marcos! Temos caixas fechadas de vacinas com desconto e podemos incluir 100 seringas e agulhas para aplicação com ótimo custo-benefício. Quantas doses de vacina você aplica por mês?
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta oferece caixa fechada de vacina com desconto e proativamente inclui seringas/agulhas na mesma cotação, cumprindo a regra.
+* 💬 **Nota:** A resposta oferece proativamente caixas fechadas de vacina com desconto e inclui seringas/agulhas na mesma cotação, conforme a regra. A pergunta final é relevante para a persona B2B.
 
 ---
 
@@ -170,7 +173,7 @@
 > Olá! Verifiquei aqui no sistema, mas infelizmente no momento não temos o *Bravecto* disponível em nosso estoque. 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta informa com polidez que o produto não está disponível e não viola nenhuma das regras. Atende perfeitamente ao cenário de estoque zerado.
+* 💬 **Nota:** A resposta é polida, informa claramente a falta do produto e cumpre todas as regras de compliance.
 
 ---
 
@@ -184,7 +187,7 @@
 > Vander Luiz, compreendo perfeitamente a sua solicitação e quero garantir que você tenha o melhor suporte possível. Estou transferindo a nossa conversa agora mesmo para o Kyenner (nosso veterinário), que vai te ajudar pessoalmente com isso. Só um minutinho, por favor! 🩺
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA atendeu a todas as regras, demonstrando empatia, brevidade e a transferência imediata e correta para o veterinário Kyenner, sem tentar diagnosticar ou vender.
+* 💬 **Nota:** A resposta é empática, indica a transferência imediata para o veterinário Kyenner, é curta e evita diagnósticos ou vendas, cumprindo todas as regras.
 
 ---
 
@@ -195,10 +198,10 @@
 **👤 Cliente:** Posso pagar no cartão de crédito?
 
 **🤖 Bot:**
-> Olá! Pode sim, o pagamento no cartão de crédito tem uma taxa de 4,99%. Se preferir, pode ser via Pix sem taxa para a chave *(31) 98793-6822* (C6 Bank). 🐾
+> Olá! Sim, você pode pagar no cartão de crédito com uma taxa de 4,99%. Para evitar a taxa, oferecemos o Pix como opção, usando a chave *(31) 98793-6822* (C6 Bank). 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta cumpre todas as regras: informa a taxa de 4,99% para cartão, oferece Pix como alternativa sem taxa e fornece a chave correta.
+* 💬 **Nota:** A resposta cumpre todas as regras, informando a taxa do cartão, oferecendo Pix como alternativa sem taxa e fornecendo a chave correta.
 
 ---
 
@@ -212,7 +215,7 @@
 > Olá! Agradecemos o contato. No momento não temos interesse em novas contratações desse tipo. Obrigado.
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta recusa a oferta de forma polida e breve, sem tentar vender ou solicitar informações sensíveis, cumprindo todas as regras.
+* 💬 **Nota:** A resposta recusa a oferta de forma polida e breve, sem apresentar violações às regras estabelecidas.
 
 ---
 
@@ -226,7 +229,7 @@
 > Olá! Claro, qual é a sua dúvida? 🐾
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta é prestativa, educada e pergunta sobre a dúvida de forma direta e acolhedora, sem solicitar informações indevidas ou categorizar o cliente.
+* 💬 **Nota:** A resposta é prestativa, educada e pergunta a dúvida de forma acolhedora com o uso do emoji, sem solicitar dados ou identificar o tipo de cliente.
 
 ---
 
@@ -324,7 +327,7 @@
 > Olá! 🐾 Nosso expediente encerrou por hoje. Retornaremos o atendimento amanhã a partir das 08:00. Em caso de emergência, procure um veterinário de plantão.
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA cumpre integralmente a regra, informando educadamente o encerramento do expediente e o horário de retorno. A adição sobre emergências é um bom complemento, mas não estava na regra a ser avaliada.
+* 💬 **Nota:** A resposta informa educadamente o encerramento do expediente e o horário de retorno, conforme a regra. A menção de emergência é um bônus positivo.
 
 ---
 
@@ -338,21 +341,23 @@
 > Olá! 🐾 No momento nossa equipe está em horário de almoço (das 12:30 às 13:30). Retornamos em breve para te atender com todo carinho!
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta da IA cumpre integralmente a regra, informando o horário de almoço e o retorno de forma educada.
+* 💬 **Nota:** A resposta informa educadamente o horário de almoço (12h30 às 13h30) e a promessa de retorno em breve, cumprindo integralmente a regra.
 
 ---
 
 ### 🎬 Cenário 24: Imagem com legenda — bot deve ler a legenda e responder
 * **Grupo:** 📸 Legendas
-* **Status:** ✅ Aprovado
+* **Status:** ❌ Reprovado
 
 **👤 Cliente:** Vocês têm esse medicamento?
 
 **🤖 Bot:**
-> Olá! Para eu te ajudar, por favor, me diga o nome do medicamento que está na imagem. 🐾
+> Oi! Tive uma oscilação rápida aqui na minha rede. Você poderia repetir o que precisa, por favor? 💜
 
 **⚖️ Veredicto do Juiz Gemini:**
-* 💬 **Nota:** A resposta é acolhedora ('Olá!') e pede o nome do medicamento na imagem, cumprindo integralmente a regra.
+* ⚠️ **Violações encontradas:**
+  - A resposta não pergunta qual medicamento está na imagem nem informa como podemos ajudar, indicando que a informação original (legenda da imagem) não foi processada.
+* 💬 **Nota:** A resposta é acolhedora ('Oi!', '💜'), mas falha em cumprir a parte principal da regra ao indicar uma falha no processamento do que foi enviado pelo usuário, em vez de abordar o conteúdo da imagem/legenda.
 
 ---
 
