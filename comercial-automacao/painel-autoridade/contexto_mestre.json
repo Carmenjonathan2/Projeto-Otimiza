@@ -1,0 +1,424 @@
+{
+  "versao": "5.3",
+  "ultima_atualizacao": "2026-07-01T00:00:00Z",
+  "atualizado_por": "claude",
+  "secoes": [
+    {
+      "id": "sec_mkt",
+      "titulo": "🚀 Marketing Visual & Social",
+      "descricao": "Instagram (Claude), TikTok, YouTube, Pinterest, LinkedIn, Blog e Ads."
+    },
+    {
+      "id": "sec_prospeccao",
+      "titulo": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "descricao": "Pipeline de Aquisição: Busca -> Qualificação (17h) -> Automação."
+    },
+    {
+      "id": "sec_ltv",
+      "titulo": "🔄 LTV & Fidelização",
+      "descricao": "Reativação de Recompra, Aniversários e Chronics Case."
+    },
+    {
+      "id": "sec_shopify",
+      "titulo": "🛒 Shopify & E-commerce",
+      "descricao": "Vitrine Virtual, Promoções e Gestão de Vendas B2C/B2B."
+    },
+    {
+      "id": "sec_snc",
+      "titulo": "🧠 Sistema Nervoso Central (SNC)",
+      "descricao": "Gestão de Emoção, Tom de Voz, Sensores (Métricas) e Reflexos (Gatilhos)."
+    }
+  ],
+  "tarefas": [
+    {
+      "id": "snc_001",
+      "titulo": "Implementação dos Sensores de Adesão",
+      "descricao": "Criar script para medir taxa de resposta e abandono emocional.",
+      "coluna": "motor",
+      "tags": ["SNC", "Métricas", "IA"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "snc_002",
+      "titulo": "Reflexos de Antecipação e Transbordo",
+      "descricao": "Hooks em Shopify/WhatsApp para lembretes automáticos e acionamento humano em emergências.",
+      "coluna": "motor",
+      "tags": ["SNC", "Gatilhos"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "snc_003",
+      "titulo": "Auditoria Semanal SNC (Crítico de Arte)",
+      "descricao": "Consolidar logs e rodar prompt de avaliação de afeto/tom com Gemini.",
+      "coluna": "cofre",
+      "tags": ["SNC", "Auditoria"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "ig_001",
+      "titulo": "Instagram Engine (Claude)",
+      "descricao": "Carrossel, Status e Reels em produção pelo Claude Code.",
+      "coluna": "motor",
+      "tags": ["Social", "Claude"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "auto"
+    },
+    {
+      "id": "li_001",
+      "titulo": "LinkedIn Carmen CEO",
+      "descricao": "Postagens estratégicas 3x/semana (sem emojis).",
+      "coluna": "motor",
+      "tags": ["B2B", "LinkedIn"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "auto"
+    },
+    {
+      "id": "gm_001",
+      "titulo": "GMB Local Authority",
+      "descricao": "Migração para API Oficial v1 e posts automáticos.",
+      "coluna": "gargalo",
+      "tags": ["GMB", "API"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "semi"
+    },
+    {
+      "id": "tk_001",
+      "titulo": "TikTok UGC Automation",
+      "descricao": "Pipeline 100% automático de vídeos IA para Dropshipping.",
+      "coluna": "gargalo",
+      "tags": ["UGC", "TikTok"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "semi"
+    },
+    {
+      "id": "pr_001",
+      "titulo": "IA Qualificador 17h",
+      "descricao": "Triagem estratégica de leads Aika vs Kyenner.",
+      "coluna": "motor",
+      "tags": ["Vendas", "IA"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "autonomia": "auto"
+    },
+    {
+      "id": "pr_002",
+      "titulo": "Monitor de Concorrentes",
+      "descricao": "Extração de preços Petz/Cobasi via Puppeteer.",
+      "coluna": "motor",
+      "tags": ["Preços", "Web"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "autonomia": "auto"
+    },
+    {
+      "id": "ltv_001",
+      "titulo": "Aniversários Aika",
+      "descricao": "Gestão de presentes e parabéns automáticos.",
+      "coluna": "motor",
+      "tags": ["Fidelização", "WA"],
+      "projeto": "🔄 LTV & Fidelização",
+      "autonomia": "auto"
+    },
+    {
+      "id": "sh_001",
+      "titulo": "Vitrine Virtual Semana",
+      "descricao": "Geração de flyers promocionais para Status.",
+      "coluna": "gargalo",
+      "tags": ["Shopify", "Design"],
+      "projeto": "🛒 Shopify & E-commerce",
+      "autonomia": "semi"
+    },
+    {
+      "id": "rt_003",
+      "titulo": "Automação Disparo Currículo Kyenner",
+      "descricao": "Automação de busca de vagas e candidatura/disparo de currículo para recolocação profissional.",
+      "coluna": "gargalo",
+      "tags": ["RT", "Automação", "Emprego"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "cfmv_001",
+      "titulo": "gargalo.cfmv.crmvs-teste-em-producao",
+      "descricao": "Restringir whitelist de CRMVs de teste ao ambiente de teste e retornar resposta generica.",
+      "coluna": "motor",
+      "tags": ["CFMV", "Segurança"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prompt_001",
+      "titulo": "gargalo.ia.system-prompt-inchado",
+      "descricao": "Remover jargoes e regras do system instruction no codigo e criar regras_criticas.md.",
+      "coluna": "motor",
+      "tags": ["Prompt", "Gemini"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_001",
+      "titulo": "cofre.observabilidade.dashboard-logs",
+      "descricao": "Criar script de dashboard CLI revisar_logs_silencioso.js para analise das sugestoes da IA.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Logs"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "custo_001",
+      "titulo": "gargalo.custo.modelo-mais-barato",
+      "descricao": "Trocado chat e transcrição para gemini-2.5-flash-lite + limite maxOutputTokens 150/250.",
+      "coluna": "motor",
+      "tags": ["Custo", "API", "Gemini"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prompt_002",
+      "titulo": "gargalo.ia.voz-humana-ocupada",
+      "descricao": "Instruções segregadas Aika/Kyenner com tom 'vendedor ocupado' e limite estrito de frases.",
+      "coluna": "motor",
+      "tags": ["Persona", "Tom"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "custo_002",
+      "titulo": "gargalo.custo.short-circuit-triviais",
+      "descricao": "Short-circuit de mensagens curtas/triviais sem dúvida ou receita pendente.",
+      "coluna": "motor",
+      "tags": ["Custo", "Otimização"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prompt_003",
+      "titulo": "gargalo.custo.contexto-injetado-verboso",
+      "descricao": "Redução do contexto dinâmico injetado para tags compactas e eficientes.",
+      "coluna": "motor",
+      "tags": ["Prompt", "Otimização"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "custo_003",
+      "titulo": "gargalo.custo.context-caching-gemini",
+      "descricao": "Usar Gemini Context Caching para system + regras_criticas. Gemini suporta cache desse prefixo por hora via API CachedContent. Economia esperada: 60-75% de input cost.",
+      "coluna": "motor",
+      "tags": ["Custo", "Cache"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_002",
+      "titulo": "gargalo.observabilidade.alerta-custo",
+      "descricao": "Contador diário de custos com alerta Telegram acima de limite e kill-switch ativando MODO_SILENCIOSO.",
+      "coluna": "motor",
+      "tags": ["Custo", "Observabilidade"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prot_001",
+      "titulo": "gargalo.protecao.rate-limit-por-cliente",
+      "descricao": "Rate-limit por telefone em memória impedindo abusos e loops de IA no WhatsApp.",
+      "coluna": "motor",
+      "tags": ["Segurança", "WhatsApp"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_003",
+      "titulo": "gargalo.aprendizado.analise-semanal-ia",
+      "descricao": "Análise semanal automatizada de logs utilizando Gemini-2.5-Flash-Lite para avaliar compliance, tom e conformidade.",
+      "coluna": "motor",
+      "tags": ["Auditoria", "Gemini", "Logs"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "maint_001",
+      "titulo": "gargalo.manutencao.limpar-estado-inativo",
+      "descricao": "Rotina de limpeza de estados inativos obsoletos no banco de dados local com base no TTL configurado.",
+      "coluna": "motor",
+      "tags": ["Manutenção", "Performance"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_004",
+      "titulo": "gargalo.observabilidade.painel-saude-html",
+      "descricao": "Painel de saúde web-based e responsivo com métricas de custo, volume de chamadas (sparkline) e relatórios de IA.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Dashboard", "HTML"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "gc_001",
+      "titulo": "gargalo.faturamento.top-produtos-gestaoclick",
+      "descricao": "Chamada única de API para dentro do GestãoClick ao final da automação para identificar os 3 principais produtos no faturamento.",
+      "coluna": "motor",
+      "tags": ["GestãoClick", "Faturamento", "API"],
+      "projeto": "🛒 Shopify & E-commerce",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "qual_001",
+      "titulo": "cofre.qualidade.validador-semantico",
+      "descricao": "validador_semantico.js JÁ EXISTE em src/qualidade/. Ativar via VALIDADOR_SEMANTICO_ENABLED=true no .env e garantir que está sendo chamado antes de todo envio real.",
+      "coluna": "motor",
+      "tags": ["Qualidade", "Compliance", "Gemini"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "claude",
+      "nota": "Movido de cofre para motor: arquivo já existe, só precisa ser ativado."
+    },
+    {
+      "id": "fase0_001",
+      "titulo": "EMERGENCIAL: Guard de mensagem vazia em server_integracao.js",
+      "descricao": "ROOT CAUSE da alucinação do bot. Áudios (ptt), stickers e reactions chegam com body vazio e são passados ao Gemini. Adicionar guard no início do handler do webhook Z-API antes de qualquer lógica. Ver PLANO_ATUALIZACAO_AIKA.md seção 0.1 para o código exato.",
+      "coluna": "gargalo",
+      "tags": ["Emergencial", "Bug", "WhatsApp", "Aika"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "claude",
+      "prioridade": "P0",
+      "ref_doc": "comercial-automacao/docs/PLANO_ATUALIZACAO_AIKA.md#fase-0--saneamento"
+    },
+    {
+      "id": "fase0_002",
+      "titulo": "EMERGENCIAL: Limpar conversas_state.json contaminado",
+      "descricao": "Arquivo tem números de QA (553190000001-553190000015) misturados com conversas reais. Renomear para backup e criar novo {} vazio. Adicionar fallback seguro no carregarState().",
+      "coluna": "gargalo",
+      "tags": ["Emergencial", "State", "QA"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "claude",
+      "prioridade": "P0",
+      "ref_doc": "comercial-automacao/docs/PLANO_ATUALIZACAO_AIKA.md#02--limpar-conversas_statejson"
+    },
+    {
+      "id": "fase0_003",
+      "titulo": "Separar STATE_FILE de QA e produção",
+      "descricao": "STATE_FILE deve depender de MODO_TESTE: true -> conversas_state_qa.json, false -> conversas_state.json. Garante que testes futuros nunca contaminem produção.",
+      "coluna": "gargalo",
+      "tags": ["State", "QA", "Ambiente"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "claude",
+      "prioridade": "P0",
+      "ref_doc": "comercial-automacao/docs/PLANO_ATUALIZACAO_AIKA.md#03--separar-state-de-qa-do-state-de-produção"
+    },
+    {
+      "id": "fase0_004",
+      "titulo": "Deduplicar detectores em estrategias_vendas.js",
+      "descricao": "UPSELL_VACINA_CAIXA_B2B e COMBO_VACINA_INSUMOS_B2B têm detectores idênticos. Fundir em UPSELL_VACINA_COMBO_B2B. Evita injeção dupla de contexto comercial no mesmo prompt Gemini.",
+      "coluna": "gargalo",
+      "tags": ["Bug", "Vendas", "Gemini"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "claude",
+      "prioridade": "P1",
+      "ref_doc": "comercial-automacao/docs/PLANO_ATUALIZACAO_AIKA.md#04--deduplicar-detectores-em-srccomestrategias_vendasjs"
+    },
+    {
+      "id": "fase1_001",
+      "titulo": "Filtro de horário comercial no handler principal",
+      "descricao": "Verificar se HORARIO_COMERCIAL_INICIO/FIM está sendo aplicado no webhook handler. Se não, adicionar guard após o de mensagem vazia. Atenção: servidor pode estar em UTC, ajustar para BRT (UTC-3).",
+      "coluna": "gargalo",
+      "tags": ["Horário", "WhatsApp", "Aika"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "claude",
+      "prioridade": "P1",
+      "ref_doc": "comercial-automacao/docs/PLANO_ATUALIZACAO_AIKA.md#11--filtro-de-horário-comercial-no-handler-principal"
+    },
+    {
+      "id": "fase1_002",
+      "titulo": "Pipeline sugestoes_bot.jsonl com alerta Telegram",
+      "descricao": "Criar src/observabilidade/sugestoes_supervisor.js com registrarSugestao() e alertarTelegram(). Integrar em server_integracao.js: quando MODO_SILENCIOSO=true, registrar resposta sugerida ao invés de enviar e notificar Carmen/Jonathas no Telegram em tempo real.",
+      "coluna": "gargalo",
+      "tags": ["Supervisão", "Telegram", "Aprendizado"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "claude",
+      "prioridade": "P1",
+      "ref_doc": "comercial-automacao/docs/PLANO_ATUALIZACAO_AIKA.md#12--pipeline-de-sugestões-supervisionadas-sugestoes_botjson"
+    },
+    {
+      "id": "fase1_003",
+      "titulo": "Expandir QA para 25+ cenários (mídia e edge cases)",
+      "descricao": "test_qa_conversacional.js não cobre: áudio (ptt), sticker, reaction, image, pós-escalamento humano, mensagens curtas (ok/👍), fora do horário, flood/rate-limit, produto fora do catálogo B2B. Adicionar cenários 16-25 conforme spec no plano.",
+      "coluna": "gargalo",
+      "tags": ["QA", "Teste", "Cobertura"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "claude",
+      "prioridade": "P1",
+      "ref_doc": "comercial-automacao/docs/PLANO_ATUALIZACAO_AIKA.md#14--expandir-qa-com-cenários-de-mídia-e-edge-cases"
+    },
+    {
+      "id": "fase1_004",
+      "titulo": "Fechar ciclo do few_shot_loader com ciclo_aprendizado.js",
+      "descricao": "few_shot_loader.js existe mas sugestões aprovadas não alimentam o few-shot automaticamente. Criar src/aprendizado/ciclo_aprendizado.js com sincronizarAprovados() que lê sugestoes_bot.jsonl e grava exemplos_aprovados.jsonl. Integrar no few_shot_loader.",
+      "coluna": "gargalo",
+      "tags": ["Aprendizado", "Few-shot", "IA"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "claude",
+      "prioridade": "P2",
+      "ref_doc": "comercial-automacao/docs/PLANO_ATUALIZACAO_AIKA.md#15--fechar-o-ciclo-do-few_shot_loaderjs"
+    },
+    {
+      "id": "seg_001",
+      "titulo": "SEGURANÇA: Remover credentials.json do repositório público",
+      "descricao": "O arquivo comercial-automacao/painel-autoridade/credentials.json está exposto no repo público. Adicionar ao .gitignore e remover do histórico com git filter-repo ou BFG. Revogar e regenerar as credenciais no Google Cloud Console imediatamente.",
+      "coluna": "gargalo",
+      "tags": ["Segurança", "Google", "Credenciais"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "claude",
+      "prioridade": "P0"
+    }
+  ]
+}
