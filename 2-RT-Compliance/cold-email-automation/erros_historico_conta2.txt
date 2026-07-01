@@ -1,0 +1,852 @@
+[LOG] [06/04/2026 09:15:08] - ⏳ Aguardando 1643ms (Jitter Multi-Conta: conta2)...
+[LOG] [06/04/2026 09:15:10] - 
+--- 🕒 Ciclo Iniciado: 06/04/2026 09:15 ---
+[LOG] [06/04/2026 09:15:11] - 🔍 Verificando respostas...
+[LOG] [06/04/2026 09:15:26] - ✉️ Processando Novo Lead: DAVID APARECIDO BARBOSA, MARILIA TOLEDO DE CASTRO BARBOSA [Envio Novo #1]
+[LOG] [06/04/2026 09:15:26] - 🌐 Buscando no Google Maps: 'MERCADO DO DAVI 36240000'...
+[LOG] [06/04/2026 09:15:27] - ⭐ Avaliação Encontrada (4.6): "Mercearia de ótimo preço, atendimento di..."
+[LOG] [06/04/2026 09:15:33] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62b83511726f8
+[LOG] [06/04/2026 09:15:33] - 🔹 Lead [604] atualizado: Enviado
+[LOG] [06/04/2026 09:15:41] - ✉️ Processando Novo Lead:  [Envio Novo #2]
+[LOG] [06/04/2026 09:15:41] - 🌐 Buscando no Google Maps: 'ELI OLIVEIRA DA SILVA 36240000'...
+[LOG] [06/04/2026 09:15:42] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:15:49] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62b87329fbbc2
+[LOG] [06/04/2026 09:15:49] - 🔹 Lead [605] atualizado: Enviado
+[LOG] [06/04/2026 09:15:57] - ✉️ Processando Novo Lead:  [Envio Novo #3]
+[LOG] [06/04/2026 09:15:57] - 🌐 Buscando no Google Maps: 'MARIA HILDA DE AMORIM MENDES 09617905639 36246311'...
+[LOG] [06/04/2026 09:15:58] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:16:07] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62b8bc2412ad3
+[LOG] [06/04/2026 09:16:08] - 🔹 Lead [606] atualizado: Enviado
+[LOG] [06/04/2026 09:16:16] - ✉️ Processando Novo Lead:  [Envio Novo #4]
+[LOG] [06/04/2026 09:16:16] - 🌐 Buscando no Google Maps: '48544681 TATIANA DOS SANTOS NASCIMENTO DE OLIVEIRA 36244222'...
+[LOG] [06/04/2026 09:16:16] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:16:26] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62b9067983a04
+[LOG] [06/04/2026 09:16:27] - 🔹 Lead [607] atualizado: Enviado
+[LOG] [06/04/2026 09:16:35] - ✉️ Processando Novo Lead: JENNIFER CRISTINE APARECIDA MARQUES DE OLIVEIRA [Envio Novo #5]
+[LOG] [06/04/2026 09:16:35] - 🌐 Buscando no Google Maps: 'J.J. CARNES E FRIOS 36240021'...
+[LOG] [06/04/2026 09:16:36] - ⭐ Nota Local Localizada: 5
+[LOG] [06/04/2026 09:16:44] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62b94b6778be7
+[LOG] [06/04/2026 09:16:44] - 🔹 Lead [608] atualizado: Enviado
+[LOG] [06/04/2026 09:16:52] - ✉️ Processando Novo Lead: DANIEL DAVI DIVINO DE DAVILA DE PAULA [Envio Novo #6]
+[LOG] [06/04/2026 09:16:52] - 🌐 Buscando no Google Maps: 'ACOUGUE E MERCEARIA REI DA CARNE 36240314'...
+[LOG] [06/04/2026 09:16:53] - ⭐ Avaliação Encontrada (4.2): "Carnes de primeira qualidade.
+Aqui se en..."
+[LOG] [06/04/2026 09:17:00] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62b98cd166347
+[LOG] [06/04/2026 09:17:01] - 🔹 Lead [609] atualizado: Enviado
+[LOG] [06/04/2026 09:17:09] - ✉️ Processando Novo Lead: THALITA CRISTINNE DE SOUZA CASTRO PEREIRA [Envio Novo #7]
+[LOG] [06/04/2026 09:17:09] - 🌐 Buscando no Google Maps: 'JL COMERCIO DE CARNES LTDA 36240027'...
+[LOG] [06/04/2026 09:17:10] - ⭐ Avaliação Encontrada (5): "Excelência e qualidade..."
+[LOG] [06/04/2026 09:17:17] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62b9cd8f2ed74
+[LOG] [06/04/2026 09:17:17] - 🔹 Lead [610] atualizado: Enviado
+[LOG] [06/04/2026 09:17:25] - ✉️ Processando Novo Lead: GLEICY SANTOS DE OLIVEIRA [Envio Novo #8]
+[LOG] [06/04/2026 09:17:25] - 🌐 Buscando no Google Maps: 'BOUTIQUE MINEIRA LTDA 36240183'...
+[LOG] [06/04/2026 09:17:26] - ⭐ Avaliação Encontrada (5): "O melhor sem dúvidas , atendimento excel..."
+[LOG] [06/04/2026 09:17:33] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62ba0df852618
+[LOG] [06/04/2026 09:17:34] - 🔹 Lead [611] atualizado: Enviado
+[LOG] [06/04/2026 09:17:42] - ✉️ Processando Novo Lead:  [Envio Novo #9]
+[LOG] [06/04/2026 09:17:42] - 🌐 Buscando no Google Maps: '61317144 SANDRA CID ANASTACIO FERREIRA 36246320'...
+[LOG] [06/04/2026 09:17:42] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:17:51] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62ba5170e37a8
+[LOG] [06/04/2026 09:17:51] - 🔹 Lead [612] atualizado: Enviado
+[LOG] [06/04/2026 09:17:59] - ✉️ Processando Novo Lead:  [Envio Novo #10]
+[LOG] [06/04/2026 09:17:59] - 🌐 Buscando no Google Maps: 'CASA DE CARNES VANDRO 36240000'...
+[LOG] [06/04/2026 09:18:00] - ⭐ Avaliação Encontrada (4.9): "Melhor preço e uma costela assada maravi..."
+[LOG] [06/04/2026 09:18:05] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62ba892422797
+[LOG] [06/04/2026 09:18:05] - 🔹 Lead [613] atualizado: Enviado
+[LOG] [06/04/2026 09:18:13] - ✉️ Processando Novo Lead: JOSE APARECIDO FERREIRA, CELIA REGINA SILVA FERREIRA [Envio Novo #11]
+[LOG] [06/04/2026 09:18:13] - 🌐 Buscando no Google Maps: 'ACOUGUE NOSSA SENHORA DA GLORIA 36242064'...
+[LOG] [06/04/2026 09:18:15] - ⭐ Avaliação Encontrada (5): "Compro carne há muitos anos nesse açougu..."
+[LOG] [06/04/2026 09:18:20] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62bac2a62e0cd
+[LOG] [06/04/2026 09:18:20] - 🔹 Lead [614] atualizado: Enviado
+[LOG] [06/04/2026 09:18:28] - ✉️ Processando Novo Lead:  [Envio Novo #12]
+[LOG] [06/04/2026 09:18:28] - 🌐 Buscando no Google Maps: '33211712 ANA PAULA DE OLIVEIRA FONSECA 36123000'...
+[LOG] [06/04/2026 09:18:29] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:18:41] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62bb14216ad86
+[LOG] [06/04/2026 09:18:41] - 🔹 Lead [615] atualizado: Enviado
+[LOG] [06/04/2026 09:18:49] - ✉️ Processando Novo Lead:  [Envio Novo #13]
+[LOG] [06/04/2026 09:18:49] - 🌐 Buscando no Google Maps: '28508952 EVANILDO LEMES GOMES 39804549'...
+[LOG] [06/04/2026 09:18:50] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:18:59] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62bb5bb053c76
+[LOG] [06/04/2026 09:18:59] - 🔹 Lead [616] atualizado: Enviado
+[LOG] [06/04/2026 09:19:07] - ✉️ Processando Novo Lead:  [Envio Novo #14]
+[LOG] [06/04/2026 09:19:07] - 🌐 Buscando no Google Maps: 'JOSE ADILSON ROSA DE JESUS PEREIRA 08740827658 39803320'...
+[LOG] [06/04/2026 09:19:08] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:19:16] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62bb9ef9c7bee
+[LOG] [06/04/2026 09:19:17] - 🔹 Lead [617] atualizado: Enviado
+[LOG] [06/04/2026 09:19:25] - ✉️ Processando Novo Lead:  [Envio Novo #15]
+[LOG] [06/04/2026 09:19:25] - 🌐 Buscando no Google Maps: 'LINDOLFO PEREIRA DE OLIVEIRA 73726427600 39802034'...
+[LOG] [06/04/2026 09:19:25] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:19:33] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62bbdf91a45cb
+[LOG] [06/04/2026 09:19:33] - 🔹 Lead [618] atualizado: Enviado
+[LOG] [06/04/2026 09:19:41] - ✉️ Processando Novo Lead:  [Envio Novo #16]
+[LOG] [06/04/2026 09:19:41] - 🌐 Buscando no Google Maps: 'SO CARNES SILVA 39802050'...
+[LOG] [06/04/2026 09:19:42] - ⭐ Avaliação Encontrada (4.8): "Atendimento nota 10
+Carnes de ótima qual..."
+[LOG] [06/04/2026 09:19:49] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62bc201839b4b
+[LOG] [06/04/2026 09:19:50] - 🔹 Lead [619] atualizado: Enviado
+[LOG] [06/04/2026 09:19:58] - ✉️ Processando Novo Lead:  [Envio Novo #17]
+[LOG] [06/04/2026 09:19:58] - 🌐 Buscando no Google Maps: 'SILVIO CAMPOS DE ALMEIDA 04962573667 39802275'...
+[LOG] [06/04/2026 09:19:58] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:20:07] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62bc67d32d533
+[LOG] [06/04/2026 09:20:08] - 🔹 Lead [620] atualizado: Enviado
+[ERR] [06/04/2026 09:20:16] - Erro ao resolver MX para hotmail.co: queryMx ENODATA hotmail.co
+[LOG] [06/04/2026 09:20:16] - ⚠️ E-mail inválido (Domínio inexistente ou inacessível): contabilidadeibvpaz@hotmail.co - Lead: 
+[LOG] [06/04/2026 09:20:16] - 🔹 Lead [621] atualizado: E-mail Inválido
+[LOG] [06/04/2026 09:20:16] - ✉️ Processando Novo Lead:  [Envio Novo #18]
+[LOG] [06/04/2026 09:20:16] - 🌐 Buscando no Google Maps: '51757189 THIAGO SANTOS TEIXEIRA 39803135'...
+[LOG] [06/04/2026 09:20:17] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:20:24] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62bca863c219d
+[LOG] [06/04/2026 09:20:25] - 🔹 Lead [622] atualizado: Enviado
+[LOG] [06/04/2026 09:20:33] - ✉️ Processando Novo Lead: GIAN CARLOS FERNANDES ALVES [Envio Novo #19]
+[LOG] [06/04/2026 09:20:33] - 🌐 Buscando no Google Maps: 'ACOUGUE CASTRO PIRES 39801683'...
+[LOG] [06/04/2026 09:20:34] - ⭐ Avaliação Encontrada (4.3): "Atendimento top. Carne fresca e de quali..."
+[LOG] [06/04/2026 09:20:41] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62bcea5802e70
+[LOG] [06/04/2026 09:20:42] - 🔹 Lead [623] atualizado: Enviado
+[LOG] [06/04/2026 09:20:50] - ✉️ Processando Novo Lead:  [Envio Novo #20]
+[LOG] [06/04/2026 09:20:50] - 🌐 Buscando no Google Maps: '59326290 LUCAS SOUZA PEREIRA 39800013'...
+[LOG] [06/04/2026 09:20:50] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:21:00] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62bd333d0fb72
+[LOG] [06/04/2026 09:21:00] - 🔹 Lead [624] atualizado: Enviado
+[LOG] [06/04/2026 09:21:08] - ✉️ Processando Novo Lead:  [Envio Novo #21]
+[LOG] [06/04/2026 09:21:08] - 🌐 Buscando no Google Maps: '60902791 JESSICA RODRIGUES BARBOSA 39800013'...
+[LOG] [06/04/2026 09:21:08] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:21:17] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62bd756340800
+[LOG] [06/04/2026 09:21:17] - 🔹 Lead [625] atualizado: Enviado
+[LOG] [06/04/2026 09:21:25] - ✉️ Processando Novo Lead:  [Envio Novo #22]
+[LOG] [06/04/2026 09:21:25] - 🌐 Buscando no Google Maps: '64363048 GILSON FERREIRA DA CRUZ 39802014'...
+[LOG] [06/04/2026 09:21:26] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:21:34] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62bdb679c5d75
+[LOG] [06/04/2026 09:21:34] - 🔹 Lead [626] atualizado: Enviado
+[LOG] [06/04/2026 09:21:42] - ✉️ Processando Novo Lead: THAIS PINTO RODRIGUES, MARIA BATISTA PINTO RODRIGUES [Envio Novo #23]
+[LOG] [06/04/2026 09:21:42] - 🌐 Buscando no Google Maps: 'CASA DE CARNE DANTAS 39804088'...
+[LOG] [06/04/2026 09:21:50] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62bdf616b00b2
+[LOG] [06/04/2026 09:21:50] - 🔹 Lead [627] atualizado: Enviado
+[LOG] [06/04/2026 09:21:58] - ✉️ Processando Novo Lead:  [Envio Novo #24]
+[LOG] [06/04/2026 09:21:58] - 🌐 Buscando no Google Maps: 'OSMAR CASE DE SOUZA 39802010'...
+[LOG] [06/04/2026 09:21:59] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:22:07] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62be39d979c95
+[LOG] [06/04/2026 09:22:07] - 🔹 Lead [628] atualizado: Enviado
+[LOG] [06/04/2026 09:22:15] - ✉️ Processando Novo Lead:  [Envio Novo #25]
+[LOG] [06/04/2026 09:22:15] - 🌐 Buscando no Google Maps: 'ADRIANA SILVA VIANA LOPES 39800013'...
+[LOG] [06/04/2026 09:22:16] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:22:23] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62be77a135920
+[LOG] [06/04/2026 09:22:24] - 🔹 Lead [629] atualizado: Enviado
+[LOG] [06/04/2026 09:22:32] - ✉️ Processando Novo Lead: ERICA PEREIRA AMARAL [Envio Novo #26]
+[LOG] [06/04/2026 09:22:32] - 🌐 Buscando no Google Maps: 'IMPERIO DA CARNE 39800224'...
+[LOG] [06/04/2026 09:22:43] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62bec6c148769
+[LOG] [06/04/2026 09:22:44] - 🔹 Lead [630] atualizado: Enviado
+[LOG] [06/04/2026 09:22:52] - ✉️ Processando Novo Lead:  [Envio Novo #27]
+[LOG] [06/04/2026 09:22:52] - 🌐 Buscando no Google Maps: 'JOSE MARIA FERREIRA SOUZA 25874136649 39800015'...
+[LOG] [06/04/2026 09:22:52] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:23:02] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62bf11b6d1cbf
+[LOG] [06/04/2026 09:23:02] - 🔹 Lead [631] atualizado: Enviado
+[LOG] [06/04/2026 09:23:10] - ✉️ Processando Novo Lead: BRUNO MENDES DOS ANJOS [Envio Novo #28]
+[LOG] [06/04/2026 09:23:10] - 🌐 Buscando no Google Maps: 'BRUNO MENDES DOS ANJOS LTDA 39801683'...
+[LOG] [06/04/2026 09:23:11] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:23:19] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62bf52180f267
+[LOG] [06/04/2026 09:23:19] - 🔹 Lead [632] atualizado: Enviado
+[ERR] [06/04/2026 09:23:27] - Erro ao resolver MX para gmail.comm: queryMx ENOTFOUND gmail.comm
+[LOG] [06/04/2026 09:23:27] - ⚠️ E-mail inválido (Domínio inexistente ou inacessível): rodrigoempreendedor99@gmail.comm - Lead: 
+[LOG] [06/04/2026 09:23:28] - 🔹 Lead [633] atualizado: E-mail Inválido
+[LOG] [06/04/2026 09:23:28] - ✉️ Processando Novo Lead:  [Envio Novo #29]
+[LOG] [06/04/2026 09:23:28] - 🌐 Buscando no Google Maps: '39619083 ENIVALDO DE CARVALHO BARROSO 39809800'...
+[LOG] [06/04/2026 09:23:28] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:23:39] - ✅ E-mail enviado (Opção B)! Thread ID: 19d62bfa1fc778ff
+[LOG] [06/04/2026 09:23:40] - 🔹 Lead [634] atualizado: Enviado
+[LOG] [06/04/2026 09:23:48] - ✉️ Processando Novo Lead:  [Envio Novo #30]
+[LOG] [06/04/2026 09:23:48] - 🌐 Buscando no Google Maps: 'NILTON FERREIRA DE SOUZA 29139520625 39800015'...
+[LOG] [06/04/2026 09:23:48] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [06/04/2026 09:23:56] - ✅ E-mail enviado (Opção A)! Thread ID: 19d62bfe41a8f8f8
+[LOG] [06/04/2026 09:23:57] - 🔹 Lead [635] atualizado: Enviado
+[LOG] [06/04/2026 09:24:05] - 
+✅ Ciclo Finalizado! Total do dia: 30 Quebra-gelo | 0 Bumps
+[LOG] [07/04/2026 09:15:07] - ⏳ Aguardando 5208ms (Jitter Multi-Conta: conta2)...
+[LOG] [07/04/2026 09:15:12] - 
+--- 🕒 Ciclo Iniciado: 07/04/2026 09:15 ---
+[LOG] [07/04/2026 09:15:13] - 🔍 Verificando respostas...
+[LOG] [07/04/2026 09:15:24] - ✉️ Processando Novo Lead:  [Envio Novo #1]
+[LOG] [07/04/2026 09:15:24] - 🌐 Buscando no Google Maps: '61317516 RAFAEL GOMES BATISTA 39802014'...
+[LOG] [07/04/2026 09:15:24] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:15:33] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67de95ce0a4d0
+[LOG] [07/04/2026 09:15:34] - 🔹 Lead [666] atualizado: Enviado
+[LOG] [07/04/2026 09:15:42] - ✉️ Processando Novo Lead:  [Envio Novo #2]
+[LOG] [07/04/2026 09:15:42] - 🌐 Buscando no Google Maps: '62890333 JUNIO PINTO DE ASSIS 39802010'...
+[LOG] [07/04/2026 09:15:42] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:15:53] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67dee1882fce8
+[LOG] [07/04/2026 09:15:53] - 🔹 Lead [667] atualizado: Enviado
+[LOG] [07/04/2026 09:16:01] - ✉️ Processando Novo Lead:  [Envio Novo #3]
+[LOG] [07/04/2026 09:16:01] - 🌐 Buscando no Google Maps: 'SHOPPING DA CARNE 39800224'...
+[LOG] [07/04/2026 09:16:02] - ⭐ Avaliação Encontrada (4.5): "Ótimo atendimento, açougue abre cedo e i..."
+[LOG] [07/04/2026 09:16:09] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67df1f136e79f
+[LOG] [07/04/2026 09:16:09] - 🔹 Lead [668] atualizado: Enviado
+[LOG] [07/04/2026 09:16:17] - ✉️ Processando Novo Lead:  [Envio Novo #4]
+[LOG] [07/04/2026 09:16:17] - 🌐 Buscando no Google Maps: 'O FRANGUINHO 39801238'...
+[LOG] [07/04/2026 09:16:28] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67df68ee013c9
+[LOG] [07/04/2026 09:16:28] - 🔹 Lead [669] atualizado: Enviado
+[LOG] [07/04/2026 09:16:36] - ✉️ Processando Novo Lead:  [Envio Novo #5]
+[LOG] [07/04/2026 09:16:36] - 🌐 Buscando no Google Maps: 'ADEILTON DOS SANTOS ALVES 70819289604 39801500'...
+[LOG] [07/04/2026 09:16:37] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:16:46] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67dfb0eeb5c02
+[LOG] [07/04/2026 09:16:47] - 🔹 Lead [670] atualizado: Enviado
+[LOG] [07/04/2026 09:16:55] - ✉️ Processando Novo Lead:  [Envio Novo #6]
+[LOG] [07/04/2026 09:16:55] - 🌐 Buscando no Google Maps: 'ACOUGUE OURO VERDE 39802014'...
+[LOG] [07/04/2026 09:16:56] - ⭐ Avaliação Encontrada (5): "Carne de ótima qualidade,  sem falar no ..."
+[LOG] [07/04/2026 09:17:01] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67dfec5f39301
+[LOG] [07/04/2026 09:17:02] - 🔹 Lead [671] atualizado: Enviado
+[LOG] [07/04/2026 09:17:10] - ✉️ Processando Novo Lead:  [Envio Novo #7]
+[LOG] [07/04/2026 09:17:10] - 🌐 Buscando no Google Maps: 'ELZIMEIRE MARGARETE MENEZES 01380837626 39800087'...
+[LOG] [07/04/2026 09:17:10] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:17:19] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67e02f0d4f088
+[LOG] [07/04/2026 09:17:19] - 🔹 Lead [672] atualizado: Enviado
+[LOG] [07/04/2026 09:17:27] - ✉️ Processando Novo Lead:  [Envio Novo #8]
+[LOG] [07/04/2026 09:17:27] - 🌐 Buscando no Google Maps: 'CLEMIRA RIBEIRO DOS SANTOS 84261455668 39809300'...
+[LOG] [07/04/2026 09:17:28] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:17:37] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67e076db5c9c5
+[LOG] [07/04/2026 09:17:37] - 🔹 Lead [673] atualizado: Enviado
+[LOG] [07/04/2026 09:17:45] - ✉️ Processando Novo Lead: ERICK FELIPE BARROS DUARTE [Envio Novo #9]
+[LOG] [07/04/2026 09:17:45] - 🌐 Buscando no Google Maps: 'SHOPPING DA CARNE DUPINA LTDA 39800013'...
+[LOG] [07/04/2026 09:17:46] - ⭐ Avaliação Encontrada (4.6): "Para mim é  o lugar onde vc encontra  tu..."
+[LOG] [07/04/2026 09:17:52] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e0b1fc237a1
+[LOG] [07/04/2026 09:17:52] - 🔹 Lead [674] atualizado: Enviado
+[LOG] [07/04/2026 09:18:00] - ✉️ Processando Novo Lead:  [Envio Novo #10]
+[LOG] [07/04/2026 09:18:00] - 🌐 Buscando no Google Maps: '50923595 SEBASTIAO JOSE DA SILVA 39802173'...
+[LOG] [07/04/2026 09:18:01] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:18:11] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e0fcafb4a11
+[LOG] [07/04/2026 09:18:12] - 🔹 Lead [675] atualizado: Enviado
+[LOG] [07/04/2026 09:18:20] - ✉️ Processando Novo Lead:  [Envio Novo #11]
+[LOG] [07/04/2026 09:18:20] - 🌐 Buscando no Google Maps: '53217206 ROBERTO CARLOS FRANCISCO CARDOSO 39804088'...
+[LOG] [07/04/2026 09:18:20] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:18:30] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67e144c387265
+[LOG] [07/04/2026 09:18:30] - 🔹 Lead [676] atualizado: Enviado
+[LOG] [07/04/2026 09:18:38] - ✉️ Processando Novo Lead:  [Envio Novo #12]
+[LOG] [07/04/2026 09:18:38] - 🌐 Buscando no Google Maps: '54027356 JOSELITO DOS SANTOS GUIMARAES 39800087'...
+[LOG] [07/04/2026 09:18:38] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:18:48] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e18debba04e
+[LOG] [07/04/2026 09:18:49] - 🔹 Lead [677] atualizado: Enviado
+[LOG] [07/04/2026 09:18:57] - ✉️ Processando Novo Lead:  [Envio Novo #13]
+[LOG] [07/04/2026 09:18:57] - 🌐 Buscando no Google Maps: 'M A SCHETTINO SANTOS 39800168'...
+[LOG] [07/04/2026 09:18:57] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:19:03] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e1c673c1fdd
+[LOG] [07/04/2026 09:19:03] - 🔹 Lead [678] atualizado: Enviado
+[LOG] [07/04/2026 09:19:11] - ✉️ Processando Novo Lead:  [Envio Novo #14]
+[LOG] [07/04/2026 09:19:11] - 🌐 Buscando no Google Maps: '60515833 MARIA GABRIELA FRANCO NUNES 39802301'...
+[LOG] [07/04/2026 09:19:12] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:19:24] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67e219907c5ca
+[LOG] [07/04/2026 09:19:24] - 🔹 Lead [679] atualizado: Enviado
+[LOG] [07/04/2026 09:19:32] - ✉️ Processando Novo Lead:  [Envio Novo #15]
+[LOG] [07/04/2026 09:19:32] - 🌐 Buscando no Google Maps: '64146583 ANTONIO BATISTA NUNES 39800015'...
+[LOG] [07/04/2026 09:19:33] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:19:41] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e25cc3c1b3f
+[LOG] [07/04/2026 09:19:41] - 🔹 Lead [680] atualizado: Enviado
+[LOG] [07/04/2026 09:19:49] - ✉️ Processando Novo Lead:  [Envio Novo #16]
+[LOG] [07/04/2026 09:19:49] - 🌐 Buscando no Google Maps: 'ACOUGUE SETE ESTRELAS 39800370'...
+[LOG] [07/04/2026 09:19:50] - ⭐ Avaliação Encontrada (5): "Melhor carne da cidade. Excelente atendi..."
+[LOG] [07/04/2026 09:19:56] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e2999756358
+[LOG] [07/04/2026 09:19:57] - 🔹 Lead [681] atualizado: Enviado
+[LOG] [07/04/2026 09:20:05] - ✉️ Processando Novo Lead: EDSON MOREIRA DUARTE, ANA PAULA MOREIRA DUARTE [Envio Novo #17]
+[LOG] [07/04/2026 09:20:05] - 🌐 Buscando no Google Maps: 'CASA DE CARNE DUPINA 39801683'...
+[LOG] [07/04/2026 09:20:05] - ⭐ Avaliação Encontrada (4.6): "Para mim é  o lugar onde vc encontra  tu..."
+[LOG] [07/04/2026 09:20:14] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67e2dd44927ae
+[LOG] [07/04/2026 09:20:15] - 🔹 Lead [682] atualizado: Enviado
+[LOG] [07/04/2026 09:20:23] - ✉️ Processando Novo Lead: EDSON MOREIRA DUARTE, ANA PAULA MOREIRA DUARTE [Envio Novo #18]
+[LOG] [07/04/2026 09:20:23] - 🌐 Buscando no Google Maps: 'CASA DE CARNE DUPINA 39802000'...
+[LOG] [07/04/2026 09:20:24] - ⭐ Avaliação Encontrada (4.6): "Para mim é  o lugar onde vc encontra  tu..."
+[LOG] [07/04/2026 09:20:31] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e31edfbf301
+[LOG] [07/04/2026 09:20:31] - 🔹 Lead [683] atualizado: Enviado
+[LOG] [07/04/2026 09:20:39] - ✉️ Processando Novo Lead: EDSON MOREIRA DUARTE [Envio Novo #19]
+[LOG] [07/04/2026 09:20:39] - 🌐 Buscando no Google Maps: 'SHOPPING DA CARNE 39802000'...
+[LOG] [07/04/2026 09:20:41] - ⭐ Avaliação Encontrada (4.6): "Ambientes agradável e as carnes são de ó..."
+[LOG] [07/04/2026 09:20:48] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e35fc2d42de
+[LOG] [07/04/2026 09:20:48] - 🔹 Lead [684] atualizado: Enviado
+[LOG] [07/04/2026 09:20:56] - ✉️ Processando Novo Lead:  [Envio Novo #20]
+[LOG] [07/04/2026 09:20:56] - 🌐 Buscando no Google Maps: 'CASA DA CARNE E FRANGOS DOIS IRMAOS 39804531'...
+[LOG] [07/04/2026 09:20:57] - ⭐ Nota Local Localizada: 5
+[LOG] [07/04/2026 09:21:06] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e3a69c5cfb8
+[LOG] [07/04/2026 09:21:06] - 🔹 Lead [685] atualizado: Enviado
+[LOG] [07/04/2026 09:21:14] - ✉️ Processando Novo Lead:  [Envio Novo #21]
+[LOG] [07/04/2026 09:21:14] - 🌐 Buscando no Google Maps: 'ESKINA DA CARNE 39801287'...
+[LOG] [07/04/2026 09:21:15] - ⭐ Avaliação Encontrada (4): "Melhor açougue da região, além do preço ..."
+[LOG] [07/04/2026 09:21:21] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e3e233c57b0
+[LOG] [07/04/2026 09:21:21] - 🔹 Lead [686] atualizado: Enviado
+[LOG] [07/04/2026 09:21:29] - ✉️ Processando Novo Lead: ZENILTON LOUZADO DE SOUZA [Envio Novo #22]
+[LOG] [07/04/2026 09:21:29] - 🌐 Buscando no Google Maps: 'ACOUGUE FAMILIA 39809800'...
+[LOG] [07/04/2026 09:21:30] - ⭐ Avaliação Encontrada (4.9): "Fui muito bem atendido, ainda me exolica..."
+[LOG] [07/04/2026 09:21:37] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67e41eb489fff
+[LOG] [07/04/2026 09:21:37] - 🔹 Lead [687] atualizado: Enviado
+[LOG] [07/04/2026 09:21:45] - ✉️ Processando Novo Lead:  [Envio Novo #23]
+[LOG] [07/04/2026 09:21:45] - 🌐 Buscando no Google Maps: 'CARLOS COELHO 00559484640 39803145'...
+[LOG] [07/04/2026 09:21:46] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:21:53] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e45e9cf1d45
+[LOG] [07/04/2026 09:21:53] - 🔹 Lead [688] atualizado: Enviado
+[LOG] [07/04/2026 09:22:01] - ✉️ Processando Novo Lead:  [Envio Novo #24]
+[LOG] [07/04/2026 09:22:01] - 🌐 Buscando no Google Maps: 'ACOUGUE MATINHA 39801287'...
+[LOG] [07/04/2026 09:22:13] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e4aca3644f9
+[LOG] [07/04/2026 09:22:13] - 🔹 Lead [689] atualizado: Enviado
+[LOG] [07/04/2026 09:22:21] - ✉️ Processando Novo Lead:  [Envio Novo #25]
+[LOG] [07/04/2026 09:22:21] - 🌐 Buscando no Google Maps: '51394274 JORGIMAR MENDES DE ALMEIDA 39800370'...
+[LOG] [07/04/2026 09:22:22] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:22:33] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67e4fa00d25c9
+[LOG] [07/04/2026 09:22:33] - 🔹 Lead [690] atualizado: Enviado
+[LOG] [07/04/2026 09:22:41] - ✉️ Processando Novo Lead:  [Envio Novo #26]
+[LOG] [07/04/2026 09:22:41] - 🌐 Buscando no Google Maps: '58936663 CARLOS ROBERTO PIMENTA DOS SANTOS 39802050'...
+[LOG] [07/04/2026 09:22:42] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:22:56] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e554c3137c9
+[LOG] [07/04/2026 09:22:56] - 🔹 Lead [691] atualizado: Enviado
+[LOG] [07/04/2026 09:23:04] - ✉️ Processando Novo Lead:  [Envio Novo #27]
+[LOG] [07/04/2026 09:23:04] - 🌐 Buscando no Google Maps: '59189000 LUCIANO DUPIN CORREA REUTER 39802050'...
+[LOG] [07/04/2026 09:23:05] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:23:15] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e5a136ce582
+[LOG] [07/04/2026 09:23:15] - 🔹 Lead [692] atualizado: Enviado
+[LOG] [07/04/2026 09:23:23] - ✉️ Processando Novo Lead:  [Envio Novo #28]
+[LOG] [07/04/2026 09:23:23] - 🌐 Buscando no Google Maps: 'JOAO PEDRO ANTUNES ALMEIDA GOMES PEREIRA 39800970'...
+[LOG] [07/04/2026 09:23:24] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:23:32] - ✅ E-mail enviado (Opção B)! Thread ID: 19d67e5e393223da
+[LOG] [07/04/2026 09:23:33] - 🔹 Lead [693] atualizado: Enviado
+[LOG] [07/04/2026 09:23:41] - ✉️ Processando Novo Lead:  [Envio Novo #29]
+[LOG] [07/04/2026 09:23:41] - 🌐 Buscando no Google Maps: 'NILSON FERREIRA DE SOUZA 39800127'...
+[LOG] [07/04/2026 09:23:41] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [07/04/2026 09:23:52] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e6307580e89
+[LOG] [07/04/2026 09:23:53] - 🔹 Lead [694] atualizado: Enviado
+[LOG] [07/04/2026 09:24:01] - ✉️ Processando Novo Lead: AILTON APARECIDO PEREIRA [Envio Novo #30]
+[LOG] [07/04/2026 09:24:01] - 🌐 Buscando no Google Maps: 'CASA DE CARNE BARROSO 39800370'...
+[LOG] [07/04/2026 09:24:02] - ⭐ Avaliação Encontrada (4): "É A MELHOR CARNE DA CIDADE..."
+[LOG] [07/04/2026 09:24:08] - ✅ E-mail enviado (Opção A)! Thread ID: 19d67e6706d25a6b
+[LOG] [07/04/2026 09:24:09] - 🔹 Lead [695] atualizado: Enviado
+[LOG] [07/04/2026 09:24:17] - 
+✅ Ciclo Finalizado! Total do dia: 30 Quebra-gelo | 0 Bumps
+[LOG] [09/04/2026 09:15:07] - ⏳ Aguardando 3616ms (Jitter Multi-Conta: conta2)...
+[LOG] [09/04/2026 09:15:10] - 
+--- 🕒 Ciclo Iniciado: 09/04/2026 09:15 ---
+[LOG] [09/04/2026 09:15:11] - 🔍 Verificando respostas...
+[LOG] [09/04/2026 09:15:23] - 🚀 Enviando Bump (Day 3) para: DAVID APARECIDO BARBOSA, MARILIA TOLEDO DE CASTRO BARBOSA [Bump #1]
+[LOG] [09/04/2026 09:15:24] - 🚀 Bump enviado com sucesso para: eulerltd@veloxmail.com.br
+[LOG] [09/04/2026 09:15:24] - 🔹 Lead [604] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:15:32] - 🚀 Enviando Bump (Day 3) para:  [Bump #2]
+[LOG] [09/04/2026 09:15:33] - 🚀 Bump enviado com sucesso para: cassio@sdnet.com.br
+[LOG] [09/04/2026 09:15:33] - 🔹 Lead [605] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:15:41] - 🚀 Enviando Bump (Day 3) para:  [Bump #3]
+[LOG] [09/04/2026 09:15:42] - 🚀 Bump enviado com sucesso para: cataprocopio@yahoo.com.br
+[LOG] [09/04/2026 09:15:43] - 🔹 Lead [606] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:15:51] - 🚀 Enviando Bump (Day 3) para:  [Bump #4]
+[LOG] [09/04/2026 09:15:51] - 🚀 Bump enviado com sucesso para: tatianareginaldo1985@gmail.com
+[LOG] [09/04/2026 09:15:52] - 🔹 Lead [607] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:16:00] - 🚀 Enviando Bump (Day 3) para: JENNIFER CRISTINE APARECIDA MARQUES DE OLIVEIRA [Bump #5]
+[LOG] [09/04/2026 09:16:01] - 🚀 Bump enviado com sucesso para: jennifermarquesoliver@gmail.com
+[LOG] [09/04/2026 09:16:01] - 🔹 Lead [608] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:16:09] - 🚀 Enviando Bump (Day 3) para: DANIEL DAVI DIVINO DE DAVILA DE PAULA [Bump #6]
+[LOG] [09/04/2026 09:16:10] - 🚀 Bump enviado com sucesso para: vilaraugusto@hotmail.com
+[LOG] [09/04/2026 09:16:10] - 🔹 Lead [609] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:16:18] - 🚀 Enviando Bump (Day 3) para: THALITA CRISTINNE DE SOUZA CASTRO PEREIRA [Bump #7]
+[LOG] [09/04/2026 09:16:19] - 🚀 Bump enviado com sucesso para: thalitasouza@live.com
+[LOG] [09/04/2026 09:16:19] - 🔹 Lead [610] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:16:27] - 🚀 Enviando Bump (Day 3) para: GLEICY SANTOS DE OLIVEIRA [Bump #8]
+[LOG] [09/04/2026 09:16:28] - 🚀 Bump enviado com sucesso para: boutique.mineira25@gmail.com
+[LOG] [09/04/2026 09:16:29] - 🔹 Lead [611] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:16:37] - 🚀 Enviando Bump (Day 3) para:  [Bump #9]
+[LOG] [09/04/2026 09:16:37] - 🚀 Bump enviado com sucesso para: ferreirahedgar29@gmail.com
+[LOG] [09/04/2026 09:16:38] - 🔹 Lead [612] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:16:46] - 🚀 Enviando Bump (Day 3) para:  [Bump #10]
+[LOG] [09/04/2026 09:16:47] - 🚀 Bump enviado com sucesso para: cassio@sdnet.com.br
+[LOG] [09/04/2026 09:16:47] - 🔹 Lead [613] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:16:55] - 🚀 Enviando Bump (Day 3) para: JOSE APARECIDO FERREIRA, CELIA REGINA SILVA FERREIRA [Bump #11]
+[LOG] [09/04/2026 09:16:56] - 🚀 Bump enviado com sucesso para: stefaniupedro@yahoo.com.br
+[LOG] [09/04/2026 09:16:56] - 🔹 Lead [614] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:17:04] - 🚀 Enviando Bump (Day 3) para:  [Bump #12]
+[LOG] [09/04/2026 09:17:05] - 🚀 Bump enviado com sucesso para: anapofonseca@gmail.com
+[LOG] [09/04/2026 09:17:05] - 🔹 Lead [615] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:17:13] - 🚀 Enviando Bump (Day 3) para:  [Bump #13]
+[LOG] [09/04/2026 09:17:14] - 🚀 Bump enviado com sucesso para: evanildolemesgomes4525@gmail.com
+[LOG] [09/04/2026 09:17:14] - 🔹 Lead [616] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:17:22] - 🚀 Enviando Bump (Day 3) para:  [Bump #14]
+[LOG] [09/04/2026 09:17:23] - 🚀 Bump enviado com sucesso para: joseadilson3253@gmail.com
+[LOG] [09/04/2026 09:17:24] - 🔹 Lead [617] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:17:32] - 🚀 Enviando Bump (Day 3) para:  [Bump #15]
+[LOG] [09/04/2026 09:17:32] - 🚀 Bump enviado com sucesso para: alfa.cont@yahoo.com.br
+[LOG] [09/04/2026 09:17:33] - 🔹 Lead [618] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:17:41] - 🚀 Enviando Bump (Day 3) para:  [Bump #16]
+[LOG] [09/04/2026 09:17:42] - 🚀 Bump enviado com sucesso para: socarnesilva@gmail.com
+[LOG] [09/04/2026 09:17:42] - 🔹 Lead [619] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:17:50] - 🚀 Enviando Bump (Day 3) para:  [Bump #17]
+[LOG] [09/04/2026 09:17:51] - 🚀 Bump enviado com sucesso para: campossilvio105@gmail.com
+[LOG] [09/04/2026 09:17:51] - 🔹 Lead [620] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:17:59] - 🚀 Enviando Bump (Day 3) para:  [Bump #18]
+[LOG] [09/04/2026 09:18:00] - 🚀 Bump enviado com sucesso para: txcortesdecarnes@gmail.com
+[LOG] [09/04/2026 09:18:00] - 🔹 Lead [622] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:18:08] - 🚀 Enviando Bump (Day 3) para: GIAN CARLOS FERNANDES ALVES [Bump #19]
+[LOG] [09/04/2026 09:18:09] - 🚀 Bump enviado com sucesso para: castropiresacougue@hotmail.com
+[LOG] [09/04/2026 09:18:09] - 🔹 Lead [623] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:18:17] - 🚀 Enviando Bump (Day 3) para:  [Bump #20]
+[LOG] [09/04/2026 09:18:18] - 🚀 Bump enviado com sucesso para: luccassouza77@gmail.com
+[LOG] [09/04/2026 09:18:19] - 🔹 Lead [624] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:18:27] - 🚀 Enviando Bump (Day 3) para:  [Bump #21]
+[LOG] [09/04/2026 09:18:27] - 🚀 Bump enviado com sucesso para: contabilidadeandrade@hotmail.com
+[LOG] [09/04/2026 09:18:28] - 🔹 Lead [625] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:18:36] - 🚀 Enviando Bump (Day 3) para:  [Bump #22]
+[LOG] [09/04/2026 09:18:37] - 🚀 Bump enviado com sucesso para: lucashp77@hotmail.com
+[LOG] [09/04/2026 09:18:37] - 🔹 Lead [626] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:18:45] - 🚀 Enviando Bump (Day 3) para: THAIS PINTO RODRIGUES, MARIA BATISTA PINTO RODRIGUES [Bump #23]
+[LOG] [09/04/2026 09:18:46] - 🚀 Bump enviado com sucesso para: charles.contabeis@hotmail.com
+[LOG] [09/04/2026 09:18:46] - 🔹 Lead [627] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:18:54] - 🚀 Enviando Bump (Day 3) para:  [Bump #24]
+[LOG] [09/04/2026 09:18:55] - 🚀 Bump enviado com sucesso para: seteccont@uol.com.br
+[LOG] [09/04/2026 09:18:55] - 🔹 Lead [628] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:19:03] - 🚀 Enviando Bump (Day 3) para:  [Bump #25]
+[LOG] [09/04/2026 09:19:04] - 🚀 Bump enviado com sucesso para: contabilidadeandrade@hotmail.com
+[LOG] [09/04/2026 09:19:04] - 🔹 Lead [629] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:19:12] - 🚀 Enviando Bump (Day 3) para: ERICA PEREIRA AMARAL [Bump #26]
+[LOG] [09/04/2026 09:19:13] - 🚀 Bump enviado com sucesso para: gencont@veloxmail.com.br
+[LOG] [09/04/2026 09:19:13] - 🔹 Lead [630] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:19:21] - 🚀 Enviando Bump (Day 3) para:  [Bump #27]
+[LOG] [09/04/2026 09:19:22] - 🚀 Bump enviado com sucesso para: wilque_contabil@hotmail.com
+[LOG] [09/04/2026 09:19:23] - 🔹 Lead [631] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:19:31] - 🚀 Enviando Bump (Day 3) para: BRUNO MENDES DOS ANJOS [Bump #28]
+[LOG] [09/04/2026 09:19:31] - 🚀 Bump enviado com sucesso para: siare@escritaonline.cnt.br
+[LOG] [09/04/2026 09:19:32] - 🔹 Lead [632] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:19:40] - 🚀 Enviando Bump (Day 3) para:  [Bump #29]
+[LOG] [09/04/2026 09:19:41] - 🚀 Bump enviado com sucesso para: igorpradocardoso@gmail.com
+[LOG] [09/04/2026 09:19:41] - 🔹 Lead [634] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:19:49] - 🚀 Enviando Bump (Day 3) para:  [Bump #30]
+[LOG] [09/04/2026 09:19:50] - 🚀 Bump enviado com sucesso para: contabilidadeprimusto@gmail.com
+[LOG] [09/04/2026 09:19:50] - 🔹 Lead [635] atualizado: Bump Enviado
+[LOG] [09/04/2026 09:19:58] - ✉️ Processando Novo Lead:  [Envio Novo #1]
+[LOG] [09/04/2026 09:19:58] - 🌐 Buscando no Google Maps: '64160264 EDIOMAR LAUBE SANTOS 39801287'...
+[LOG] [09/04/2026 09:19:59] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [09/04/2026 09:20:08] - ✅ E-mail enviado (Opção A)! Thread ID: 19d722f82e12540b
+[LOG] [09/04/2026 09:20:09] - 🔹 Lead [726] atualizado: Enviado
+[LOG] [09/04/2026 09:20:17] - ✉️ Processando Novo Lead:  [Envio Novo #2]
+[LOG] [09/04/2026 09:20:17] - 🌐 Buscando no Google Maps: '12634109 MARILENE SILVA VAZ SANTOS NUNES 39802212'...
+[LOG] [09/04/2026 09:20:17] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [09/04/2026 09:20:27] - ✅ E-mail enviado (Opção A)! Thread ID: 19d722fca922a1fe
+[LOG] [09/04/2026 09:20:27] - 🔹 Lead [727] atualizado: Enviado
+[LOG] [09/04/2026 09:20:35] - ✉️ Processando Novo Lead:  [Envio Novo #3]
+[LOG] [09/04/2026 09:20:35] - 🌐 Buscando no Google Maps: 'ACOUGUE CONFIANCA 39800127'...
+[LOG] [09/04/2026 09:20:36] - ⭐ Avaliação Encontrada (4.8): "Se vc está procurando um Açogue pra cham..."
+[LOG] [09/04/2026 09:20:46] - ✅ E-mail enviado (Opção A)! Thread ID: 19d723016737b2d6
+[LOG] [09/04/2026 09:20:47] - 🔹 Lead [728] atualizado: Enviado
+[LOG] [09/04/2026 09:20:55] - ✉️ Processando Novo Lead: NARIA APARECIDA NUNES [Envio Novo #4]
+[LOG] [09/04/2026 09:20:55] - 🌐 Buscando no Google Maps: 'ACOUGUE APARECIDA NUNES E FILHO 39802014'...
+[LOG] [09/04/2026 09:20:56] - ⭐ Avaliação Encontrada (3.7): "Sempre compro carnes. Tudo vem embalado ..."
+[LOG] [09/04/2026 09:21:03] - ✅ E-mail enviado (Opção A)! Thread ID: 19d723057c069f6a
+[LOG] [09/04/2026 09:21:03] - 🔹 Lead [729] atualizado: Enviado
+[LOG] [09/04/2026 09:21:11] - ✉️ Processando Novo Lead:  [Envio Novo #5]
+[LOG] [09/04/2026 09:21:11] - 🌐 Buscando no Google Maps: 'BABY BEEF CARNES NOBRES 39802014'...
+[LOG] [09/04/2026 09:21:13] - ⭐ Avaliação Encontrada (4.6): "Os funcionários Chagas, André são muito ..."
+[LOG] [09/04/2026 09:21:19] - ✅ E-mail enviado (Opção A)! Thread ID: 19d7230977285d85
+[LOG] [09/04/2026 09:21:19] - 🔹 Lead [730] atualizado: Enviado
+[LOG] [09/04/2026 09:21:27] - ✉️ Processando Novo Lead:  [Envio Novo #6]
+[LOG] [09/04/2026 09:21:27] - 🌐 Buscando no Google Maps: '18587483 GILDETE TEIXEIRA VIEIRA 39809800'...
+[LOG] [09/04/2026 09:21:28] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [09/04/2026 09:21:37] - ✅ E-mail enviado (Opção A)! Thread ID: 19d7230de8544542
+[LOG] [09/04/2026 09:21:38] - 🔹 Lead [731] atualizado: Enviado
+[ERR] [09/04/2026 09:21:46] - Erro ao resolver MX para dablius.cnt.br: queryMx ENOTFOUND dablius.cnt.br
+[LOG] [09/04/2026 09:21:46] - ⚠️ E-mail inválido (Domínio inexistente ou inacessível): falecom@dablius.cnt.br - Lead: WALACY HERRISSON PIMENTA
+[LOG] [09/04/2026 09:21:46] - 🔹 Lead [732] atualizado: E-mail Inválido
+[LOG] [09/04/2026 09:21:46] - ✉️ Processando Novo Lead:  [Envio Novo #7]
+[LOG] [09/04/2026 09:21:46] - 🌐 Buscando no Google Maps: 'CASA DE CARNES UNIAO 39800285'...
+[LOG] [09/04/2026 09:21:47] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [09/04/2026 09:21:54] - ✅ E-mail enviado (Opção A)! Thread ID: 19d72311e39cd17a
+[LOG] [09/04/2026 09:21:55] - 🔹 Lead [733] atualizado: Enviado
+[LOG] [09/04/2026 09:22:03] - ✉️ Processando Novo Lead:  [Envio Novo #8]
+[LOG] [09/04/2026 09:22:03] - 🌐 Buscando no Google Maps: 'FRANGOMAR 39800370'...
+[LOG] [09/04/2026 09:22:04] - ⭐ Nota Local Localizada: 5
+[LOG] [09/04/2026 09:22:09] - ✅ E-mail enviado (Opção A)! Thread ID: 19d723159e5148f9
+[LOG] [09/04/2026 09:22:09] - 🔹 Lead [734] atualizado: Enviado
+[LOG] [09/04/2026 09:22:17] - ✉️ Processando Novo Lead:  [Envio Novo #9]
+[LOG] [09/04/2026 09:22:17] - 🌐 Buscando no Google Maps: 'BABY BEEF CARNES NOBRES 39802047'...
+[LOG] [09/04/2026 09:22:18] - ⭐ Avaliação Encontrada (4.6): "Os funcionários Chagas, André são muito ..."
+[LOG] [09/04/2026 09:22:27] - ✅ E-mail enviado (Opção A)! Thread ID: 19d72319f0c1d518
+[LOG] [09/04/2026 09:22:27] - 🔹 Lead [735] atualizado: Enviado
+[LOG] [09/04/2026 09:22:35] - ✉️ Processando Novo Lead: JULIANA PEREIRA DOS SANTOS, CHARLES ANTONIO DOS SANTOS [Envio Novo #10]
+[LOG] [09/04/2026 09:22:35] - 🌐 Buscando no Google Maps: 'CASA DE FRANGO SAO CRISTOVAO 39804533'...
+[LOG] [09/04/2026 09:22:36] - ⭐ Avaliação Encontrada (5): "Parabéns pelo atendimento..."
+[LOG] [09/04/2026 09:22:42] - ✅ E-mail enviado (Opção A)! Thread ID: 19d7231da44ffaaf
+[LOG] [09/04/2026 09:22:43] - 🔹 Lead [736] atualizado: Enviado
+[LOG] [09/04/2026 09:22:51] - ✉️ Processando Novo Lead:  [Envio Novo #11]
+[LOG] [09/04/2026 09:22:51] - 🌐 Buscando no Google Maps: 'DANILO ALVES DE AMARAL 10100066658 39804533'...
+[LOG] [09/04/2026 09:22:51] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [09/04/2026 09:23:02] - ✅ E-mail enviado (Opção B)! Thread ID: 19d72322890354e8
+[LOG] [09/04/2026 09:23:03] - 🔹 Lead [737] atualizado: Enviado
+[LOG] [09/04/2026 09:23:11] - ✉️ Processando Novo Lead:  [Envio Novo #12]
+[LOG] [09/04/2026 09:23:11] - 🌐 Buscando no Google Maps: 'ANTONIO EDVALDO RODRIGUES 07445732624 39801260'...
+[LOG] [09/04/2026 09:23:11] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [09/04/2026 09:23:20] - ✅ E-mail enviado (Opção B)! Thread ID: 19d72326f7655ea1
+[LOG] [09/04/2026 09:23:20] - 🔹 Lead [738] atualizado: Enviado
+[LOG] [09/04/2026 09:23:28] - ✉️ Processando Novo Lead:  [Envio Novo #13]
+[LOG] [09/04/2026 09:23:28] - 🌐 Buscando no Google Maps: 'FAGNER SANTOS DOHLER 39800224'...
+[LOG] [09/04/2026 09:23:29] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [09/04/2026 09:23:37] - ✅ E-mail enviado (Opção A)! Thread ID: 19d7232aea062d17
+[LOG] [09/04/2026 09:23:37] - 🔹 Lead [739] atualizado: Enviado
+[LOG] [09/04/2026 09:23:45] - ✉️ Processando Novo Lead:  [Envio Novo #14]
+[LOG] [09/04/2026 09:23:45] - 🌐 Buscando no Google Maps: 'GILSON ANTONIO CAMPOS FILHO 05612502605 39807000'...
+[LOG] [09/04/2026 09:23:46] - 📍 Nenhum local ou estabelecimento encontrado pelo Google Maps.
+[LOG] [09/04/2026 09:23:54] - ✅ E-mail enviado (Opção B)! Thread ID: 19d7232f30b320b8
+[LOG] [09/04/2026 09:23:54] - 🔹 Lead [740] atualizado: Enviado
+[LOG] [09/04/2026 09:24:02] - 
+✅ Ciclo Finalizado! Total do dia: 14 Quebra-gelo | 30 Bumps
+[LOG] [10/04/2026 09:15:08] - ⏳ Aguardando 2739ms (Jitter Multi-Conta: conta2)...
+[LOG] [10/04/2026 09:15:11] - 
+--- 🕒 Ciclo Iniciado: 10/04/2026 09:15 ---
+[LOG] [10/04/2026 09:15:12] - 🔍 Verificando respostas...
+[LOG] [10/04/2026 09:15:13] - 🚀 Enviando Bump (Day 3) para:  [Bump #1]
+[LOG] [10/04/2026 09:15:14] - 🚀 Bump enviado com sucesso para: handrinebarbosa85@gmail.com
+[LOG] [10/04/2026 09:15:14] - 🔹 Lead [666] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:15:22] - 🚀 Enviando Bump (Day 3) para:  [Bump #2]
+[LOG] [10/04/2026 09:15:23] - 🚀 Bump enviado com sucesso para: juniopinto3@gmail.com
+[LOG] [10/04/2026 09:15:24] - 🔹 Lead [667] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:15:32] - 🚀 Enviando Bump (Day 3) para:  [Bump #3]
+[LOG] [10/04/2026 09:15:32] - 🚀 Bump enviado com sucesso para: contabilidadeandrade@hotmail.com
+[LOG] [10/04/2026 09:15:33] - 🔹 Lead [668] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:15:41] - 🚀 Enviando Bump (Day 3) para:  [Bump #4]
+[LOG] [10/04/2026 09:15:42] - 🚀 Bump enviado com sucesso para: ielvosantana@yahoo.com.br
+[LOG] [10/04/2026 09:15:42] - 🔹 Lead [669] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:15:50] - 🚀 Enviando Bump (Day 3) para:  [Bump #5]
+[LOG] [10/04/2026 09:15:51] - 🚀 Bump enviado com sucesso para: tecon@teconcontabilidade.com.br
+[LOG] [10/04/2026 09:15:52] - 🔹 Lead [670] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:16:00] - 🚀 Enviando Bump (Day 3) para:  [Bump #6]
+[LOG] [10/04/2026 09:16:00] - 🚀 Bump enviado com sucesso para: mastercontabilto@gmail.com
+[LOG] [10/04/2026 09:16:01] - 🔹 Lead [671] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:16:09] - 🚀 Enviando Bump (Day 3) para:  [Bump #7]
+[LOG] [10/04/2026 09:16:10] - 🚀 Bump enviado com sucesso para: elzimeiremenezes@yahoo.com.br
+[LOG] [10/04/2026 09:16:10] - 🔹 Lead [672] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:16:18] - 🚀 Enviando Bump (Day 3) para:  [Bump #8]
+[LOG] [10/04/2026 09:16:19] - 🚀 Bump enviado com sucesso para: clemirasantos@hotmail.com
+[LOG] [10/04/2026 09:16:19] - 🔹 Lead [673] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:16:27] - 🚀 Enviando Bump (Day 3) para: ERICK FELIPE BARROS DUARTE [Bump #9]
+[LOG] [10/04/2026 09:16:28] - 🚀 Bump enviado com sucesso para: cadastrofiscal@escritaonline.cnt.br
+[LOG] [10/04/2026 09:16:29] - 🔹 Lead [674] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:16:37] - 🚀 Enviando Bump (Day 3) para:  [Bump #10]
+[LOG] [10/04/2026 09:16:37] - 🚀 Bump enviado com sucesso para: unitec.escritorio@gmail.com
+[LOG] [10/04/2026 09:16:38] - 🔹 Lead [675] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:16:46] - 🚀 Enviando Bump (Day 3) para:  [Bump #11]
+[LOG] [10/04/2026 09:16:47] - 🚀 Bump enviado com sucesso para: julioneto25205@hotmail.com
+[LOG] [10/04/2026 09:16:47] - 🔹 Lead [676] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:16:55] - 🚀 Enviando Bump (Day 3) para:  [Bump #12]
+[LOG] [10/04/2026 09:16:56] - 🚀 Bump enviado com sucesso para: arnan.contador@gmail.com
+[LOG] [10/04/2026 09:16:56] - 🔹 Lead [677] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:17:04] - 🚀 Enviando Bump (Day 3) para:  [Bump #13]
+[LOG] [10/04/2026 09:17:05] - 🚀 Bump enviado com sucesso para: sergeccont@gmail.com
+[LOG] [10/04/2026 09:17:06] - 🔹 Lead [678] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:17:14] - 🚀 Enviando Bump (Day 3) para:  [Bump #14]
+[LOG] [10/04/2026 09:17:15] - 🚀 Bump enviado com sucesso para: lucashp77@hotmail.com
+[LOG] [10/04/2026 09:17:15] - 🔹 Lead [679] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:17:23] - 🚀 Enviando Bump (Day 3) para:  [Bump #15]
+[LOG] [10/04/2026 09:17:24] - 🚀 Bump enviado com sucesso para: lucashp77@hotmail.com
+[LOG] [10/04/2026 09:17:25] - 🔹 Lead [680] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:17:33] - 🚀 Enviando Bump (Day 3) para:  [Bump #16]
+[LOG] [10/04/2026 09:17:33] - 🚀 Bump enviado com sucesso para: seteccont@uol.com.br
+[LOG] [10/04/2026 09:17:34] - 🔹 Lead [681] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:17:42] - 🚀 Enviando Bump (Day 3) para: EDSON MOREIRA DUARTE, ANA PAULA MOREIRA DUARTE [Bump #17]
+[LOG] [10/04/2026 09:17:43] - 🚀 Bump enviado com sucesso para: cadastrofiscal@escritaonline.cnt.br
+[LOG] [10/04/2026 09:17:43] - 🔹 Lead [682] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:17:51] - 🚀 Enviando Bump (Day 3) para: EDSON MOREIRA DUARTE, ANA PAULA MOREIRA DUARTE [Bump #18]
+[LOG] [10/04/2026 09:17:52] - 🚀 Bump enviado com sucesso para: cadastrofiscal@escritaonline.cnt.br
+[LOG] [10/04/2026 09:17:52] - 🔹 Lead [683] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:18:00] - 🚀 Enviando Bump (Day 3) para: EDSON MOREIRA DUARTE [Bump #19]
+[LOG] [10/04/2026 09:18:01] - 🚀 Bump enviado com sucesso para: cadastrofiscal@escritaonline.cnt.br
+[LOG] [10/04/2026 09:18:02] - 🔹 Lead [684] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:18:10] - 🚀 Enviando Bump (Day 3) para:  [Bump #20]
+[LOG] [10/04/2026 09:18:10] - 🚀 Bump enviado com sucesso para: bless.assessoria@yahoo.com.br
+[LOG] [10/04/2026 09:18:11] - 🔹 Lead [685] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:18:19] - 🚀 Enviando Bump (Day 3) para:  [Bump #21]
+[LOG] [10/04/2026 09:18:20] - 🚀 Bump enviado com sucesso para: sauloramalhomirandasrm@gmail.com
+[LOG] [10/04/2026 09:18:20] - 🔹 Lead [686] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:18:28] - 🚀 Enviando Bump (Day 3) para: ZENILTON LOUZADO DE SOUZA [Bump #22]
+[LOG] [10/04/2026 09:18:29] - 🚀 Bump enviado com sucesso para: contabilidadeandrade@hotmail.com
+[LOG] [10/04/2026 09:18:29] - 🔹 Lead [687] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:18:37] - 🚀 Enviando Bump (Day 3) para:  [Bump #23]
+[LOG] [10/04/2026 09:18:38] - 🚀 Bump enviado com sucesso para: jairklia09@hotmail.com
+[LOG] [10/04/2026 09:18:39] - 🔹 Lead [688] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:18:47] - 🚀 Enviando Bump (Day 3) para:  [Bump #24]
+[LOG] [10/04/2026 09:18:47] - 🚀 Bump enviado com sucesso para: laubethalles36@gmail.com
+[LOG] [10/04/2026 09:18:48] - 🔹 Lead [689] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:18:56] - 🚀 Enviando Bump (Day 3) para:  [Bump #25]
+[LOG] [10/04/2026 09:18:57] - 🚀 Bump enviado com sucesso para: mazinho_42@hotmail.com
+[LOG] [10/04/2026 09:18:57] - 🔹 Lead [690] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:19:05] - 🚀 Enviando Bump (Day 3) para:  [Bump #26]
+[LOG] [10/04/2026 09:19:06] - 🚀 Bump enviado com sucesso para: sergeccont@gmail.com
+[LOG] [10/04/2026 09:19:06] - 🔹 Lead [691] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:19:14] - 🚀 Enviando Bump (Day 3) para:  [Bump #27]
+[LOG] [10/04/2026 09:19:15] - 🚀 Bump enviado com sucesso para: lucianodupincorreareuter@gmail.com
+[LOG] [10/04/2026 09:19:15] - 🔹 Lead [692] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:19:23] - 🚀 Enviando Bump (Day 3) para:  [Bump #28]
+[LOG] [10/04/2026 09:19:24] - 🚀 Bump enviado com sucesso para: alfa.cont@yahoo.com.br
+[LOG] [10/04/2026 09:19:25] - 🔹 Lead [693] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:19:33] - 🚀 Enviando Bump (Day 3) para:  [Bump #29]
+[LOG] [10/04/2026 09:19:33] - 🚀 Bump enviado com sucesso para: piloto@uai.com.br
+[LOG] [10/04/2026 09:19:34] - 🔹 Lead [694] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:19:42] - 🚀 Enviando Bump (Day 3) para: AILTON APARECIDO PEREIRA [Bump #30]
+[LOG] [10/04/2026 09:19:43] - 🚀 Bump enviado com sucesso para: bless.assessoria@yahoo.com.br
+[LOG] [10/04/2026 09:19:43] - 🔹 Lead [695] atualizado: Bump Enviado
+[LOG] [10/04/2026 09:19:51] - 
+✅ Ciclo Finalizado! Total do dia: 0 Quebra-gelo | 30 Bumps
+[LOG] [13/04/2026 09:15:11] - ⏳ Aguardando 2301ms (Jitter Multi-Conta: conta2)...
+[LOG] [13/04/2026 09:15:14] - 
+--- 🕒 Ciclo Iniciado: 13/04/2026 09:15 ---
+[LOG] [13/04/2026 09:15:15] - 🔍 Verificando respostas...
+[LOG] [13/04/2026 09:15:23] - 
+✅ Ciclo Finalizado! Total do dia: 0 Quebra-gelo | 0 Bumps
+[LOG] [14/04/2026 09:17:18] - ⏳ Aguardando 3735ms (Jitter Multi-Conta: conta2)...
+[LOG] [14/04/2026 09:17:22] - 
+--- 🕒 Ciclo Iniciado: 14/04/2026 09:17 ---
+[LOG] [14/04/2026 09:17:24] - 🔍 Verificando respostas...
+[LOG] [14/04/2026 09:17:34] - 
+✅ Ciclo Finalizado! Total do dia: 0 Quebra-gelo | 0 Bumps
+[LOG] [15/04/2026 09:15:28] - ⏳ Aguardando 166ms (Jitter Multi-Conta: conta2)...
+[LOG] [15/04/2026 09:15:28] - 
+--- 🕒 Ciclo Iniciado: 15/04/2026 09:15 ---
+[LOG] [15/04/2026 09:15:30] - 🔍 Verificando respostas...
+[LOG] [15/04/2026 09:15:40] - 
+✅ Ciclo Finalizado! Total do dia: 0 Quebra-gelo | 0 Bumps
+[LOG] [16/04/2026 09:15:08] - ⏳ Aguardando 3287ms (Jitter Multi-Conta: conta2)...
+[LOG] [16/04/2026 09:15:11] - 
+--- 🕒 Ciclo Iniciado: 16/04/2026 09:15 ---
+[LOG] [16/04/2026 09:15:12] - 🔍 Verificando respostas...
+[LOG] [16/04/2026 09:15:23] - 
+✅ Ciclo Finalizado! Total do dia: 0 Quebra-gelo | 0 Bumps
+[LOG] [23/04/2026 09:15:12] - ⏳ Aguardando 6438ms (Jitter Multi-Conta: conta2)...
+[LOG] [23/04/2026 09:15:19] - 
+--- 🕒 Ciclo Iniciado: 23/04/2026 09:15 ---
+[LOG] [23/04/2026 09:15:20] - 🔍 Verificando respostas...
+[LOG] [23/04/2026 09:15:22] - 
+✅ Ciclo Finalizado! Total do dia: 0 Quebra-gelo | 0 Bumps
+[LOG] [24/04/2026 09:15:09] - ⏳ Aguardando 1863ms (Jitter Multi-Conta: conta2)...
+[LOG] [24/04/2026 09:15:11] - 
+--- 🕒 Ciclo Iniciado: 24/04/2026 09:15 ---
+[LOG] [24/04/2026 09:15:13] - 🔍 Verificando respostas...
+[LOG] [24/04/2026 09:15:13] - 
+✅ Ciclo Finalizado! Total do dia: 0 Quebra-gelo | 0 Bumps
+[LOG] [27/04/2026 09:15:52] - ⏳ Aguardando 7818ms (Jitter Multi-Conta: conta2)...
+[LOG] [27/04/2026 09:16:00] - 
+--- 🕒 Ciclo Iniciado: 27/04/2026 09:16 ---
+[LOG] [27/04/2026 09:16:01] - 🔍 Verificando respostas...
+[LOG] [27/04/2026 09:16:08] - 
+✅ Ciclo Finalizado! Total do dia: 0 Quebra-gelo | 0 Bumps
+[LOG] [28/04/2026 09:17:56] - ⏳ Aguardando 3130ms (Jitter Multi-Conta: conta2)...
+[LOG] [28/04/2026 09:17:59] - 
+--- 🕒 Ciclo Iniciado: 28/04/2026 09:17 ---
+[LOG] [28/04/2026 09:18:01] - 🔍 Verificando respostas...
+[LOG] [28/04/2026 09:18:09] - 
+✅ Ciclo Finalizado! Total do dia: 0 Quebra-gelo | 0 Bumps
+[LOG] [30/04/2026 09:15:10] - ⏳ Aguardando 2857ms (Jitter Multi-Conta: conta2)...
+[LOG] [30/04/2026 09:15:13] - 
+--- 🕒 Ciclo Iniciado: 30/04/2026 09:15 ---
+[LOG] [30/04/2026 09:15:14] - 🔍 Verificando respostas...
+[LOG] [30/04/2026 09:15:26] - ✉️ Processando Novo Lead: Responsável [Envio Novo #1]
+[LOG] [30/04/2026 09:15:26] - 🌐 Buscando no Google Maps: 'Imobiliária Buritis Av. Professor Mário Werneck, 1737 - Buritis, Belo Horizonte - MG, 30455-610'...
+[LOG] [30/04/2026 09:15:27] - ⭐ Avaliação Encontrada (4.5): "O corretor Antonio foi um divisor de águ..."
+[LOG] [30/04/2026 09:15:39] - ✅ E-mail enviado (Opção B)! Thread ID: 19dde50ee0515d65
+[ERR] [30/04/2026 09:15:40] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:15:48] - ✉️ Processando Novo Lead: Responsável [Envio Novo #2]
+[LOG] [30/04/2026 09:15:48] - 🌐 Buscando no Google Maps: 'Belvedere Sênior Av. Professor Cristóvam dos Santos, 150 - Belvedere, Belo Horizonte - MG, 30320-510'...
+[LOG] [30/04/2026 09:15:49] - ⭐ Avaliação Encontrada (4.5): "Excelente residencial. O espaço físico é..."
+[LOG] [30/04/2026 09:16:00] - ✅ E-mail enviado (Opção A)! Thread ID: 19dde513e6d8f7fd
+[ERR] [30/04/2026 09:16:00] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:16:08] - ✉️ Processando Novo Lead: Responsável [Envio Novo #3]
+[LOG] [30/04/2026 09:16:08] - 🌐 Buscando no Google Maps: 'BHMais Imóveis Av. Altamiro Avelino Soares, 655 - Loja 1e2 - Castelo, Belo Horizonte - MG, 31330-000'...
+[LOG] [30/04/2026 09:16:10] - ⭐ Avaliação Encontrada (4.6): "Fui atendida pelo corretor Lucas Silva e..."
+[LOG] [30/04/2026 09:16:20] - ✅ E-mail enviado (Opção B)! Thread ID: 19dde519126cfe98
+[ERR] [30/04/2026 09:16:21] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:16:29] - ✉️ Processando Novo Lead: Responsável [Envio Novo #4]
+[LOG] [30/04/2026 09:16:29] - 🌐 Buscando no Google Maps: 'Vila da Serra Nova Lima R. das Flores, 76 - Vila da Serra, Nova Lima - MG, 34006-074'...
+[LOG] [30/04/2026 09:16:30] - ⭐ Avaliação Encontrada (5): "Bairro nobre de nova Lima..."
+[LOG] [30/04/2026 09:16:43] - ✅ E-mail enviado (Opção A)! Thread ID: 19dde51e7d67151a
+[ERR] [30/04/2026 09:16:43] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:16:51] - ✉️ Processando Novo Lead: Responsável [Envio Novo #5]
+[LOG] [30/04/2026 09:16:51] - 🌐 Buscando no Google Maps: 'Metrópole R. da Vereda, 50 - Vila da Serra, Nova Lima - MG, 34006-077'...
+[LOG] [30/04/2026 09:16:53] - ⭐ Avaliação Encontrada (4.6): "Apartamento 3 quartos andar alto Vila da..."
+[LOG] [30/04/2026 09:17:10] - ✅ E-mail enviado (Opção B)! Thread ID: 19dde52502f2216a
+[ERR] [30/04/2026 09:17:10] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:17:18] - ✉️ Processando Novo Lead: Responsável [Envio Novo #6]
+[LOG] [30/04/2026 09:17:18] - 🌐 Buscando no Google Maps: 'Condominio Cennario - Torre Alta Vista R. do Vale, 296 - Vila da Serra, Nova Lima - MG, 34000-000'...
+[LOG] [30/04/2026 09:17:20] - ⭐ Avaliação Encontrada (4.7): "Excelente, principalmente para as crianç..."
+[LOG] [30/04/2026 09:17:32] - ✅ E-mail enviado (Opção B)! Thread ID: 19dde52a79b1305e
+[ERR] [30/04/2026 09:17:32] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:17:40] - ✉️ Processando Novo Lead: Responsável [Envio Novo #7]
+[LOG] [30/04/2026 09:17:40] - 🌐 Buscando no Google Maps: 'Edifício Jardim Sion R. la Plata, 166 - Sion, Belo Horizonte - MG, 30315-460'...
+[LOG] [30/04/2026 09:17:53] - ✅ E-mail enviado (Opção B)! Thread ID: 19dde52facb5e52e
+[ERR] [30/04/2026 09:17:54] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:18:02] - ✉️ Processando Novo Lead: Responsável [Envio Novo #8]
+[LOG] [30/04/2026 09:18:02] - 🌐 Buscando no Google Maps: 'Santo Agostinho Imóveis R. dos Aimorés, 2480 - conj. de sala 904 - Santo Agostinho, Belo Horizonte - MG, 30140-076'...
+[LOG] [30/04/2026 09:18:03] - ⭐ Avaliação Encontrada (4.3): "Esta é uma imobiliária que eu recomendo ..."
+[LOG] [30/04/2026 09:18:13] - ✅ E-mail enviado (Opção A)! Thread ID: 19dde5349af94e71
+[ERR] [30/04/2026 09:18:14] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:18:22] - ✉️ Processando Novo Lead: Responsável [Envio Novo #9]
+[LOG] [30/04/2026 09:18:22] - 🌐 Buscando no Google Maps: 'Mourthé Imóveis R. Eduardo Pôrto, 366 - Cidade Jardim, Belo Horizonte - MG, 30380-060'...
+[LOG] [30/04/2026 09:18:23] - ⭐ Avaliação Encontrada (5): "Eu estava a procura de um imóvel que ate..."
+[LOG] [30/04/2026 09:18:34] - ✅ E-mail enviado (Opção B)! Thread ID: 19dde53998ca2ea1
+[ERR] [30/04/2026 09:18:34] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:18:42] - ✉️ Processando Novo Lead: Responsável [Envio Novo #10]
+[LOG] [30/04/2026 09:18:42] - 🌐 Buscando no Google Maps: 'Marina Carvalho Imóveis | Lagoa Santa Av. Pref. João Daher, 1099 - Lundcéia, Lagoa Santa - MG, 33400-000'...
+[LOG] [30/04/2026 09:18:43] - ⭐ Avaliação Encontrada (4.5): "Compramos um lote num condomínio fechado..."
+[LOG] [30/04/2026 09:18:55] - ✅ E-mail enviado (Opção A)! Thread ID: 19dde53eafde2a7a
+[ERR] [30/04/2026 09:18:55] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:19:03] - ✉️ Processando Novo Lead: Responsável [Envio Novo #11]
+[LOG] [30/04/2026 09:19:03] - 🌐 Buscando no Google Maps: 'Residencial Lagoá R. Gerson da Costa Viana, 540 - Luiz Toledo, Lagoa Santa - MG, 33400-000'...
+[LOG] [30/04/2026 09:19:05] - ⭐ Avaliação Encontrada (4.6): "Ótima localização. Bem estruturado...."
+[LOG] [30/04/2026 09:19:14] - ✅ E-mail enviado (Opção A)! Thread ID: 19dde5434c8e39c8
+[ERR] [30/04/2026 09:19:14] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:19:22] - ✉️ Processando Novo Lead: Responsável [Envio Novo #12]
+[LOG] [30/04/2026 09:19:22] - 🌐 Buscando no Google Maps: 'Condomínio Centro Logístico VM5 Via Ver. Joaquim Costa, 1405 - Campina Verde, Contagem - MG, 32150-240'...
+[LOG] [30/04/2026 09:19:23] - ⭐ Avaliação Encontrada (3.9): "Muito medo dos comentário kkkk meu produ..."
+[LOG] [30/04/2026 09:19:38] - ✅ E-mail enviado (Opção A)! Thread ID: 19dde54946f1efae
+[ERR] [30/04/2026 09:19:39] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:19:47] - ✉️ Processando Novo Lead: Responsável [Envio Novo #13]
+[LOG] [30/04/2026 09:19:47] - 🌐 Buscando no Google Maps: 'LOG Contagem I R. Simão Antônio, 149 - Cincao, Contagem - MG, 32371-610'...
+[LOG] [30/04/2026 09:19:48] - ⭐ Avaliação Encontrada (4.2): "Ótima estrutura para veículos de carga d..."
+[LOG] [30/04/2026 09:19:58] - ✅ E-mail enviado (Opção A)! Thread ID: 19dde54e319f26b3
+[ERR] [30/04/2026 09:19:59] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:20:07] - ✉️ Processando Novo Lead: Responsável [Envio Novo #14]
+[LOG] [30/04/2026 09:20:07] - 🌐 Buscando no Google Maps: 'Prime Síndico Profissional - Belo Horizonte - MG Rua Castelo de Alcázar, 125 - Castelo, Belo Horizonte - MG, 31330-310'...
+[LOG] [30/04/2026 09:20:08] - ⭐ Avaliação Encontrada (4.3): "A melhor empresa de síndicos de BH, sem ..."
+[LOG] [30/04/2026 09:20:20] - ✅ E-mail enviado (Opção B)! Thread ID: 19dde553806a6932
+[ERR] [30/04/2026 09:20:21] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:20:29] - ✉️ Processando Novo Lead: Responsável [Envio Novo #15]
+[LOG] [30/04/2026 09:20:29] - 🌐 Buscando no Google Maps: 'Síndicos Excelência Profissional Av. Professor Mário Werneck, 2220 - loja 15 - Buritis, Belo Horizonte - MG, 30575-180'...
+[LOG] [30/04/2026 09:20:30] - ⭐ Avaliação Encontrada (4.9): "Gostaria de parabenizar a equipe da Sínd..."
+[LOG] [30/04/2026 09:20:41] - ✅ E-mail enviado (Opção B)! Thread ID: 19dde5589da719aa
+[ERR] [30/04/2026 09:20:41] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:20:49] - ✉️ Processando Novo Lead: Responsável [Envio Novo #16]
+[LOG] [30/04/2026 09:20:49] - 🌐 Buscando no Google Maps: 'Mais Sindicos Profissionais R. Contria, 1157 - Grajaú, Belo Horizonte - MG, 30431-028'...
+[LOG] [30/04/2026 09:20:50] - ⭐ Avaliação Encontrada (3.8): "ID: 227219429
+Título: Portão fecha sobre..."
+[LOG] [30/04/2026 09:21:17] - ✅ E-mail enviado (Opção B)! Thread ID: 19dde56149185987
+[ERR] [30/04/2026 09:21:17] - Erro ao atualizar lead: The caller does not have permission
+[ERR] [30/04/2026 09:21:25] - Erro ao resolver MX para mrayderadvogacia.com.br: queryMx ENOTFOUND mrayderadvogacia.com.br
+[LOG] [30/04/2026 09:21:25] - ⚠️ E-mail inválido (Domínio inexistente ou inacessível): faleconosco@mrayderadvogacia.com.br - Lead: Responsável
+[ERR] [30/04/2026 09:21:26] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:21:26] - ✉️ Processando Novo Lead: Responsável [Envio Novo #17]
+[LOG] [30/04/2026 09:21:26] - 🌐 Buscando no Google Maps: 'Casa do Síndico BH Av. Nossa Sra. de Fátima, 1787 - Loja D - Carlos Prates, Belo Horizonte - MG, 30710-020'...
+[LOG] [30/04/2026 09:21:28] - ⭐ Avaliação Encontrada (4.5): "Atendimento diferenciado,  Encontrei div..."
+[LOG] [30/04/2026 09:21:44] - ✅ E-mail enviado (Opção B)! Thread ID: 19dde5681698d7f6
+[ERR] [30/04/2026 09:21:45] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:21:53] - ✉️ Processando Novo Lead: Responsável [Envio Novo #18]
+[LOG] [30/04/2026 09:21:53] - 🌐 Buscando no Google Maps: 'Escolha Sindico Profissional Rua dos Guajajaras, 880 - Conjunto 1401 - Centro, Belo Horizonte - MG, 30180-106'...
+[LOG] [30/04/2026 09:21:54] - ⭐ Avaliação Encontrada (4.7): "Melhor opção de sindico profissional.  A..."
+[LOG] [30/04/2026 09:22:04] - ✅ E-mail enviado (Opção A)! Thread ID: 19dde56ce17aeb74
+[ERR] [30/04/2026 09:22:05] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [30/04/2026 09:22:13] - 
+✅ Ciclo Finalizado! Total do dia: 18 Quebra-gelo | 0 Bumps
+[LOG] [04/05/2026 09:17:21] - ⏳ Aguardando 3921ms (Jitter Multi-Conta: conta2)...
+[LOG] [04/05/2026 09:17:26] - 
+--- 🕒 Ciclo Iniciado: 04/05/2026 09:17 ---
+[LOG] [04/05/2026 09:17:42] - 🔍 Verificando respostas...
+[LOG] [04/05/2026 09:17:52] - ✉️ Processando Novo Lead: Responsável [Envio Novo #1]
+[LOG] [04/05/2026 09:17:52] - 🌐 Buscando no Google Maps: 'Imobiliária Buritis Av. Professor Mário Werneck, 1737 - Buritis, Belo Horizonte - MG, 30455-610'...
+[LOG] [04/05/2026 09:17:56] - ⭐ Avaliação Encontrada (4.5): "O corretor Antonio foi um divisor de águ..."
+[LOG] [04/05/2026 09:18:08] - ✅ E-mail enviado (Opção B)! Thread ID: 19df2eca4e9005bf
+[ERR] [04/05/2026 09:18:09] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:18:17] - ✉️ Processando Novo Lead: Responsável [Envio Novo #2]
+[LOG] [04/05/2026 09:18:17] - 🌐 Buscando no Google Maps: 'Belvedere Sênior Av. Professor Cristóvam dos Santos, 150 - Belvedere, Belo Horizonte - MG, 30320-510'...
+[LOG] [04/05/2026 09:18:17] - ⭐ Avaliação Encontrada (4.5): "Excelente residencial. O espaço físico é..."
+[LOG] [04/05/2026 09:18:29] - ✅ E-mail enviado (Opção B)! Thread ID: 19df2ecf6c107c5d
+[ERR] [04/05/2026 09:18:30] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:18:38] - ✉️ Processando Novo Lead: Responsável [Envio Novo #3]
+[LOG] [04/05/2026 09:18:38] - 🌐 Buscando no Google Maps: 'BHMais Imóveis Av. Altamiro Avelino Soares, 655 - Loja 1e2 - Castelo, Belo Horizonte - MG, 31330-000'...
+[LOG] [04/05/2026 09:18:38] - ⭐ Avaliação Encontrada (4.6): "Fui atendida pelo corretor Lucas Silva e..."
+[LOG] [04/05/2026 09:18:49] - ✅ E-mail enviado (Opção B)! Thread ID: 19df2ed458e4a803
+[ERR] [04/05/2026 09:18:50] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:18:58] - ✉️ Processando Novo Lead: Responsável [Envio Novo #4]
+[LOG] [04/05/2026 09:18:58] - 🌐 Buscando no Google Maps: 'Vila da Serra Nova Lima R. das Flores, 76 - Vila da Serra, Nova Lima - MG, 34006-074'...
+[LOG] [04/05/2026 09:18:58] - ⭐ Avaliação Encontrada (5): "Bairro nobre de nova Lima..."
+[LOG] [04/05/2026 09:19:05] - ✅ E-mail enviado (Opção B)! Thread ID: 19df2ed8279ed96b
+[ERR] [04/05/2026 09:19:06] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:19:14] - ✉️ Processando Novo Lead: Responsável [Envio Novo #5]
+[LOG] [04/05/2026 09:19:14] - 🌐 Buscando no Google Maps: 'Metrópole R. da Vereda, 50 - Vila da Serra, Nova Lima - MG, 34006-077'...
+[LOG] [04/05/2026 09:19:14] - ⭐ Avaliação Encontrada (4.6): "Apartamento 3 quartos andar alto Vila da..."
+[LOG] [04/05/2026 09:19:25] - ✅ E-mail enviado (Opção A)! Thread ID: 19df2edd0538ce92
+[ERR] [04/05/2026 09:19:26] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:19:34] - ✉️ Processando Novo Lead: Responsável [Envio Novo #6]
+[LOG] [04/05/2026 09:19:34] - 🌐 Buscando no Google Maps: 'Condominio Cennario - Torre Alta Vista R. do Vale, 296 - Vila da Serra, Nova Lima - MG, 34000-000'...
+[LOG] [04/05/2026 09:19:34] - ⭐ Avaliação Encontrada (4.7): "Excelente, principalmente para as crianç..."
+[LOG] [04/05/2026 09:19:43] - ✅ E-mail enviado (Opção B)! Thread ID: 19df2ee18b260f4a
+[ERR] [04/05/2026 09:19:44] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:19:52] - ✉️ Processando Novo Lead: Responsável [Envio Novo #7]
+[LOG] [04/05/2026 09:19:52] - 🌐 Buscando no Google Maps: 'Edifício Jardim Sion R. la Plata, 166 - Sion, Belo Horizonte - MG, 30315-460'...
+[LOG] [04/05/2026 09:20:06] - ✅ E-mail enviado (Opção A)! Thread ID: 19df2ee730164789
+[ERR] [04/05/2026 09:20:07] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:20:15] - ✉️ Processando Novo Lead: Responsável [Envio Novo #8]
+[LOG] [04/05/2026 09:20:15] - 🌐 Buscando no Google Maps: 'Santo Agostinho Imóveis R. dos Aimorés, 2480 - conj. de sala 904 - Santo Agostinho, Belo Horizonte - MG, 30140-076'...
+[LOG] [04/05/2026 09:20:15] - ⭐ Avaliação Encontrada (4.3): "Esta é uma imobiliária que eu recomendo ..."
+[LOG] [04/05/2026 09:20:23] - ✅ E-mail enviado (Opção A)! Thread ID: 19df2eeb5463dcbd
+[ERR] [04/05/2026 09:20:24] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:20:32] - ✉️ Processando Novo Lead: Responsável [Envio Novo #9]
+[LOG] [04/05/2026 09:20:32] - 🌐 Buscando no Google Maps: 'Mourthé Imóveis R. Eduardo Pôrto, 366 - Cidade Jardim, Belo Horizonte - MG, 30380-060'...
+[LOG] [04/05/2026 09:20:32] - ⭐ Avaliação Encontrada (5): "Eu estava a procura de um imóvel que ate..."
+[LOG] [04/05/2026 09:20:43] - ✅ E-mail enviado (Opção B)! Thread ID: 19df2ef004a90d91
+[ERR] [04/05/2026 09:20:43] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:20:51] - ✉️ Processando Novo Lead: Responsável [Envio Novo #10]
+[LOG] [04/05/2026 09:20:51] - 🌐 Buscando no Google Maps: 'Marina Carvalho Imóveis | Lagoa Santa Av. Pref. João Daher, 1099 - Lundcéia, Lagoa Santa - MG, 33400-000'...
+[LOG] [04/05/2026 09:20:51] - ⭐ Avaliação Encontrada (4.5): "Compramos um lote num condomínio fechado..."
+[LOG] [04/05/2026 09:21:01] - ✅ E-mail enviado (Opção A)! Thread ID: 19df2ef4931174d9
+[ERR] [04/05/2026 09:21:02] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:21:10] - ✉️ Processando Novo Lead: Responsável [Envio Novo #11]
+[LOG] [04/05/2026 09:21:10] - 🌐 Buscando no Google Maps: 'Residencial Lagoá R. Gerson da Costa Viana, 540 - Luiz Toledo, Lagoa Santa - MG, 33400-000'...
+[LOG] [04/05/2026 09:21:10] - ⭐ Avaliação Encontrada (4.6): "Ótima localização. Bem estruturado...."
+[LOG] [04/05/2026 09:21:19] - ✅ E-mail enviado (Opção B)! Thread ID: 19df2ef8fad93004
+[ERR] [04/05/2026 09:21:20] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:21:28] - ✉️ Processando Novo Lead: Responsável [Envio Novo #12]
+[LOG] [04/05/2026 09:21:28] - 🌐 Buscando no Google Maps: 'Condomínio Centro Logístico VM5 Via Ver. Joaquim Costa, 1405 - Campina Verde, Contagem - MG, 32150-240'...
+[LOG] [04/05/2026 09:21:28] - ⭐ Avaliação Encontrada (3.9): "Muito medo dos comentário kkkk meu produ..."
+[LOG] [04/05/2026 09:21:46] - ✅ E-mail enviado (Opção B)! Thread ID: 19df2eff74477c4e
+[ERR] [04/05/2026 09:21:46] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:21:54] - ✉️ Processando Novo Lead: Responsável [Envio Novo #13]
+[LOG] [04/05/2026 09:21:54] - 🌐 Buscando no Google Maps: 'LOG Contagem I R. Simão Antônio, 149 - Cincao, Contagem - MG, 32371-610'...
+[LOG] [04/05/2026 09:21:55] - ⭐ Avaliação Encontrada (4.2): "Ótima estrutura para veículos de carga d..."
+[LOG] [04/05/2026 09:22:05] - ✅ E-mail enviado (Opção A)! Thread ID: 19df2f0408f37776
+[ERR] [04/05/2026 09:22:05] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:22:13] - ✉️ Processando Novo Lead: Responsável [Envio Novo #14]
+[LOG] [04/05/2026 09:22:13] - 🌐 Buscando no Google Maps: 'Prime Síndico Profissional - Belo Horizonte - MG Rua Castelo de Alcázar, 125 - Castelo, Belo Horizonte - MG, 31330-310'...
+[LOG] [04/05/2026 09:22:13] - ⭐ Avaliação Encontrada (4.3): "A melhor empresa de síndicos de BH, sem ..."
+[LOG] [04/05/2026 09:22:26] - ✅ E-mail enviado (Opção A)! Thread ID: 19df2f09552afcb6
+[ERR] [04/05/2026 09:22:27] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:22:35] - ✉️ Processando Novo Lead: Responsável [Envio Novo #15]
+[LOG] [04/05/2026 09:22:35] - 🌐 Buscando no Google Maps: 'Síndicos Excelência Profissional Av. Professor Mário Werneck, 2220 - loja 15 - Buritis, Belo Horizonte - MG, 30575-180'...
+[LOG] [04/05/2026 09:22:35] - ⭐ Avaliação Encontrada (4.9): "Gostaria de parabenizar a equipe da Sínd..."
+[LOG] [04/05/2026 09:22:45] - ✅ E-mail enviado (Opção A)! Thread ID: 19df2f0dcff02643
+[ERR] [04/05/2026 09:22:45] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:22:53] - ✉️ Processando Novo Lead: Responsável [Envio Novo #16]
+[LOG] [04/05/2026 09:22:53] - 🌐 Buscando no Google Maps: 'Mais Sindicos Profissionais R. Contria, 1157 - Grajaú, Belo Horizonte - MG, 30431-028'...
+[LOG] [04/05/2026 09:22:53] - ⭐ Avaliação Encontrada (3.8): "ID: 227219429
+Título: Portão fecha sobre..."
+[LOG] [04/05/2026 09:23:12] - ✅ E-mail enviado (Opção B)! Thread ID: 19df2f1478608fcd
+[ERR] [04/05/2026 09:23:12] - Erro ao atualizar lead: The caller does not have permission
+[ERR] [04/05/2026 09:23:20] - Erro ao resolver MX para mrayderadvogacia.com.br: queryMx ENOTFOUND mrayderadvogacia.com.br
+[LOG] [04/05/2026 09:23:20] - ⚠️ E-mail inválido (Domínio inexistente ou inacessível): faleconosco@mrayderadvogacia.com.br - Lead: Responsável
+[ERR] [04/05/2026 09:23:21] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:23:21] - ✉️ Processando Novo Lead: Responsável [Envio Novo #17]
+[LOG] [04/05/2026 09:23:21] - 🌐 Buscando no Google Maps: 'Casa do Síndico BH Av. Nossa Sra. de Fátima, 1787 - Loja D - Carlos Prates, Belo Horizonte - MG, 30710-020'...
+[LOG] [04/05/2026 09:23:21] - ⭐ Avaliação Encontrada (4.5): "Atendimento diferenciado,  Encontrei div..."
+[LOG] [04/05/2026 09:23:35] - ✅ E-mail enviado (Opção B)! Thread ID: 19df2f1a2b67ebd7
+[ERR] [04/05/2026 09:23:36] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:23:44] - ✉️ Processando Novo Lead: Responsável [Envio Novo #18]
+[LOG] [04/05/2026 09:23:44] - 🌐 Buscando no Google Maps: 'Escolha Sindico Profissional Rua dos Guajajaras, 880 - Conjunto 1401 - Centro, Belo Horizonte - MG, 30180-106'...
+[LOG] [04/05/2026 09:23:44] - ⭐ Avaliação Encontrada (4.8): "Melhor opção de sindico profissional.  A..."
+[LOG] [04/05/2026 09:23:52] - ✅ E-mail enviado (Opção B)! Thread ID: 19df2f1e23e8d544
+[ERR] [04/05/2026 09:23:52] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [04/05/2026 09:24:00] - 
+✅ Ciclo Finalizado! Total do dia: 18 Quebra-gelo | 0 Bumps
+[LOG] [05/05/2026 09:16:04] - ⏳ Aguardando 6532ms (Jitter Multi-Conta: conta2)...
+[LOG] [05/05/2026 09:16:11] - 
+--- 🕒 Ciclo Iniciado: 05/05/2026 09:16 ---
+[LOG] [05/05/2026 09:16:13] - 🔍 Verificando respostas...
+[LOG] [05/05/2026 09:16:15] - ✉️ Processando Novo Lead: Responsável [Envio Novo #1]
+[LOG] [05/05/2026 09:16:15] - 🌐 Buscando no Google Maps: 'Imobiliária Buritis Av. Professor Mário Werneck, 1737 - Buritis, Belo Horizonte - MG, 30455-610'...
+[LOG] [05/05/2026 09:16:17] - ⭐ Avaliação Encontrada (4.5): "O corretor Antonio foi um divisor de águ..."
+[ERR] [05/05/2026 09:16:20] - Erro ao gerar icebreaker com Gemini: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [503 Service Unavailable] This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.
+[LOG] [05/05/2026 09:16:24] - ✅ E-mail enviado (Opção B)! Thread ID: 19df8116c75c6e6f
+[ERR] [05/05/2026 09:16:24] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [05/05/2026 09:16:33] - ✉️ Processando Novo Lead: Responsável [Envio Novo #2]
+[LOG] [05/05/2026 09:16:33] - 🌐 Buscando no Google Maps: 'Belvedere Sênior Av. Professor Cristóvam dos Santos, 150 - Belvedere, Belo Horizonte - MG, 30320-510'...
+[LOG] [05/05/2026 09:16:34] - ⭐ Avaliação Encontrada (4.5): "Excelente residencial. O espaço físico é..."
+[ERR] [05/05/2026 09:16:35] - Erro ao gerar icebreaker com Gemini: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [503 Service Unavailable] This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.
+[LOG] [05/05/2026 09:16:38] - ✅ E-mail enviado (Opção B)! Thread ID: 19df811a5d6bba96
+[ERR] [05/05/2026 09:16:39] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [05/05/2026 09:16:47] - ✉️ Processando Novo Lead: Responsável [Envio Novo #3]
+[LOG] [05/05/2026 09:16:47] - 🌐 Buscando no Google Maps: 'BHMais Imóveis Av. Altamiro Avelino Soares, 655 - Loja 1e2 - Castelo, Belo Horizonte - MG, 31330-000'...
+[LOG] [05/05/2026 09:16:48] - ⭐ Avaliação Encontrada (4.6): "Fui atendida pelo corretor Lucas Silva e..."
+[ERR] [05/05/2026 09:16:49] - Erro ao gerar icebreaker com Gemini: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [503 Service Unavailable] This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.
+[LOG] [05/05/2026 09:16:52] - ✅ E-mail enviado (Opção A)! Thread ID: 19df811dabe7a478
+[ERR] [05/05/2026 09:16:53] - Erro ao atualizar lead: The caller does not have permission
+[LOG] [05/05/2026 09:17:01] - ✉️ Processando Novo Lead: Responsável [Envio Novo #4]
+[LOG] [05/05/2026 09:17:01] - 🌐 Buscando no Google Maps: 'Vila da Serra Nova Lima R. das Flores, 76 - Vila da Serra, Nova Lima - MG, 34006-074'...
+[LOG] [05/05/2026 09:17:02] - ⭐ Avaliação Encontrada (5): "Bairro nobre de nova Lima..."

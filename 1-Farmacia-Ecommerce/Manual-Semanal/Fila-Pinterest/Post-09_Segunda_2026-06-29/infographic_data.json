@@ -1,0 +1,104 @@
+{
+  "posting_time": "2026-06-29 09:00",
+  "dia_nome": "Segunda",
+  "titulo_pin": "Doenças Comuns em Filhotes: Prevenção",
+  "descricao_pin": "Filhotes possuem sistema imunológico sensível e estão vulneráveis a viroses e parasitas. Saiba quais são as doenças mais frequentes (como parvovirose e cinomose) e o calendário de prevenção. #filhotes #saudepet #vacinacaopet #otimizafarmavet",
+  "whatsapp_link": "https://wa.me/5531987936822?text=Olá! Vim pelo Pinterest e gostaria de saber sobre vacinas essenciais ou vermífugos para filhotes.",
+  "infographic_data": {
+    "header": {
+      "title": "Doenças Comuns em Filhotes: Prevenção",
+      "subtitle": "PROTEJA SEU FILHOTE DAS VIROSES MAIS GRAVES",
+      "category": "SAÚDE",
+      "schedule": "SEGUNDA, 29 DE JUNHO | 09:00"
+    },
+    "columns": [
+      {
+        "title": "Viroses Frequentes",
+        "type": "diagram",
+        "icon": "check",
+        "description": "Doenças virais graves que atacam filhotes",
+        "content": {
+          "nodes": [
+            {
+              "label": "Parvovirose",
+              "desc": "Provoca diarreia hemorrágica severa e desidratação rápida."
+            },
+            {
+              "label": "Cinomose",
+              "desc": "Ataca o sistema respiratório, digestivo e atinge o neurológico."
+            },
+            {
+              "label": "Coronavirose",
+              "desc": "Causa infecção intestinal altamente contagiosa em cães novos."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Sinais de Alerta",
+        "type": "table",
+        "icon": "compare",
+        "description": "Identificando sintomas iniciais de doenças",
+        "content": {
+          "headers": [
+            "Sintoma",
+            "Aparência",
+            "Ação Recomendada"
+          ],
+          "rows": [
+            {
+              "sintoma": "Gastrointestinal",
+              "aparencia": "Vômitos frequentes e diarreia escura",
+              "acao": "Internação imediata"
+            },
+            {
+              "sintoma": "Respiratório",
+              "aparencia": "Corrimento nasal/ocular e tosses",
+              "acao": "Consulta em até 24h"
+            },
+            {
+              "sintoma": "Geral",
+              "aparencia": "Tristeza profunda, recusa em brincar",
+              "acao": "Monitorar temperatura"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Prevenção",
+        "type": "flowchart",
+        "icon": "bulb",
+        "description": "Protocolo de saúde nos primeiros meses",
+        "content": {
+          "steps": [
+            {
+              "step": "Vacinação",
+              "options": [
+                "V8/V10 aos 45 dias",
+                "3 doses com intervalo de 21 dias"
+              ]
+            },
+            {
+              "step": "Isolamento",
+              "options": [
+                "NÃO passear na rua",
+                "NÃO aproximar de cães não vacinados"
+              ]
+            },
+            {
+              "step": "Parasitas",
+              "options": [
+                "Vermifugação mensal",
+                "Controle de pulgas e carrapatos"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "footer": {
+      "cta_text": "Dúvidas? Chame no WhatsApp!",
+      "hashtags": "#saudepet #otimizafarmavet"
+    }
+  }
+}

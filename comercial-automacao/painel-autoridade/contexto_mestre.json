@@ -1,58 +1,334 @@
 {
-  "versao": "5.4",
-  "ultima_atualizacao": "2026-07-01T12:00:00Z",
-  "atualizado_por": "claude",
+  "versao": "5.2",
+  "ultima_atualizacao": "2026-06-17T17:05:00Z",
+  "atualizado_por": "antigravity",
   "secoes": [
-    {"id": "sec_mkt", "titulo": "🚀 Marketing Visual & Social", "descricao": "Instagram (Claude), TikTok, YouTube, Pinterest, LinkedIn, Blog e Ads."},
-    {"id": "sec_prospeccao", "titulo": "🎯 Prospecção Ativa (Aika & Kyenner)", "descricao": "Pipeline de Aquisição: Busca -> Qualificação (17h) -> Automação."},
-    {"id": "sec_ltv", "titulo": "🔄 LTV & Fidelização", "descricao": "Reativação de Recompra, Aniversários e Chronics Case."},
-    {"id": "sec_shopify", "titulo": "🛒 Shopify & E-commerce", "descricao": "Vitrine Virtual, Promoções e Gestão de Vendas B2C/B2B."},
-    {"id": "sec_snc", "titulo": "🧠 Sistema Nervoso Central (SNC)", "descricao": "Gestão de Emoção, Tom de Voz, Sensores (Métricas) e Reflexos (Gatilhos)."}
+    {
+      "id": "sec_mkt",
+      "titulo": "🚀 Marketing Visual & Social",
+      "descricao": "Instagram (Claude), TikTok, YouTube, Pinterest, LinkedIn, Blog e Ads."
+    },
+    {
+      "id": "sec_prospeccao",
+      "titulo": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "descricao": "Pipeline de Aquisição: Busca -> Qualificação (17h) -> Automação."
+    },
+    {
+      "id": "sec_ltv",
+      "titulo": "🔄 LTV & Fidelização",
+      "descricao": "Reativação de Recompra, Aniversários e Chronics Case."
+    },
+    {
+      "id": "sec_shopify",
+      "titulo": "🛒 Shopify & E-commerce",
+      "descricao": "Vitrine Virtual, Promoções e Gestão de Vendas B2C/B2B."
+    },
+    {
+      "id": "sec_snc",
+      "titulo": "🧠 Sistema Nervoso Central (SNC)",
+      "descricao": "Gestão de Emoção, Tom de Voz, Sensores (Métricas) e Reflexos (Gatilhos)."
+    }
   ],
   "tarefas": [
-    {"id": "snc_001", "titulo": "Implementação dos Sensores de Adesão", "descricao": "Criar script para medir taxa de resposta e abandono emocional.", "coluna": "motor", "tags": ["SNC", "Métricas", "IA"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "semi"},
-    {"id": "snc_002", "titulo": "Reflexos de Antecipação e Transbordo", "descricao": "Hooks em Shopify/WhatsApp para lembretes automáticos e acionamento humano em emergências.", "coluna": "motor", "tags": ["SNC", "Gatilhos"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "semi"},
-    {"id": "snc_003", "titulo": "Auditoria Semanal SNC (Crítico de Arte)", "descricao": "Consolidar logs e rodar prompt de avaliação de afeto/tom com Gemini. Aguardar Fase 1 em produção antes de iniciar.", "coluna": "cofre", "tags": ["SNC", "Auditoria"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "semi"},
-    {"id": "ig_001", "titulo": "Instagram Engine (Claude)", "descricao": "Carrossel, Status e Reels em produção pelo Claude Code.", "coluna": "motor", "tags": ["Social", "Claude"], "projeto": "🚀 Marketing Visual & Social", "autonomia": "auto"},
-    {"id": "li_001", "titulo": "LinkedIn Carmen CEO", "descricao": "Postagens estratégicas 3x/semana (sem emojis).", "coluna": "motor", "tags": ["B2B", "LinkedIn"], "projeto": "🚀 Marketing Visual & Social", "autonomia": "auto"},
-    {"id": "gm_001", "titulo": "GMB Local Authority", "descricao": "Migração para API Oficial v1 e posts automáticos. Ver INSTRUCOES_GARGALOS_RESTANTES.md.", "coluna": "gargalo", "tags": ["GMB", "API"], "projeto": "🚀 Marketing Visual & Social", "autonomia": "semi"},
-    {"id": "tk_001", "titulo": "TikTok UGC Automation", "descricao": "Pipeline de roteiros UGC com Gemini + revisão humana. Ver INSTRUCOES_GARGALOS_RESTANTES.md.", "coluna": "gargalo", "tags": ["UGC", "TikTok"], "projeto": "🚀 Marketing Visual & Social", "autonomia": "semi"},
-    {"id": "pr_001", "titulo": "IA Qualificador 17h", "descricao": "Triagem estratégica de leads Aika vs Kyenner.", "coluna": "motor", "tags": ["Vendas", "IA"], "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)", "autonomia": "auto"},
-    {"id": "pr_002", "titulo": "Monitor de Concorrentes", "descricao": "Extração de preços Petz/Cobasi via Puppeteer.", "coluna": "motor", "tags": ["Preços", "Web"], "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)", "autonomia": "auto"},
-    {"id": "ltv_001", "titulo": "Aniversários Aika", "descricao": "Gestão de presentes e parabéns automáticos.", "coluna": "motor", "tags": ["Fidelização", "WA"], "projeto": "🔄 LTV & Fidelização", "autonomia": "auto"},
-    {"id": "sh_001", "titulo": "Vitrine Virtual Semana", "descricao": "Geração de flyers PNG com Sharp + envio para WhatsApp Status via Z-API. Ver INSTRUCOES_GARGALOS_RESTANTES.md.", "coluna": "gargalo", "tags": ["Shopify", "Design"], "projeto": "🛒 Shopify & E-commerce", "autonomia": "semi"},
-    {"id": "rt_003", "titulo": "Automação Disparo Currículo Kyenner", "descricao": "Busca de vagas no LinkedIn/Gupy com Puppeteer + alerta Telegram. Ver INSTRUCOES_GARGALOS_RESTANTES.md.", "coluna": "gargalo", "tags": ["RT", "Automação", "Emprego"], "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)", "autonomia": "semi"},
-    {"id": "cfmv_001", "titulo": "gargalo.cfmv.crmvs-teste-em-producao", "descricao": "Restringir whitelist de CRMVs de teste ao ambiente de teste e retornar resposta generica.", "coluna": "motor", "tags": ["CFMV", "Segurança"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-16", "atualizado_por": "antigravity"},
-    {"id": "prompt_001", "titulo": "gargalo.ia.system-prompt-inchado", "descricao": "Remover jargoes e regras do system instruction no codigo e criar regras_criticas.md.", "coluna": "motor", "tags": ["Prompt", "Gemini"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-16", "atualizado_por": "antigravity"},
-    {"id": "obs_001", "titulo": "cofre.observabilidade.dashboard-logs", "descricao": "Script revisar_logs_silencioso.js para analise das sugestoes da IA.", "coluna": "motor", "tags": ["Observabilidade", "Logs"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-16", "atualizado_por": "antigravity"},
-    {"id": "custo_001", "titulo": "gargalo.custo.modelo-mais-barato", "descricao": "Trocado chat e transcrição para gemini-2.5-flash-lite + limite maxOutputTokens 150/250.", "coluna": "motor", "tags": ["Custo", "API", "Gemini"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-16", "atualizado_por": "antigravity"},
-    {"id": "prompt_002", "titulo": "gargalo.ia.voz-humana-ocupada", "descricao": "Instruções segregadas Aika/Kyenner com tom vendedor ocupado e limite estrito de frases.", "coluna": "motor", "tags": ["Persona", "Tom"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-16", "atualizado_por": "antigravity"},
-    {"id": "custo_002", "titulo": "gargalo.custo.short-circuit-triviais", "descricao": "Short-circuit de mensagens curtas/triviais sem dúvida ou receita pendente.", "coluna": "motor", "tags": ["Custo", "Otimização"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-16", "atualizado_por": "antigravity"},
-    {"id": "prompt_003", "titulo": "gargalo.custo.contexto-injetado-verboso", "descricao": "Redução do contexto dinâmico injetado para tags compactas e eficientes.", "coluna": "motor", "tags": ["Prompt", "Otimização"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-16", "atualizado_por": "antigravity"},
-    {"id": "custo_003", "titulo": "gargalo.custo.context-caching-gemini", "descricao": "Gemini Context Caching para system + regras_criticas. Economia esperada 60-75% de input cost.", "coluna": "motor", "tags": ["Custo", "Cache"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-16", "atualizado_por": "antigravity"},
-    {"id": "obs_002", "titulo": "gargalo.observabilidade.alerta-custo", "descricao": "Contador diário de custos com alerta Telegram e kill-switch MODO_SILENCIOSO.", "coluna": "motor", "tags": ["Custo", "Observabilidade"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-16", "atualizado_por": "antigravity"},
-    {"id": "prot_001", "titulo": "gargalo.protecao.rate-limit-por-cliente", "descricao": "Rate-limit por telefone em memória impedindo abusos e loops de IA no WhatsApp.", "coluna": "motor", "tags": ["Segurança", "WhatsApp"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-16", "atualizado_por": "antigravity"},
-    {"id": "obs_003", "titulo": "gargalo.aprendizado.analise-semanal-ia", "descricao": "Análise semanal automatizada de logs com Gemini-2.5-Flash-Lite.", "coluna": "motor", "tags": ["Auditoria", "Gemini", "Logs"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-17", "atualizado_por": "antigravity"},
-    {"id": "maint_001", "titulo": "gargalo.manutencao.limpar-estado-inativo", "descricao": "Rotina de limpeza de estados inativos com base no TTL configurado.", "coluna": "motor", "tags": ["Manutenção", "Performance"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-17", "atualizado_por": "antigravity"},
-    {"id": "obs_004", "titulo": "gargalo.observabilidade.painel-saude-html", "descricao": "Painel de saúde web-based com métricas de custo e volume de chamadas.", "coluna": "motor", "tags": ["Observabilidade", "Dashboard", "HTML"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-06-17", "atualizado_por": "antigravity"},
-    {"id": "gc_001", "titulo": "gargalo.faturamento.top-produtos-gestaoclick", "descricao": "Chamada única de API GestãoClick para identificar top 3 produtos no faturamento.", "coluna": "motor", "tags": ["GestãoClick", "Faturamento", "API"], "projeto": "🛒 Shopify & E-commerce", "autonomia": "auto", "atualizado_em": "2026-06-17", "atualizado_por": "antigravity"},
-    {"id": "qual_001", "titulo": "cofre.qualidade.validador-semantico", "descricao": "validador_semantico.js ativado via VALIDADOR_SEMANTICO_ENABLED=true.", "coluna": "motor", "tags": ["Qualidade", "Compliance", "Gemini"], "projeto": "🧠 Sistema Nervoso Central (SNC)", "autonomia": "auto", "atualizado_em": "2026-07-01", "atualizado_por": "claude"},
+    {
+      "id": "snc_001",
+      "titulo": "Implementação dos Sensores de Adesão",
+      "descricao": "Criar script para medir taxa de resposta e abandono emocional.",
+      "coluna": "motor",
+      "tags": ["SNC", "Métricas", "IA"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "snc_002",
+      "titulo": "Reflexos de Antecipação e Transbordo",
+      "descricao": "Hooks em Shopify/WhatsApp para lembretes automáticos e acionamento humano em emergências.",
+      "coluna": "motor",
+      "tags": ["SNC", "Gatilhos"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "snc_003",
+      "titulo": "Auditoria Semanal SNC (Crítico de Arte)",
+      "descricao": "Consolidar logs e rodar prompt de avaliação de afeto/tom com Gemini.",
+      "coluna": "cofre",
+      "tags": ["SNC", "Auditoria"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "ig_001",
+      "titulo": "Instagram Engine (Claude)",
+      "descricao": "Carrossel, Status e Reels em produção pelo Claude Code.",
+      "coluna": "motor",
+      "tags": ["Social", "Claude"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "auto"
+    },
+    {
+      "id": "li_001",
+      "titulo": "LinkedIn Carmen CEO",
+      "descricao": "Postagens estratégicas 3x/semana (sem emojis).",
+      "coluna": "motor",
+      "tags": ["B2B", "LinkedIn"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "auto"
+    },
+    {
+      "id": "gm_001",
+      "titulo": "GMB Local Authority",
+      "descricao": "Migração para API Oficial v1 e posts automáticos.",
+      "coluna": "gargalo",
+      "tags": ["GMB", "API"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "semi"
+    },
+    {
+      "id": "tk_001",
+      "titulo": "TikTok UGC Automation",
+      "descricao": "Pipeline 100% automático de vídeos IA para Dropshipping.",
+      "coluna": "gargalo",
+      "tags": ["UGC", "TikTok"],
+      "projeto": "🚀 Marketing Visual & Social",
+      "autonomia": "semi"
+    },
+    {
+      "id": "pr_001",
+      "titulo": "IA Qualificador 17h",
+      "descricao": "Triagem estratégica de leads Aika vs Kyenner.",
+      "coluna": "motor",
+      "tags": ["Vendas", "IA"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "autonomia": "auto"
+    },
+    {
+      "id": "pr_002",
+      "titulo": "Monitor de Concorrentes",
+      "descricao": "Extração de preços Petz/Cobasi via Puppeteer.",
+      "coluna": "motor",
+      "tags": ["Preços", "Web"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "autonomia": "auto"
+    },
+    {
+      "id": "ltv_001",
+      "titulo": "Aniversários Aika",
+      "descricao": "Gestão de presentes e parabéns automáticos.",
+      "coluna": "motor",
+      "tags": ["Fidelização", "WA"],
+      "projeto": "🔄 LTV & Fidelização",
+      "autonomia": "auto"
+    },
+    {
+      "id": "sh_001",
+      "titulo": "Vitrine Virtual Semana",
+      "descricao": "Geração de flyers promocionais para Status.",
+      "coluna": "gargalo",
+      "tags": ["Shopify", "Design"],
+      "projeto": "🛒 Shopify & E-commerce",
+      "autonomia": "semi"
+    },
+    {
+      "id": "rt_003",
+      "titulo": "Automação Disparo Currículo Kyenner",
+      "descricao": "Automação de busca de vagas e candidatura/disparo de currículo para recolocação profissional.",
+      "coluna": "gargalo",
+      "tags": ["RT", "Automação", "Emprego"],
+      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "autonomia": "semi"
+    },
+    {
+      "id": "cfmv_001",
+      "titulo": "gargalo.cfmv.crmvs-teste-em-producao",
+      "descricao": "Restringir whitelist de CRMVs de teste ao ambiente de teste e retornar resposta generica.",
+      "coluna": "motor",
+      "tags": ["CFMV", "Segurança"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prompt_001",
+      "titulo": "gargalo.ia.system-prompt-inchado",
+      "descricao": "Remover jargoes e regras do system instruction no codigo e criar regras_criticas.md.",
+      "coluna": "motor",
+      "tags": ["Prompt", "Gemini"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_001",
+      "titulo": "cofre.observabilidade.dashboard-logs",
+      "descricao": "Criar script de dashboard CLI revisar_logs_silencioso.js para analise das sugestoes da IA.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Logs"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "custo_001",
+      "titulo": "gargalo.custo.modelo-mais-barato",
+      "descricao": "Trocado chat e transcrição para gemini-2.5-flash-lite + limite maxOutputTokens 150/250.",
+      "coluna": "motor",
+      "tags": ["Custo", "API", "Gemini"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prompt_002",
+      "titulo": "gargalo.ia.voz-humana-ocupada",
+      "descricao": "Instruções segregadas Aika/Kyenner com tom 'vendedor ocupado' e limite estrito de frases.",
+      "coluna": "motor",
+      "tags": ["Persona", "Tom"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "custo_002",
+      "titulo": "gargalo.custo.short-circuit-triviais",
+      "descricao": "Short-circuit de mensagens curtas/triviais sem dúvida ou receita pendente.",
+      "coluna": "motor",
+      "tags": ["Custo", "Otimização"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prompt_003",
+      "titulo": "gargalo.custo.contexto-injetado-verboso",
+      "descricao": "Redução do contexto dinâmico injetado para tags compactas e eficientes.",
+      "coluna": "motor",
+      "tags": ["Prompt", "Otimização"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "custo_003",
+      "titulo": "gargalo.custo.context-caching-gemini",
+      "descricao": "Usar Gemini Context Caching para system + regras_criticas. Gemini suporta cache desse prefixo por hora via API CachedContent. Economia esperada: 60-75% de input cost.",
+      "coluna": "motor",
+      "tags": ["Custo", "Cache"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_002",
+      "titulo": "gargalo.observabilidade.alerta-custo",
+      "descricao": "Contador diário de custos com alerta Telegram acima de limite e kill-switch ativando MODO_SILENCIOSO.",
+      "coluna": "motor",
+      "tags": ["Custo", "Observabilidade"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "prot_001",
+      "titulo": "gargalo.protecao.rate-limit-por-cliente",
+      "descricao": "Rate-limit por telefone em memória impedindo abusos e loops de IA no WhatsApp.",
+      "coluna": "motor",
+      "tags": ["Segurança", "WhatsApp"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-16",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_003",
+      "titulo": "gargalo.aprendizado.analise-semanal-ia",
+      "descricao": "Análise semanal automatizada de logs utilizando Gemini-2.5-Flash-Lite para avaliar compliance, tom e conformidade.",
+      "coluna": "motor",
+      "tags": ["Auditoria", "Gemini", "Logs"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "maint_001",
+      "titulo": "gargalo.manutencao.limpar-estado-inativo",
+      "descricao": "Rotina de limpeza de estados inativos obsoletos no banco de dados local com base no TTL configurado.",
+      "coluna": "motor",
+      "tags": ["Manutenção", "Performance"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "obs_004",
+      "titulo": "gargalo.observabilidade.painel-saude-html",
+      "descricao": "Painel de saúde web-based e responsivo com métricas de custo, volume de chamadas (sparkline) e relatórios de IA.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Dashboard", "HTML"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "gc_001",
+      "titulo": "gargalo.faturamento.top-produtos-gestaoclick",
+      "descricao": "Chamada única de API para dentro do GestãoClick ao final da automação para identificar os 3 principais produtos no faturamento.",
+      "coluna": "motor",
+      "tags": ["GestãoClick", "Faturamento", "API"],
+      "projeto": "🛒 Shopify & E-commerce",
+      "autonomia": "auto",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "qual_001",
+      "titulo": "cofre.qualidade.validador-semantico",
+      "descricao": "Substituir filtro simples de tom de voz por um juiz Gemini para prevenir alucinações de preço, regras de negócio e tom.",
+      "coluna": "cofre",
+      "tags": ["Qualidade", "Compliance", "Gemini"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "semi",
+      "atualizado_em": "2026-06-17",
+      "atualizado_por": "antigravity"
+    },
     {
       "id": "fase0_001",
-      "titulo": "Guard de mensagem vazia em server_integracao.js",
-      "descricao": "Guard implementado em processarMensagem(): bloqueia ptt/audio/sticker/reaction/image sem legenda. Imagens com caption são processadas normalmente. Validado no cenário QA #24.",
+      "titulo": "Guard de mensagem vazia",
+      "descricao": "Bloquear ptt/audio/sticker/reaction antes de chamar Gemini no webhook handler.",
       "coluna": "motor",
-      "tags": ["Bug", "WhatsApp", "Aika"],
+      "tags": ["Segurança", "WhatsApp", "Guard"],
       "projeto": "🧠 Sistema Nervoso Central (SNC)",
       "autonomia": "auto",
       "atualizado_em": "2026-07-01",
-      "atualizado_por": "antigravity",
-      "resultado": "QA 25/25 aprovados"
+      "atualizado_por": "antigravity"
     },
     {
       "id": "fase0_002",
-      "titulo": "Limpar conversas_state.json contaminado",
-      "descricao": "Arquivo limpo. carregarState() blindado com try/catch robusto: retorna {} em caso de falha.",
+      "titulo": "Limpar conversas_state.json",
+      "descricao": "Remover entradas de QA e blindar carregarState com fallback seguro.",
+      "coluna": "motor",
+      "tags": ["State", "WhatsApp"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
+      "autonomia": "auto",
+      "atualizado_em": "2026-07-01",
+      "atualizado_por": "antigravity"
+    },
+    {
+      "id": "fase0_003",
+      "titulo": "Separar state QA do state de produção",
+      "descricao": "STATE_FILE separado por ambiente via process.env.MODO_TESTE.",
       "coluna": "motor",
       "tags": ["State", "QA"],
       "projeto": "🧠 Sistema Nervoso Central (SNC)",
@@ -61,89 +337,70 @@
       "atualizado_por": "antigravity"
     },
     {
-      "id": "fase0_003",
-      "titulo": "Separar STATE_FILE de QA e produção",
-      "descricao": "STATE_FILE dinâmico: MODO_TESTE=true usa conversas_state_qa.json, false usa conversas_state.json.",
-      "coluna": "motor",
-      "tags": ["State", "QA", "Ambiente"],
-      "projeto": "🧠 Sistema Nervoso Central (SNC)",
-      "autonomia": "auto",
-      "atualizado_em": "2026-07-01",
-      "atualizado_por": "antigravity"
-    },
-    {
       "id": "fase0_004",
       "titulo": "Deduplicar detectores em estrategias_vendas.js",
-      "descricao": "UPSELL_VACINA_CAIXA_B2B e COMBO_VACINA_INSUMOS_B2B fundidos em UPSELL_VACINA_COMBO_B2B. Injeção dupla eliminada.",
+      "descricao": "Fundir detectores duplicados de UPSELL_VACINA e seringas em regras unificadas B2B.",
       "coluna": "motor",
-      "tags": ["Vendas", "Gemini"],
-      "projeto": "🎯 Prospecção Ativa (Aika & Kyenner)",
+      "tags": ["Estratégia", "B2B"],
+      "projeto": "🧠 Sistema Nervoso Central (SNC)",
       "autonomia": "auto",
       "atualizado_em": "2026-07-01",
       "atualizado_por": "antigravity"
     },
     {
       "id": "fase1_001",
-      "titulo": "Filtro de horário comercial no handler principal",
-      "descricao": "Verificar se HORARIO_COMERCIAL_INICIO/FIM está aplicado no webhook handler. Ajustar fuso para BRT (UTC-3) se servidor estiver em UTC.",
-      "coluna": "gargalo",
-      "tags": ["Horário", "WhatsApp", "Aika"],
+      "titulo": "Filtro de horário comercial",
+      "descricao": "Guard de horário comercial ativo no webhook handler de integração.",
+      "coluna": "motor",
+      "tags": ["Horário", "Guard"],
       "projeto": "🧠 Sistema Nervoso Central (SNC)",
       "autonomia": "auto",
       "atualizado_em": "2026-07-01",
-      "atualizado_por": "claude",
-      "prioridade": "P1",
-      "ref_doc": "comercial-automacao/docs/INSTRUCOES_ANTIGRAVITY.md"
+      "atualizado_por": "antigravity"
     },
     {
       "id": "fase1_002",
-      "titulo": "Pipeline sugestoes_bot.jsonl com alerta Telegram",
-      "descricao": "Criar src/observabilidade/sugestoes_supervisor.js. Quando MODO_SILENCIOSO=true, registrar sugestão e notificar Carmen/Jonathas no Telegram em tempo real.",
-      "coluna": "gargalo",
-      "tags": ["Supervisão", "Telegram", "Aprendizado"],
+      "titulo": "Pipeline de sugestões supervisionadas",
+      "descricao": "Gravar sugestões de resposta sob modo silencioso e disparar alertas no Telegram.",
+      "coluna": "motor",
+      "tags": ["Observabilidade", "Telegram"],
       "projeto": "🧠 Sistema Nervoso Central (SNC)",
       "autonomia": "auto",
       "atualizado_em": "2026-07-01",
-      "atualizado_por": "claude",
-      "prioridade": "P1",
-      "ref_doc": "comercial-automacao/docs/INSTRUCOES_ANTIGRAVITY.md"
+      "atualizado_por": "antigravity"
     },
     {
       "id": "fase1_003",
-      "titulo": "QA expandido 25 cenários",
-      "descricao": "25 cenários implementados e validados com 100% de conformidade. Inclui mídia, edge cases, pós-escalamento, horário e rate-limit.",
+      "titulo": "Expandir QA para 25+ cenários",
+      "descricao": "Adicionar cenários cobrindo guards de mídias, transbordo, horários, bypasses e legendas.",
       "coluna": "motor",
-      "tags": ["QA", "Teste"],
+      "tags": ["QA", "Testes"],
       "projeto": "🧠 Sistema Nervoso Central (SNC)",
       "autonomia": "auto",
       "atualizado_em": "2026-07-01",
-      "atualizado_por": "antigravity",
-      "resultado": "25/25 aprovados - 100% conformidade"
+      "atualizado_por": "antigravity"
     },
     {
       "id": "fase1_004",
-      "titulo": "Fechar ciclo do few_shot_loader com ciclo_aprendizado.js",
-      "descricao": "Criar src/aprendizado/ciclo_aprendizado.js com sincronizarAprovados(). Integrar no few_shot_loader para alimentar exemplos aprovados automaticamente.",
-      "coluna": "gargalo",
-      "tags": ["Aprendizado", "Few-shot", "IA"],
+      "titulo": "Fechar ciclo do few_shot_loader",
+      "descricao": "Integrar ciclo_aprendizado.js para ler e mesclar sugestões aprovadas no few-shot.",
+      "coluna": "motor",
+      "tags": ["Aprendizado", "Few-Shot"],
       "projeto": "🧠 Sistema Nervoso Central (SNC)",
       "autonomia": "auto",
       "atualizado_em": "2026-07-01",
-      "atualizado_por": "claude",
-      "prioridade": "P2",
-      "ref_doc": "comercial-automacao/docs/INSTRUCOES_ANTIGRAVITY.md"
+      "atualizado_por": "antigravity"
     },
     {
       "id": "seg_001",
-      "titulo": "Segurança: credentials.json no .gitignore",
-      "descricao": "Credencial Google já revogada pelo Mestre. Antigravity deve adicionar credentials.json e token.json ao .gitignore de comercial-automacao/.",
-      "coluna": "gargalo",
-      "tags": ["Segurança", "Google"],
+      "titulo": "Ignorar segredos e runtime files",
+      "descricao": "Adicionar credentials.json, tokens e arquivos de runtime do bot de comercial ao .gitignore.",
+      "coluna": "motor",
+      "tags": ["Segurança", "Git"],
       "projeto": "🧠 Sistema Nervoso Central (SNC)",
       "autonomia": "auto",
       "atualizado_em": "2026-07-01",
-      "atualizado_por": "claude",
-      "prioridade": "P1"
+      "atualizado_por": "antigravity"
     }
   ]
 }

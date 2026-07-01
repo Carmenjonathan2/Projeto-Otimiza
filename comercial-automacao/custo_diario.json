@@ -1,0 +1,56 @@
+{
+    "2026-06-17": {
+        "chamadas": 69,
+        "input_tokens": 177689,
+        "output_tokens": 8628,
+        "cached_tokens": 125605,
+        "custo_usd_estimado": 0.024360225000000013,
+        "modelo_predominante": "gemini-2.5-flash-lite",
+        "alerta_enviado_hoje": false
+    },
+    "2026-06-18": {
+        "chamadas": 384,
+        "input_tokens": 963735,
+        "output_tokens": 13956,
+        "cached_tokens": 809909,
+        "custo_usd_estimado": 0.12220362500000005,
+        "modelo_predominante": "gemini-2.5-flash-lite",
+        "alerta_enviado_hoje": false
+    },
+    "2026-06-19": {
+        "chamadas": 20,
+        "input_tokens": 59865,
+        "output_tokens": 741,
+        "cached_tokens": 50550,
+        "custo_usd_estimado": 0.007546650000000002,
+        "modelo_predominante": "gemini-2.5-flash-lite",
+        "alerta_enviado_hoje": false
+    },
+    "2026-06-22": {
+        "chamadas": 93,
+        "input_tokens": 290483,
+        "output_tokens": 3489,
+        "cached_tokens": 249274,
+        "custo_usd_estimado": 0.03667575000000002,
+        "modelo_predominante": "gemini-2.5-flash-lite",
+        "alerta_enviado_hoje": false
+    },
+    "2026-06-30": {
+        "chamadas": 27,
+        "input_tokens": 88032,
+        "output_tokens": 1054,
+        "cached_tokens": 73066,
+        "custo_usd_estimado": 0.011051450000000003,
+        "modelo_predominante": "gemini-2.5-flash-lite",
+        "alerta_enviado_hoje": false
+    },
+    "2026-07-01": {
+        "chamadas": 117,
+        "input_tokens": 353394,
+        "output_tokens": 4234,
+        "cached_tokens": 299875,
+        "custo_usd_estimado": 0.044529875000000003,
+        "modelo_predominante": "gemini-2.5-flash-lite",
+        "alerta_enviado_hoje": false
+    }
+}

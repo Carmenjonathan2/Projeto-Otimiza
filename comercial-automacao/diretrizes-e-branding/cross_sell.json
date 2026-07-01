@@ -1,0 +1,30 @@
+{
+  "_doc": "Regras de cross-sell ativadas no momento da compra B2C confirmada. Match: nome do produto comprado contém alguma string. Oferta: 1 frase complementar injetada no system prompt. Pode mudar livremente — sem tocar em código.",
+  "atualizado_em": "2026-06-17",
+  "regras": [
+    {
+      "match": ["bravecto", "simparic", "nexgard"],
+      "oferta": "Antes de fechar, lembra do *vermífugo* do pet? Levamos junto pra ele ficar 100% protegido."
+    },
+    {
+      "match": ["antirrábica", "antirrabica"],
+      "oferta": "Aproveita pra deixar a *V8/V10* em dia também? Combinamos a aplicação."
+    },
+    {
+      "match": ["v8", "v9", "v10"],
+      "oferta": "Quer já incluir a *Antirrábica* na mesma visita? Sai mais barato fazer juntas."
+    },
+    {
+      "match": ["cytopoint"],
+      "oferta": "Pra apoiar o tratamento, separamos *Librela* também — é o complemento que a maioria dos clientes leva junto."
+    },
+    {
+      "match": ["librela"],
+      "oferta": "Já que vamos cuidar da dor, quer combinar com *Cytopoint* pra atacar a coceira na mesma rota?"
+    },
+    {
+      "match": ["vacina"],
+      "oferta": "Coloco *vermífugo* na mesma entrega? Costuma render junto com a vacina."
+    }
+  ]
+}

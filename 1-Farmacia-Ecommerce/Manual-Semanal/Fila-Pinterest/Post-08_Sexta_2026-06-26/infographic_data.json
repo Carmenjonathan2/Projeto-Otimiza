@@ -1,0 +1,104 @@
+{
+  "posting_time": "2026-06-26 09:00",
+  "dia_nome": "Sexta",
+  "titulo_pin": "Plantas Tóxicas para Pets: O Que Evitar Ter em Casa",
+  "descricao_pin": "Algumas plantas comuns em vasos podem ser fatais para cães e gatos. Conheça as principais espécies proibidas, os sintomas de envenenamento e como agir rápido em caso de ingestão acidental. #plantastoxicas #segurancapet #saudepet #otimizafarmavet",
+  "whatsapp_link": "https://wa.me/5531987936822?text=Olá! Vim pelo Pinterest e gostaria de tirar dúvidas sobre intoxicação pet ou primeiros socorros.",
+  "infographic_data": {
+    "header": {
+      "title": "Plantas Tóxicas para Pets: O Que Evitar Ter em Casa",
+      "subtitle": "PREVENÇÃO DE ACIDENTES DOMÉSTICOS COM PLANTAS",
+      "category": "SAÚDE PREVENTIVA",
+      "schedule": "SEXTA, 26 DE JUNHO | 09:00"
+    },
+    "columns": [
+      {
+        "title": "Espécies Perigosas",
+        "type": "diagram",
+        "icon": "check",
+        "description": "Plantas populares de alta toxicidade",
+        "content": {
+          "nodes": [
+            {
+              "label": "Comigo-Ninguém-Pode",
+              "desc": "Causa queimação oral extrema, salivação e asfixia."
+            },
+            {
+              "label": "Espada-de-São-Jorge",
+              "desc": "Causa irritação gástrica intensa, vômitos e diarreia."
+            },
+            {
+              "label": "Lírio (Gatos)",
+              "desc": "Extremamente letal para gatos, causa falência renal fulminante."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Sintomas",
+        "type": "table",
+        "icon": "compare",
+        "description": "Sinais de envenenamento por ingestão de plantas",
+        "content": {
+          "headers": [
+            "Área Afetada",
+            "Sinal Clínico",
+            "Gravidade"
+          ],
+          "rows": [
+            {
+              "area": "Boca / Garganta",
+              "sinal": "Salivação excessiva, inchaço da língua",
+              "grav": "Alta (Risco de asfixia)"
+            },
+            {
+              "area": "Gastrointestinal",
+              "sinal": "Vômitos, diarreia, letargia profunda",
+              "grav": "Moderada a Alta"
+            },
+            {
+              "area": "Fisiologia Geral",
+              "sinal": "Tremores, pupilas dilatadas, convulsões",
+              "grav": "Crítica / Emergência"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Primeiro Socorro",
+        "type": "flowchart",
+        "icon": "bulb",
+        "description": "Conduta imediata pós-ingestão",
+        "content": {
+          "steps": [
+            {
+              "step": "Identificação",
+              "options": [
+                "Fotografar a planta ingerida",
+                "Medir quantidade consumida"
+              ]
+            },
+            {
+              "step": "Ação Rápida",
+              "options": [
+                "Lavar boca com água (se corrosivo)",
+                "NÃO induzir vômito sem orientação"
+              ]
+            },
+            {
+              "step": "Atendimento",
+              "options": [
+                "Levar pet e planta ao veterinário",
+                "Iniciar fluidoterapia na clínica"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "footer": {
+      "cta_text": "Dúvidas? Chame no WhatsApp!",
+      "hashtags": "#saudepet #otimizafarmavet"
+    }
+  }
+}

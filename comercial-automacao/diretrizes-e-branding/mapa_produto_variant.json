@@ -1,0 +1,12 @@
+{
+  "_doc": "De/para nome de produto → variant_id Shopify. Pegar variant_id em Shopify Admin → Produtos → variante. Se faltar mapeamento, o bot cai no fluxo Pix tradicional.",
+  "atualizado_em": "2026-06-17",
+  "produtos": [
+    { "match": ["librela", "librela 15mg"],     "variant_id": null, "_nota": "Preencher quando o produto for cadastrado na Shopify" },
+    { "match": ["cytopoint", "cytopoint 15mg"], "variant_id": null },
+    { "match": ["cytopoint 30mg"],              "variant_id": null },
+    { "match": ["simparic", "simparic 10mg"],   "variant_id": null },
+    { "match": ["bravecto"],                    "variant_id": null },
+    { "match": ["nexgard"],                     "variant_id": null }
+  ]
+}

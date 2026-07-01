@@ -1,0 +1,88 @@
+{
+  "_doc": "Tabela de duração esperada de produtos. Motor de recompra usa para calcular gatilho (data_pedido + duracao_dias - antecedencia_dias). Editar AQUI sem mexer em código.",
+  "atualizado_em": "2026-06-24",
+  "atualizado_por": "antigravity",
+  "antecedencia_dias_padrao": 7,
+  "produtos": [
+    { 
+      "match": ["bravecto"], 
+      "categoria": "antipulga", 
+      "duracao_dias": 90, 
+      "antecedencia_dias": 7, 
+      "mensagem_template": "Oi {nome}! 🐾 O Bravecto do {pet} tá chegando no fim. Quer que eu já separe a próxima dose?",
+      "mensagem_template_b2b": "Olá Dr. {nome}! Verificamos que sua última compra de Bravecto foi há 90 dias. Gostaria de repor o estoque da sua clínica com condições especiais?"
+    },
+    { 
+      "match": ["simparic", "simparic 10mg"], 
+      "categoria": "antipulga", 
+      "duracao_dias": 30, 
+      "antecedencia_dias": 5, 
+      "mensagem_template": "Oi {nome}! 🐾 O Simparic do {pet} acaba em uns 5 dias. Quer que eu reserve a próxima dose?",
+      "mensagem_template_b2b": "Olá Dr. {nome}! Verificamos que o Simparic comprado há 30 dias já deve estar próximo do fim em seu estoque. Quer repor as doses?"
+    },
+    { 
+      "match": ["nexgard"], 
+      "categoria": "antipulga", 
+      "duracao_dias": 30, 
+      "antecedencia_dias": 5, 
+      "mensagem_template": "Oi {nome}! 🐾 NexGard do {pet} tá no fim. Reservo a próxima dose pra você?",
+      "mensagem_template_b2b": "Olá Dr. {nome}! Gostaria de renovar o lote de NexGard para sua clínica? Verificamos que sua última compra completou 30 dias."
+    },
+    { 
+      "match": ["antirrábica", "antirrabica"], 
+      "categoria": "vacina", 
+      "duracao_dias": 365, 
+      "antecedencia_dias": 21, 
+      "mensagem_template": "Oi {nome}! 🐾 A antirrábica do {pet} está perto de vencer. Quer agendar a aplicação em casa?",
+      "mensagem_template_b2b": "Olá Dr. {nome}! Verificamos que suas ampolas de vacina antirrábica adquiridas há 1 ano estão próximas do ciclo de validade/reforço dos pacientes. Deseja realizar um novo pedido?"
+    },
+    { 
+      "match": ["v8", "v9", "v10"], 
+      "categoria": "vacina", 
+      "duracao_dias": 365, 
+      "antecedencia_dias": 21, 
+      "mensagem_template": "Oi {nome}! 🐾 A vacina V8/V10 do {pet} está perto de vencer. Quer agendar o reforço em casa?",
+      "mensagem_template_b2b": "Olá Dr. {nome}! Há cerca de 1 ano você adquiriu vacinas V8/V10 conosco. Deseja repor seu estoque para as próximas campanhas de reforço da clínica?"
+    },
+    { 
+      "match": ["gripe"], 
+      "categoria": "vacina", 
+      "duracao_dias": 180, 
+      "antecedencia_dias": 14, 
+      "mensagem_template": "Oi {nome}! 🐾 Tá chegando a hora do reforço da vacina de gripe do {pet}. Quer agendar?",
+      "mensagem_template_b2b": "Olá Dr. {nome}! Verificamos que sua última reposição de vacina de gripe completou 180 dias. Gostaria de solicitar um novo lote para a clínica?"
+    },
+    { 
+      "match": ["giardia"], 
+      "categoria": "vacina", 
+      "duracao_dias": 365, 
+      "antecedencia_dias": 21, 
+      "mensagem_template": "Oi {nome}! 🐾 A vacina de giárdia do {pet} está perto de vencer. Agendamos o reforço?",
+      "mensagem_template_b2b": "Olá Dr. {nome}! Gostaríamos de sugerir a reposição de vacinas de giárdia para sua clínica. Sua última compra conosco foi há 1 ano."
+    },
+    { 
+      "match": ["vermífugo", "vermifugo"], 
+      "categoria": "vermifugo", 
+      "duracao_dias": 90, 
+      "antecedencia_dias": 7, 
+      "mensagem_template": "Oi {nome}! 🐾 O vermífugo do {pet} já tá no fim. Quer que eu separe?",
+      "mensagem_template_b2b": "Olá Dr. {nome}! Gostaria de repor as opções de vermífugos da clínica? O lote da sua última compra completou 90 dias."
+    },
+    { 
+      "match": ["librela"], 
+      "categoria": "cronico", 
+      "duracao_dias": 30, 
+      "antecedencia_dias": 5, 
+      "mensagem_template": "Oi {nome}! 🐾 A Librela do {pet} acaba em uns dias. Mando hoje ou prefere amanhã?",
+      "mensagem_template_b2b": "Olá Dr. {nome}! O ciclo de Librela dos seus pacientes comprados há 30 dias está próximo de vencer. Deseja que separemos as ampolas do próximo ciclo de aplicação?"
+    },
+    { 
+      "match": ["cytopoint"], 
+      "categoria": "cronico", 
+      "duracao_dias": 60, 
+      "antecedencia_dias": 7, 
+      "mensagem_template": "Oi {nome}! 🐾 O Cytopoint do {pet} tá no fim. Quer que eu reserve a próxima dose?",
+      "mensagem_template_b2b": "Olá Dr. {nome}! Verificamos que sua última compra de Cytopoint completou 60 dias. Gostaria de renovar o estoque da sua clínica para os tratamentos em andamento?"
+    }
+  ]
+}
