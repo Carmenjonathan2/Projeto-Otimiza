@@ -1,2 +1,11 @@
 credentials.json
 token.json
+token_gmb.json
+sugestoes_bot.jsonl
+exemplos_aprovados.jsonl
+tiktok_fila_revisao.jsonl
+kyenner_vagas_vistas.json
+flyers/
+audios_comercial/
+conversas_state.json
+conversas_state_qa.json
